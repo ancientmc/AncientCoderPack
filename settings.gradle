@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        gradlePluginPortal()
+        maven {
+            name = 'minecraft'
+            url = 'https://libraries.minecraft.net'
+        }
+        maven {
+            name = 'misc'
+            url = 'https://nexus.velocitypowered.com/repository/maven-public/'
+        }
+        maven {
+            name = 'jcraft'
+            url = 'https://www.beatunes.com/repo/maven2/'
+        }
+    }
+}
+
+rootProject.name = 'RetroCoderPack'
+include 'extern'
