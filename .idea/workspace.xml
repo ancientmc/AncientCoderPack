@@ -4,28 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e90496-c82c-4121-b93f-2a603ac7a03d" name="Changes" comment="- fixed issue with renamer.conf paths&#10;- CodecMus patch file finally works&#10;- Patched AssetExtractor to put files in correct location&#10;-">
-      <change afterPath="$PROJECT_DIR$/core/patches/McAssetExtractor-1.0_02-w-dependencies.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/RetroCoderPack__rcp_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/RetroCoderPack__rcp_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodecMus.patch" beforeDir="false" afterPath="$PROJECT_DIR$/CodecMus.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/mapping/a1.2.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/patches/McAssetExtractor-1.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/patches/renamer.conf" beforeDir="false" afterPath="$PROJECT_DIR$/core/patches/renamer.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/patches/renamer/misc/class_client_hash.md5" beforeDir="false" afterPath="$PROJECT_DIR$/core/patches/renamer/misc/class_client_hash.md5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/patches/renamer/misc/class_server_hash.md5" beforeDir="false" afterPath="$PROJECT_DIR$/core/patches/renamer/misc/class_server_hash.md5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/OpenAL32.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/OpenAL64.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jinput-dx8.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jinput-dx8_64.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jinput-raw.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jinput-raw_64.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jinput-wintab.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/lwjgl-platform-2.9.0-natives-windows.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/lwjgl.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/lwjgl64.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/retroguard.log" beforeDir="false" afterPath="$PROJECT_DIR$/retroguard.log" afterDir="false" />
+    <list default="true" id="a7e90496-c82c-4121-b93f-2a603ac7a03d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CodecMus.patch" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,13 +292,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666063042131</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- file shennanigans">
+      <created>1666063303670</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666063303670</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="- fixed issue with renamer.conf paths&#10;- CodecMus patch file finally works&#10;- Patched AssetExtractor to put files in correct location&#10;- completed rcp configuration for intellij&#10;- started support for cross-comnpatiblity for natives (barely)&#10;&#10;As of now, RCP works on Windows. More needs to be done to ensure library and script compatibility." />
-    <option name="LAST_COMMIT_MESSAGE" value="- fixed issue with renamer.conf paths&#10;- CodecMus patch file finally works&#10;- Patched AssetExtractor to put files in correct location&#10;- completed rcp configuration for intellij&#10;- started support for cross-comnpatiblity for natives (barely)&#10;&#10;As of now, RCP works on Windows. More needs to be done to ensure library and script compatibility." />
+    <MESSAGE value="- file shennanigans" />
+    <option name="LAST_COMMIT_MESSAGE" value="- file shennanigans" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
