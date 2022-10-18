@@ -4,7 +4,7 @@
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
       <option name="externalSystemIdString" value="GRADLE" />
-      <option name="scriptParameters" value="--scan --scan" />
+      <option name="scriptParameters" value="" />
       <option name="taskDescriptions">
         <list />
       </option>
@@ -14,7 +14,6 @@
           <option value=":downloadClient" />
           <option value=":clientDeobf" />
           <option value=":clientUnzip" />
-          <option value=":deleteMETAINF" />
           <option value=":fixClassFiles" />
           <option value=":decompileClassFiles" />
           <option value=":decompileLaunchClassFiles" />
@@ -22,6 +21,8 @@
           <option value=":patchSourceFiles" />
           <option value=":patchCodecMus" />
           <option value=":renamer" />
+          <option value=":copyJarAssets" />
+          <option value=":downloadAssets" />
         </list>
       </option>
       <option name="vmOptions" />

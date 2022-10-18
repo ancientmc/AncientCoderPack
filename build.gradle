@@ -16,26 +16,7 @@ group 'com.entropy.rcp'
 version = '1.0-a1.2.6'
 logger.lifecycle('Version: ' + version + ' Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
-
-ext {
-    MC_VERSION = "a1.2.6"
-    MC_JSON_DOWNLOAD = 'https://piston-meta.mojang.com/v1/packages/b539c8b7baabb3ab8886fa634310de51aeea60fc/a1.2.6.json'
-    MC_JAR_DOWNLOAD = 'https://piston-data.mojang.com/v1/objects/a68c817afd6c05c253ba5462287c2c19bbb57935/client.jar'
-
-    RCP_DIR_CORE = "$project.projectDir\\core/"
-    RCP_DIR_RESOURCES = "src/main/resources/"
-    RCP_DIR_MAPPING = RCP_DIR_CORE + "mapping/"
-    RCP_DIR_DECOMP = RCP_DIR_CORE + "decomp/"
-    RCP_DIR_PATCHES = RCP_DIR_CORE + "patches/"
-    RCP_PATCH_FILE = RCP_DIR_PATCHES + "patch/minecraft.patch"
-    RCP_CODECMUS_PATCH_FILE = "$project.projectDir\\CodecMus.patch"
-
-    // TODO: Figure out how to change RCP_RG to work on any device.
-    RCP_RG = "C:/Users/mason/.gradle/caches/modules-2/files-2.1/de.oceanlabs.mcp/RetroGuard/3.6.6/ffd69fcab06b928cf76144f08b7209ccf0656b6d/RetroGuard-3.6.6.jar"
-    RCP_ASSET_EXTRACTOR = RCP_DIR_PATCHES + "McAssetExtractor-1.0-jar-with-dependencies"
-    RCP_DIR_TEMP = RCP_DIR_DECOMP + 'temp/'
-    RCP_DIR_FINAL = 'src/main/java/'
-}
+import org.gradle.internal.os.OperatingSystem;
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
@@ -57,20 +38,35 @@ repositories {
     }
 }
 
+configurations {
+    rcp
+    minecraft
+    mcnatives
+    mcsound
+    retroguard
+}
+
 dependencies {
     // RCP -- JAVA 8
-    implementation 'com.google.code.gson:gson:2.9.1'
+    rcp 'com.google.code.gson:gson:2.9.1'
     // Minecraft | ASM 4.1 -- JAVA 8
     implementation 'net.sf.jopt-simple:jopt-simple:4.5'
     implementation 'org.ow2.asm:asm-all:4.1'
     implementation 'net.java.jinput:jinput:2.0.5'
     implementation 'net.java.jutils:jutils:1.0.0'
-    implementation 'org.lwjgl.lwjgl:lwjgl:2.9.0'
-    implementation 'org.lwjgl.lwjgl:lwjgl-platform:2.9.0-natives-windows'
-    implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.0'
-    implementation 'net.java.jinput:jinput-platform:2.0.5'
+    mcnatives 'net.java.jinput:jinput-platform:2.0.5'
+    // For Linux and Windows, MC requires LWJGL version 2.9.0, while on Mac it needs a separate version.
+    if (OperatingSystem.current().isWindows() || OperatingSystem.current.isLinux()) {
+        implementation 'org.lwjgl.lwjgl:lwjgl:2.9.0'
+        implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.0'
+        mcnatives 'org.lwjgl.lwjgl:lwjgl-platform:2.9.0'
+    } else if (OperatingSystem.current().isMacOsX()) {
+        implementation 'org.lwjgl.lwjgl:lwjgl:2.9.1'
+        implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.1'
+        mcnatives 'org.lwjgl.lwjgl:lwjgl-platform:2.9.1'
+    }
 
-    /* MC Sound Files -- JAVA 8
+    /* MC Sound Libraries -- JAVA 8
      * In the original jar file, the sound libraries' classes are directly included, but these
      * classes get lost during the MCP process. Because of that, the libraries are instead
      * declared as dependencies within the RCP gradle.
@@ -83,10 +79,32 @@ dependencies {
     implementation 'com.paulscode:codecwav:20101023'
 
     // RetroGuard -- JAVA 8
-    implementation 'de.oceanlabs.mcp:RetroGuard:3.6.6'
-    implementation 'com.google.code.gson:gson:2.2.4'
-    implementation 'net.sf.jopt-simple:jopt-simple:4.5'
+    retroguard 'de.oceanlabs.mcp:RetroGuard:3.6.6'
+    retroguard 'com.google.code.gson:gson:2.2.4'
+    retroguard 'net.sf.jopt-simple:jopt-simple:4.5'
     testImplementation 'junit:junit:3.8.2'
+}
+
+ext {
+    MC_VERSION = "a1.2.6"
+    MC_JSON_DOWNLOAD = 'https://piston-meta.mojang.com/v1/packages/b539c8b7baabb3ab8886fa634310de51aeea60fc/a1.2.6.json'
+    MC_JAR_DOWNLOAD = 'https://piston-data.mojang.com/v1/objects/a68c817afd6c05c253ba5462287c2c19bbb57935/client.jar'
+
+    RCP_DIR_CORE = "$project.projectDir\\core/"
+    RCP_DIR_MAPPING = RCP_DIR_CORE + "mapping/"
+    RCP_DIR_DECOMP = RCP_DIR_CORE + "decomp/"
+    RCP_DIR_PATCHES = RCP_DIR_CORE + "patches/"
+    RCP_PATCH_FILE = RCP_DIR_PATCHES + "patch/minecraft.patch"
+    RCP_CODECMUS_PATCH_FILE = "$project.projectDir\\core\\patches\\patch\\CodecMus.patch"
+    RCP_DIR_JARS = "$project.projectDir\\jars/"
+
+    RCP_RG = configurations.retroguard.asPath.contains("retroguard")
+    RCP_ASSET_EXTRACTOR = RCP_DIR_PATCHES + "McAssetExtractor-1.0-jar-with-dependencies"
+    RCP_LWJGL_NATIVES = configurations.mcnatives.asPath.contains("lwjgl-natives")
+    RCP_JINPUT_NATIVES = configurations.mcnatives.asPath.contains("jinput-natives")
+    RCP_DIR_TEMP = RCP_DIR_DECOMP + "temp/"
+    RCP_DIR_FINAL = "src/main/java/"
+    RCP_DIR_RESOURCES = "src/main/resources/"
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -94,17 +112,30 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 tasks.withType(JavaExec) {
-    systemProperty "java.library.path", "$project.projectDir\\lib\\"
+    OperatingSystem os = OperatingSystem.current()
+    if(os.isWindows()) {
+        systemProperty "java.library.path", "$project.projectDir\\jars\\bin\\natives\\windows"
+    } else if (os.isMacOsX()) {
+        systemProperty "java.library.path", "$project.projectDir\\jars\\bin\\natives\\mac"
+    } else if (os.Linux()) {
+        systemProperty "java.library.path", "$project.projectDir\\jars\\bin\\natives\\linux"
+    }
 }
+
 /**
- * WARNING: This task will delete all main RCP-generated files within the directory. This is intended for if you wanted to reset
- * the main build process for whatever reason, or if something has gone horribly wrong.
+ * WARNING: This task will delete all main RCP-generated files within the directory, including MC sources. This is intended for
+ * if you wanted to reset the main build process for whatever reason, or if something has gone horribly wrong.
  */
 task cleanAndStartOver(type: Delete) {
     delete (file(RCP_DIR_TEMP).listFiles(),
-            file(RCP_DIR_FINAL + "net"),
-            RCP_DIR_MAPPING + MC_VERSION + '-srg.jar',
-            file(RCP_DIR_RESOURCES).listFiles())
+            file(RCP_DIR_FINAL + "net"), // Minecraft sources
+            RCP_DIR_MAPPING + MC_VERSION + '.jar', // Minecraft jar
+            RCP_DIR_MAPPING + MC_VERSION + '-srg.jar', // SRG-ified Minecraft jar
+            file(RCP_DIR_RESOURCES).listFiles(), // Everything in the main resources folder
+            file(RCP_DIR_JARS + "resources"), // The runtime resources folder
+            file(RCP_DIR_JARS + "saves"), // MC saves folder
+            file(RCP_DIR_JARS + "texturepacks"), // MC texturepacks folder
+            file(RCP_DIR_JARS + "options.text")) // MC options text file
 }
 
 task downloadJson(type: Download) {
@@ -123,9 +154,6 @@ task downloadClient(type: Download) {
 
 task clientDeobf(type: JavaExec, dependsOn: downloadClient) {
     inputs.file downloadClient.dest
-    javaLauncher = javaToolchains.launcherFor {
-        languageVersion = JavaLanguageVersion.of(8)
-    }
     group = "RCP"
     description = "Deobfuscates class names, method names, and field names of the client JAR into SRG intermediaries using RetroGuard."
     main = "RetroGuard"
@@ -138,12 +166,6 @@ task clientUnzip(type: Copy) {
     description = "Unzips, but does not decompile, the SRG-ified class files into a temporary folder."
     from zipTree(file(RCP_DIR_MAPPING + MC_VERSION + '-srg.jar'))
     into file(RCP_DIR_TEMP)
-}
-
-task deleteMETAINF(type: Delete) {
-    group = "RCP.clientUnzip"
-    description "Deletes a file from the META-INF folder."
-    delete RCP_DIR_TEMP + 'META-INF/MOJANG_C.DSA'
 }
 
 task fixClassFiles(type: Exec) {
@@ -178,11 +200,7 @@ task patchSourceFiles(type: Exec) {
 
 /**
  * The class CodecMus has this odd quirk where one of its methods tries to inherit two private fields from the PaulsCode's
- * CodecJOrbis, causing errors. This task is supposed to be an attempt to directly patch those fields into CodecMus, but any attempts
- * at using the patch has not worked, which has been really infuriating. I'm wondering if this is something that the original MCP devs
- * were aware of as well, because it is not included within MCP's patch file, so perhaps it's solved within MCP's recompilation process somehow?
- * I'm really hesitant about modifying the original patch file due to licensing. So I'll keep trying, I guess.
- *
+ * CodecJOrbis, causing errors. This task fixes that by patching the fields directly into CodecMus.java.
  */
 task patchCodecMus(type: Exec) {
     group = "RCP"
@@ -193,7 +211,7 @@ task patchCodecMus(type: Exec) {
 task renamer(type: Exec) {
     group = "RCP"
     description = "Converts method and field names from SRG intermediaries into human-readable names."
-    commandLine(RCP_DIR_PATCHES + 'renamer.exe', '-R', '-c', RCP_DIR_PATCHES + "renamer/renamer.conf")
+    commandLine(RCP_DIR_PATCHES + 'renamer.exe', '-R', '-c', RCP_DIR_PATCHES + 'renamer.conf')
 }
 
 task copyJarAssets(type: Copy) {
@@ -205,15 +223,18 @@ task copyJarAssets(type: Copy) {
 }
 
 /**
- *
+ * Modification of GitHub user rhmeuer's program McAssetExtractor.
  */
 task downloadAssets(type: JavaExec) {
+    group = "RCP"
+    description = "downloads the meta assets (mainly sound files) from Mojang's servers."
     main = "com.github.rmheuer.mcasset.McAssetExtractor"
-    classpath = files("$project.projectDir\\core\\patches\\McAssetExtractor-1.0.1.jar")
-    args(MC_VERSION, file(RCP_DIR_RESOURCES))
+    classpath = files("$project.projectDir\\core\\patches\\McAssetExtractor-1.0_02-w-dependencies.jar")
+    args(MC_VERSION, file(RCP_DIR_JARS))
 }
 
 task runClient(type: JavaExec) {
+    description = "Runs the client."
     main = "com.entropy.rcp.Start"
     classpath = sourceSets.main.runtimeClasspath
 }
