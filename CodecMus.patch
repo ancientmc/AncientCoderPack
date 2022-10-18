@@ -3,7 +3,7 @@ IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
-diff --git a/src/main/java/net/minecraft/src/CodecMus.java b/src/main/java/net/minecraft/src/CodecMus.java
+diff --git -r -U 3 a/src/main/java/net/minecraft/src/CodecMus.java b/src/main/java/net/minecraft/src/CodecMus.java
 --- a/src/main/java/net/minecraft/src/CodecMus.java	
 +++ b/src/main/java/net/minecraft/src/CodecMus.java	(date 1665987415013)
 @@ -5,6 +5,7 @@

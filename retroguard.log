@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.6
 #
-# Logfile created on Mon Oct 17 01:30:11 CDT 2022
+# Logfile created on Mon Oct 17 22:02:59 CDT 2022
 #
 # Jar file to be obfuscated:           a1.2.6.jar
 # Target Jar file for obfuscated code: a1.2.6-srg.jar
@@ -18,8 +18,8 @@
 # these methods do not act on classes in the obfuscated Jar file.
 #      Your class paulscode/sound/SoundSystemConfig calls the java/lang/Class method getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 4263592 bytes
-# Total memory available                        : 96468992 bytes
+# Memory in use after class data structure built: 4761088 bytes
+# Total memory available                        : 121634816 bytes
 #
 #
 # Names reserved from obfuscation:

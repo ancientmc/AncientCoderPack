@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e90496-c82c-4121-b93f-2a603ac7a03d" name="Changes" comment="initial commit">
+    <list default="true" id="a7e90496-c82c-4121-b93f-2a603ac7a03d" name="Changes" comment="- fixed issue with renamer.conf paths&#10;- CodecMus patch file finally works&#10;- Patched AssetExtractor to put files in correct location&#10;-">
       <change afterPath="$PROJECT_DIR$/core/patches/McAssetExtractor-1.0_02-w-dependencies.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/RetroCoderPack__rcp_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/RetroCoderPack__rcp_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -77,6 +77,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="moist-mason &lt;67809772+moist-mason@users.noreply.github.com&gt;" />
         <option value="moist-mason" />
       </list>
     </option>
@@ -304,11 +305,20 @@
       <option name="presentableId" value="Default" />
       <updated>1665176884832</updated>
     </task>
+    <task id="LOCAL-00001" summary="- fixed issue with renamer.conf paths&#10;- CodecMus patch file finally works&#10;- Patched AssetExtractor to put files in correct location&#10;- completed rcp configuration for intellij&#10;- started support for cross-comnpatiblity for natives (barely)&#10;&#10;As of now, RCP works on Windows. More needs to be done to ensure library and script compatibility.">
+      <created>1666063042130</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666063042131</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="- fixed issue with renamer.conf paths&#10;- CodecMus patch file finally works&#10;- Patched AssetExtractor to put files in correct location&#10;- completed rcp configuration for intellij&#10;- started support for cross-comnpatiblity for natives (barely)&#10;&#10;As of now, RCP works on Windows. More needs to be done to ensure library and script compatibility." />
+    <option name="LAST_COMMIT_MESSAGE" value="- fixed issue with renamer.conf paths&#10;- CodecMus patch file finally works&#10;- Patched AssetExtractor to put files in correct location&#10;- completed rcp configuration for intellij&#10;- started support for cross-comnpatiblity for natives (barely)&#10;&#10;As of now, RCP works on Windows. More needs to be done to ensure library and script compatibility." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
