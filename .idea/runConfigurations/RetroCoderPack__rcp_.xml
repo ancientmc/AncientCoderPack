@@ -10,7 +10,6 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value=":downloadJson" />
           <option value=":downloadClient" />
           <option value=":clientDeobf" />
           <option value=":clientUnzip" />
@@ -22,7 +21,9 @@
           <option value=":patchCodecMus" />
           <option value=":renamer" />
           <option value=":copyJarAssets" />
-          <option value=":downloadAssets" />
+          <option value=":downloadMetaAssets" />
+          <option value=":downloadNatives" />
+          <option value=":extractNatives" />
         </list>
       </option>
       <option name="vmOptions" />

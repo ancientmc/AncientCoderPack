@@ -12,13 +12,14 @@ plugins {
     id 'java-gradle-plugin'
 }
 
-group 'com.entropy.rcp'
+group = 'com.entropy.rcp'
 version = '1.0-a1.2.6'
 logger.lifecycle('Version: ' + version + ' Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
-import org.gradle.internal.os.OperatingSystem;
-
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+
+import com.entropy.rcp.OSName
+import org.gradle.internal.os.OperatingSystem
 
 repositories {
     mavenCentral()
@@ -40,13 +41,15 @@ repositories {
 
 configurations {
     rcp
-    minecraft
-    mcnatives
+    lwjglnatives
+    jinputnatives
     mcsound
     retroguard
 }
 
 dependencies {
+    def os = OSName.getOSName()
+    gradleApi()
     // RCP -- JAVA 8
     rcp 'com.google.code.gson:gson:2.9.1'
     // Minecraft | ASM 4.1 -- JAVA 8
@@ -54,16 +57,16 @@ dependencies {
     implementation 'org.ow2.asm:asm-all:4.1'
     implementation 'net.java.jinput:jinput:2.0.5'
     implementation 'net.java.jutils:jutils:1.0.0'
-    mcnatives 'net.java.jinput:jinput-platform:2.0.5'
+    jinputnatives 'net.java.jinput:jinput-platform:natives-' + os + '-2.0.5'
     // For Linux and Windows, MC requires LWJGL version 2.9.0, while on Mac it needs a separate version.
     if (OperatingSystem.current().isWindows() || OperatingSystem.current.isLinux()) {
         implementation 'org.lwjgl.lwjgl:lwjgl:2.9.0'
         implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.0'
-        mcnatives 'org.lwjgl.lwjgl:lwjgl-platform:2.9.0'
+        lwjglnatives 'org.lwjgl.lwjgl:lwjgl-platform:2.9.0'
     } else if (OperatingSystem.current().isMacOsX()) {
         implementation 'org.lwjgl.lwjgl:lwjgl:2.9.1'
         implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.1'
-        mcnatives 'org.lwjgl.lwjgl:lwjgl-platform:2.9.1'
+        lwjglnatives 'org.lwjgl.lwjgl:lwjgl-platform:2.9.1'
     }
 
     /* MC Sound Libraries -- JAVA 8
@@ -80,31 +83,28 @@ dependencies {
 
     // RetroGuard -- JAVA 8
     retroguard 'de.oceanlabs.mcp:RetroGuard:3.6.6'
-    retroguard 'com.google.code.gson:gson:2.2.4'
-    retroguard 'net.sf.jopt-simple:jopt-simple:4.5'
-    testImplementation 'junit:junit:3.8.2'
+    implementation configurations.retroguard.dependencies
 }
 
 ext {
+    OSNAME = OSName.getOSName()
     MC_VERSION = "a1.2.6"
-    MC_JSON_DOWNLOAD = 'https://piston-meta.mojang.com/v1/packages/b539c8b7baabb3ab8886fa634310de51aeea60fc/a1.2.6.json'
     MC_JAR_DOWNLOAD = 'https://piston-data.mojang.com/v1/objects/a68c817afd6c05c253ba5462287c2c19bbb57935/client.jar'
 
-    RCP_DIR_CORE = "$project.projectDir\\core/"
-    RCP_DIR_MAPPING = RCP_DIR_CORE + "mapping/"
-    RCP_DIR_DECOMP = RCP_DIR_CORE + "decomp/"
-    RCP_DIR_PATCHES = RCP_DIR_CORE + "patches/"
-    RCP_PATCH_FILE = RCP_DIR_PATCHES + "patch/minecraft.patch"
-    RCP_CODECMUS_PATCH_FILE = "$project.projectDir\\core\\patches\\patch\\CodecMus.patch"
-    RCP_DIR_JARS = "$project.projectDir\\jars/"
+    RCP_DIR_CORE = "$project.projectDir\\core\\"
+    RCP_DIR_MAPPING = "${RCP_DIR_CORE}\\mapping\\"
+    RCP_DIR_DECOMP = "${RCP_DIR_CORE}\\decomp\\"
+    RCP_DIR_TEMP = "${RCP_DIR_DECOMP}\\temp\\"
+    RCP_DIR_PATCHES = "${RCP_DIR_CORE}\\patches\\"
+    RCP_PATCH_FILE = "${RCP_DIR_PATCHES}\\patch\\minecraft.patch"
+    RCP_CODECMUS_PATCH_FILE = "${RCP_DIR_PATCHES}\\patch\\CodecMus.patch"
+    RCP_DIR_JARS = "$project.projectDir\\jars\\"
+    RCP_DIR_NATIVES = "${RCP_DIR_JARS}\\bin\\natives\\${OSNAME}"
+    RCP_DIR_SRC = "src\\main\\java"
+    RCP_DIR_RESOURCES = "src\\main\\resources"
 
-    RCP_RG = configurations.retroguard.asPath.contains("retroguard")
-    RCP_ASSET_EXTRACTOR = RCP_DIR_PATCHES + "McAssetExtractor-1.0-jar-with-dependencies"
-    RCP_LWJGL_NATIVES = configurations.mcnatives.asPath.contains("lwjgl-natives")
-    RCP_JINPUT_NATIVES = configurations.mcnatives.asPath.contains("jinput-natives")
-    RCP_DIR_TEMP = RCP_DIR_DECOMP + "temp/"
-    RCP_DIR_FINAL = "src/main/java/"
-    RCP_DIR_RESOURCES = "src/main/resources/"
+    RCP_RG = project.getConfigurations().findByName("retroguard")
+    RCP_ASSET_EXTRACTOR = "${RCP_DIR_PATCHES}\\McAssetExtractor-1.0_02-w-dependencies.jar"
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -112,14 +112,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 tasks.withType(JavaExec) {
-    OperatingSystem os = OperatingSystem.current()
-    if(os.isWindows()) {
-        systemProperty "java.library.path", "$project.projectDir\\jars\\bin\\natives\\windows"
-    } else if (os.isMacOsX()) {
-        systemProperty "java.library.path", "$project.projectDir\\jars\\bin\\natives\\mac"
-    } else if (os.Linux()) {
-        systemProperty "java.library.path", "$project.projectDir\\jars\\bin\\natives\\linux"
-    }
+    systemProperty "java.library.path", "${RCP_DIR_NATIVES}"
 }
 
 /**
@@ -128,21 +121,15 @@ tasks.withType(JavaExec) {
  */
 task cleanAndStartOver(type: Delete) {
     delete (file(RCP_DIR_TEMP).listFiles(),
-            file(RCP_DIR_FINAL + "net"), // Minecraft sources
+            file(RCP_DIR_SRC + "\\net"), // Minecraft sources
             RCP_DIR_MAPPING + MC_VERSION + '.jar', // Minecraft jar
             RCP_DIR_MAPPING + MC_VERSION + '-srg.jar', // SRG-ified Minecraft jar
             file(RCP_DIR_RESOURCES).listFiles(), // Everything in the main resources folder
             file(RCP_DIR_JARS + "resources"), // The runtime resources folder
+            file(RCP_DIR_NATIVES).listFiles(), // LWJGL and JInput natives
             file(RCP_DIR_JARS + "saves"), // MC saves folder
             file(RCP_DIR_JARS + "texturepacks"), // MC texturepacks folder
-            file(RCP_DIR_JARS + "options.text")) // MC options text file
-}
-
-task downloadJson(type: Download) {
-    group = "RCP"
-    description = "Downloads the JSON file from Mojang's servers."
-    src MC_JSON_DOWNLOAD
-    dest file(RCP_DIR_RESOURCES + MC_VERSION + '.json')
+            file(RCP_DIR_JARS + "options.txt")) // MC options text file
 }
 
 task downloadClient(type: Download) {
@@ -157,7 +144,7 @@ task clientDeobf(type: JavaExec, dependsOn: downloadClient) {
     group = "RCP"
     description = "Deobfuscates class names, method names, and field names of the client JAR into SRG intermediaries using RetroGuard."
     main = "RetroGuard"
-    classpath = files("C:/Users/mason/.gradle/caches/modules-2/files-2.1/de.oceanlabs.mcp/RetroGuard/3.6.6/ffd69fcab06b928cf76144f08b7209ccf0656b6d/RetroGuard-3.6.6.jar")
+    classpath = files(RCP_RG)
     args (downloadClient.dest, RCP_DIR_MAPPING + MC_VERSION + '-srg.jar', RCP_DIR_MAPPING + MC_VERSION + '.rgs')
 }
 
@@ -177,25 +164,25 @@ task fixClassFiles(type: Exec) {
 task decompileClassFiles(type: Exec) {
     group = "RCP"
     description = "Decompiles the class files using JAD into the main source directory."
-    commandLine(RCP_DIR_DECOMP + 'jad.exe', '-b', '-d', RCP_DIR_FINAL, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', RCP_DIR_TEMP + '*.class')
+    commandLine(RCP_DIR_DECOMP + 'jad.exe', '-b', '-d', RCP_DIR_SRC, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', RCP_DIR_TEMP + '*.class')
 }
 
 task decompileLaunchClassFiles(type: Exec) {
     group = "RCP"
     description = "Same as decompileClassFiles() but for the classes within net/minecraft/client"
-    commandLine(RCP_DIR_DECOMP + 'jad.exe', '-b', '-d', RCP_DIR_FINAL, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', RCP_DIR_TEMP + 'net/minecraft/client/*.class')
+    commandLine(RCP_DIR_DECOMP + 'jad.exe', '-b', '-d', RCP_DIR_SRC, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', RCP_DIR_TEMP + 'net/minecraft/client/*.class')
 }
 
 task repackageSourceFiles(type: Exec) {
     group = "RCP"
     description = "Applies a package directory for the source files."
-    commandLine(RCP_DIR_PATCHES + 'repackage.exe', RCP_DIR_FINAL, 'net.minecraft.src')
+    commandLine(RCP_DIR_PATCHES + 'repackage.exe', RCP_DIR_SRC, 'net.minecraft.src')
 }
 
 task patchSourceFiles(type: Exec) {
     group = "RCP"
     description = "Applies a DiffPatch file that fixes up the patchfiles, so the code can run without any major errors."
-    commandLine(RCP_DIR_PATCHES + 'applydiff.exe', '-p', '1', '-u', '-i', RCP_PATCH_FILE, '-d', RCP_DIR_FINAL)
+    commandLine(RCP_DIR_PATCHES + 'applydiff.exe', '-p', '1', '-u', '-i', RCP_PATCH_FILE, '-d', RCP_DIR_SRC)
 }
 
 /**
@@ -205,7 +192,7 @@ task patchSourceFiles(type: Exec) {
 task patchCodecMus(type: Exec) {
     group = "RCP"
     description = "See comment above this task within the gradle build file."
-    commandLine(RCP_DIR_PATCHES + 'applydiff.exe', '-p', '1', '-u', '-i', RCP_CODECMUS_PATCH_FILE, '-d', RCP_DIR_FINAL)
+    commandLine(RCP_DIR_PATCHES + 'applydiff.exe', '-p', '1', '-u', '-i', RCP_CODECMUS_PATCH_FILE, '-d', RCP_DIR_SRC)
 }
 
 task renamer(type: Exec) {
@@ -225,12 +212,55 @@ task copyJarAssets(type: Copy) {
 /**
  * Modification of GitHub user rhmeuer's program McAssetExtractor.
  */
-task downloadAssets(type: JavaExec) {
+task downloadMetaAssets(type: JavaExec) {
     group = "RCP"
     description = "downloads the meta assets (mainly sound files) from Mojang's servers."
     main = "com.github.rmheuer.mcasset.McAssetExtractor"
-    classpath = files("$project.projectDir\\core\\patches\\McAssetExtractor-1.0_02-w-dependencies.jar")
+    classpath = files(RCP_ASSET_EXTRACTOR)
     args(MC_VERSION, file(RCP_DIR_JARS))
+}
+
+// There's definitely a better way to do this.
+task downloadNatives {
+    download {
+        if(OperatingSystem.current().isMacOsX()) {
+            src ("https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.1-natives-${OSNAME}.jar")
+            dest "${RCP_DIR_NATIVES}"
+        } else {
+            src ("https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.0-natives-${OSNAME}.jar")
+            dest "${RCP_DIR_NATIVES}"
+        }
+    }
+    download {
+        src ("https://repo.maven.apache.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-${OSNAME}.jar")
+        dest "${RCP_DIR_NATIVES}"
+    }
+}
+
+// Again, there's probably a better way to do this.
+task extractNatives {
+    copy {
+        if(OperatingSystem.current().isMacOsX()) {
+            from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-osx.jar")))
+            into(file("${RCP_DIR_NATIVES}"))
+            exclude("META_INF")
+        } else {
+            from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar")))
+            into(file("${RCP_DIR_NATIVES}"))
+            exclude("META_INF")
+        }
+    }
+    copy {
+        from(zipTree(file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar")))
+        into(file("${RCP_DIR_NATIVES}"))
+        exclude("META_INF")
+    }
+}
+
+task cleanUpRemnants (type: Delete) {
+    delete (file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar"),
+        file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar"),
+        file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-${OSNAME}.jar"))
 }
 
 task runClient(type: JavaExec) {
@@ -238,3 +268,4 @@ task runClient(type: JavaExec) {
     main = "com.entropy.rcp.Start"
     classpath = sourceSets.main.runtimeClasspath
 }
+
