@@ -10,20 +10,20 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value=":downloadClient" />
-          <option value=":clientDeobf" />
-          <option value=":clientUnzip" />
+          <option value=":downloadJar" />
+          <option value=":jarDeobf" />
+          <option value=":unzipJar" />
           <option value=":fixClassFiles" />
           <option value=":decompileClassFiles" />
           <option value=":decompileLaunchClassFiles" />
           <option value=":repackageSourceFiles" />
           <option value=":patchSourceFiles" />
           <option value=":patchCodecMus" />
-          <option value=":renamer" />
           <option value=":copyJarAssets" />
           <option value=":downloadMetaAssets" />
           <option value=":downloadNatives" />
           <option value=":extractNatives" />
+          <option value=":cleanUpRemnants" />
         </list>
       </option>
       <option name="vmOptions" />

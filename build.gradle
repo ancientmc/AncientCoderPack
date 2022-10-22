@@ -1,10 +1,3 @@
-/** I'm not good with gradle; this could probably be, like, 1000x cleaner.
- *  This project is a proof-of-concept to create a buildable gradle for old Minecraft versions (in this case, Alpha 1.2.6).
- *  It is inspired by and uses files/tools from Mod Coder Pack (MCP) version 2.5, as well as one tool from Github user rhmeuer.
- *  The Mod Coder Pack was originally created by Searge with help from ProfMobius and others.
- *  Full credits can be found in the root directory in ATTRIBUTIONS.txt.
- */
-
 plugins {
     id 'java-library'
     id 'eclipse'
@@ -12,11 +5,11 @@ plugins {
     id 'java-gradle-plugin'
 }
 
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+
 group = 'com.entropy.rcp'
 version = '1.0-a1.2.6'
 logger.lifecycle('Version: ' + version + ' Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 import com.entropy.rcp.OSName
 import org.gradle.internal.os.OperatingSystem
@@ -24,56 +17,29 @@ import org.gradle.internal.os.OperatingSystem
 repositories {
     mavenCentral()
     mavenLocal()
-    gradlePluginPortal()
-    maven {
-        name = 'minecraft'
-        url = 'https://libraries.minecraft.net'
-    }
-    maven {
-        name = 'misc'
-        url = 'https://nexus.velocitypowered.com/repository/maven-public/'
-    }
-    maven {
-        name = 'jcraft'
-        url = 'https://www.beatunes.com/repo/maven2/'
-    }
+    maven { url = 'https://libraries.minecraft.net' }
+    maven { url = 'https://nexus.velocitypowered.com/repository/maven-public/' }
+    maven { url = 'https://www.beatunes.com/repo/maven2/' }
 }
 
 configurations {
-    rcp
-    lwjglnatives
-    jinputnatives
-    mcsound
     retroguard
+    jadretro
 }
 
 dependencies {
-    def os = OSName.getOSName()
-    gradleApi()
-    // RCP -- JAVA 8
-    rcp 'com.google.code.gson:gson:2.9.1'
-    // Minecraft | ASM 4.1 -- JAVA 8
     implementation 'net.sf.jopt-simple:jopt-simple:4.5'
     implementation 'org.ow2.asm:asm-all:4.1'
     implementation 'net.java.jinput:jinput:2.0.5'
     implementation 'net.java.jutils:jutils:1.0.0'
-    jinputnatives 'net.java.jinput:jinput-platform:natives-' + os + '-2.0.5'
-    // For Linux and Windows, MC requires LWJGL version 2.9.0, while on Mac it needs a separate version.
-    if (OperatingSystem.current().isWindows() || OperatingSystem.current.isLinux()) {
-        implementation 'org.lwjgl.lwjgl:lwjgl:2.9.0'
-        implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.0'
-        lwjglnatives 'org.lwjgl.lwjgl:lwjgl-platform:2.9.0'
-    } else if (OperatingSystem.current().isMacOsX()) {
+    if (OperatingSystem.current().isMacOsX()) {
         implementation 'org.lwjgl.lwjgl:lwjgl:2.9.1'
         implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.1'
-        lwjglnatives 'org.lwjgl.lwjgl:lwjgl-platform:2.9.1'
+    } else {
+        implementation 'org.lwjgl.lwjgl:lwjgl:2.9.0'
+        implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.0'
     }
 
-    /* MC Sound Libraries -- JAVA 8
-     * In the original jar file, the sound libraries' classes are directly included, but these
-     * classes get lost during the MCP process. Because of that, the libraries are instead
-     * declared as dependencies within the RCP gradle.
-     */
     implementation 'com.paulscode:soundsystem:20120107'
     implementation 'com.paulscode:codecjorbis:20101023'
     implementation 'com.jcraft:jogg:0.0.7'
@@ -81,29 +47,29 @@ dependencies {
     implementation 'com.paulscode:librarylwjglopenal:20100824'
     implementation 'com.paulscode:codecwav:20101023'
 
-    // RetroGuard -- JAVA 8
     retroguard 'de.oceanlabs.mcp:RetroGuard:3.6.6'
+    jadretro 'net.sf.jadretro:jadretro:1.6.1'
     implementation configurations.retroguard.dependencies
 }
 
 ext {
     OSNAME = OSName.getOSName()
     MC_VERSION = "a1.2.6"
-    MC_JAR_DOWNLOAD = 'https://piston-data.mojang.com/v1/objects/a68c817afd6c05c253ba5462287c2c19bbb57935/client.jar'
-
-    RCP_DIR_CORE = "$project.projectDir\\core\\"
-    RCP_DIR_MAPPING = "${RCP_DIR_CORE}\\mapping\\"
-    RCP_DIR_DECOMP = "${RCP_DIR_CORE}\\decomp\\"
-    RCP_DIR_TEMP = "${RCP_DIR_DECOMP}\\temp\\"
-    RCP_DIR_PATCHES = "${RCP_DIR_CORE}\\patches\\"
+    MC_JAR = "https://piston-data.mojang.com/v1/objects/a68c817afd6c05c253ba5462287c2c19bbb57935/client.jar"
+    RCP_DIR_CORE = "$project.projectDir\\core"
+    RCP_DIR_MAPPING = "${RCP_DIR_CORE}\\mapping"
+    RCP_DIR_DECOMP = "${RCP_DIR_CORE}\\decomp"
+    RCP_DIR_TEMP = "${RCP_DIR_DECOMP}\\temp"
+    RCP_DIR_PATCHES = "${RCP_DIR_CORE}\\patches"
     RCP_PATCH_FILE = "${RCP_DIR_PATCHES}\\patch\\minecraft.patch"
     RCP_CODECMUS_PATCH_FILE = "${RCP_DIR_PATCHES}\\patch\\CodecMus.patch"
     RCP_DIR_JARS = "$project.projectDir\\jars\\"
-    RCP_DIR_NATIVES = "${RCP_DIR_JARS}\\bin\\natives\\${OSNAME}"
+    RCP_DIR_NATIVES = "${RCP_DIR_JARS}\\bin\\natives\\${OSNAME}\\"
     RCP_DIR_SRC = "src\\main\\java"
     RCP_DIR_RESOURCES = "src\\main\\resources"
 
     RCP_RG = project.getConfigurations().findByName("retroguard")
+    RCP_JADRETRO = project.getConfigurations().findByName("jadretro")
     RCP_ASSET_EXTRACTOR = "${RCP_DIR_PATCHES}\\McAssetExtractor-1.0_02-w-dependencies.jar"
 }
 
@@ -132,73 +98,50 @@ task cleanAndStartOver(type: Delete) {
             file(RCP_DIR_JARS + "options.txt")) // MC options text file
 }
 
-task downloadClient(type: Download) {
-    group = "RCP"
-    description = "Downloads the client from Mojang's servers."
-    src MC_JAR_DOWNLOAD
-    dest file(RCP_DIR_MAPPING + MC_VERSION + '.jar')
+
+task downloadJar(type: Download) {
+    src MC_JAR
+    dest file("${RCP_DIR_MAPPING}\\${MC_VERSION}.jar")
 }
 
-task clientDeobf(type: JavaExec, dependsOn: downloadClient) {
-    inputs.file downloadClient.dest
-    group = "RCP"
-    description = "Deobfuscates class names, method names, and field names of the client JAR into SRG intermediaries using RetroGuard."
+task jarDeobf(type: JavaExec, dependsOn: downloadJar) {
+    inputs.file downloadJar.dest
     main = "RetroGuard"
     classpath = files(RCP_RG)
-    args (downloadClient.dest, RCP_DIR_MAPPING + MC_VERSION + '-srg.jar', RCP_DIR_MAPPING + MC_VERSION + '.rgs')
+    args (downloadJar.dest, RCP_DIR_MAPPING + '/' + MC_VERSION + '-srg.jar', RCP_DIR_MAPPING + '/' + MC_VERSION + '.rgs')
 }
 
-task clientUnzip(type: Copy) {
-    group = "RCP"
-    description = "Unzips, but does not decompile, the SRG-ified class files into a temporary folder."
-    from zipTree(file(RCP_DIR_MAPPING + MC_VERSION + '-srg.jar'))
+task unzipJar(type: Copy) {
+    from zipTree(file("${RCP_DIR_MAPPING}\\${MC_VERSION}-srg.jar"))
     into file(RCP_DIR_TEMP)
 }
 
-task fixClassFiles(type: Exec) {
-    group = "RCP"
-    description = "Uses JAD Retro to fix up the class files."
-    commandLine(RCP_DIR_DECOMP + 'jadretro.exe', '-b', RCP_DIR_TEMP)
+task fixClassFiles(type: JavaExec) {
+    main = "net.sf.jadretro.Main"
+    classpath = files(RCP_JADRETRO)
+    args('-b', RCP_DIR_TEMP)
 }
 
 task decompileClassFiles(type: Exec) {
-    group = "RCP"
-    description = "Decompiles the class files using JAD into the main source directory."
-    commandLine(RCP_DIR_DECOMP + 'jad.exe', '-b', '-d', RCP_DIR_SRC, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', RCP_DIR_TEMP + '*.class')
+    commandLine("${RCP_DIR_DECOMP}\\jad.exe", '-b', '-d', RCP_DIR_SRC, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', "${RCP_DIR_TEMP}\\*.class")
 }
 
 task decompileLaunchClassFiles(type: Exec) {
-    group = "RCP"
-    description = "Same as decompileClassFiles() but for the classes within net/minecraft/client"
-    commandLine(RCP_DIR_DECOMP + 'jad.exe', '-b', '-d', RCP_DIR_SRC, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', RCP_DIR_TEMP + 'net/minecraft/client/*.class')
+    commandLine("${RCP_DIR_DECOMP}\\jad.exe", '-b', '-d', RCP_DIR_SRC, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', "${RCP_DIR_TEMP}\\net\\minecraft\\client\\*.class")
 }
 
+// TODO: Either modify the RG script directly to add packages or find a repacking plugin.
 task repackageSourceFiles(type: Exec) {
-    group = "RCP"
-    description = "Applies a package directory for the source files."
-    commandLine(RCP_DIR_PATCHES + 'repackage.exe', RCP_DIR_SRC, 'net.minecraft.src')
+    commandLine("${RCP_DIR_PATCHES}\\repackage.exe", RCP_DIR_SRC, 'net.minecraft.src')
 }
 
+// TODO: Use external DiffPatch plugin.
 task patchSourceFiles(type: Exec) {
-    group = "RCP"
-    description = "Applies a DiffPatch file that fixes up the patchfiles, so the code can run without any major errors."
-    commandLine(RCP_DIR_PATCHES + 'applydiff.exe', '-p', '1', '-u', '-i', RCP_PATCH_FILE, '-d', RCP_DIR_SRC)
+    commandLine("${RCP_DIR_PATCHES}\\applydiff.exe", '-p', '1', '-u', '-i', RCP_PATCH_FILE, '-d', RCP_DIR_SRC)
 }
 
-/**
- * The class CodecMus has this odd quirk where one of its methods tries to inherit two private fields from the PaulsCode's
- * CodecJOrbis, causing errors. This task fixes that by patching the fields directly into CodecMus.java.
- */
-task patchCodecMus(type: Exec) {
-    group = "RCP"
-    description = "See comment above this task within the gradle build file."
-    commandLine(RCP_DIR_PATCHES + 'applydiff.exe', '-p', '1', '-u', '-i', RCP_CODECMUS_PATCH_FILE, '-d', RCP_DIR_SRC)
-}
-
-task renamer(type: Exec) {
-    group = "RCP"
-    description = "Converts method and field names from SRG intermediaries into human-readable names."
-    commandLine(RCP_DIR_PATCHES + 'renamer.exe', '-R', '-c', RCP_DIR_PATCHES + 'renamer.conf')
+task patchCodecMusFiles(type: Exec) {
+    commandLine("${RCP_DIR_PATCHES}\\applydiff.exe", '-p', '1', '-u', '-i', RCP_CODECMUS_PATCH_FILE, '-d', RCP_DIR_SRC)
 }
 
 task copyJarAssets(type: Copy) {
@@ -258,9 +201,13 @@ task extractNatives {
 }
 
 task cleanUpRemnants (type: Delete) {
-    delete (file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar"),
-        file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar"),
-        file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-${OSNAME}.jar"))
+    delete (file(RCP_DIR_TEMP).listFiles(),
+            RCP_DIR_MAPPING + MC_VERSION + '.jar',
+            RCP_DIR_MAPPING + MC_VERSION + '-srg.jar',
+            file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar"),
+            file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar"),
+            file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-${OSNAME}.jar"),
+            file("${RCP_DIR_NATIVES}\\META-INF\\"))
 }
 
 task runClient(type: JavaExec) {
@@ -268,4 +215,3 @@ task runClient(type: JavaExec) {
     main = "com.entropy.rcp.Start"
     classpath = sourceSets.main.runtimeClasspath
 }
-

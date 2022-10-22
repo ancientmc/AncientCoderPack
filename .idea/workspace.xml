@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="4" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e90496-c82c-4121-b93f-2a603ac7a03d" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/buildSrc/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/buildSrc/src/main/groovy/com/entropy/rcp/OSName.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="a7e90496-c82c-4121-b93f-2a603ac7a03d" name="Changes" comment="- cleaned up code related to OS things&#10;- RCP now extracts and adds natives to a subdirectory in the &quot;jars&quot; folder.&#10;- more stuff&#10;&#10;RCP should be runnable on Windows and Mac, though I haven't tested the latter. Linux will need some work because Linux cannot run EXEs, unless the user has WINE, but not everyone does.">
       <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/RetroCoderPack__rcp_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/RetroCoderPack__rcp_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/groovy/com/entropy/rcp/OSName.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/groovy/com/entropy/rcp/OSName.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/decomp/jadretro.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/mapping/a1.2.6.rgs" beforeDir="false" afterPath="$PROJECT_DIR$/core/mapping/a1.2.6.rgs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/patch/minecraft.patch" beforeDir="false" afterPath="$PROJECT_DIR$/core/patches/patch/minecraft.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/renamer.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/renamer.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/renamer/classes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/renamer/fields.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/renamer/methods.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/renamer/misc/class_client_hash.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/renamer/misc/class_server_hash.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/renamer/misc/minecraft_rev.saffx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/patches/renamer/misc/minecraft_server_rev.saffx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/retroguard.log" beforeDir="false" afterPath="$PROJECT_DIR$/retroguard.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +87,11 @@
         <option value="moist-mason" />
       </list>
     </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="rcp-revamp" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -93,28 +109,29 @@
   &quot;keyToString&quot;: {
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programs/Projects/RetroCoderPack/core/patches&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programs/Projects/RetroCoderPack/core/patches/patch&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;D:/Programs/Projects/RetroCoderPack/core/mapping/a1.2.6.rgs&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programs\Projects\RetroCoderPack\core\patches\patch" />
+      <recent name="D:\Programs\Projects\RetroCoderPack\core\mapping" />
       <recent name="D:\Programs\Projects\RetroCoderPack\core\patches" />
       <recent name="D:\Programs\Projects\RetroCoderPack\core\bin" />
       <recent name="D:\Programs\Projects\RetroCoderPack\src\main\java\com\entropy\rcp\tasks" />
-      <recent name="D:\Programs\Projects\RetroCoderPack" />
-      <recent name="D:\Programs\Projects\RetroCoderPack\src\main\java\com\entropy\rcp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programs\Projects\RetroCoderPack\core\patches\patch" />
       <recent name="D:\Programs\Projects\RetroCoderPack\buildSrc\main\java" />
       <recent name="D:\Programs\Projects\RetroCoderPack\jars\bin" />
       <recent name="D:\Programs\Projects\RetroCoderPack\jars" />
       <recent name="D:\Programs\Projects\RetroCoderPack\core\patches" />
-      <recent name="D:\Programs\Projects\RetroCoderPack\extern" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.entropy.rcp" />
@@ -125,7 +142,7 @@
       <command value="gradle :rcp" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.RetroCoderPack [cleanAndStartOver]">
+  <component name="RunManager" selected="Gradle.RetroCoderPack [rcp]">
     <configuration name="RetroCoderPack [build]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -168,7 +185,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RetroCoderPack [cleanUpRemnants]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RetroCoderPack [clientDeobf]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -179,7 +196,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="cleanUpRemnants" />
+            <option value="clientDeobf" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -189,7 +206,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RetroCoderPack [downloadNatives]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RetroCoderPack [clientUnzip]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -200,7 +217,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="downloadNatives" />
+            <option value="clientUnzip" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -210,7 +227,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RetroCoderPack [extractNatives]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RetroCoderPack [downloadClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -221,7 +238,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="extractNatives" />
+            <option value="downloadClient" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -231,7 +248,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RetroCoderPack [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RetroCoderPack [fixClassFiles]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -242,7 +259,34 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="runClient" />
+            <option value="fixClassFiles" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RetroCoderPack [prepatch]" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":downloadJar" />
+            <option value=":jarDeobf" />
+            <option value=":unzipJar" />
+            <option value=":fixClassFiles" />
+            <option value=":decompileClassFiles" />
+            <option value=":decompileLaunchClassFiles" />
+            <option value=":repackageSourceFiles" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -273,21 +317,22 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.RetroCoderPack [rcp]" />
+      <item itemvalue="Gradle.RetroCoderPack [prepatch]" />
       <item itemvalue="Gradle.RetroCoderPack [build]" />
       <item itemvalue="Gradle.RetroCoderPack" />
-      <item itemvalue="Gradle.RetroCoderPack [cleanUpRemnants]" />
-      <item itemvalue="Gradle.RetroCoderPack [downloadNatives]" />
-      <item itemvalue="Gradle.RetroCoderPack [extractNatives]" />
       <item itemvalue="Gradle.RetroCoderPack [cleanAndStartOver]" />
-      <item itemvalue="Gradle.RetroCoderPack [runClient]" />
+      <item itemvalue="Gradle.RetroCoderPack [clientDeobf]" />
+      <item itemvalue="Gradle.RetroCoderPack [clientUnzip]" />
+      <item itemvalue="Gradle.RetroCoderPack [downloadClient]" />
+      <item itemvalue="Gradle.RetroCoderPack [fixClassFiles]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.RetroCoderPack [cleanAndStartOver]" />
-        <item itemvalue="Gradle.RetroCoderPack [runClient]" />
-        <item itemvalue="Gradle.RetroCoderPack [cleanUpRemnants]" />
-        <item itemvalue="Gradle.RetroCoderPack [extractNatives]" />
-        <item itemvalue="Gradle.RetroCoderPack [downloadNatives]" />
+        <item itemvalue="Gradle.RetroCoderPack [fixClassFiles]" />
+        <item itemvalue="Gradle.RetroCoderPack [downloadClient]" />
+        <item itemvalue="Gradle.RetroCoderPack [clientUnzip]" />
+        <item itemvalue="Gradle.RetroCoderPack [clientDeobf]" />
       </list>
     </recent_temporary>
   </component>
@@ -321,14 +366,22 @@
       <option name="project" value="LOCAL" />
       <updated>1666063381930</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- cleaned up code related to OS things&#10;- RCP now extracts and adds natives to a subdirectory in the &quot;jars&quot; folder.&#10;- more stuff&#10;&#10;RCP should be runnable on Windows and Mac, though I haven't tested the latter. Linux will need some work because Linux cannot run EXEs, unless the user has WINE, but not everyone does.">
+      <created>1666233652777</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666233652777</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="- fixed issue with renamer.conf paths&#10;- CodecMus patch file finally works&#10;- Patched AssetExtractor to put files in correct location&#10;- completed rcp configuration for intellij&#10;- started support for cross-comnpatiblity for natives (barely)&#10;&#10;As of now, RCP works on Windows. More needs to be done to ensure library and script compatibility." />
     <MESSAGE value="- file shennanigans" />
-    <option name="LAST_COMMIT_MESSAGE" value="- file shennanigans" />
+    <MESSAGE value="- cleaned up code related to OS things&#10;- RCP now extracts and adds natives to a subdirectory in the &quot;jars&quot; folder.&#10;- more stuff&#10;&#10;RCP should be runnable on Windows and Mac, though I haven't tested the latter. Linux will need some work because Linux cannot run EXEs, unless the user has WINE, but not everyone does." />
+    <option name="LAST_COMMIT_MESSAGE" value="- cleaned up code related to OS things&#10;- RCP now extracts and adds natives to a subdirectory in the &quot;jars&quot; folder.&#10;- more stuff&#10;&#10;RCP should be runnable on Windows and Mac, though I haven't tested the latter. Linux will need some work because Linux cannot run EXEs, unless the user has WINE, but not everyone does." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -352,11 +405,6 @@
           <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minecraftforge.gradle/ForgeGradle/5.1.56/f21b95fbdeb31008fb857e0ef6488632c796be5c/ForgeGradle-5.1.56-sources.jar!/net/minecraftforge/gradle/common/tasks/DownloadAssets.java</url>
           <line>88</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/build.gradle</url>
-          <line>200</line>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.UnsatisfiedLinkError" package="java.lang" />

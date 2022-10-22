@@ -1,3 +1,8 @@
+/**
+ * This class uses the Gradle API to return the name of the end-users' OS in a string form.
+ * This string gets used by the main gradle for several tasks.
+ */
+
 package com.entropy.rcp
 
 import org.gradle.internal.os.OperatingSystem
