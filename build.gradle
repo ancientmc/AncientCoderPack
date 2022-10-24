@@ -20,11 +20,13 @@ repositories {
     maven { url = 'https://libraries.minecraft.net' }
     maven { url = 'https://nexus.velocitypowered.com/repository/maven-public/' }
     maven { url = 'https://www.beatunes.com/repo/maven2/' }
+    maven { url = 'https://maven.quiltmc.org/repository/release/'}
 }
 
 configurations {
     retroguard
     jadretro
+    quiltflower
 }
 
 dependencies {
@@ -49,6 +51,7 @@ dependencies {
 
     retroguard 'de.oceanlabs.mcp:RetroGuard:3.6.6'
     jadretro 'net.sf.jadretro:jadretro:1.6.1'
+    quiltflower 'org.quiltmc:quiltflower:1.8.1'
     implementation configurations.retroguard.dependencies
 }
 
@@ -70,6 +73,7 @@ ext {
 
     RCP_RG = project.getConfigurations().findByName("retroguard")
     RCP_JADRETRO = project.getConfigurations().findByName("jadretro")
+    RCP_QUILTFLOWER = project.getConfigurations().findByName("quiltflower")
     RCP_ASSET_EXTRACTOR = "${RCP_DIR_PATCHES}\\McAssetExtractor-1.0_02-w-dependencies.jar"
 }
 
@@ -88,8 +92,8 @@ tasks.withType(JavaExec) {
 task cleanAndStartOver(type: Delete) {
     delete (file(RCP_DIR_TEMP).listFiles(),
             file(RCP_DIR_SRC + "\\net"), // Minecraft sources
-            RCP_DIR_MAPPING + MC_VERSION + '.jar', // Minecraft jar
-            RCP_DIR_MAPPING + MC_VERSION + '-srg.jar', // SRG-ified Minecraft jar
+            RCP_DIR_MAPPING + '/' + MC_VERSION + '.jar', // Minecraft jar
+            RCP_DIR_MAPPING + '/' + MC_VERSION + '-srg.jar', // SRG-ified Minecraft jar
             file(RCP_DIR_RESOURCES).listFiles(), // Everything in the main resources folder
             file(RCP_DIR_JARS + "resources"), // The runtime resources folder
             file(RCP_DIR_NATIVES).listFiles(), // LWJGL and JInput natives
@@ -122,12 +126,22 @@ task fixClassFiles(type: JavaExec) {
     args('-b', RCP_DIR_TEMP)
 }
 
-task decompileClassFiles(type: Exec) {
-    commandLine("${RCP_DIR_DECOMP}\\jad.exe", '-b', '-d', RCP_DIR_SRC, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', "${RCP_DIR_TEMP}\\*.class")
+task decompileClassFiles(type: JavaExec) {
+    main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
+    classpath = files(RCP_QUILTFLOWER)
+    args('-rbr=0', '-asc=0', '-jvn=1', "${RCP_DIR_TEMP}\\*.class", "${RCP_DIR_SRC}\\")
 }
 
-task decompileLaunchClassFiles(type: Exec) {
-    commandLine("${RCP_DIR_DECOMP}\\jad.exe", '-b', '-d', RCP_DIR_SRC, '-dead', '-o', '-r', '-s', '.java', '-stat', '-v', "${RCP_DIR_TEMP}\\net\\minecraft\\client\\*.class")
+task decompileClientClassFiles(type: JavaExec) {
+    main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
+    classpath = files(RCP_QUILTFLOWER)
+    args('-rbr=0', '-asc=0', '-jvn=1', "${RCP_DIR_TEMP}\\net\\minecraft\\client\\*.class", "${RCP_DIR_SRC}\\net\\minecraft\\client\\")
+}
+
+task decompileIsomClassFile(type: JavaExec) {
+    main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
+    classpath = files(RCP_QUILTFLOWER)
+    args('-rbr=0', '-asc=0', '-jvn=1', "${RCP_DIR_TEMP}\\net\\minecraft\\isom\\*.class", "${RCP_DIR_SRC}\\net\\minecraft\\isom\\")
 }
 
 // TODO: Either modify the RG script directly to add packages or find a repacking plugin.

@@ -1,2 +1,11 @@
-PROBLEMS
-The problems of 
+JAD is so goddamn old that it's not even written in Java. As a result of that it's in an executable format,
+which means that there are separate versions for separate OSes.
+
+I have experimented with Fernflower (mainly Forge's port), but that raises a few problems. One is that while Forge's
+custom version of Fernflower allows for variables to have JAD-style names, that config isn't available for parameters,
+since Forge uses their own SRG names for parameters. This is the biggest drawback for me, because not only are Fernflower's
+"var#" parameters ugly, they also aren't as readable.
+
+Also, old MC was written in an older version of Java that Fernflower isn't built for. As a result, there's a couple errors
+that bring me more pain than anything (granted I haven't played around with all of the configs). JAD, meanwhile, works
+almost perfectly.
