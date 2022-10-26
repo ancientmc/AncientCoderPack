@@ -40,7 +40,7 @@ bin/
 
 ### Sensitive stuff (MCP files ripped from older versions as well as MC source code).
 src/main/java/net/
-src/main/java/com/entropy/rcp/**/
+src/main/java/com/entropy/rcp/
 patches/patch/
 patches/applydiff.exe
 patches/library.zip
