@@ -8,7 +8,7 @@ tool for people to learn about the history of Minecraft.
 
 I originally created this project directly including and using files from the Mod Coder Pack version 2.5, but due to MCP's license 
 I have been moving away from these in favor of more modern tools. RCP does use some tools developed by 
-both OceanLabs (RetroGuard) and Forge (ForgeFlower), but these are Maven dependencies that are publicly available for others.
+both OceanLabs (RetroGuard) and QuiltMC (QuiltFlower), but these are Maven dependencies that are publicly available for others.
 
 RCP will be using MCP mappings, however, especially for older versions. I intend to modify and add on to them though. Earlier MCP
 mappings are especially incomplete. I may even try to create new mappings from scratch, although this is unlikely. The mappings can
