@@ -1,3 +1,4 @@
+<!-- IntelliJ RCP run config. Copying this here from .idea/runConfigurations so I can git-ignore that folder. -->
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="RetroCoderPack [rcp]" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
