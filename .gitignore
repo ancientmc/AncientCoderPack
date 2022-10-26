@@ -40,3 +40,14 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Sensitive stuff (MCP files ripped from older versions as well as MC source code).
+src/main/java/net/
+src/main/java/com/entropy/rcp/**/
+patches/patch/
+patches/applydiff.exe
+patches/library.zip
+patches/python27.dll
+patches/repackage.exe
+jars/
+retroguard.log

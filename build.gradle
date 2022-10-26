@@ -129,19 +129,19 @@ task fixClassFiles(type: JavaExec) {
 task decompileClassFiles(type: JavaExec) {
     main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
     classpath = files(RCP_QUILTFLOWER)
-    args('-rbr=0', '-asc=0', '-jvn=1', "${RCP_DIR_TEMP}\\*.class", "${RCP_DIR_SRC}\\")
+    args('-rbr=0', '-asc=0', '-jvn=1', '-ind="  "', "${RCP_DIR_TEMP}\\*.class", "${RCP_DIR_SRC}\\")
 }
 
 task decompileClientClassFiles(type: JavaExec) {
     main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
     classpath = files(RCP_QUILTFLOWER)
-    args('-rbr=0', '-asc=0', '-jvn=1', "${RCP_DIR_TEMP}\\net\\minecraft\\client\\*.class", "${RCP_DIR_SRC}\\net\\minecraft\\client\\")
+    args('-rbr=0', '-asc=0', '-jvn=1', '-ind="  "', "${RCP_DIR_TEMP}\\net\\minecraft\\client\\*.class", "${RCP_DIR_SRC}\\net\\minecraft\\client\\")
 }
 
 task decompileIsomClassFile(type: JavaExec) {
     main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
     classpath = files(RCP_QUILTFLOWER)
-    args('-rbr=0', '-asc=0', '-jvn=1', "${RCP_DIR_TEMP}\\net\\minecraft\\isom\\*.class", "${RCP_DIR_SRC}\\net\\minecraft\\isom\\")
+    args('-rbr=0', '-asc=0', '-jvn=1', '-ind="  "', "${RCP_DIR_TEMP}\\net\\minecraft\\isom\\*.class", "${RCP_DIR_SRC}\\net\\minecraft\\isom\\")
 }
 
 // TODO: Either modify the RG script directly to add packages or find a repacking plugin.
@@ -149,7 +149,7 @@ task repackageSourceFiles(type: Exec) {
     commandLine("${RCP_DIR_PATCHES}\\repackage.exe", RCP_DIR_SRC, 'net.minecraft.src')
 }
 
-// TODO: Use external DiffPatch plugin.
+// TODO: Re-write patch files and use external DiffPatch plugin.
 task patchSourceFiles(type: Exec) {
     commandLine("${RCP_DIR_PATCHES}\\applydiff.exe", '-p', '1', '-u', '-i', RCP_PATCH_FILE, '-d', RCP_DIR_SRC)
 }

@@ -8,12 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7e90496-c82c-4121-b93f-2a603ac7a03d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/decomp/java-decompiler.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/src/Block.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MCPtoolchain.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MCPtoolchain.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCPtoolchain.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RCPToolchain.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/decomp/jad.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/mapping/minecraft_server.rgs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/retroguard.log" beforeDir="false" afterPath="$PROJECT_DIR$/retroguard.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,19 +96,20 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programs/Projects/RetroCoderPack/core/decomp&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;D:/Programs/Projects/RetroCoderPack/core/mapping/a1.2.6.rgs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/Programs/Projects/RetroCoderPack/core/decomp",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "two.files.diff.last.used.file": "D:/Programs/Projects/RetroCoderPack/core/mapping/a1.2.6.rgs"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Programs\Projects\RetroCoderPack\core\decomp" />
@@ -175,27 +177,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RetroCoderPack [decompileClassFiles]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="decompileClassFiles" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="RetroCoderPack [fixClassFiles]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -254,6 +235,29 @@
             <option value=":unzipJar" />
             <option value=":fixClassFiles" />
             <option value=":decompileClassFiles" />
+            <option value=":decompileClientClassFiles" />
+            <option value=":decompileIsomClassFile" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RetroCoderPack [repackageSourceFiles]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="repackageSourceFiles" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -308,19 +312,19 @@
       <item itemvalue="Gradle.RetroCoderPack [prepatch]" />
       <item itemvalue="Gradle.RetroCoderPack [build]" />
       <item itemvalue="Gradle.RetroCoderPack" />
+      <item itemvalue="Gradle.RetroCoderPack [repackageSourceFiles]" />
       <item itemvalue="Gradle.RetroCoderPack [fixClassFiles]" />
       <item itemvalue="Gradle.RetroCoderPack [jarDeobf]" />
       <item itemvalue="Gradle.RetroCoderPack [unzipJar]" />
       <item itemvalue="Gradle.RetroCoderPack [cleanAndStartOver]" />
-      <item itemvalue="Gradle.RetroCoderPack [decompileClassFiles]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.RetroCoderPack [cleanAndStartOver]" />
+        <item itemvalue="Gradle.RetroCoderPack [repackageSourceFiles]" />
         <item itemvalue="Gradle.RetroCoderPack [fixClassFiles]" />
         <item itemvalue="Gradle.RetroCoderPack [unzipJar]" />
         <item itemvalue="Gradle.RetroCoderPack [jarDeobf]" />
-        <item itemvalue="Gradle.RetroCoderPack [decompileClassFiles]" />
       </list>
     </recent_temporary>
   </component>
@@ -368,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666432815709</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- added Quiltflower, QuiltMC's port of Fernflower, as the decompiler. &#10;- Right now because of Quiltflower the whole RCP process no long works. The patch files need to be rewritten, so I'll be doing that soon.">
+      <created>1666594246864</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666594246864</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -377,7 +388,8 @@
     <MESSAGE value="- file shennanigans" />
     <MESSAGE value="- cleaned up code related to OS things&#10;- RCP now extracts and adds natives to a subdirectory in the &quot;jars&quot; folder.&#10;- more stuff&#10;&#10;RCP should be runnable on Windows and Mac, though I haven't tested the latter. Linux will need some work because Linux cannot run EXEs, unless the user has WINE, but not everyone does." />
     <MESSAGE value="- revamped build.gradle, hopefully it's not as messy.&#10;- wrote a program called SRGerator that applies CSV method and field name data onto the retroguard script and the patch files. This eliminates the need for the renamer tool. &#10;- JADRetro is now used as a dependency." />
-    <option name="LAST_COMMIT_MESSAGE" value="- revamped build.gradle, hopefully it's not as messy.&#10;- wrote a program called SRGerator that applies CSV method and field name data onto the retroguard script and the patch files. This eliminates the need for the renamer tool. &#10;- JADRetro is now used as a dependency." />
+    <MESSAGE value="- added Quiltflower, QuiltMC's port of Fernflower, as the decompiler. &#10;- Right now because of Quiltflower the whole RCP process no long works. The patch files need to be rewritten, so I'll be doing that soon." />
+    <option name="LAST_COMMIT_MESSAGE" value="- added Quiltflower, QuiltMC's port of Fernflower, as the decompiler. &#10;- Right now because of Quiltflower the whole RCP process no long works. The patch files need to be rewritten, so I'll be doing that soon." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
