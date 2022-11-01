@@ -20,7 +20,7 @@ and what they do:
 
 - RetroGuard by OceanLabs/MCP: Deobfuscation of classes, methods, and fields. [GitHub](https://github.com/ModCoderPack/Retroguard).
 - MCInjector by OceanLabs/MCP: Adding exceptions for methods. [GitHub](https://github.com/ModCoderPack/MCInjector).
-- Enigma by cuchaz, fork by FabricMC: Parameter name deobfuscation [GitHub](https://github.com/FabricMC/Enigma).
+- Enigma by cuchaz, fork by FabricMC: Parameter name deobfuscation. [GitHub](https://github.com/FabricMC/Enigma).
 - Fernflower by JetBrains, fork by MinecraftForge: Decompilation, Local variable naming. [GitHub](https://github.com/MinecraftForge/FernFlower).
 - ApplyDiff.exe by (I believe) GNU: Applying diff patches to make everything run. Right now the patch files and the actual
 executable are currently excluded because a) they're no longer compatible with the current setup and b) licensing. You can still see 
