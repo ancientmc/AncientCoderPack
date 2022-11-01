@@ -53,7 +53,6 @@ dependencies {
 
     retroguard 'de.oceanlabs.mcp:RetroGuard:3.6.6'
     mcinjector 'de.oceanlabs.mcp:mcinjector:3.8.0'
-    jadretro 'net.sf.jadretro:jadretro:1.6.1'
     enigma 'cuchaz:enigma:2.1.0'
     forgeflower 'net.minecraftforge:forgeflower:1.5.605.9'
     implementation configurations.retroguard.dependencies
@@ -80,7 +79,6 @@ ext {
     RCP_RG = project.getConfigurations().findByName("retroguard")
     RCP_MCINJECTOR = project.getConfigurations().findByName("mcinjector")
     RCP_ENIGMA = project.getConfigurations().findByName("enigma")
-    RCP_JADRETRO = project.getConfigurations().findByName("jadretro")
     RCP_FORGEFLOWER = project.getConfigurations().findByName("forgeflower")
     RCP_ASSET_EXTRACTOR = "${RCP_DIR_PATCHES}\\McAssetExtractor-1.0_02-w-dependencies.jar"
 }
@@ -147,12 +145,6 @@ task unzipJar(type: Copy) {
     from zipTree(file("${RCP_DIR_DECOMP}\\${MC_VERSION}-final.jar"))
     into file(RCP_DIR_TEMP)
     exclude ("com", "paulscode")
-}
-
-task fixClassFiles(type: JavaExec) {
-    main = "net.sf.jadretro.Main"
-    classpath = files(RCP_JADRETRO)
-    args('-b', RCP_DIR_TEMP)
 }
 
 // Forgeflower throws out an error when decompiling these files and decompiling the net.minecraft.client files, but it's
