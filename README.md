@@ -12,7 +12,8 @@ tool for people to learn about the history of Minecraft.
 
 I originally created this project directly including and using files from the Mod Coder Pack version 2.5, but due to MCP's license 
 I have been moving away from these in favor of more modern tools. RCP does use some tools developed by 
-both OceanLabs, MinecraftForge, and FabricMC, but these are Maven dependencies that are publicly available for others.
+OceanLabs, MinecraftForge, and FabricMC, but these are Maven dependencies that are publicly available for others.
+The only tool directly included is McAssetExtractor, a forked tool originally developed by GitHub user rhmeuer.
 
 A toolchain text file wll be included to go more in depth about everything, but here's a brief rundown of the tools 
 and what they do:
