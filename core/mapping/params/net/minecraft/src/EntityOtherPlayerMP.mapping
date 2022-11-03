@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/EntityOtherPlayerMP
+	METHOD <init> (Lnet/minecraft/src/World;Ljava/lang/String;)V
+		ARG 1 world
+		ARG 2 skinFileName

@@ -1,0 +1,7 @@
+CLASS net/minecraft/src/ChunkProviderIso
+	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/IChunkLoader;)V
+		ARG 1 worldObj
+		ARG 2 chunkLoader
+	METHOD func_543_c (II)Lnet/minecraft/src/Chunk;
+		ARG 1 pInt
+		ARG 2 pInt1

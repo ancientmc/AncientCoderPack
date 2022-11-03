@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/EntityGhast
+	METHOD func_4050_a (DDDD)Z
+		ARG 1 pDouble
+		ARG 3 pDouble1
+		ARG 5 pDouble2
+		ARG 7 pDouble3

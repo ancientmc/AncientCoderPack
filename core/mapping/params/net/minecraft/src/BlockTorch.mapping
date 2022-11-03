@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/BlockTorch
+	METHOD func_271_h (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2

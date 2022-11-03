@@ -1,0 +1,10 @@
+CLASS net/minecraft/src/BlockRedstoneOre
+	METHOD <init> (IIZ)V
+		ARG 1 blockID
+		ARG 2 blockIndexInTexture
+		ARG 3 pFlag
+	METHOD func_319_i (Lnet/minecraft/src/World;III)V
+		ARG 1 world
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2

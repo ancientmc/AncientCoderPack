@@ -1,0 +1,14 @@
+CLASS net/minecraft/src/EntityDiggingFX
+	METHOD <init> (Lnet/minecraft/src/World;DDDDDDLnet/minecraft/src/Block;)V
+		ARG 1 world
+		ARG 2 posX
+		ARG 4 posY
+		ARG 6 posZ
+		ARG 8 motionX
+		ARG 10 motionY
+		ARG 12 motionZ
+		ARG 14 block
+	METHOD func_4041_a (III)Lnet/minecraft/src/EntityDiggingFX;
+		ARG 1 pInt
+		ARG 2 pInt1
+		ARG 3 pInt2

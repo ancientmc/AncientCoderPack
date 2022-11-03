@@ -1,0 +1,16 @@
+CLASS net/minecraft/src/NBTBase
+	METHOD createTagOfType (B)Lnet/minecraft/src/NBTBase;
+		ARG 0 pByte
+	METHOD getTagName (B)Ljava/lang/String;
+		ARG 0 pByte
+	METHOD readTag (Ljava/io/DataInput;)Lnet/minecraft/src/NBTBase;
+		ARG 0 dataInput
+	METHOD readTagContents (Ljava/io/DataInput;)V
+		ARG 1 dataInput
+	METHOD setKey (Ljava/lang/String;)Lnet/minecraft/src/NBTBase;
+		ARG 1 key
+	METHOD writeTag (Lnet/minecraft/src/NBTBase;Ljava/io/DataOutput;)V
+		ARG 0 nbtBase
+		ARG 1 dataOutput
+	METHOD writeTagContents (Ljava/io/DataOutput;)V
+		ARG 1 dataOutput

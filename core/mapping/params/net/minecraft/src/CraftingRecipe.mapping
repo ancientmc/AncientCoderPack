@@ -1,0 +1,15 @@
+CLASS net/minecraft/src/CraftingRecipe
+	METHOD <init> (II[ILnet/minecraft/src/ItemStack;)V
+		ARG 1 width
+		ARG 2 height
+		ARG 3 ingredientMap
+		ARG 4 itemStack
+	METHOD createResult ([I)Lnet/minecraft/src/ItemStack;
+		ARG 1 ingredientMap
+	METHOD matchRecipe ([I)Z
+		ARG 1 ingredientMap
+	METHOD matches ([IIIZ)Z
+		ARG 1 ingredientMap
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pFlag

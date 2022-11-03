@@ -27,7 +27,6 @@ configurations {
     retroguard
     mcinjector
     enigma
-    jadretro
     forgeflower
 }
 
@@ -43,7 +42,6 @@ dependencies {
         implementation 'org.lwjgl.lwjgl:lwjgl:2.9.0'
         implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.0'
     }
-
     implementation 'com.paulscode:soundsystem:20120107'
     implementation 'com.paulscode:codecjorbis:20101023'
     implementation 'com.jcraft:jogg:0.0.7'
@@ -52,11 +50,12 @@ dependencies {
     implementation 'com.paulscode:codecwav:20101023'
 
     retroguard 'de.oceanlabs.mcp:RetroGuard:3.6.6'
+    retroguard configurations.retroguard.dependencies
     mcinjector 'de.oceanlabs.mcp:mcinjector:3.8.0'
+    enigma 'cuchaz:enigma-cli:2.1.0'
     enigma 'cuchaz:enigma:2.1.0'
+    enigma configurations.enigma.dependencies
     forgeflower 'net.minecraftforge:forgeflower:1.5.605.9'
-    implementation configurations.retroguard.dependencies
-    implementation configurations.enigma.dependencies
 }
 
 ext {
@@ -65,9 +64,8 @@ ext {
     MC_JAR = "https://piston-data.mojang.com/v1/objects/a68c817afd6c05c253ba5462287c2c19bbb57935/client.jar"
     RCP_DIR_CORE = "$project.projectDir\\core"
     RCP_DIR_MAPPING = "${RCP_DIR_CORE}\\mapping"
-    RCP_DIR_DECOMP = "${RCP_DIR_CORE}\\decomp"
     RCP_DIR_LOGS = "${RCP_DIR_CORE}\\logs"
-    RCP_DIR_TEMP = "${RCP_DIR_DECOMP}\\temp"
+    RCP_DIR_TEMP = "${RCP_DIR_CORE}\\temp"
     RCP_DIR_PATCHES = "${RCP_DIR_CORE}\\patches"
     RCP_PATCH_FILE = "${RCP_DIR_PATCHES}\\patch\\minecraft.patch"
     RCP_CODECMUS_PATCH_FILE = "${RCP_DIR_PATCHES}\\patch\\CodecMus.patch"
@@ -96,11 +94,7 @@ tasks.withType(JavaExec) {
  * if you wanted to reset the main build process for whatever reason, or if something has gone horribly wrong.
  */
 task cleanAndStartOver(type: Delete) {
-    delete ("${RCP_DIR_MAPPING}\\${MC_VERSION}.jar", // base Minecraft jar
-            "${RCP_DIR_MAPPING}\\${MC_VERSION}-srg.jar", // SRG-ified Minecraft jar
-            "${RCP_DIR_MAPPING}\\${MC_VERSION}-exc.jar", // SRG-ified jar with injected exceptions
-            "${RCP_DIR_DECOMP}\\${MC_VERSION}-final.jar", // final jar to be decompiled, includes parameter names
-            file(RCP_DIR_TEMP).listFiles(), // temporary files
+    delete (file(RCP_DIR_TEMP).listFiles(), // temporary files
             file(RCP_DIR_SRC + "\\net"), // Minecraft sources
             file(RCP_DIR_RESOURCES).listFiles(), // Everything in the main resources folder
             file(RCP_DIR_JARS + "resources"), // The runtime resources folder
@@ -114,7 +108,7 @@ task cleanAndStartOver(type: Delete) {
 
 task downloadJar(type: Download) {
     src MC_JAR
-    dest file("${RCP_DIR_MAPPING}\\${MC_VERSION}.jar")
+    dest file("${RCP_DIR_TEMP}\\${MC_VERSION}.jar")
 }
 
 task jarDeobf(type: JavaExec, dependsOn: downloadJar) {
@@ -129,7 +123,7 @@ task jarDeobf(type: JavaExec, dependsOn: downloadJar) {
 task injectExceptions(type: JavaExec) {
     main = "de.oceanlabs.mcp.mcinjector.MCInjector"
     classpath = files(RCP_MCINJECTOR)
-    args ("--in", "${RCP_DIR_MAPPING}\\${MC_VERSION}-srg.jar", "--out", "${RCP_DIR_MAPPING}\\${MC_VERSION}-exc.jar", "--exc", "${RCP_DIR_MAPPING}\\exceptions.exc", "--log", "${RCP_DIR_LOGS}\\exceptions.log")
+    args ("--in", "${RCP_DIR_TEMP}\\${MC_VERSION}-srg.jar", "--out", "${RCP_DIR_TEMP}\\${MC_VERSION}-exc.jar", "--exc", "${RCP_DIR_MAPPING}\\exceptions.exc", "--log", "${RCP_DIR_LOGS}\\exceptions.log")
 }
 
 task addParams(type: JavaExec) {
@@ -138,35 +132,21 @@ task addParams(type: JavaExec) {
     }
     main = "cuchaz.enigma.command.Main"
     classpath = files(RCP_ENIGMA)
-    args ("deobfuscate", "${RCP_DIR_MAPPING}\\${MC_VERSION}-exc.jar", "${RCP_DIR_DECOMP}\\${MC_VERSION}-final.jar", "${RCP_DIR_MAPPING}\\params")
-}
-
-task unzipJar(type: Copy) {
-    from zipTree(file("${RCP_DIR_DECOMP}\\${MC_VERSION}-final.jar"))
-    into file(RCP_DIR_TEMP)
-    exclude ("com", "paulscode")
+    args ("deobfuscate", "${RCP_DIR_TEMP}\\${MC_VERSION}-exc.jar", "${RCP_DIR_TEMP}\\${MC_VERSION}-temp.jar", "${RCP_DIR_MAPPING}\\params")
 }
 
 // Forgeflower throws out an error when decompiling these files and decompiling the net.minecraft.client files, but it's
 // not a big deal since it doesn't interrupt the decompilation process, and any weird artifacts can just get patched.
-task decompileClassFiles() {
-    doLast {
-        javaexec {
-            main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
-            classpath = files(RCP_FORGEFLOWER)
-            args('-rbr=0', '-asc=0', '-jvn=1', '-ind="\t"', "${RCP_DIR_TEMP}\\net\\minecraft\\src\\*.class", "${RCP_DIR_SRC}\\net\\minecraft\\src")
-        }
-        javaexec {
-            main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
-            classpath = files(RCP_FORGEFLOWER)
-            args('-rbr=0', '-asc=0', '-jvn=1', '-ind="\t"', "${RCP_DIR_TEMP}\\net\\minecraft\\client\\*.class", "${RCP_DIR_SRC}\\net\\minecraft\\client\\")
-        }
-        javaexec {
-            main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
-            classpath = files(RCP_FORGEFLOWER)
-            args('-rbr=0', '-asc=0', '-jvn=1', '-ind="\t"', "${RCP_DIR_TEMP}\\net\\minecraft\\isom\\*.class", "${RCP_DIR_SRC}\\net\\minecraft\\isom\\")
-        }
-    }
+task decompileClassFiles(type: JavaExec) {
+    main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
+    classpath = files(RCP_FORGEFLOWER)
+    args('-rbr=1', '-asc=0', '-dgs=1', '-jvn=1', '-ind="\t"', "${RCP_DIR_TEMP}\\${MC_VERSION}-temp.jar", "${RCP_DIR_TEMP}\\${MC_VERSION}-final.jar")
+}
+
+task unzipJar(type: Copy) {
+    from zipTree(file("${RCP_DIR_TEMP}\\${MC_VERSION}-final.jar"))
+    into file(RCP_DIR_SRC)
+    exclude ('com/**', 'paulscode/**')
 }
 
 // TODO: Re-write patch files and use external DiffPatch plugin.
@@ -181,9 +161,9 @@ task patchCodecMusFiles(type: Exec) {
 task copyJarAssets(type: Copy) {
     group = "RCP"
     description = "Copies the assets found in the JAR file."
-    from zipTree(file("${RCP_DIR_MAPPING}\\${MC_VERSION}.jar"))
+    from zipTree(file("${RCP_DIR_TEMP}\\${MC_VERSION}.jar"))
     into file(RCP_DIR_RESOURCES)
-    exclude('com', 'net', 'paulscode', '*.class')
+    exclude('com/**', 'net/**', 'paulscode/**', '*.class')
 }
 
 /**
@@ -220,24 +200,22 @@ task extractNatives {
         if(OperatingSystem.current().isMacOsX()) {
             from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-osx.jar")))
             into(file("${RCP_DIR_NATIVES}"))
-            exclude("META-INF")
+            exclude('META-INF/**')
         } else {
             from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar")))
             into(file("${RCP_DIR_NATIVES}"))
-            exclude("META-INF")
+            exclude('META-INF/**')
         }
     }
     copy {
         from(zipTree(file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar")))
         into(file("${RCP_DIR_NATIVES}"))
-        exclude("META-INF")
+        exclude('META-INF/**')
     }
 }
 
 task cleanUpRemnants (type: Delete) {
     delete (file(RCP_DIR_TEMP).listFiles(),
-            RCP_DIR_MAPPING + MC_VERSION + '.jar',
-            RCP_DIR_MAPPING + MC_VERSION + '-srg.jar',
             file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar"),
             file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar"),
             file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-${OSNAME}.jar"))

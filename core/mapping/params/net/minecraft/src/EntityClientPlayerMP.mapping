@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/EntityClientPlayerMP
+	METHOD <init> (Lnet/minecraft/client/Minecraft;Lnet/minecraft/src/World;Lnet/minecraft/src/Session;Lnet/minecraft/src/NetClientHandler;)V
+		ARG 1 mc
+		ARG 2 world
+		ARG 3 session
+		ARG 4 netClientHandler

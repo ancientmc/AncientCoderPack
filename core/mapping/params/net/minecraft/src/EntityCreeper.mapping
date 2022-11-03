@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/EntityCreeper
+	METHOD func_440_b (F)F
+		ARG 1 pFloat

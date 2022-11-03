@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/ChunkCoordIntPair
+	METHOD <init> (II)V
+		ARG 1 chunkXPos
+		ARG 2 chunkZPos
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 1 object

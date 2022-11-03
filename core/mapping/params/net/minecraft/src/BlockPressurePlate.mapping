@@ -1,0 +1,10 @@
+CLASS net/minecraft/src/BlockPressurePlate
+	METHOD <init> (IILnet/minecraft/src/EnumMobType;)V
+		ARG 1 blockID
+		ARG 2 blockIndexInTexture
+		ARG 3 triggerMobType
+	METHOD setStateIfMobInteractsWithPlate (Lnet/minecraft/src/World;III)V
+		ARG 1 world
+		ARG 2 xCoord
+		ARG 3 yCoord
+		ARG 4 zCoord

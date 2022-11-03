@@ -1,0 +1,12 @@
+CLASS net/minecraft/src/EntitySmokeFX
+	METHOD <init> (Lnet/minecraft/src/World;DDD)V
+		ARG 1 world
+		ARG 2 posX
+		ARG 4 posY
+		ARG 6 posZ
+	METHOD <init> (Lnet/minecraft/src/World;DDDF)V
+		ARG 1 world
+		ARG 2 posX
+		ARG 4 posY
+		ARG 6 posZ
+		ARG 8 pFloat

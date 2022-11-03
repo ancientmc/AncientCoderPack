@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/ClippingHelperImplementation
+	METHOD func_1154_a ([[FI)V
+		ARG 1 pFloatA
+		ARG 2 pInt

@@ -1,0 +1,8 @@
+CLASS net/minecraft/src/BlockChest
+	METHOD <init> (I)V
+		ARG 1 blockID
+	METHOD isThereANeighborChest (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+		ARG 2 xCoord
+		ARG 3 yCoord
+		ARG 4 zCoord

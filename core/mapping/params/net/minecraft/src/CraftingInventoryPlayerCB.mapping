@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/CraftingInventoryPlayerCB
+	METHOD <init> ([Lnet/minecraft/src/ItemStack;)V
+		ARG 1 itemStack

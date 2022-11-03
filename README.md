@@ -24,7 +24,8 @@ and what they do:
 - Fernflower by JetBrains, fork by MinecraftForge: Decompilation, Local variable naming. [GitHub](https://github.com/MinecraftForge/FernFlower).
 - ApplyDiff.exe by (I believe) GNU: Applying diff patches to make everything run. Right now the patch files and the actual
 executable are currently excluded because a) they're no longer compatible with the current setup and b) licensing. You can still see 
-them mentioned in the gradle. Eventually another DiffPatch plugin (likely the one from Forge) will be used instead. No GitHub for this one.
+them mentioned in the gradle. Eventually another DiffPatch plugin (likely the one from Forge) will be used instead, and new patch files
+will be created. No GitHub for this one.
 - McAssetExtractor by rhmeuer, fork by me: extracting the run-time assets (not the ones from the client JAR) from Mojang's servers 
 into the workspace. [Original GitHub](https://github.com/rmheuer/McAssetExtractor). [Forked GitHub](https://github.com/moist-mason/McAssetExtractor).
 
@@ -36,8 +37,8 @@ mappings for its build process. The SRG files that I am using are from a now-def
 view [here](https://github.com/MCPHackers/RetroMCP). I intend on adding to these mappings by filling in unnamed fields
 and methods (func_101_a --> myMethod).
 
-For parameters, RCP uses Enigma. Aside from an older version of MCInjector (that RCP doesn't use), Enigma is pretty much the only deobfuscator,
-that I know of, that allows for direct editing of parameter names. Lack of options and Enigma's ease of use makes it 
-the preferred choice. The parameter names are written by me, and are currently work in progress.
+For parameters, RCP uses Enigma. Aside from an older version of MCInjector (that RCP doesn't use), Enigma is pretty much the only 
+deobfuscator/bytecode editor, that I know of, that allows for direct editing of parameter names. Lack of options and Enigma's 
+ease of use makes it the preferred choice. The parameter names are written by me, and are currently work in progress.
 
 Stay tuned for a full release.

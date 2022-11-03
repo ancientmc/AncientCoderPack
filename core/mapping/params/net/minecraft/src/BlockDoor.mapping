@@ -1,0 +1,11 @@
+CLASS net/minecraft/src/BlockDoor
+	METHOD func_311_a (Lnet/minecraft/src/World;IIIZ)V
+		ARG 1 world
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2
+		ARG 5 pInt3
+	METHOD func_312_c (I)I
+		ARG 1 pInt
+	METHOD func_313_b (I)V
+		ARG 1 pInt

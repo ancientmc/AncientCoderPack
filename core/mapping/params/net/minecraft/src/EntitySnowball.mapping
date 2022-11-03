@@ -1,0 +1,15 @@
+CLASS net/minecraft/src/EntitySnowball
+	METHOD <init> (Lnet/minecraft/src/World;DDD)V
+		ARG 1 world
+		ARG 2 posX
+		ARG 4 posY
+		ARG 6 posZ
+	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/EntityLiving;)V
+		ARG 1 world
+		ARG 2 entityLiving
+	METHOD func_467_a (DDDFF)V
+		ARG 1 pDouble
+		ARG 3 pDouble1
+		ARG 5 pDouble2
+		ARG 7 pFloat
+		ARG 8 pFloat1

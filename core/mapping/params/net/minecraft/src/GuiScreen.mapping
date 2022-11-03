@@ -1,0 +1,12 @@
+CLASS net/minecraft/src/GuiScreen
+	METHOD drawScreen (IIF)V
+		ARG 1 pInt
+		ARG 2 xPosition
+		ARG 3 yPosition
+	METHOD keyTyped (CI)V
+		ARG 1 pChar
+		ARG 2 keyValue
+	METHOD mouseClicked (III)V
+		ARG 1 pInt
+		ARG 2 pInt1
+		ARG 3 pInt2

@@ -1,0 +1,11 @@
+CLASS net/minecraft/src/IChunkLoader
+	METHOD loadChunk (Lnet/minecraft/src/World;II)Lnet/minecraft/src/Chunk;
+		ARG 1 world
+		ARG 2 xCoord
+		ARG 3 zCoord
+	METHOD saveChunk (Lnet/minecraft/src/World;Lnet/minecraft/src/Chunk;)V
+		ARG 1 world
+		ARG 2 chunk
+	METHOD saveExtraChunkData (Lnet/minecraft/src/World;Lnet/minecraft/src/Chunk;)V
+		ARG 1 world
+		ARG 2 chunk

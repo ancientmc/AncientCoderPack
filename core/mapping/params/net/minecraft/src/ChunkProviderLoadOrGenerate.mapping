@@ -1,0 +1,12 @@
+CLASS net/minecraft/src/ChunkProviderLoadOrGenerate
+	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/IChunkLoader;Lnet/minecraft/src/IChunkProvider;)V
+		ARG 1 worldObj
+		ARG 2 chunkLoader
+		ARG 3 chunkProvider
+	METHOD func_542_c (II)Lnet/minecraft/src/Chunk;
+		ARG 1 pInt
+		ARG 2 pInt1
+	METHOD saveChunk (Lnet/minecraft/src/Chunk;)V
+		ARG 1 chunk
+	METHOD saveExtraChunkData (Lnet/minecraft/src/Chunk;)V
+		ARG 1 chunk

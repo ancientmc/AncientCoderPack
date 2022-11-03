@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/GameWindowListener
+	METHOD <init> (Lnet/minecraft/client/Minecraft;Ljava/lang/Thread;)V
+		ARG 1 mc
+		ARG 2 mcThread
+	METHOD windowClosing (Ljava/awt/event/WindowEvent;)V
+		ARG 1 closingEvent

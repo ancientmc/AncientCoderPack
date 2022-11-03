@@ -1,0 +1,7 @@
+CLASS net/minecraft/src/EntityFallingSand
+	METHOD <init> (Lnet/minecraft/src/World;FFFI)V
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+		ARG 5 pInt

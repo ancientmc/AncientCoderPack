@@ -1,0 +1,13 @@
+CLASS net/minecraft/src/EntityPlayerSP
+	METHOD <init> (Lnet/minecraft/client/Minecraft;Lnet/minecraft/src/World;Lnet/minecraft/src/Session;I)V
+		ARG 1 mc
+		ARG 2 world
+		ARG 3 session
+		ARG 4 dimension
+	METHOD func_460_a (IZ)V
+		ARG 1 pInt
+		ARG 2 pFlag
+	METHOD sendChatMessage (Ljava/lang/String;)V
+		ARG 1 chatMessage
+	METHOD setHealth (I)V
+		ARG 1 health

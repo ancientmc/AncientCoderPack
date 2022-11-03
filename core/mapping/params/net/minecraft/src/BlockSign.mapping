@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/BlockSign
+	METHOD <init> (ILjava/lang/Class;Z)V
+		ARG 1 blockID
+		ARG 2 signEntityClass
+		ARG 3 isFreestanding

@@ -1,0 +1,9 @@
+CLASS net/minecraft/src/ChunkProviderClient
+	METHOD <init> (Lnet/minecraft/src/World;)V
+		ARG 1 worldObj
+	METHOD func_538_d (II)Lnet/minecraft/src/Chunk;
+		ARG 1 pInt
+		ARG 2 pInt1
+	METHOD func_539_c (II)V
+		ARG 1 pInt
+		ARG 2 pInt1

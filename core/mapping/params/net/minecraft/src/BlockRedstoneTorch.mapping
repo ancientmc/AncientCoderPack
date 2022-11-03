@@ -1,0 +1,16 @@
+CLASS net/minecraft/src/BlockRedstoneTorch
+	METHOD <init> (IIZ)V
+		ARG 1 blockID
+		ARG 2 blockMaterial
+		ARG 3 torchActive
+	METHOD checkForBurnout (Lnet/minecraft/src/World;IIIZ)Z
+		ARG 1 world
+		ARG 2 xCoord
+		ARG 3 yCoord
+		ARG 4 zCoord
+		ARG 5 pFlag
+	METHOD func_15232_h (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2

@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/CraftingInventoryCB
+	METHOD onCraftGuiClosed (Lnet/minecraft/src/EntityPlayer;)V
+		ARG 1 entityPlayer
+	METHOD onCraftMatrixChanged (Lnet/minecraft/src/IInventory;)V
+		ARG 1 inventory

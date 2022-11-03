@@ -1,0 +1,13 @@
+CLASS net/minecraft/src/BlockSoil
+	METHOD <init> (I)V
+		ARG 1 blockID
+	METHOD func_274_i (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2
+	METHOD func_275_h (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2

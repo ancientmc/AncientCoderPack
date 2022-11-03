@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/EntityPigZombie
+	METHOD becomeAngryAt (Lnet/minecraft/src/Entity;)V
+		ARG 1 playerToAttack

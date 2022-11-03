@@ -1,0 +1,14 @@
+CLASS net/minecraft/src/BlockSand
+	METHOD <init> (II)V
+		ARG 1 blockID
+		ARG 2 blockMaterial
+	METHOD canFallBelow (Lnet/minecraft/src/World;III)Z
+		ARG 0 world
+		ARG 1 xCoord
+		ARG 2 yCoord
+		ARG 3 zCoord
+	METHOD tryToFall (Lnet/minecraft/src/World;III)V
+		ARG 1 world
+		ARG 2 xCoord
+		ARG 3 yCoord
+		ARG 4 zCoord

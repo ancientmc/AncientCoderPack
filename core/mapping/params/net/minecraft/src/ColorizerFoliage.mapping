@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/ColorizerFoliage
+	METHOD func_4146_a (DD)I
+		ARG 0 pDouble
+		ARG 2 pDouble1

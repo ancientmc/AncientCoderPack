@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/BlockStairs
+	METHOD <init> (ILnet/minecraft/src/Block;)V
+		ARG 1 blockID
+		ARG 2 block

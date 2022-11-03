@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/ColorizerGrass
+	METHOD func_4147_a (DD)I
+		ARG 0 pDouble
+		ARG 2 pDouble1

@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/EntitySlime
+	METHOD func_441_c (I)V
+		ARG 1 pInt

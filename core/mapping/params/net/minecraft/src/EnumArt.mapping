@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/EnumArt
+	METHOD <init> (Ljava/lang/String;ILjava/lang/String;IIII)V
+		ARG 3 pInt
+		ARG 4 pInt1
+		ARG 5 pInt2
