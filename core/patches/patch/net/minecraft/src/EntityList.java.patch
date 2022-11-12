@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/EntityList.java
++++ b/net/minecraft/src/EntityList.java
+@@ -72,7 +72,7 @@
+    }
+ 
+    public static int getEntityID(Entity entity) {
+-      return classToIDMapping.get(entity.getClass());
++      return ((Integer)classToIDMapping.get(entity.getClass())).intValue();
+    }
+ 
+    public static String getEntityString(Entity entity) {

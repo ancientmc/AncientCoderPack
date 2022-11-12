@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/RenderZombieSimple.java
++++ b/net/minecraft/src/RenderZombieSimple.java
+@@ -10,7 +10,7 @@
+       this.field_204_f = p_i323_3_;
+    }
+ 
+-   protected void func_6330_a(EntityZombieSimple entityLiving, float pFloat) {
++   protected void func_175_a(EntityZombieSimple entityLiving, float pFloat) {
+       GL11.glScalef(this.field_204_f, this.field_204_f, this.field_204_f);
+    }
+ 

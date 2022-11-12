@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/NextTickListEntry.java
++++ b/net/minecraft/src/NextTickListEntry.java
+@@ -34,7 +34,7 @@
+       return this;
+    }
+ 
+-   public int compareTo(NextTickListEntry nextTickListEntry) {
++   public int comparer(NextTickListEntry nextTickListEntry) {
+       if (this.scheduledTime < nextTickListEntry.scheduledTime) {
+          return -1;
+       } else if (this.scheduledTime > nextTickListEntry.scheduledTime) {

@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/RenderLiving.java
++++ b/net/minecraft/src/RenderLiving.java
+@@ -15,7 +15,7 @@
+       this.field_6332_f = modelBase;
+    }
+ 
+-   public void doRender(EntityLiving entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
++   public void func_171_a(EntityLiving entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
+       GL11.glPushMatrix();
+       GL11.glDisable(2884);
+       this.mainModel.field_1244_k = this.func_167_c(entity, partialTickTime);

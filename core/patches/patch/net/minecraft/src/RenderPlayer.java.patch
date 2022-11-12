@@ -1,0 +1,38 @@
+--- a/net/minecraft/src/RenderPlayer.java
++++ b/net/minecraft/src/RenderPlayer.java
+@@ -12,7 +12,7 @@
+       super(new ModelBiped(0.0F), 0.5F);
+    }
+ 
+-   protected boolean func_166_a(EntityPlayer entityLiving, int pInt) {
++   protected boolean func_187_a(EntityPlayer entityLiving, int pInt) {
+       ItemStack itemstack = entityLiving.inventory.armorItemInSlot(3 - pInt);
+       if (itemstack != null) {
+          Item item = itemstack.getItem();
+@@ -35,7 +35,7 @@
+       return false;
+    }
+ 
+-   public void func_171_a(EntityPlayer entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
++   public void func_188_a(EntityPlayer entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
+       ItemStack itemstack = entity.inventory.getCurrentItem();
+       this.field_208_g.field_1278_i = this.field_207_h.field_1278_i = this.field_209_f.field_1278_i = itemstack != null;
+       this.field_208_g.field_1277_j = this.field_207_h.field_1277_j = this.field_209_f.field_1277_j = entity.func_381_o();
+@@ -113,7 +113,7 @@
+ 
+    }
+ 
+-   protected void func_6331_b(EntityPlayer entityLiving, float pFloat) {
++   protected void func_4015_a(EntityPlayer entityLiving, float pFloat) {
+       ItemStack itemstack = entityLiving.inventory.armorItemInSlot(3);
+       if (itemstack != null && itemstack.getItem().shiftedIndex < 256) {
+          GL11.glPushMatrix();
+@@ -171,7 +171,7 @@
+ 
+    }
+ 
+-   protected void func_6330_a(EntityPlayer entityLiving, float pFloat) {
++   protected void func_186_b(EntityPlayer entityLiving, float pFloat) {
+       float f = 0.9375F;
+       GL11.glScalef(f, f, f);
+    }

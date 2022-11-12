@@ -1,0 +1,16 @@
+--- a/net/minecraft/src/RenderChicken.java
++++ b/net/minecraft/src/RenderChicken.java
+@@ -5,11 +5,11 @@
+       super(mainModel, pFloat);
+    }
+ 
+-   public void func_171_a(EntityChicken entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
++   public void func_181_a(EntityChicken entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
+       super.func_171_a(entity, posX, posY, posZ, yaw, partialTickTime);
+    }
+ 
+-   protected float func_170_d(EntityChicken entityLiving, float pFloat) {
++   protected float func_182_a(EntityChicken entityLiving, float pFloat) {
+       float f = entityLiving.field_756_e + (entityLiving.field_752_b - entityLiving.field_756_e) * pFloat;
+       float f1 = entityLiving.field_757_d + (entityLiving.field_758_c - entityLiving.field_757_d) * pFloat;
+       return (MathHelper.sin(f) + 1.0F) * f1;

@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/RenderFallingSand.java
++++ b/net/minecraft/src/RenderFallingSand.java
+@@ -9,7 +9,7 @@
+       this.field_9246_c = 0.5F;
+    }
+ 
+-   public void doRender(EntityFallingSand entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
++   public void func_156_a(EntityFallingSand entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
+       GL11.glPushMatrix();
+       GL11.glTranslatef((float)posX, (float)posY, (float)posZ);
+       this.loadTexture("/terrain.png");

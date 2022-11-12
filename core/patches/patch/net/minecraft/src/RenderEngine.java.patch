@@ -1,0 +1,58 @@
+--- a/net/minecraft/src/RenderEngine.java
++++ b/net/minecraft/src/RenderEngine.java
+@@ -7,10 +7,7 @@
+ import java.io.InputStream;
+ import java.nio.ByteBuffer;
+ import java.nio.IntBuffer;
+-import java.util.ArrayList;
+-import java.util.HashMap;
+-import java.util.List;
+-import java.util.Map;
++import java.util.*;
+ import javax.imageio.ImageIO;
+ import org.lwjgl.opengl.GL11;
+ 
+@@ -313,7 +310,42 @@
+    }
+ 
+    public void refreshTextures() {
+-      // $FF: Couldn't be decompiled
++      TexturePackBase texturepackbase = field_6527_k.selectedTexturePack;
++      int i;
++      BufferedImage bufferedimage;
++      for (Iterator iterator = textureNameToImageMap.keySet().iterator(); iterator.hasNext(); setupTexture(bufferedimage, i)) {
++         i = ((Integer) iterator.next()).intValue();
++         bufferedimage = (BufferedImage) textureNameToImageMap.get(Integer.valueOf(i));
++      }
++
++      for (Iterator iterator1 = urlToImageDataMap.values().iterator(); iterator1.hasNext(); ) {
++         ThreadDownloadImageData threaddownloadimagedata = (ThreadDownloadImageData) iterator1.next();
++         threaddownloadimagedata.textureSetupComplete = false;
++      }
++
++      for (Iterator iterator2 = textureMap.keySet().iterator(); iterator2.hasNext(); ) {
++         String s = (String) iterator2.next();
++         try {
++            BufferedImage bufferedimage1;
++            if (s.startsWith("##")) {
++               bufferedimage1 = unwrapImageByColumns(readTextureImage(texturepackbase.func_6481_a(s.substring(2))));
++            } else if (s.startsWith("%clamp%")) {
++               clampTexture = true;
++               bufferedimage1 = this.readTextureImage(texturepackbase.func_6481_a(s.substring(7)));
++            } else if (s.startsWith("%blur%")) {
++               blurTexture = true;
++               bufferedimage1 = this.readTextureImage(texturepackbase.func_6481_a(s.substring(6)));
++            } else {
++               bufferedimage1 = this.readTextureImage(texturepackbase.func_6481_a(s));
++            }
++            int j = ((Integer) textureMap.get(s)).intValue();
++            setupTexture(bufferedimage1, j);
++            blurTexture = false;
++            clampTexture = false;
++         } catch (IOException ioexception) {
++            ioexception.printStackTrace();
++         }
++      }
+    }
+ 
+    private BufferedImage readTextureImage(InputStream inputStream) throws IOException {

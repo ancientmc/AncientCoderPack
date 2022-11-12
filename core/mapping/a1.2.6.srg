@@ -835,6 +835,7 @@ FD: mb/a net/minecraft/src/BlockStairs/modelBlock
 FD: mc/a net/minecraft/src/MetadataChunkBlock/field_1299_a
 FD: me/a net/minecraft/src/ChatLine/message
 FD: mh/a net/minecraft/src/NBTTagDouble/doubleValue
+FD: mi/a net/minecraft/src/RenderMinecart/modelMinecart
 FD: mj/a net/minecraft/src/BlockFurnace/isActive
 FD: mk/a net/minecraft/src/ModelChicken/field_1289_a
 FD: mm/a net/minecraft/src/RenderList/field_1242_a
@@ -890,12 +891,14 @@ FD: px/a net/minecraft/src/ChunkProviderGenerate/field_922_a
 FD: py/a net/minecraft/src/Packet59ComplexEntity/xPosition
 FD: pz/a net/minecraft/src/RenderZombieSimple/field_204_f
 FD: qc/a net/minecraft/src/TileEntitySign/signText
+FD: qd/a net/minecraft/src/EntityMinecart/minecartCurrentDamage
 FD: qg/a net/minecraft/src/SoundManager/sndSystem
 FD: qh/a net/minecraft/src/BlockFire/chanceToEncourageFire
 FD: qi/a net/minecraft/src/Packet255KickDisconnect/reason
 FD: qj/a net/minecraft/src/BlockStep/field_469_a
 FD: qk/a net/minecraft/src/ItemFood/healAmount
 FD: qm/a net/minecraft/src/ChunkCoordIntPair/chunkXPos
+FD: net/minecraft/client/Minecraft/a net/minecraft/client/Minecraft/isFullscreen
 FD: net/minecraft/client/MinecraftApplet/a net/minecraft/client/MinecraftApplet/mcCanvas
 FD: dx/aA net/minecraft/src/Item/redstone
 FD: lw/aA net/minecraft/src/Entity/motionY
@@ -1228,6 +1231,7 @@ FD: pt/b net/minecraft/src/EntityPigZombie/randomSoundDelay
 FD: px/b net/minecraft/src/ChunkProviderGenerate/field_921_b
 FD: py/b net/minecraft/src/Packet59ComplexEntity/yPosition
 FD: qc/b net/minecraft/src/TileEntitySign/lineBeingEdited
+FD: qd/b net/minecraft/src/EntityMinecart/minecartTimeSinceHit
 FD: qg/b net/minecraft/src/SoundManager/soundPoolSounds
 FD: qh/b net/minecraft/src/BlockFire/abilityToCatchFire
 FD: qm/b net/minecraft/src/ChunkCoordIntPair/chunkZPos
@@ -1446,6 +1450,7 @@ FD: ps/c net/minecraft/src/EntityOtherPlayerMP/field_784_bh
 FD: pt/c net/minecraft/src/EntityPigZombie/defaultHeldItem
 FD: px/c net/minecraft/src/ChunkProviderGenerate/field_920_c
 FD: py/c net/minecraft/src/Packet59ComplexEntity/zPosition
+FD: qd/c net/minecraft/src/EntityMinecart/minecartRockDirection
 FD: qg/c net/minecraft/src/SoundManager/soundPoolStreaming
 FD: net/minecraft/client/Minecraft/c net/minecraft/client/Minecraft/displayWidth
 FD: net/minecraft/client/MinecraftApplet/c net/minecraft/client/MinecraftApplet/mcThread
@@ -1584,6 +1589,7 @@ FD: bp/e net/minecraft/src/GuiScreen/controlList
 FD: bw/e net/minecraft/src/WorldRenderer/field_1759_e
 FD: cd/e net/minecraft/src/CraftingRecipe/resultStack
 FD: b/e net/minecraft/src/PathPoint/index
+FD: ec/e net/minecraft/src/RenderLiving/mainModel
 FD: f/e net/minecraft/src/RenderGlobal/field_1454_e
 FD: ci/e net/minecraft/src/Packet51MapChunk/ySize
 FD: co/e net/minecraft/src/AxisAlignedBB/maxY
@@ -1666,6 +1672,7 @@ FD: ov/e net/minecraft/src/Packet52MultiBlockChange/metadataArray
 FD: oz/e net/minecraft/src/WorldProvider/field_6478_e
 FD: pg/e net/minecraft/src/PlayerControllerMP/field_9443_e
 FD: po/e net/minecraft/src/WorldChunkManager/field_4194_e
+FD: pp/e net/minecraft/src/EntityFX/particleAge
 FD: px/e net/minecraft/src/ChunkProviderGenerate/field_4184_e
 FD: py/e net/minecraft/src/Packet59ComplexEntity/entityNBT
 FD: qd/e net/minecraft/src/EntityMinecart/fuel

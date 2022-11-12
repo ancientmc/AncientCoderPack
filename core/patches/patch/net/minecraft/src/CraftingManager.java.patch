@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/CraftingManager.java
++++ b/net/minecraft/src/CraftingManager.java
+@@ -106,7 +106,7 @@
+       for(int j1 = 0; j1 < j * k; ++j1) {
+          char c0 = s.charAt(j1);
+          if (hashmap.containsKey(c0)) {
+-            aint[j1] = hashmap.get(c0);
++            aint[j1] = ((Integer)hashmap.get(Character.valueOf(c0))).intValue();
+          } else {
+             aint[j1] = -1;
+          }

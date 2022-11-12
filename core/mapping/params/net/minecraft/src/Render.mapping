@@ -1,16 +1,16 @@
 CLASS net/minecraft/src/Render
 	METHOD doRender (Lnet/minecraft/src/Entity;DDDFF)V
 		ARG 1 entity
-		ARG 2 xCoord
-		ARG 4 yCoord
-		ARG 6 zCoord
+		ARG 2 posX
+		ARG 4 posY
+		ARG 6 posZ
 		ARG 8 yaw
 		ARG 9 partialTickTime
 	METHOD doRenderShadowAndFire (Lnet/minecraft/src/Entity;DDDFF)V
 		ARG 1 entity
-		ARG 2 xCoord
-		ARG 4 yCoord
-		ARG 6 zCoord
+		ARG 2 coordX
+		ARG 4 coordY
+		ARG 6 coordZ
 		ARG 8 rotationYaw
 		ARG 9 partialTickTime
 	METHOD func_140_a (Ljava/lang/String;Ljava/lang/String;)V
@@ -22,20 +22,20 @@ CLASS net/minecraft/src/Render
 		ARG 0 axisAlignedBB
 	METHOD renderEntityOnFire (Lnet/minecraft/src/Entity;DDDF)V
 		ARG 1 entity
-		ARG 2 xCoord
-		ARG 4 yCoord
-		ARG 6 zCoord
+		ARG 2 coordX
+		ARG 4 coordY
+		ARG 6 coordZ
 		ARG 8 partialTickTime
 	METHOD renderOffsetAABB (Lnet/minecraft/src/AxisAlignedBB;DDD)V
 		ARG 0 axisAlignedBB
-		ARG 1 xCoord
-		ARG 3 yCoord
-		ARG 5 zCoord
+		ARG 1 coordX
+		ARG 3 coordY
+		ARG 5 coordZ
 	METHOD renderShadow (Lnet/minecraft/src/Entity;DDDFF)V
 		ARG 1 entity
-		ARG 2 xCoord
-		ARG 4 yCoord
-		ARG 6 zCoord
+		ARG 2 coordX
+		ARG 4 coordY
+		ARG 6 coordZ
 		ARG 8 shadowAlpha
 		ARG 9 partialTickTime
 	METHOD renderShadowOnBlock (Lnet/minecraft/src/Block;DDDIIIFFDDD)V

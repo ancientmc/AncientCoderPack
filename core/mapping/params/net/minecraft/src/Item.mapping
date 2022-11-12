@@ -35,4 +35,4 @@ CLASS net/minecraft/src/Item
 		ARG 6 pInt2
 		ARG 7 pInt3
 	METHOD setIconIndex (I)Lnet/minecraft/src/Item;
-		ARG 1 iconIndesx
+		ARG 1 iconIndex

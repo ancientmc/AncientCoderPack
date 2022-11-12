@@ -1,0 +1,20 @@
+--- a/net/minecraft/src/RenderSlime.java
++++ b/net/minecraft/src/RenderSlime.java
+@@ -10,7 +10,7 @@
+       this.field_205_f = p_i156_2_;
+    }
+ 
+-   protected boolean func_166_a(EntitySlime entityLiving, int pInt) {
++   protected boolean func_179_a(EntitySlime entityLiving, int pInt) {
+       if (pInt == 0) {
+          this.func_4013_a(this.field_205_f);
+          GL11.glEnable(2977);
+@@ -27,7 +27,7 @@
+       }
+    }
+ 
+-   protected void func_6330_a(EntitySlime entityLiving, float pFloat) {
++   protected void func_178_a(EntitySlime entityLiving, float pFloat) {
+       float f = (entityLiving.field_767_b + (entityLiving.field_768_a - entityLiving.field_767_b) * pFloat) / ((float)entityLiving.field_770_c * 0.5F + 1.0F);
+       float f1 = 1.0F / (f + 1.0F);
+       float f2 = (float)entityLiving.field_770_c;

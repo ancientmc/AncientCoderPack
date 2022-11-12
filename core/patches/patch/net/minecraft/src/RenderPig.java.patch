@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/RenderPig.java
++++ b/net/minecraft/src/RenderPig.java
+@@ -6,7 +6,7 @@
+       this.func_4013_a(p_i152_2_);
+    }
+ 
+-   protected boolean func_166_a(EntityPig entityLiving, int pInt) {
++   protected boolean func_180_a(EntityPig entityLiving, int pInt) {
+       this.loadTexture("/mob/saddle.png");
+       return pInt == 0 && entityLiving.rideable;
+    }

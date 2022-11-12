@@ -1,0 +1,19 @@
+Commit notes 11/11/22
+
+Changelog
+- created patch files using DiffPatch by Forge
+- more params
+- added a main task of sorts called runRCP, which will launch the decompilation process.
+- Created a class called RCPJavaExec which allows me to set a destination for java gradle tasks. This allows me to
+connect a lot of the tasks together. I don't really know how to explain it that well, so take a look in the build file to get
+a better understanding.
+- Other updates in the build.gradle file.
+- Other stuff.
+
+KNOWN BUGS/THINGS TO LOOK OUT FOR
+- Fernflower struggles to decompile a few methods here and there. Most of these can get patched out, but there's a few methods
+in Minecraft.java that only decompile sometimes. This inconsistency means that the patch files will break occasionally, stopping the whole
+process. This is extremely frustrating, and I will look into it further. I believe the main culprit is the getAppDir method.
+- There's some output errors when the game is running, but they don't really affect anything as far as I know.
+- I've noticed a rendering issue with the clouds in-game. I'll test if this is an issue that is occuring on RCP's end, or
+Minecraft's.

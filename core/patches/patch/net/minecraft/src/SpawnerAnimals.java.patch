@@ -1,0 +1,10 @@
+--- a/net/minecraft/src/SpawnerAnimals.java
++++ b/net/minecraft/src/SpawnerAnimals.java
+@@ -68,6 +68,7 @@
+                                     float f5 = f2 - (float)world.spawnZ;
+                                     float f6 = f3 * f3 + f4 * f4 + f5 * f5;
+                                     if (!(f6 < 576.0F)) {
++									   EntityLiving entityliving;
+                                        try {
+                                           entityliving = (EntityLiving)aclass[j1].getConstructor(World.class).newInstance(world);
+                                        } catch (Exception exception) {

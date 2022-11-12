@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/RecipeSorter.java
++++ b/net/minecraft/src/RecipeSorter.java
+@@ -10,7 +10,7 @@
+       this.field_1557_a = craftingManager;
+    }
+ 
+-   public int compare(CraftingRecipe craftingRecipe, CraftingRecipe craftingRecipe1) {
++   public int func_1040_a(CraftingRecipe craftingRecipe, CraftingRecipe craftingRecipe1) {
+       if (craftingRecipe1.getRecipeSize() < craftingRecipe.getRecipeSize()) {
+          return -1;
+       } else {

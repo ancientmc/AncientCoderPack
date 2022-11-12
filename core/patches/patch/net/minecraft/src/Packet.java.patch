@@ -1,0 +1,20 @@
+--- a/net/minecraft/src/Packet.java
++++ b/net/minecraft/src/Packet.java
+@@ -34,7 +34,7 @@
+    }
+ 
+    public final int getPacketId() {
+-      return packetClassToIdMap.get(this.getClass());
++      return ((Integer)packetClassToIdMap.get(getClass())).intValue();
+    }
+ 
+    public static Packet readPacket(DataInputStream dataInputstream) throws IOException {
+@@ -44,7 +44,7 @@
+       } else {
+          Packet packet = getNewPacket(i);
+          if (packet == null) {
+-            throw new IOException("Bad packet id " + i);
++            throw new IOException((new StringBuilder()).append("Bad packet id ").append(i).toString());
+          } else {
+             packet.readPacketData(dataInputstream);
+             return packet;

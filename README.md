@@ -1,4 +1,5 @@
-THIS CURRENTLY DOES NOT WORK. Several components are being rewritten.
+This currently works, mostly. There's a decompiler bug that only occurs some of the time which interrupts the decompilation
+process, so some work still needs to be done.
 
 **What is the Retro Coder Pack?**
 
@@ -11,7 +12,7 @@ tool for people to learn about the history of Minecraft.
 **What tools are used for RCP?**
 
 I originally created this project directly including and using files from the Mod Coder Pack version 2.5, but due to MCP's license 
-I have been moving away from these in favor of more modern tools. RCP does use some tools developed by 
+and the age of the tools I have been moving away from these in favor of more modern tools. RCP does use some tools developed by 
 OceanLabs, MinecraftForge, and FabricMC, but these are Maven dependencies that are publicly available for others.
 The only tool directly included is McAssetExtractor, a forked tool originally developed by GitHub user rhmeuer.
 
@@ -22,10 +23,7 @@ and what they do:
 - MCInjector by OceanLabs/MCP: Adding exceptions for methods. [GitHub](https://github.com/ModCoderPack/MCInjector).
 - Enigma by cuchaz, fork by FabricMC: Parameter name deobfuscation. [GitHub](https://github.com/FabricMC/Enigma).
 - Fernflower by JetBrains, fork by MinecraftForge: Decompilation, Local variable naming. [GitHub](https://github.com/MinecraftForge/FernFlower).
-- ApplyDiff.exe by (I believe) GNU: Applying diff patches to make everything run. Right now the patch files and the actual
-executable are currently excluded because a) they're no longer compatible with the current setup and b) licensing. You can still see 
-them mentioned in the gradle. Eventually another DiffPatch plugin (likely the one from Forge) will be used instead, and new patch files
-will be created. No GitHub for this one.
+- DiffPatch by CBProject, fork by MinecraftForge: Patching source files to eliminate errors. [GitHub](https://github.com/TheCBProject/DiffPatch).
 - McAssetExtractor by rhmeuer, fork by me: extracting the run-time assets (not the ones from the client JAR) from Mojang's servers 
 into the workspace. [Original GitHub](https://github.com/rmheuer/McAssetExtractor). [Forked GitHub](https://github.com/moist-mason/McAssetExtractor).
 
@@ -35,7 +33,7 @@ For methods, classes, and fields, RCP uses SRG files. The SRG file for Minecraft
 a team that currently develops a much older, similar project to RCP known as RetroMCP. Currently, RetroMCP uses Tinyv2
 mappings for its build process. The SRG files that I am using are from a now-defunct version of RetroMCP that you can
 view [here](https://github.com/MCPHackers/RetroMCP). I intend on adding to these mappings by filling in unnamed fields
-and methods (func_101_a --> myMethod).
+and methods (so something like 'func_101_a' would turn into 'myMethod').
 
 For parameters, RCP uses Enigma. Aside from an older version of MCInjector (that RCP doesn't use), Enigma is pretty much the only 
 deobfuscator/bytecode editor, that I know of, that allows for direct editing of parameter names. Lack of options and Enigma's 

@@ -1,0 +1,52 @@
+--- a/net/minecraft/src/ChunkLoader.java
++++ b/net/minecraft/src/ChunkLoader.java
+@@ -3,6 +3,7 @@
+ import java.io.File;
+ import java.io.FileInputStream;
+ import java.io.FileOutputStream;
++import java.util.Iterator;
+ 
+ public class ChunkLoader implements IChunkLoader {
+    private File saveDir;
+@@ -100,8 +101,39 @@
+ 
+    }
+ 
+-   public void storeChunkInCompound(Chunk var1, World var2, NBTTagCompound var3) {
+-      // $FF: Couldn't be decompiled
++   public void storeChunkInCompound(Chunk chunk, World world, NBTTagCompound nbtTagCompound) {
++      world.func_663_l();
++      nbtTagCompound.setInteger("xPos", chunk.xPosition);
++      nbtTagCompound.setInteger("zPos", chunk.zPosition);
++      nbtTagCompound.setLong("LastUpdate", world.worldTime);
++      nbtTagCompound.setByteArray("Blocks", chunk.blocks);
++      nbtTagCompound.setByteArray("Data", chunk.data.data);
++      nbtTagCompound.setByteArray("SkyLight", chunk.skylightMap.data);
++      nbtTagCompound.setByteArray("BlockLight", chunk.blocklightMap.data);
++      nbtTagCompound.setByteArray("HeightMap", chunk.heightMap);
++      nbtTagCompound.setBoolean("TerrainPopulated", chunk.isTerrainPopulated);
++      chunk.hasEntities = false;
++      NBTTagList nbttaglist = new NBTTagList();
++      for(int i = 0; i < chunk.entities.length; i++) {
++         Iterator iterator = chunk.entities[i].iterator();
++         Entity entity = (Entity)iterator.next();
++         chunk.hasEntities = true;
++         NBTTagCompound nbttagcompound1 = new NBTTagCompound();
++         if(entity.func_358_c(nbttagcompound1)) {
++            nbttaglist.setTag(nbttagcompound1);
++         }
++      }
++
++      nbtTagCompound.setTag("Entities", nbttaglist);
++      NBTTagList nbttaglist1 = new NBTTagList();
++      NBTTagCompound nbttagcompound2;
++      for(Iterator iterator1 = chunk.chunkTileEntityMap.values().iterator(); iterator1.hasNext(); nbttaglist1.setTag(nbttagcompound2)) {
++         TileEntity tileentity = (TileEntity)iterator1.next();
++         nbttagcompound2 = new NBTTagCompound();
++         tileentity.writeToNBT(nbttagcompound2);
++      }
++
++      nbtTagCompound.setTag("TileEntities", nbttaglist1);
+    }
+ 
+    public static Chunk loadChunkIntoWorldFromCompound(World world, NBTTagCompound nbtTagCompound) {

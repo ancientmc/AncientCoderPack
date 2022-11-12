@@ -3,7 +3,7 @@
  * This string gets used by the main gradle for several tasks.
  */
 
-package com.entropy.rcp
+package com.entropy.rcp.utils
 
 import org.gradle.internal.os.OperatingSystem
 

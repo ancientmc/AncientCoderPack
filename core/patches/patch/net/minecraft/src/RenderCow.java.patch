@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/RenderCow.java
++++ b/net/minecraft/src/RenderCow.java
+@@ -5,7 +5,7 @@
+       super(mainModel, pFloat);
+    }
+ 
+-   public void func_171_a(EntityCow entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
++   public void func_177_a(EntityCow entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
+       super.func_171_a(entity, posX, posY, posZ, yaw, partialTickTime);
+    }
+ 

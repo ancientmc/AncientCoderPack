@@ -6,18 +6,18 @@ CLASS net/minecraft/src/Gui
 		ARG 4 pInt1
 		ARG 5 pInt2
 	METHOD drawGradientRect (IIIIII)V
-		ARG 1 pInt
-		ARG 2 pInt1
-		ARG 3 pInt2
-		ARG 4 pInt3
-		ARG 5 pInt4
-		ARG 6 pInt5
+		ARG 1 corner1
+		ARG 2 corner2
+		ARG 3 corner3
+		ARG 4 corner4
+		ARG 5 color
+		ARG 6 gradient
 	METHOD drawRect (IIIII)V
-		ARG 1 pInt
-		ARG 2 pInt1
-		ARG 3 pInt2
-		ARG 4 pInt3
-		ARG 5 pInt4
+		ARG 1 corner1
+		ARG 2 corner2
+		ARG 3 corner3
+		ARG 4 corner4
+		ARG 5 color
 	METHOD drawString (Lnet/minecraft/src/FontRenderer;Ljava/lang/String;III)V
 		ARG 1 fontRenderer
 		ARG 2 pString
@@ -25,9 +25,9 @@ CLASS net/minecraft/src/Gui
 		ARG 4 pInt1
 		ARG 5 pInt2
 	METHOD drawTexturedModalRect (IIIIII)V
-		ARG 1 pInt
-		ARG 2 pInt1
-		ARG 3 pInt2
-		ARG 4 pInt3
+		ARG 1 corner1
+		ARG 2 corner2
+		ARG 3 corner3
+		ARG 4 corner4
 		ARG 5 pInt4
 		ARG 6 pInt5
