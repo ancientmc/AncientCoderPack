@@ -1,0 +1,8 @@
+CLASS net/minecraft/src/InventoryCrafting
+	METHOD <init> (Lnet/minecraft/src/CraftingInventoryCB;II)V
+		ARG 1 eventHandler
+		ARG 2 pInt
+		ARG 3 pInt1
+	METHOD <init> (Lnet/minecraft/src/CraftingInventoryCB;[Lnet/minecraft/src/ItemStack;)V
+		ARG 1 eventHandler
+		ARG 2 stackList

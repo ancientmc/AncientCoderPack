@@ -1,0 +1,7 @@
+CLASS net/minecraft/src/GuiSelectWorld
+	METHOD <init> (Lnet/minecraft/src/GuiScreen;)V
+		ARG 1 guiScreen
+	METHOD getWorldName (I)Ljava/lang/String;
+		ARG 1 worldValue
+	METHOD selectWorld (I)V
+		ARG 1 worldValue

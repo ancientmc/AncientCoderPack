@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/GuiEditSign
+	METHOD <init> (Lnet/minecraft/src/TileEntitySign;)V
+		ARG 1 entitySign

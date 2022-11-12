@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/RenderSorter
+	METHOD <init> (Lnet/minecraft/src/EntityPlayer;)V
+		ARG 1 entityPlayer
+	METHOD compare (Ljava/lang/Object;Ljava/lang/Object;)I
+		ARG 1 worldRenderer
+		ARG 2 worldRenderer1

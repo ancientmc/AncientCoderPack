@@ -1,0 +1,11 @@
+CLASS net/minecraft/src/RenderPainting
+	METHOD func_159_a (Lnet/minecraft/src/EntityPainting;IIII)V
+		ARG 1 entityPainting
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2
+		ARG 5 pInt3
+	METHOD func_160_a (Lnet/minecraft/src/EntityPainting;FF)V
+		ARG 1 entityPainting
+		ARG 2 pFloat
+		ARG 3 pFloat1

@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/ItemDoor
+	METHOD <init> (ILnet/minecraft/src/Material;)V
+		ARG 1 itemID
+		ARG 2 material

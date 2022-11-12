@@ -1,0 +1,7 @@
+CLASS net/minecraft/src/SpawnerAnimals
+	METHOD getRandomSpawningPointInChunk (Lnet/minecraft/src/World;II)Lnet/minecraft/src/ChunkPosition;
+		ARG 0 world
+		ARG 1 posX
+		ARG 2 posZ
+	METHOD performSpawning (Lnet/minecraft/src/World;)I
+		ARG 0 world

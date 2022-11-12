@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/ItemArmor
+	METHOD <init> (IIII)V
+		ARG 1 itemID
+		ARG 2 armorLevel
+		ARG 3 renderIndex
+		ARG 4 armorType

@@ -1,0 +1,8 @@
+CLASS net/minecraft/src/GuiContainer
+	METHOD drawGuiContainerBackgroundLayer (F)V
+		ARG 1 pFloat
+	METHOD drawSlotInventory (Lnet/minecraft/src/SlotInventory;)V
+		ARG 1 slotInventory
+	METHOD getSlotAtPosition (II)Lnet/minecraft/src/Slot;
+		ARG 1 posX
+		ARG 2 posY

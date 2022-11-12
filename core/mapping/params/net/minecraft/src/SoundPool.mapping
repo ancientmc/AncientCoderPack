@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/SoundPool
+	METHOD addSound (Ljava/lang/String;Ljava/io/File;)Lnet/minecraft/src/SoundPoolEntry;
+		ARG 1 soundName
+		ARG 2 soundFile
+	METHOD getRandomSoundFromSoundPool (Ljava/lang/String;)Lnet/minecraft/src/SoundPoolEntry;
+		ARG 1 soundName

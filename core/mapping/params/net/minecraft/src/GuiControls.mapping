@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/GuiControls
+	METHOD <init> (Lnet/minecraft/src/GuiScreen;Lnet/minecraft/src/GameSettings;)V
+		ARG 1 parentScreen
+		ARG 2 options

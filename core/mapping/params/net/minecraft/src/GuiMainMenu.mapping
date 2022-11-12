@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/GuiMainMenu
+	METHOD drawLogo (F)V
+		ARG 1 pFloat

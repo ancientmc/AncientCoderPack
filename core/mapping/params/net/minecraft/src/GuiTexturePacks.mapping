@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/GuiTexturePacks
+	METHOD func_6452_a (IIII)V
+		ARG 1 pInt
+		ARG 2 pInt1
+		ARG 3 pInt2
+		ARG 4 pInt3

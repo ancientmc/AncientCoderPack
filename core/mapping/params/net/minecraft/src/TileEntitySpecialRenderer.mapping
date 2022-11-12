@@ -1,0 +1,11 @@
+CLASS net/minecraft/src/TileEntitySpecialRenderer
+	METHOD bindTextureByName (Ljava/lang/String;)V
+		ARG 1 textureName
+	METHOD renderTileEntityAt (Lnet/minecraft/src/TileEntity;DDDF)V
+		ARG 1 tileEntity
+		ARG 2 coordX
+		ARG 4 coordY
+		ARG 6 coordZ
+		ARG 8 pFloat
+	METHOD setTileEntityRenderer (Lnet/minecraft/src/TileEntityRenderer;)V
+		ARG 1 tileEntityRenderer

@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/SoundPoolEntry
+	METHOD <init> (Ljava/lang/String;Ljava/net/URL;)V
+		ARG 1 soundName
+		ARG 2 soundURL

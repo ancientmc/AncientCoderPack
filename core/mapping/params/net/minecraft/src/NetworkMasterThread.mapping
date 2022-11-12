@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/NetworkMasterThread
+	METHOD <init> (Lnet/minecraft/src/NetworkManager;)V
+		ARG 1 netManager
