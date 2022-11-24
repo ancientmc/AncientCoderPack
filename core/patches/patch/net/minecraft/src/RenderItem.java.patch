@@ -1,11 +1,11 @@
 --- a/net/minecraft/src/RenderItem.java
 +++ b/net/minecraft/src/RenderItem.java
 @@ -12,7 +12,7 @@
-       this.field_194_c = 0.75F;
+       this.shadowOpaque = 0.75F;
     }
  
 -   public void doRender(EntityItem entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
-+   public void func_165_a(EntityItem entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
++   public void doRenderItem(EntityItem entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
        this.random.setSeed(187L);
        ItemStack itemstack = entity.item;
        GL11.glPushMatrix();

@@ -1,27 +1,27 @@
 CLASS net/minecraft/src/RenderLiving
 	METHOD <init> (Lnet/minecraft/src/ModelBase;F)V
-		ARG 1 mainModel
-		ARG 2 pFloat
-	METHOD func_166_a (Lnet/minecraft/src/EntityLiving;I)Z
-		ARG 1 entityLiving
-		ARG 2 pInt
-	METHOD func_167_c (Lnet/minecraft/src/EntityLiving;F)F
-		ARG 1 entityLiving
-		ARG 2 pFloat
-	METHOD func_170_d (Lnet/minecraft/src/EntityLiving;F)F
-		ARG 1 entityLiving
-		ARG 2 pFloat
-	METHOD func_172_a (Lnet/minecraft/src/EntityLiving;)F
-		ARG 1 entityLiving
-	METHOD func_173_a (Lnet/minecraft/src/EntityLiving;FF)I
+		ARG 1 renderBlocks
+		ARG 2 shadowSize
+	METHOD getColorMultiplier (Lnet/minecraft/src/EntityLiving;FF)I
 		ARG 1 entityLiving
 		ARG 2 pFloat
 		ARG 3 pFloat1
-	METHOD func_4013_a (Lnet/minecraft/src/ModelBase;)V
+	METHOD getDeathMaxRotation (Lnet/minecraft/src/EntityLiving;)F
+		ARG 1 entityLiving
+	METHOD handleRotationFloat (Lnet/minecraft/src/EntityLiving;F)F
+		ARG 1 entityLiving
+		ARG 2 pFloat
+	METHOD preRenderCallback (Lnet/minecraft/src/EntityLiving;F)V
+		ARG 1 entityLiving
+		ARG 2 pFloat
+	METHOD renderEquippedItems (Lnet/minecraft/src/EntityLiving;F)V
+		ARG 1 entityLiving
+		ARG 2 pFloat
+	METHOD renderSwingProgress (Lnet/minecraft/src/EntityLiving;F)F
+		ARG 1 entityLiving
+		ARG 2 pFloat
+	METHOD setRenderPassModel (Lnet/minecraft/src/ModelBase;)V
 		ARG 1 modelBase
-	METHOD func_6330_a (Lnet/minecraft/src/EntityLiving;F)V
+	METHOD shouldRenderPass (Lnet/minecraft/src/EntityLiving;I)Z
 		ARG 1 entityLiving
-		ARG 2 pFloat
-	METHOD func_6331_b (Lnet/minecraft/src/EntityLiving;F)V
-		ARG 1 entityLiving
-		ARG 2 pFloat
+		ARG 2 pInt

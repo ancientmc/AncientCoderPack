@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/NBTTagLong
+	METHOD <init> (J)V
+		ARG 1 data

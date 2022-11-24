@@ -19,3 +19,13 @@ CLASS net/minecraft/src/EntityFX
 		ARG 7 pFloat5
 	METHOD func_407_b (F)Lnet/minecraft/src/EntityFX;
 		ARG 1 pFloat
+	METHOD multiplyVelocity (F)Lnet/minecraft/src/EntityFX;
+		ARG 1 multiplier
+	METHOD renderParticle (Lnet/minecraft/src/Tessellator;FFFFFF)V
+		ARG 1 tessellator
+		ARG 2 pFloat
+		ARG 3 pFloat1
+		ARG 4 pFloat2
+		ARG 5 pFloat3
+		ARG 6 pFloat4
+		ARG 7 pFloat5

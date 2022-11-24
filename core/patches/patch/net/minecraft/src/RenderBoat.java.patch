@@ -1,11 +1,11 @@
 --- a/net/minecraft/src/RenderBoat.java
 +++ b/net/minecraft/src/RenderBoat.java
 @@ -10,7 +10,7 @@
-       this.field_198_d = new ModelBoat();
+       this.modelBoat = new ModelBoat();
     }
  
 -   public void doRender(EntityBoat entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
-+   public void func_157_a(EntityBoat entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
++   public void renderBoat(EntityBoat entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
        GL11.glPushMatrix();
        GL11.glTranslatef((float)posX, (float)posY, (float)posZ);
        GL11.glRotatef(180.0F - yaw, 0.0F, 1.0F, 0.0F);

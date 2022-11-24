@@ -7,3 +7,7 @@ CLASS net/minecraft/src/BlockMinecartTrack
 		ARG 2 pInt
 		ARG 3 pInt1
 		ARG 4 pInt2
+	METHOD refreshTrackShape (Lnet/minecraft/src/World;III)V
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ

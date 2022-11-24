@@ -1,16 +1,16 @@
 --- a/net/minecraft/src/RenderSpider.java
 +++ b/net/minecraft/src/RenderSpider.java
 @@ -8,11 +8,11 @@
-       this.func_4013_a(new ModelSpider());
+       this.setRenderPassModel(new ModelSpider());
     }
  
--   protected float func_172_a(EntitySpider entityLiving) {
-+   protected float func_191_a(EntitySpider entityLiving) {
+-   protected float getDeathMaxRotation(EntitySpider entityLiving) {
++   protected float setSpiderDeathMaxRotation(EntitySpider entityLiving) {
        return 180.0F;
     }
  
--   protected boolean func_166_a(EntitySpider entityLiving, int pInt) {
-+   protected boolean func_190_a(EntitySpider entityLiving, int pInt) {
+-   protected boolean shouldRenderPass(EntitySpider entityLiving, int pInt) {
++   protected boolean setSpiderEyeBrightness(EntitySpider entityLiving, int pInt) {
        if (pInt != 0) {
           return false;
        } else if (pInt != 0) {

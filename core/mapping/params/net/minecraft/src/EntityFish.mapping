@@ -7,6 +7,12 @@ CLASS net/minecraft/src/EntityFish
 	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/EntityPlayer;)V
 		ARG 1 world
 		ARG 2 entityPlayer
+	METHOD calculateVelocity (DDDFF)V
+		ARG 1 pDouble
+		ARG 3 pDouble1
+		ARG 5 pDouble2
+		ARG 7 pFloat
+		ARG 8 pFloat1
 	METHOD func_4042_a (DDDFF)V
 		ARG 1 pDouble
 		ARG 3 pDouble1

@@ -2,10 +2,10 @@
 +++ b/net/minecraft/src/TileEntityMobSpawnerRenderer.java
 @@ -7,7 +7,7 @@
  public class TileEntityMobSpawnerRenderer extends TileEntitySpecialRenderer {
-    private Map field_1412_b = new HashMap();
+    private Map entityHashMap = new HashMap();
  
 -   public void renderTileEntityAt(TileEntityMobSpawner tileEntity, double coordX, double coordY, double coordZ, float pFloat) {
-+   public void func_931_a(TileEntityMobSpawner tileEntity, double coordX, double coordY, double coordZ, float pFloat) {
++   public void renderTileEntityMobSpawner(TileEntityMobSpawner tileEntity, double coordX, double coordY, double coordZ, float pFloat) {
        GL11.glPushMatrix();
        GL11.glTranslatef((float)coordX + 0.5F, (float)coordY, (float)coordZ + 0.5F);
-       Entity entity = (Entity)this.field_1412_b.get(tileEntity.entityID);
+       Entity entity = (Entity)this.entityHashMap.get(tileEntity.mobID);

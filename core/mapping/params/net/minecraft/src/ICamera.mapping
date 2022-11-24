@@ -5,3 +5,9 @@ CLASS net/minecraft/src/ICamera
 		ARG 1 pDouble
 		ARG 3 pDouble1
 		ARG 5 pDouble2
+	METHOD isBoundingBoxInFrustum (Lnet/minecraft/src/AxisAlignedBB;)Z
+		ARG 1 axisAlignedBB
+	METHOD setPosition (DDD)V
+		ARG 1 xPosition
+		ARG 3 yPosition
+		ARG 5 zPosition

@@ -1,4 +1,9 @@
 CLASS net/minecraft/src/IWorldAccess
+	METHOD doNothingWithTileEntity (IIILnet/minecraft/src/TileEntity;)V
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
+		ARG 4 tileEntity
 	METHOD func_934_a (III)V
 		ARG 1 pInt
 		ARG 2 pInt1
@@ -15,6 +20,17 @@ CLASS net/minecraft/src/IWorldAccess
 		ARG 4 pInt3
 		ARG 5 pInt4
 		ARG 6 pInt5
+	METHOD markBlockNeedsUpdate (III)V
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
+	METHOD markBlockRangeNeedsUpdate (IIIIII)V
+		ARG 1 minX
+		ARG 2 minY
+		ARG 3 minZ
+		ARG 4 maxX
+		ARG 5 maxY
+		ARG 6 maxZ
 	METHOD obtainEntitySkin (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
 	METHOD playRecord (Ljava/lang/String;III)V

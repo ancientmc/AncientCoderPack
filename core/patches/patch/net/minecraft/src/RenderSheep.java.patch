@@ -1,11 +1,11 @@
 --- a/net/minecraft/src/RenderSheep.java
 +++ b/net/minecraft/src/RenderSheep.java
 @@ -6,7 +6,7 @@
-       this.func_4013_a(p_i316_2_);
+       this.setRenderPassModel(renderPassModel);
     }
  
--   protected boolean func_166_a(EntitySheep entityLiving, int pInt) {
-+   protected boolean func_176_a(EntitySheep entityLiving, int pInt) {
+-   protected boolean shouldRenderPass(EntitySheep entityLiving, int pInt) {
++   protected boolean setWoolColorAndRender(EntitySheep entityLiving, int pInt) {
        this.loadTexture("/mob/sheep_fur.png");
        return pInt == 0 && !entityLiving.sheared;
     }

@@ -1,4 +1,4 @@
-CLASS net/minecraft/src/BlockBloodStone
+CLASS net/minecraft/src/BlockNetherrack
 	METHOD <init> (II)V
 		ARG 1 blockID
 		ARG 2 blockIndexInTexture

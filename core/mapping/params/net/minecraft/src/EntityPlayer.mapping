@@ -3,6 +3,8 @@ CLASS net/minecraft/src/EntityPlayer
 		ARG 1 entity
 	METHOD canHarvestBlock (Lnet/minecraft/src/Block;)Z
 		ARG 1 block
+	METHOD collideWithPlayer (Lnet/minecraft/src/Entity;)V
+		ARG 1 entity
 	METHOD displayGUIChest (Lnet/minecraft/src/IInventory;)V
 		ARG 1 inventory
 	METHOD displayGUIEditSign (Lnet/minecraft/src/TileEntitySign;)V
@@ -25,3 +27,8 @@ CLASS net/minecraft/src/EntityPlayer
 		ARG 1 block
 	METHOD joinEntityItemWithWorld (Lnet/minecraft/src/EntityItem;)V
 		ARG 1 entityItem
+	METHOD onItemPickup (Lnet/minecraft/src/Entity;I)V
+		ARG 1 entity
+		ARG 2 itemStackSize
+	METHOD useCurrentItemOnEntity (Lnet/minecraft/src/Entity;)V
+		ARG 1 entity

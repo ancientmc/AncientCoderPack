@@ -3,22 +3,22 @@
 @@ -430,10 +430,10 @@
           }
  
-          this.field_9287_aY *= 0.4F;
+          this.ySize *= 0.4F;
 -         l2 = this.handleWaterMovement();
 +         boolean flag2 = this.handleWaterMovement();
           if (this.worldObj.isBoundingBoxBurning(this.boundingBox)) {
-             this.func_355_a(1);
+             this.dealFireDamage(1);
 -            if (!l2) {
 +            if (!flag2) {
                 ++this.fire;
                 if (this.fire == 0) {
                    this.fire = 300;
 @@ -443,7 +443,7 @@
-             this.fire = -this.field_9310_bf;
+             this.fire = -this.fireResistance;
           }
  
 -         if (l2 && this.fire > 0) {
 +         if (flag2 && this.fire > 0) {
              this.worldObj.playSoundAtEntity(this, "random.fizz", 0.7F, 1.6F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
-             this.fire = -this.field_9310_bf;
+             this.fire = -this.fireResistance;
           }

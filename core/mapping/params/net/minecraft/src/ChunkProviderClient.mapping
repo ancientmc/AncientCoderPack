@@ -7,3 +7,6 @@ CLASS net/minecraft/src/ChunkProviderClient
 	METHOD func_539_c (II)V
 		ARG 1 pInt
 		ARG 2 pInt1
+	METHOD loadChunk (II)Lnet/minecraft/src/Chunk;
+		ARG 1 posX
+		ARG 2 posZ

@@ -11,3 +11,13 @@ CLASS net/minecraft/src/BlockSoil
 		ARG 2 pInt
 		ARG 3 pInt1
 		ARG 4 pInt2
+	METHOD isCropsNearby (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+	METHOD isWaterNearby (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ

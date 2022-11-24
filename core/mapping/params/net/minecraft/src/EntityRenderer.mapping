@@ -21,12 +21,32 @@ CLASS net/minecraft/src/EntityRenderer
 		ARG 1 pFloat
 	METHOD func_917_f (F)V
 		ARG 1 pFloat
+	METHOD getFOVModifier (F)F
+		ARG 1 pFloat
+	METHOD getMouseOver (F)V
+		ARG 1 pFloat
 	METHOD hurtCameraEffect (F)V
 		ARG 1 pFloat
 	METHOD orientCamera (F)V
 		ARG 1 cameraAngle
+	METHOD renderHand (FI)V
+		ARG 1 pFloat
+		ARG 2 pInt
+	METHOD renderWorld (F)V
+		ARG 1 pFloat
+	METHOD setFogColorBuffer (FFFF)Ljava/nio/FloatBuffer;
+		ARG 1 pFloat
+		ARG 2 pFloat1
+		ARG 3 pFloat2
+		ARG 4 pFloat3
 	METHOD setupCameraTransform (FI)V
 		ARG 1 pFloat
 		ARG 2 pInt
+	METHOD setupFog (I)V
+		ARG 1 pFloat
+	METHOD setupViewBobbing (F)V
+		ARG 1 pFloat
+	METHOD updateCameraAndRender (F)V
+		ARG 1 pFloat
 	METHOD updateFogColor (F)V
 		ARG 1 pFloat

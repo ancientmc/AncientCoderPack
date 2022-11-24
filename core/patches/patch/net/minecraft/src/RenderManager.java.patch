@@ -44,4 +44,4 @@
 +      }
     }
  
-    public Render func_4117_a(Class p_4117_1_) {
+    public Render getEntityClassRenderObject(Class entityClass) {

@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/StepSound
+	METHOD <init> (Ljava/lang/String;FF)V
+		ARG 1 stepSoundName
+		ARG 2 stepSoundVolume
+		ARG 3 stepSoundPitch

@@ -1,6 +1,9 @@
 CLASS net/minecraft/src/RenderEngine
 	METHOD allocateAndSetupTexture (Ljava/awt/image/BufferedImage;)I
 		ARG 1 bufferedImage
+	METHOD alphaBlend (II)I
+		ARG 1 color1
+		ARG 2 color2
 	METHOD averageColor (II)I
 		ARG 1 color1
 		ARG 2 color2

@@ -15,7 +15,7 @@
 -   public void storeChunkInCompound(Chunk var1, World var2, NBTTagCompound var3) {
 -      // $FF: Couldn't be decompiled
 +   public void storeChunkInCompound(Chunk chunk, World world, NBTTagCompound nbtTagCompound) {
-+      world.func_663_l();
++      world.checkSessionLock();
 +      nbtTagCompound.setInteger("xPos", chunk.xPosition);
 +      nbtTagCompound.setInteger("zPos", chunk.zPosition);
 +      nbtTagCompound.setLong("LastUpdate", world.worldTime);
@@ -32,15 +32,15 @@
 +         Entity entity = (Entity)iterator.next();
 +         chunk.hasEntities = true;
 +         NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-+         if(entity.func_358_c(nbttagcompound1)) {
-+            nbttaglist.setTag(nbttagcompound1);
++         if(entity.addEntityID(nbttagcompound1)) {
++            nbttaglist.appendTag(nbttagcompound1);
 +         }
 +      }
 +
 +      nbtTagCompound.setTag("Entities", nbttaglist);
 +      NBTTagList nbttaglist1 = new NBTTagList();
 +      NBTTagCompound nbttagcompound2;
-+      for(Iterator iterator1 = chunk.chunkTileEntityMap.values().iterator(); iterator1.hasNext(); nbttaglist1.setTag(nbttagcompound2)) {
++      for(Iterator iterator1 = chunk.chunkTileEntityMap.values().iterator(); iterator1.hasNext(); nbttaglist1.appendTag(nbttagcompound2)) {
 +         TileEntity tileentity = (TileEntity)iterator1.next();
 +         nbttagcompound2 = new NBTTagCompound();
 +         tileentity.writeToNBT(nbttagcompound2);

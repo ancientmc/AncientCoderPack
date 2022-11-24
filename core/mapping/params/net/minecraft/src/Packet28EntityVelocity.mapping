@@ -1,0 +1,8 @@
+CLASS net/minecraft/src/Packet28EntityVelocity
+	METHOD <init> (IDDD)V
+		ARG 1 entityId
+		ARG 2 valueX
+		ARG 4 valueY
+		ARG 6 valueZ
+	METHOD <init> (Lnet/minecraft/src/Entity;)V
+		ARG 1 entity

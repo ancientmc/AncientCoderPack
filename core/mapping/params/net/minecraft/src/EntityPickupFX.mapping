@@ -1,6 +1,6 @@
 CLASS net/minecraft/src/EntityPickupFX
 	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/Entity;Lnet/minecraft/src/Entity;F)V
 		ARG 1 world
-		ARG 2 entity
-		ARG 3 entity1
-		ARG 4 pFloat
+		ARG 2 entityToPickUp
+		ARG 3 entityPickingUp
+		ARG 4 yoffs

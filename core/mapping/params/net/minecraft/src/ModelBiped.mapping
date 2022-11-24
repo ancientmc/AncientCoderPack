@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/ModelBiped
+	METHOD <init> (F)V
+		ARG 1 pFloat
+	METHOD <init> (FF)V
+		ARG 1 pFloat
+		ARG 2 pFloat1

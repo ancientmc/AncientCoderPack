@@ -6,3 +6,7 @@ CLASS net/minecraft/src/EntityCreature
 		ARG 1 pInt
 		ARG 2 pInt1
 		ARG 3 pInt2
+	METHOD getBlockPathWeight (III)F
+		ARG 1 pInt
+		ARG 2 pInt1
+		ARG 3 pInt2

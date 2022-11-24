@@ -13,3 +13,9 @@ CLASS net/minecraft/src/EntitySnowball
 		ARG 5 pDouble2
 		ARG 7 pFloat
 		ARG 8 pFloat1
+	METHOD setSnowballHeading (DDDFF)V
+		ARG 1 pDouble
+		ARG 3 pDouble1
+		ARG 5 pDouble2
+		ARG 7 pFloat
+		ARG 8 pFloat1

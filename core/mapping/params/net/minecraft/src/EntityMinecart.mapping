@@ -4,7 +4,7 @@ CLASS net/minecraft/src/EntityMinecart
 		ARG 2 posX
 		ARG 4 posY
 		ARG 6 posZ
-		ARG 8 pInt
+		ARG 8 entityRiderPitchDelta
 	METHOD func_514_g (DDD)Lnet/minecraft/src/Vec3D;
 		ARG 1 pDouble
 		ARG 3 pDouble1

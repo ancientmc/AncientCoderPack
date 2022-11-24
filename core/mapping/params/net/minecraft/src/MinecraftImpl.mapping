@@ -1,0 +1,9 @@
+CLASS net/minecraft/src/MinecraftImpl
+	METHOD <init> (Ljava/awt/Component;Ljava/awt/Canvas;Lnet/minecraft/client/MinecraftApplet;IIZLjava/awt/Frame;)V
+		ARG 1 component
+		ARG 2 mcCanvas
+		ARG 3 mcApplet
+		ARG 4 displayWidth
+		ARG 5 displayHeight
+		ARG 6 fullscreenFlag
+		ARG 7 fullscreen

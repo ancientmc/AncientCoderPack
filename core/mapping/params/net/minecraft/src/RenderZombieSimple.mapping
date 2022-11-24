@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/RenderZombieSimple
+	METHOD <init> (Lnet/minecraft/src/ModelBase;FF)V
+		ARG 1 modelZombie
+		ARG 2 shadowSize
+		ARG 3 scale

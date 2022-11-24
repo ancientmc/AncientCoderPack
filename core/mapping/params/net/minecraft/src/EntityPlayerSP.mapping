@@ -7,6 +7,9 @@ CLASS net/minecraft/src/EntityPlayerSP
 	METHOD func_460_a (IZ)V
 		ARG 1 pInt
 		ARG 2 pFlag
+	METHOD handleKeyPress (IZ)V
+		ARG 1 key
+		ARG 2 keyState
 	METHOD sendChatMessage (Ljava/lang/String;)V
 		ARG 1 chatMessage
 	METHOD setHealth (I)V

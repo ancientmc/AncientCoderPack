@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/NBTTagDouble
+	METHOD <init> (D)V
+		ARG 1 data

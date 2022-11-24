@@ -7,9 +7,25 @@ CLASS net/minecraft/src/AxisAlignedBB
 		ARG 9 maxY
 		ARG 11 maxZ
 	METHOD addCoord (DDD)Lnet/minecraft/src/AxisAlignedBB;
-		ARG 1 xCoord
-		ARG 3 yCoord
-		ARG 5 zCoord
+		ARG 1 coordX
+		ARG 3 coordY
+		ARG 5 coordZ
+	METHOD calculateIntercept (Lnet/minecraft/src/Vec3D;Lnet/minecraft/src/Vec3D;)Lnet/minecraft/src/MovingObjectPosition;
+		ARG 1 vec3D
+		ARG 2 vec3D1
+	METHOD calculateXOffset (Lnet/minecraft/src/AxisAlignedBB;D)D
+		ARG 1 axisAlignedBB
+		ARG 2 coordX
+	METHOD calculateYOffset (Lnet/minecraft/src/AxisAlignedBB;D)D
+		ARG 1 axisAlignedBB
+		ARG 2 coordY
+	METHOD calculateZOffset (Lnet/minecraft/src/AxisAlignedBB;D)D
+		ARG 1 axisAlignedBB
+		ARG 2 coordZ
+	METHOD expand (DDD)Lnet/minecraft/src/AxisAlignedBB;
+		ARG 1 coordX
+		ARG 3 coordY
+		ARG 5 coordZ
 	METHOD expands (DDD)Lnet/minecraft/src/AxisAlignedBB;
 		ARG 1 xChange
 		ARG 3 yChange
@@ -41,9 +57,9 @@ CLASS net/minecraft/src/AxisAlignedBB
 		ARG 8 maxY
 		ARG 10 maxZ
 	METHOD getOffsetBoundingBox (DDD)Lnet/minecraft/src/AxisAlignedBB;
-		ARG 1 xOffset
-		ARG 3 yOffset
-		ARG 5 zOffset
+		ARG 1 offsetX
+		ARG 3 offsetY
+		ARG 5 offsetZ
 	METHOD intersectsWith (Lnet/minecraft/src/AxisAlignedBB;)Z
 		ARG 1 axisAlignedBB
 	METHOD isVecInXY (Lnet/minecraft/src/Vec3D;)Z
@@ -55,9 +71,9 @@ CLASS net/minecraft/src/AxisAlignedBB
 	METHOD isVecInside (Lnet/minecraft/src/Vec3D;)Z
 		ARG 1 vec3D
 	METHOD offset (DDD)Lnet/minecraft/src/AxisAlignedBB;
-		ARG 1 xOffset
-		ARG 3 yOffset
-		ARG 5 zOffset
+		ARG 1 offsetX
+		ARG 3 offsetY
+		ARG 5 offsetZ
 	METHOD setBB (Lnet/minecraft/src/AxisAlignedBB;)V
 		ARG 1 axisAlignedBB
 	METHOD setBounds (DDDDDD)Lnet/minecraft/src/AxisAlignedBB;

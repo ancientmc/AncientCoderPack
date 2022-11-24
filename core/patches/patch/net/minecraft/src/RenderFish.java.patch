@@ -5,7 +5,7 @@
  
  public class RenderFish extends Render {
 -   public void doRender(EntityFish entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
-+   public void func_4011_a(EntityFish entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
++   public void doRenderFishHook(EntityFish entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
        GL11.glPushMatrix();
        GL11.glTranslatef((float)posX, (float)posY, (float)posZ);
        GL11.glEnable(32826);

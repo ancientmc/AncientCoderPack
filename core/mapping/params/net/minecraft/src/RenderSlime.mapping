@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/RenderSlime
+	METHOD <init> (Lnet/minecraft/src/ModelBase;Lnet/minecraft/src/ModelBase;F)V
+		ARG 1 modelSlime
+		ARG 2 scaleAmount
+		ARG 3 shadowSize

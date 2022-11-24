@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/Packet59ComplexEntity
+	METHOD <init> (IIILnet/minecraft/src/TileEntity;)V
+		ARG 1 xPosition
+		ARG 2 yPosition
+		ARG 3 zPosition
+		ARG 4 tileEntity

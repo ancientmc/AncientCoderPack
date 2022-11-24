@@ -1,4 +1,10 @@
 CLASS net/minecraft/src/BlockTorch
+	METHOD <init> (II)V
+		ARG 1 blockID
+		ARG 2 blockIndexInTexture
+	METHOD dropTorchIfCantStay (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+		ARG 2 posX
 	METHOD func_271_h (Lnet/minecraft/src/World;III)Z
 		ARG 1 world
 		ARG 2 pInt

@@ -6,7 +6,7 @@
        try {
 +         String s = soundName;
           soundName = soundName.substring(0, soundName.indexOf("."));
-          if (this.field_1657_b) {
+          if (this.isGetRandomSound) {
              while(Character.isDigit(soundName.charAt(soundName.length() - 1))) {
 @@ -29,7 +30,7 @@
              this.nameToSoundPoolEntriesMapping.put(soundName, new ArrayList());

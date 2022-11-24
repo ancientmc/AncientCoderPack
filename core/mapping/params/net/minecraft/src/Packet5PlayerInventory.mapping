@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/Packet5PlayerInventory
+	METHOD <init> (I[Lnet/minecraft/src/ItemStack;)V
+		ARG 1 entityID
+		ARG 2 itemStackA

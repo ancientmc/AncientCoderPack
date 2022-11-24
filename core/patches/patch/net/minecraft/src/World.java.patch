@@ -11,9 +11,9 @@
 @@ -1543,7 +1544,58 @@
     }
  
-    protected void func_4080_j() {
+    protected void tickBlocksAndAmbiance() {
 -      // $FF: Couldn't be decompiled
-+      this.field_9427_K.clear();
++      this.activeChunkSet.clear();
 +      for(int i = 0; i < playerEntities.size(); i++) {
 +         EntityPlayer entityplayer = (EntityPlayer)playerEntities.get(i);
 +         int j = MathHelper.floor_double(entityplayer.posX / 16D);
@@ -21,22 +21,22 @@
 +         byte byte0 = 9;
 +         for(int j1 = -byte0; j1 <= byte0; j1++) {
 +            for(int i2 = -byte0; i2 <= byte0; i2++) {
-+               this.field_9427_K.add(new ChunkCoordIntPair(j1 + j, i2 + l));
++               this.activeChunkSet.add(new ChunkCoordIntPair(j1 + j, i2 + l));
 +            }
 +         }
 +      }
 +
-+      if(field_9426_L > 0) {
-+         field_9426_L--;
++      if(ambientTickCountdown > 0) {
++         ambientTickCountdown--;
 +      }
-+      for(Iterator iterator = field_9427_K.iterator(); iterator.hasNext();) {
++      for(Iterator iterator = activeChunkSet.iterator(); iterator.hasNext();) {
 +         ChunkCoordIntPair chunkcoordintpair = (ChunkCoordIntPair)iterator.next();
 +         int k = chunkcoordintpair.chunkXPos * 16;
 +         int i1 = chunkcoordintpair.chunkZPos * 16;
 +         Chunk chunk = getChunkFromChunkCoords(chunkcoordintpair.chunkXPos, chunkcoordintpair.chunkZPos);
-+         if(field_9426_L == 0) {
-+            field_9437_g = field_9437_g * 3 + field_9436_h;
-+            int k1 = field_9437_g >> 2;
++         if(ambientTickCountdown == 0) {
++            updateLCG = updateLCG * 3 + DIST_HASH_MAGIC;
++            int k1 = updateLCG >> 2;
 +            int j2 = k1 & 0xf;
 +            int l2 = k1 >> 8 & 0xf;
 +            int j3 = k1 >> 16 & 0x7f;
@@ -47,14 +47,14 @@
 +               EntityPlayer entityplayer1 = getClosestPlayer((double)j2 + 0.5D, (double)j3 + 0.5D, (double)l2 + 0.5D, 8D);
 +               if(entityplayer1 != null && entityplayer1.getDistanceSq((double)j2 + 0.5D, (double)j3 + 0.5D, (double)l2 + 0.5D) > 4D) {
 +                  playSoundEffect((double)j2 + 0.5D, (double)j3 + 0.5D, (double)l2 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + rand.nextFloat() * 0.2F);
-+                  field_9426_L = rand.nextInt(12000) + 6000;
++                  ambientTickCountdown = rand.nextInt(12000) + 6000;
 +               }
 +            }
 +         }
 +         int l1 = 0;
 +         while(l1 < 80) {
-+            field_9437_g = field_9437_g * 3 + field_9436_h;
-+            int k2 = field_9437_g >> 2;
++            updateLCG = updateLCG * 3 + DIST_HASH_MAGIC;
++            int k2 = updateLCG >> 2;
 +            int i3 = k2 & 0xf;
 +            int k3 = k2 >> 8 & 0xf;
 +            int i4 = k2 >> 16 & 0x7f;
@@ -67,4 +67,4 @@
 +      }
     }
  
-    public boolean TickUpdates(boolean pFlag) {
+    public boolean tickUpdates(boolean pFlag) {

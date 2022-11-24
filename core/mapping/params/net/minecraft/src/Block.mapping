@@ -8,62 +8,60 @@ CLASS net/minecraft/src/Block
 		ARG 2 blockMaterial
 	METHOD blockActivated (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)Z
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 entityPlayer
+	METHOD blockStrength (Lnet/minecraft/src/EntityPlayer;)F
+		ARG 1 entityPlayer
 	METHOD canBlockStay (Lnet/minecraft/src/World;III)Z
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD canCollideCheck (IZ)Z
 		ARG 1 blockMetadata
-		ARG 2 flag
+		ARG 2 pFlag
 	METHOD canPlaceBlockAt (Lnet/minecraft/src/World;III)Z
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD collisionRayTrace (Lnet/minecraft/src/World;IIILnet/minecraft/src/Vec3D;Lnet/minecraft/src/Vec3D;)Lnet/minecraft/src/MovingObjectPosition;
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 startVector
 		ARG 6 endVector
 	METHOD colorMultiplier (Lnet/minecraft/src/IBlockAccess;III)I
 		ARG 1 blockAccess
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD dropBlockAsItem (Lnet/minecraft/src/World;IIII)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 blockMetadata
 	METHOD dropBlockAsItemWithChance (Lnet/minecraft/src/World;IIIIF)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 blockMetadata
 		ARG 6 chance
-	METHOD func_225_a (Lnet/minecraft/src/EntityPlayer;)F
-		ARG 1 entityPlayer
-	METHOD func_227_a (Lnet/minecraft/src/Entity;)F
-		ARG 1 entity
 	METHOD getBlockBrightness (Lnet/minecraft/src/IBlockAccess;III)F
 		ARG 1 blockAccess
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD getBlockTexture (Lnet/minecraft/src/IBlockAccess;IIII)I
 		ARG 1 blockAccess
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 blockSide
 	METHOD getBlockTextureFromSide (I)I
 		ARG 1 blockSide
@@ -72,41 +70,43 @@ CLASS net/minecraft/src/Block
 		ARG 2 blockMetadata
 	METHOD getCollidingBoundingBoxes (Lnet/minecraft/src/World;IIILnet/minecraft/src/AxisAlignedBB;Ljava/util/ArrayList;)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 axisAlignedBB
 		ARG 6 arrayList
 	METHOD getCollisionBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB;
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+	METHOD getExplosionResistance (Lnet/minecraft/src/Entity;)F
+		ARG 1 entity
 	METHOD getSelectedBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB;
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD harvestBlock (Lnet/minecraft/src/World;IIII)V
 		ARG 1 world
-		ARG 2 pInt
-		ARG 3 pInt1
-		ARG 4 pInt2
-		ARG 5 pInt3
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+		ARG 5 blockMetadata
 	METHOD idDropped (ILjava/util/Random;)I
 		ARG 1 blockMetadata
 		ARG 2 random
 	METHOD isIndirectlyPoweringTo (Lnet/minecraft/src/World;IIII)Z
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 blockSide
 	METHOD isPoweringTo (Lnet/minecraft/src/IBlockAccess;IIII)Z
 		ARG 1 blockAccess
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 blockSide
 	METHOD isVecInsideXYBounds (Lnet/minecraft/src/Vec3D;)Z
 		ARG 1 vec3D
@@ -116,68 +116,68 @@ CLASS net/minecraft/src/Block
 		ARG 1 vec3D
 	METHOD onBlockAdded (Lnet/minecraft/src/World;III)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD onBlockClicked (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 entityPlayer
 	METHOD onBlockDestroyedByExplosion (Lnet/minecraft/src/World;III)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD onBlockDestroyedByPlayer (Lnet/minecraft/src/World;IIII)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 blockMetadata
 	METHOD onBlockPlaced (Lnet/minecraft/src/World;IIII)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 blockFacing
 	METHOD onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 entityLiving
 	METHOD onBlockRemoval (Lnet/minecraft/src/World;III)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD onEntityCollidedWithBlock (Lnet/minecraft/src/World;IIILnet/minecraft/src/Entity;)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 entity
 	METHOD onEntityWalking (Lnet/minecraft/src/World;IIILnet/minecraft/src/Entity;)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 entity
 	METHOD onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 blockID
 	METHOD quantityDropped (Ljava/util/Random;)I
 		ARG 1 random
 	METHOD randomDisplayTick (Lnet/minecraft/src/World;IIILjava/util/Random;)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 random
 	METHOD setBlockBounds (FFFFFF)V
 		ARG 1 minX
@@ -188,9 +188,9 @@ CLASS net/minecraft/src/Block
 		ARG 6 maxZ
 	METHOD setBlockBoundsBasedOnState (Lnet/minecraft/src/IBlockAccess;III)V
 		ARG 1 blockAccess
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD setHardness (F)Lnet/minecraft/src/Block;
 		ARG 1 blockHardness
 	METHOD setLightOpacity (I)Lnet/minecraft/src/Block;
@@ -205,20 +205,20 @@ CLASS net/minecraft/src/Block
 		ARG 1 pFlag
 	METHOD shouldSideBeRendered (Lnet/minecraft/src/IBlockAccess;IIII)Z
 		ARG 1 blockAccess
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 blockSide
 	METHOD updateTick (Lnet/minecraft/src/World;IIILjava/util/Random;)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 random
 	METHOD velocityToAddToEntity (Lnet/minecraft/src/World;IIILnet/minecraft/src/Entity;Lnet/minecraft/src/Vec3D;)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 entity
 		ARG 6 vec3D

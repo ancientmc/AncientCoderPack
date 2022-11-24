@@ -5,7 +5,7 @@
  
  public class RenderFireball extends Render {
 -   public void doRender(EntityFireball entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
-+   public void func_4012_a(EntityFireball entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
++   public void doRenderFireball(EntityFireball entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
        GL11.glPushMatrix();
        GL11.glTranslatef((float)posX, (float)posY, (float)posZ);
        GL11.glEnable(32826);

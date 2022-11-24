@@ -36,3 +36,6 @@ CLASS net/minecraft/src/Item
 		ARG 7 pInt3
 	METHOD setIconIndex (I)Lnet/minecraft/src/Item;
 		ARG 1 iconIndex
+	METHOD useItemOnEntity (Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/EntityLiving;)V
+		ARG 1 itemStack
+		ARG 2 entityLiving

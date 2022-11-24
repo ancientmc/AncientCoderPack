@@ -4,17 +4,17 @@
        super(new ModelCreeper(), 0.5F);
     }
  
--   protected void func_6330_a(EntityCreeper entityLiving, float pFloat) {
-+   protected void func_184_a(EntityCreeper entityLiving, float pFloat) {
-       float f = entityLiving.func_440_b(pFloat);
+-   protected void preRenderCallback(EntityCreeper entityLiving, float pFloat) {
++   protected void updateCreeperScale(EntityCreeper entityLiving, float pFloat) {
+       float f = entityLiving.setCreeperFlashTime(pFloat);
        float f1 = 1.0F + MathHelper.sin(f * 100.0F) * f * 0.01F;
        if (f < 0.0F) {
 @@ -25,7 +25,7 @@
        GL11.glScalef(f2, f3, f2);
     }
  
--   protected int func_173_a(EntityCreeper entityLiving, float pFloat, float pFloat1) {
-+   protected int func_183_a(EntityCreeper entityLiving, float pFloat, float pFloat1) {
-       float f = entityLiving.func_440_b(pFloat1);
+-   protected int getColorMultiplier(EntityCreeper entityLiving, float pFloat, float pFloat1) {
++   protected int updateCreeperColorMultiplier(EntityCreeper entityLiving, float pFloat, float pFloat1) {
+       float f = entityLiving.setCreeperFlashTime(pFloat1);
        if ((int)(f * 10.0F) % 2 == 0) {
           return 0;

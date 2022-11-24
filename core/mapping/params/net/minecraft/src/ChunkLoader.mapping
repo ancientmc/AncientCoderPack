@@ -3,8 +3,8 @@ CLASS net/minecraft/src/ChunkLoader
 		ARG 1 saveDir
 		ARG 2 createIfNecessary
 	METHOD chunkFileForXZ (II)Ljava/io/File;
-		ARG 1 xCoord
-		ARG 2 zCoord
+		ARG 1 posX
+		ARG 2 posY
 	METHOD loadChunkIntoWorldFromCompound (Lnet/minecraft/src/World;Lnet/minecraft/src/NBTTagCompound;)Lnet/minecraft/src/Chunk;
 		ARG 0 world
 		ARG 1 nbtTagCompound

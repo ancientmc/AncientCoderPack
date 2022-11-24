@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/PathEntity
+	METHOD getPosition (Lnet/minecraft/src/Entity;)Lnet/minecraft/src/Vec3D;
+		ARG 1 entity

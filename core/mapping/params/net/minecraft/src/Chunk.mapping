@@ -10,10 +10,16 @@ CLASS net/minecraft/src/Chunk
 		ARG 4 zPosition
 	METHOD addEntity (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
+	METHOD addTileEntity (Lnet/minecraft/src/TileEntity;)V
+		ARG 1 tileEntity
 	METHOD canBlockSeeTheSky (III)Z
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
+	METHOD checkSkylightNeighborHeight (III)V
+		ARG 1 posX
+		ARG 2 posZ
+		ARG 3 pInt
 	METHOD func_1001_a (Lnet/minecraft/src/TileEntity;)V
 		ARG 1 tileEntity
 	METHOD func_1003_g (III)V
@@ -44,22 +50,22 @@ CLASS net/minecraft/src/Chunk
 	METHOD func_997_a (J)Ljava/util/Random;
 		ARG 1 pLong
 	METHOD getBlockID (III)I
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD getBlockLightValue (IIII)I
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 		ARG 4 pInt
 	METHOD getBlockMetadata (III)I
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD getChunkBlockTileEntity (III)Lnet/minecraft/src/TileEntity;
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD getEntitiesOfTypeWithinAAAB (Ljava/lang/Class;Lnet/minecraft/src/AxisAlignedBB;Ljava/util/List;)V
 		ARG 1 entityClass
 		ARG 2 axisAlignedBB
@@ -69,46 +75,68 @@ CLASS net/minecraft/src/Chunk
 		ARG 2 axisAlignedBB
 		ARG 3 list
 	METHOD getHeightValue (II)I
-		ARG 1 xCoord
-		ARG 2 zCoord
+		ARG 1 posX
+		ARG 2 posY
+	METHOD getRandomWithSeed (J)Ljava/util/Random;
+		ARG 1 pLong
 	METHOD getSavedLightValue (Lnet/minecraft/src/EnumSkyBlock;III)I
 		ARG 1 enumSkyBlock
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD isAtLocation (II)Z
 		ARG 1 xPosition
 		ARG 2 zPosition
 	METHOD needsSaving (Z)Z
 		ARG 1 pFlag
+	METHOD propagateSkylightOcclusion (II)V
+		ARG 1 posX
+		ARG 2 posZ
+	METHOD relightBlock (III)V
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD removeChunkBlockTileEntity (III)V
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
+	METHOD removeEntity (Lnet/minecraft/src/Entity;)V
+		ARG 1 entity
+	METHOD removeEntityAtIndex (Lnet/minecraft/src/Entity;I)V
+		ARG 2 indexValue
 	METHOD setBlockID (IIII)Z
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 		ARG 4 blockID
 	METHOD setBlockIDWithMetadata (IIIII)Z
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 		ARG 4 blockID
 		ARG 5 blockMetadata
 	METHOD setBlockMetadata (IIII)V
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 		ARG 4 blockMetadata
 	METHOD setChunkBlockTileEntity (IIILnet/minecraft/src/TileEntity;)V
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 		ARG 4 tileEntity
+	METHOD setChunkData ([BIIIIIII)I
+		ARG 1 pByteA
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2
+		ARG 5 pInt3
+		ARG 6 pInt4
+		ARG 7 pInt5
+		ARG 8 pInt6
 	METHOD setLightValue (Lnet/minecraft/src/EnumSkyBlock;IIII)V
 		ARG 1 enumSkyBlock
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 lightValue

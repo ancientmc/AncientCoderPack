@@ -1,0 +1,10 @@
+CLASS net/minecraft/src/SlotInventory
+	METHOD <init> (Lnet/minecraft/src/GuiContainer;Lnet/minecraft/src/IInventory;III)V
+		ARG 1 guiHandler
+		ARG 2 inventory
+		ARG 3 slotIndex
+		ARG 4 xPos
+		ARG 5 yPos
+	METHOD isAtCursorPos (II)Z
+		ARG 1 cursorX
+		ARG 2 cursorY

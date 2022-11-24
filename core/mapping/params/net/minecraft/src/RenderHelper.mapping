@@ -1,0 +1,11 @@
+CLASS net/minecraft/src/RenderHelper
+	METHOD setColorBuffer (DDDD)Ljava/nio/FloatBuffer;
+		ARG 0 pDouble
+		ARG 2 pDouble1
+		ARG 4 pDouble2
+		ARG 6 pDouble3
+	METHOD setColorBuffer (FFFF)Ljava/nio/FloatBuffer;
+		ARG 0 pFloat
+		ARG 1 pFloat1
+		ARG 2 pFloat2
+		ARG 3 pFloat3

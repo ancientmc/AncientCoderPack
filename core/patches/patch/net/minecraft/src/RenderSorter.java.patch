@@ -1,11 +1,11 @@
 --- a/net/minecraft/src/RenderSorter.java
 +++ b/net/minecraft/src/RenderSorter.java
 @@ -9,7 +9,7 @@
-       this.field_4274_a = entityPlayer;
+       this.baseEntity = entityPlayer;
     }
  
 -   public int compare(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
-+   public int func_993_a(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
-       boolean flag = worldRenderer.field_1749_o;
-       boolean flag1 = worldRenderer1.field_1749_o;
++   public int doCompare(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
+       boolean flag = worldRenderer.isInFrustum;
+       boolean flag1 = worldRenderer1.isInFrustum;
        if (flag && !flag1) {

@@ -4,4 +4,4 @@ CLASS net/minecraft/src/EntityFallingSand
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
-		ARG 5 pInt
+		ARG 5 blockID

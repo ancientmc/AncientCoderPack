@@ -1,25 +1,25 @@
 CLASS net/minecraft/src/IBlockAccess
 	METHOD getBlockId (III)I
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD getBlockMaterial (III)Lnet/minecraft/src/Material;
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD getBlockMetadata (III)I
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD getBlockTileEntity (III)Lnet/minecraft/src/TileEntity;
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD getLightBrightness (III)F
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD isBlockOpaqueCube (III)Z
-		ARG 1 xCoord
-		ARG 2 yCoord
-		ARG 3 zCoord
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ

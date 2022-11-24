@@ -4,3 +4,8 @@ CLASS net/minecraft/src/EntityGhast
 		ARG 3 pDouble1
 		ARG 5 pDouble2
 		ARG 7 pDouble3
+	METHOD isCourseTraversable (DDDD)Z
+		ARG 1 currentTarget
+		ARG 3 numTicksToChaseTarget
+		ARG 5 waypointZ
+		ARG 7 pDouble

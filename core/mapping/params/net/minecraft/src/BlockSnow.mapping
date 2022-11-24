@@ -2,6 +2,10 @@ CLASS net/minecraft/src/BlockSnow
 	METHOD <init> (II)V
 		ARG 1 blockID
 		ARG 2 blockIndexInTexture
+	METHOD canSnowStay (Lnet/minecraft/src/World;III)Z
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD func_314_h (Lnet/minecraft/src/World;III)Z
 		ARG 1 world
 		ARG 2 pInt

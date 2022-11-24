@@ -4,8 +4,8 @@
        super(new ModelGhast(), 0.5F);
     }
  
--   protected void func_6330_a(EntityGhast entityLiving, float pFloat) {
+-   protected void preRenderCallback(EntityGhast entityLiving, float pFloat) {
 +   protected void func_4014_a(EntityGhast entityLiving, float pFloat) {
-       float f = ((float)entityLiving.field_4125_e + (float)(entityLiving.field_4124_f - entityLiving.field_4125_e) * pFloat) / 20.0F;
+       float f = ((float)entityLiving.prevAttackCounter + (float)(entityLiving.attackCounter - entityLiving.prevAttackCounter) * pFloat) / 20.0F;
        if (f < 0.0F) {
           f = 0.0F;

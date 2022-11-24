@@ -3,15 +3,26 @@ CLASS net/minecraft/client/Minecraft
 		ARG 1 component
 		ARG 2 mcCanvas
 		ARG 3 mcApplet
-		ARG 4 pInt
-		ARG 5 pInt1
-		ARG 6 pFlag
+		ARG 4 displayWidth
+		ARG 5 displayHeight
+		ARG 6 fullscreen
+	METHOD changeWorld (Lnet/minecraft/src/World;Ljava/lang/String;Lnet/minecraft/src/EntityPlayer;)V
+		ARG 2 loadingMessage
+		ARG 3 entityPlayer
+	METHOD changeWorld1 (Lnet/minecraft/src/World;)V
+		ARG 1 loadingMessage
+	METHOD changeWorld2 (Lnet/minecraft/src/World;Ljava/lang/String;)V
+		ARG 2 loadingMessage
 	METHOD checkGLError (Ljava/lang/String;)V
 		ARG 1 pString
 	METHOD clickMouse (I)V
-		ARG 1 pInt
+		ARG 1 clickedValue
+	METHOD displayDebugInfo (J)V
+		ARG 1 frameTimes
 	METHOD displayGuiScreen (Lnet/minecraft/src/GuiScreen;)V
 		ARG 1 guiScreen
+	METHOD displayUnexpectedThrowable (Lnet/minecraft/src/UnexpectedThrowable;)V
+		ARG 1 unexpectedThrowable
 	METHOD func_4007_a (Lnet/minecraft/src/UnexpectedThrowable;)V
 		ARG 1 unexpectedThrowable
 	METHOD func_6238_a (J)V
@@ -50,12 +61,36 @@ CLASS net/minecraft/client/Minecraft
 		ARG 5 pInt4
 		ARG 6 pInt5
 	METHOD getAppDir (Ljava/lang/String;)Ljava/io/File;
-		ARG 0 pString
+		ARG 0 appDirName
 	METHOD installResource (Ljava/lang/String;Ljava/io/File;)V
-		ARG 1 pString
+		ARG 1 soundName
 		ARG 2 file
 	METHOD main ([Ljava/lang/String;)V
 		ARG 0 args
+	METHOD preloadWorld (Ljava/lang/String;)V
+		ARG 1 loadingMessage
 	METHOD resize (II)V
+		ARG 1 displayWidth
+		ARG 2 displayHeight
+	METHOD scaledTessellator (IIIIII)V
 		ARG 1 pInt
 		ARG 2 pInt1
+		ARG 3 pInt2
+		ARG 4 pInt3
+		ARG 5 pInt4
+		ARG 6 pInt5
+	METHOD sendClickBlockToController (IZ)V
+		ARG 1 pInt
+		ARG 2 pFlag
+	METHOD setServer (Ljava/lang/String;I)V
+		ARG 1 serverName
+		ARG 2 serverPort
+	METHOD startMainThread (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+		ARG 0 pString
+		ARG 1 pString1
+		ARG 2 pString2
+	METHOD startMainThread1 (Ljava/lang/String;Ljava/lang/String;)V
+		ARG 0 pString
+		ARG 1 pString1
+	METHOD startWorld (Ljava/lang/String;)V
+		ARG 1 pString

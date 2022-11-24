@@ -6,6 +6,12 @@ CLASS net/minecraft/src/EntityList
 	METHOD createEntity (ILnet/minecraft/src/World;)Lnet/minecraft/src/Entity;
 		ARG 0 entityID
 		ARG 1 world
+	METHOD createEntityByID (ILnet/minecraft/src/World;)Lnet/minecraft/src/Entity;
+		ARG 0 entityID
+		ARG 1 world
+	METHOD createEntityByName (Ljava/lang/String;Lnet/minecraft/src/World;)Lnet/minecraft/src/Entity;
+		ARG 0 entityName
+		ARG 1 world
 	METHOD createEntityFromNBT (Lnet/minecraft/src/NBTTagCompound;Lnet/minecraft/src/World;)Lnet/minecraft/src/Entity;
 		ARG 0 nbtTagCompound
 		ARG 1 world

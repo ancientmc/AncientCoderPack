@@ -1,7 +1,7 @@
 --- a/net/minecraft/src/RenderTNTPrimed.java
 +++ b/net/minecraft/src/RenderTNTPrimed.java
 @@ -9,7 +9,7 @@
-       this.field_9246_c = 0.5F;
+       this.shadowSize = 0.5F;
     }
  
 -   public void doRender(EntityTNTPrimed entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {

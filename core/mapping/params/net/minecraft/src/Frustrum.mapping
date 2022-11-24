@@ -6,3 +6,10 @@ CLASS net/minecraft/src/Frustrum
 		ARG 7 pDouble3
 		ARG 9 pDouble4
 		ARG 11 pDouble5
+	METHOD isBoxInFrustum (DDDDDD)Z
+		ARG 1 pDouble
+		ARG 3 pDouble1
+		ARG 5 pDouble2
+		ARG 7 pDouble3
+		ARG 9 pDouble4
+		ARG 11 pDouble5

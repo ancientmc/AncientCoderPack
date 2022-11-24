@@ -1,7 +1,7 @@
 CLASS net/minecraft/src/ChunkProviderHell
 	METHOD <init> (Lnet/minecraft/src/World;J)V
 		ARG 1 world
-		ARG 2 pLong
+		ARG 2 hellRNG
 	METHOD func_4057_a ([DIIIIII)[D
 		ARG 1 pDoubleA
 		ARG 2 pInt
@@ -15,6 +15,10 @@ CLASS net/minecraft/src/ChunkProviderHell
 		ARG 2 pInt1
 		ARG 3 pByteA
 	METHOD func_4059_a (II[B)V
+		ARG 1 pInt
+		ARG 2 pInt1
+		ARG 3 pByteA
+	METHOD generateNetherTerrain (II[B)V
 		ARG 1 pInt
 		ARG 2 pInt1
 		ARG 3 pByteA

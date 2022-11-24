@@ -167,7 +167,7 @@ task decompileClassFiles(type: RCPJavaExec, dependsOn: addParams) {
     main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
     classpath = files(RCP_FORGEFLOWER)
     dest = file("${RCP_DIR_TEMP}\\${MC_VERSION}-final.jar")
-    args('-rbr=0', '-asc=1', '-dgs=1', '-jvn=1', addParams.dest.toString(), dest.toString())
+    args('-rbr=0', '-asc=1', '-dgs=1', '-jvn=1', "-iib=1", addParams.dest.toString(), dest.toString())
 }
 
 task unzipJar(type: Copy, dependsOn: decompileClassFiles) {

@@ -3,4 +3,4 @@ CLASS net/minecraft/src/BlockBreakable
 		ARG 1 blockID
 		ARG 2 blockIndexInTexture
 		ARG 3 blockMaterial
-		ARG 4 pFlag
+		ARG 4 localFlag

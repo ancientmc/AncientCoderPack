@@ -1,11 +1,11 @@
 --- a/net/minecraft/src/EntitySorter.java
 +++ b/net/minecraft/src/EntitySorter.java
 @@ -9,7 +9,7 @@
-       this.field_1594_a = entity;
+       this.entityForSorting = entity;
     }
  
 -   public int compare(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
-+   public int func_1063_a(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
-       return worldRenderer.func_1202_a(this.field_1594_a) < worldRenderer1.func_1202_a(this.field_1594_a) ? -1 : 1;
++   public int sortByDistanceToEntity(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
+       return worldRenderer.distanceToEntitySquared(this.entityForSorting) < worldRenderer1.distanceToEntitySquared(this.entityForSorting) ? -1 : 1;
     }
  

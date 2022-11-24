@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/Packet16BlockItemSwitch
+	METHOD <init> (II)V
+		ARG 1 unused
+		ARG 2 id

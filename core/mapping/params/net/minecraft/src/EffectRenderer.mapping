@@ -2,6 +2,19 @@ CLASS net/minecraft/src/EffectRenderer
 	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/RenderEngine;)V
 		ARG 1 world
 		ARG 2 renderEngine
+	METHOD addBlockDestroyEffects (III)V
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
+	METHOD addBlockHitEffects (IIII)V
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
+		ARG 4 hitValue
+	METHOD addEffect (Lnet/minecraft/src/EntityFX;)V
+		ARG 1 entityFX
+	METHOD clearEffects (Lnet/minecraft/src/World;)V
+		ARG 1 worldObj
 	METHOD func_1186_a (III)V
 		ARG 1 pInt
 		ARG 2 pInt1
@@ -21,3 +34,6 @@ CLASS net/minecraft/src/EffectRenderer
 		ARG 4 pInt3
 	METHOD func_1192_a (Lnet/minecraft/src/EntityFX;)V
 		ARG 1 entityFX
+	METHOD renderParticles (Lnet/minecraft/src/Entity;F)V
+		ARG 1 entity
+		ARG 2 pFloat

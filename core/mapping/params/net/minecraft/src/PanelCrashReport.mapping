@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/PanelCrashReport
+	METHOD <init> (Lnet/minecraft/src/UnexpectedThrowable;)V
+		ARG 1 unexpectedThrowable

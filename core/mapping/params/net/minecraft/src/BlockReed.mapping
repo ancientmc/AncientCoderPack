@@ -4,6 +4,6 @@ CLASS net/minecraft/src/BlockReed
 		ARG 2 blockIndexInTexture
 	METHOD checkBlockCoordValid (Lnet/minecraft/src/World;III)V
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ

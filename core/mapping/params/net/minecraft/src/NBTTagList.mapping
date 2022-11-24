@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/NBTTagList
+	METHOD appendTag (Lnet/minecraft/src/NBTBase;)V
+		ARG 1 nbtBase
+	METHOD tagAt (I)Lnet/minecraft/src/NBTBase;
+		ARG 1 pInt

@@ -9,3 +9,10 @@ CLASS net/minecraft/src/BlockDoor
 		ARG 1 pInt
 	METHOD func_313_b (I)V
 		ARG 1 pInt
+	METHOD getState (I)I
+		ARG 1 pInt
+	METHOD onPoweredBlockChange (Lnet/minecraft/src/World;IIIZ)V
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+		ARG 5 pFlag

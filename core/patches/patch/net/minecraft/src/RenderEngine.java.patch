@@ -17,7 +17,7 @@
  
     public void refreshTextures() {
 -      // $FF: Couldn't be decompiled
-+      TexturePackBase texturepackbase = field_6527_k.selectedTexturePack;
++      TexturePackBase texturepackbase = texturePack.selectedTexturePack;
 +      int i;
 +      BufferedImage bufferedimage;
 +      for (Iterator iterator = textureNameToImageMap.keySet().iterator(); iterator.hasNext(); setupTexture(bufferedimage, i)) {
@@ -35,15 +35,15 @@
 +         try {
 +            BufferedImage bufferedimage1;
 +            if (s.startsWith("##")) {
-+               bufferedimage1 = unwrapImageByColumns(readTextureImage(texturepackbase.func_6481_a(s.substring(2))));
++               bufferedimage1 = unwrapImageByColumns(readTextureImage(texturepackbase.getResourceAsStream(s.substring(2))));
 +            } else if (s.startsWith("%clamp%")) {
 +               clampTexture = true;
-+               bufferedimage1 = this.readTextureImage(texturepackbase.func_6481_a(s.substring(7)));
++               bufferedimage1 = this.readTextureImage(texturepackbase.getResourceAsStream(s.substring(7)));
 +            } else if (s.startsWith("%blur%")) {
 +               blurTexture = true;
-+               bufferedimage1 = this.readTextureImage(texturepackbase.func_6481_a(s.substring(6)));
++               bufferedimage1 = this.readTextureImage(texturepackbase.getResourceAsStream(s.substring(6)));
 +            } else {
-+               bufferedimage1 = this.readTextureImage(texturepackbase.func_6481_a(s));
++               bufferedimage1 = this.readTextureImage(texturepackbase.getResourceAsStream(s));
 +            }
 +            int j = ((Integer) textureMap.get(s)).intValue();
 +            setupTexture(bufferedimage1, j);

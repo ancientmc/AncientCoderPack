@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/Packet20NamedEntitySpawn
+	METHOD <init> (Lnet/minecraft/src/EntityPlayer;)V
+		ARG 1 entityPlayer

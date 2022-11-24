@@ -7,9 +7,13 @@ CLASS net/minecraft/src/BlockFurnace
 		ARG 2 pInt
 		ARG 3 pInt1
 		ARG 4 pInt2
+	METHOD setDefaultDirection (Lnet/minecraft/src/World;III)V
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD updateFurnaceBlockState (ZLnet/minecraft/src/World;III)V
 		ARG 0 isActive
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ

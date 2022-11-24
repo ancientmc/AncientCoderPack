@@ -2,7 +2,7 @@ CLASS net/minecraft/src/Explosion
 	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/Entity;DDDF)V
 		ARG 1 world
 		ARG 2 entity
-		ARG 3 pDouble
-		ARG 5 pDouble1
-		ARG 7 pDouble2
-		ARG 9 pFloat
+		ARG 3 explosionX
+		ARG 5 explosionY
+		ARG 7 explosionZ
+		ARG 9 explosionSize

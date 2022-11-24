@@ -1,13 +1,13 @@
 --- a/net/minecraft/client/Minecraft.java
 +++ b/net/minecraft/client/Minecraft.java
 @@ -1148,8 +1148,30 @@
-       this.field_6287_N = 0L;
+       this.systemTime = 0L;
     }
  
--   private void func_6255_d(String param1) {
+-   private void preloadWorld(String param1) {
 -      // $FF: Couldn't be decompiled
-+   private void func_6255_d(String pString) {
-+      this.loadingScreen.func_596_a(pString);
++   private void preloadWorld(String pString) {
++      this.loadingScreen.printText(pString);
 +      this.loadingScreen.displayLoadingString("Building terrain");
 +      char c = '\200';
 +      int i = 0;
@@ -23,13 +23,13 @@
 +         for(int j1 = -c; j1 <= c; j1 += 16) {
 +            this.loadingScreen.setLoadingProgress((i++ * 100) / j);
 +            this.theWorld.getBlockId(l + k, 64, i1 + j1);
-+            while(theWorld.func_6465_g()) ;
++            while(theWorld.updatingLighting()) ;
 +         }
 +      }
 +
 +      this.loadingScreen.displayLoadingString("Simulating world for a bit");
 +      j = 2000;
-+      this.theWorld.func_656_j();
++      this.theWorld.dropOldChunks();
     }
  
-    public void installResource(String pString, File file) {
+    public void installResource(String soundName, File file) {

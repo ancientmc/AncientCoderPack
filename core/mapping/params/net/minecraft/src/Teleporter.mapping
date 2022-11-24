@@ -1,0 +1,10 @@
+CLASS net/minecraft/src/Teleporter
+	METHOD createPortal (Lnet/minecraft/src/World;Lnet/minecraft/src/Entity;)Z
+		ARG 1 world
+		ARG 2 entity
+	METHOD placeInExistingPortal (Lnet/minecraft/src/World;Lnet/minecraft/src/Entity;)Z
+		ARG 1 world
+		ARG 2 entity
+	METHOD placeInPortal (Lnet/minecraft/src/World;Lnet/minecraft/src/Entity;)V
+		ARG 1 world
+		ARG 2 entity

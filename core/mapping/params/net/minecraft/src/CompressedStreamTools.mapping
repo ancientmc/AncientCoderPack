@@ -10,6 +10,15 @@ CLASS net/minecraft/src/CompressedStreamTools
 		ARG 0 dataInput
 	METHOD func_1142_a (Lnet/minecraft/src/NBTTagCompound;)[B
 		ARG 0 nbtTagCompound
+	METHOD read (Ljava/io/DataInput;)Lnet/minecraft/src/NBTTagCompound;
+		ARG 0 dataInput
+	METHOD readCompressed (Ljava/io/InputStream;)Lnet/minecraft/src/NBTTagCompound;
+		ARG 0 inputStream
+	METHOD write (Lnet/minecraft/src/NBTTagCompound;Ljava/io/DataOutput;)V
+		ARG 1 dataOutput
+	METHOD writeCompressed (Lnet/minecraft/src/NBTTagCompound;Ljava/io/OutputStream;)V
+		ARG 0 nBTTagCompound
+		ARG 1 outputStream
 	METHOD writeGzippedCompoundToOutputStream (Lnet/minecraft/src/NBTTagCompound;Ljava/io/OutputStream;)V
 		ARG 0 nbtTagCompound
 		ARG 1 outputStream

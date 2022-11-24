@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/NBTTagByte
+	METHOD <init> (B)V
+		ARG 1 data

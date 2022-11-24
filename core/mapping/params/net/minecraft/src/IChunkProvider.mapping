@@ -1,14 +1,14 @@
 CLASS net/minecraft/src/IChunkProvider
 	METHOD chunkExists (II)Z
-		ARG 1 xCoord
-		ARG 2 zCoord
+		ARG 1 posX
+		ARG 2 posZ
 	METHOD populate (Lnet/minecraft/src/IChunkProvider;II)V
 		ARG 1 chunkProvider
-		ARG 2 xCoord
-		ARG 3 zCoord
+		ARG 2 posX
+		ARG 3 posZ
 	METHOD provideChunk (II)Lnet/minecraft/src/Chunk;
-		ARG 1 xCoord
-		ARG 2 zCoord
+		ARG 1 posX
+		ARG 2 posZ
 	METHOD saveChunks (ZLnet/minecraft/src/IProgressUpdate;)Z
 		ARG 1 pFlag
 		ARG 2 progressUpdate

@@ -1,4 +1,19 @@
 CLASS net/minecraft/src/BlockFlowing
+	METHOD blockBlocksFlow (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+	METHOD calculateFlowCost (Lnet/minecraft/src/World;IIIII)I
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+		ARG 5 pInt
+		ARG 6 pInt1
+	METHOD flowIntoBlock (Lnet/minecraft/src/World;IIII)V
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+		ARG 5 blockMetadata
 	METHOD func_15233_j (Lnet/minecraft/src/World;III)V
 		ARG 1 world
 		ARG 2 pInt
@@ -38,3 +53,19 @@ CLASS net/minecraft/src/BlockFlowing
 		ARG 4 pInt2
 		ARG 5 pInt3
 		ARG 6 pInt4
+	METHOD getOptimalFlowDirections (Lnet/minecraft/src/World;III)[Z
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+	METHOD getSmallestFlowDecay (Lnet/minecraft/src/World;IIII)I
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+		ARG 5 pInt
+	METHOD liquidCanDisplaceBlock (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ

@@ -32,3 +32,22 @@ CLASS net/minecraft/src/BlockFluids
 		ARG 2 pInt2
 		ARG 3 pInt3
 		ARG 4 fluidMaterial
+	METHOD getEffectiveFlowDecay (Lnet/minecraft/src/IBlockAccess;III)I
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+	METHOD getFlowDecay (Lnet/minecraft/src/World;III)I
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+	METHOD getFlowVector (Lnet/minecraft/src/IBlockAccess;III)Lnet/minecraft/src/Vec3D;
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+	METHOD getFluidHeightPercent (I)F
+		ARG 0 pInt
+	METHOD triggerLavaMixEffects (Lnet/minecraft/src/World;III)V
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ

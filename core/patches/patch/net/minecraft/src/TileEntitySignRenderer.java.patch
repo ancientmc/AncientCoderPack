@@ -2,7 +2,7 @@
 +++ b/net/minecraft/src/TileEntitySignRenderer.java
 @@ -5,7 +5,7 @@
  public class TileEntitySignRenderer extends TileEntitySpecialRenderer {
-    private SignModel signModel = new SignModel();
+    private SignModel modelSign = new SignModel();
  
 -   public void renderTileEntityAt(TileEntitySign tileEntity, double coordX, double coordY, double coordZ, float pFloat) {
 +   public void renderTileEntitySignAt(TileEntitySign tileEntity, double coordX, double coordY, double coordZ, float pFloat) {

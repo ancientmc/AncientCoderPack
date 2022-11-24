@@ -7,6 +7,10 @@ CLASS net/minecraft/src/BlockFire
 		ARG 2 xCoord
 		ARG 3 yCoord
 		ARG 4 zCoord
+	METHOD canNeighborBurn (Lnet/minecraft/src/World;III)Z
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD func_263_h (Lnet/minecraft/src/World;III)Z
 		ARG 1 world
 		ARG 2 pInt

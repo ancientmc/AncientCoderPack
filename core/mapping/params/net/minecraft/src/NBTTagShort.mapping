@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/NBTTagShort
+	METHOD <init> (S)V
+		ARG 1 data

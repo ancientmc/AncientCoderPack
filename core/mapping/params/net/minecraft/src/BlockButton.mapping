@@ -7,3 +7,7 @@ CLASS net/minecraft/src/BlockButton
 		ARG 2 pInt
 		ARG 3 pInt1
 		ARG 4 pInt2
+	METHOD redundantCanPlaceBlockAt (Lnet/minecraft/src/World;III)Z
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ

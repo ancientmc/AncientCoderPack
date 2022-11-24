@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/Packet21PickupSpawn
+	METHOD <init> (Lnet/minecraft/src/EntityItem;)V
+		ARG 1 entityItem

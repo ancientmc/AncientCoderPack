@@ -2,6 +2,6 @@ CLASS net/minecraft/src/EntityFireball
 	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/EntityLiving;DDD)V
 		ARG 1 world
 		ARG 2 entityLiving
-		ARG 3 pDouble
-		ARG 5 pDouble1
-		ARG 7 pDouble2
+		ARG 3 motionX
+		ARG 5 motionY
+		ARG 7 motionZ
