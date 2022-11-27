@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/ItemBucket
+	METHOD <init> (II)V
+		ARG 1 itemID
+		ARG 2 isFull

@@ -6,5 +6,7 @@ CLASS net/minecraft/src/NextTickListEntry
 		ARG 4 blockID
 	METHOD compareTo (Ljava/lang/Object;)I
 		ARG 1 nextTickListEntry
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 1 object
 	METHOD setScheduledTime (J)Lnet/minecraft/src/NextTickListEntry;
 		ARG 1 scheduledTime

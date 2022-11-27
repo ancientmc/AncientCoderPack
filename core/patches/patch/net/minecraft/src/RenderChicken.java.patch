@@ -1,7 +1,7 @@
 --- a/net/minecraft/src/RenderChicken.java
 +++ b/net/minecraft/src/RenderChicken.java
 @@ -5,11 +5,11 @@
-       super(renderBlocks, shadowSize);
+       super(mainModel, shadowSize);
     }
  
 -   public void doRenderLiving(EntityChicken entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {

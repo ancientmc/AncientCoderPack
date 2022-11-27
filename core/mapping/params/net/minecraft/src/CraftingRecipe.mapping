@@ -3,7 +3,7 @@ CLASS net/minecraft/src/CraftingRecipe
 		ARG 1 width
 		ARG 2 height
 		ARG 3 ingredientMap
-		ARG 4 itemStack
+		ARG 4 resultStack
 	METHOD createResult ([I)Lnet/minecraft/src/ItemStack;
 		ARG 1 ingredientMap
 	METHOD matchRecipe ([I)Z

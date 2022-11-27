@@ -8,4 +8,4 @@
 +   public void doRenderLiving(EntityLiving entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
        GL11.glPushMatrix();
        GL11.glDisable(2884);
-       this.renderBlocks.onGround = this.renderSwingProgress(entity, partialTickTime);
+       this.mainModel.onGround = this.renderSwingProgress(entity, partialTickTime);

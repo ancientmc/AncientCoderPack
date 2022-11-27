@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/WorldGenLiquids
+	METHOD <init> (I)V
+		ARG 1 liquidBlockId

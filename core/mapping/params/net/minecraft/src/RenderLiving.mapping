@@ -1,6 +1,6 @@
 CLASS net/minecraft/src/RenderLiving
 	METHOD <init> (Lnet/minecraft/src/ModelBase;F)V
-		ARG 1 renderBlocks
+		ARG 1 mainModel
 		ARG 2 shadowSize
 	METHOD getColorMultiplier (Lnet/minecraft/src/EntityLiving;FF)I
 		ARG 1 entityLiving

@@ -2,6 +2,9 @@ CLASS net/minecraft/src/SoundManager
 	METHOD addMusic (Ljava/lang/String;Ljava/io/File;)V
 		ARG 1 soundName
 		ARG 2 soundFile
+	METHOD addSound (Ljava/lang/String;Ljava/io/File;)V
+		ARG 1 soundName
+		ARG 2 soundFile
 	METHOD addStreaming (Ljava/lang/String;Ljava/io/File;)V
 		ARG 1 soundName
 		ARG 2 soundFile
@@ -31,3 +34,26 @@ CLASS net/minecraft/src/SoundManager
 	METHOD func_6372_a (Ljava/lang/String;Ljava/io/File;)V
 		ARG 1 pString
 		ARG 2 file
+	METHOD loadSoundSettings (Lnet/minecraft/src/GameSettings;)V
+		ARG 1 options
+	METHOD playSound (Ljava/lang/String;FFFFF)V
+		ARG 1 pString
+		ARG 2 pFloat
+		ARG 3 pFloat1
+		ARG 4 pFloat2
+		ARG 5 pFloat3
+		ARG 6 pFloat4
+	METHOD playSoundFX (Ljava/lang/String;FF)V
+		ARG 1 pString
+		ARG 2 pFloat
+		ARG 3 pFloat1
+	METHOD playStreaming (Ljava/lang/String;FFFFF)V
+		ARG 1 pString
+		ARG 2 pFloat
+		ARG 3 pFloat1
+		ARG 4 pFloat2
+		ARG 5 pFloat3
+		ARG 6 pFloat4
+	METHOD setListener (Lnet/minecraft/src/EntityLiving;F)V
+		ARG 1 entityLiving
+		ARG 2 pFloat

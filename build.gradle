@@ -167,7 +167,7 @@ task decompileClassFiles(type: RCPJavaExec, dependsOn: addParams) {
     main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
     classpath = files(RCP_FORGEFLOWER)
     dest = file("${RCP_DIR_TEMP}\\${MC_VERSION}-final.jar")
-    args('-rbr=0', '-asc=1', '-dgs=1', '-jvn=1', "-iib=1", addParams.dest.toString(), dest.toString())
+    args('-rbr=0', '-asc=1', '-dgs=1', '-jvn=1', addParams.dest.toString(), dest.toString())
 }
 
 task unzipJar(type: Copy, dependsOn: decompileClassFiles) {
@@ -212,7 +212,7 @@ task downloadNatives (dependsOn: downloadMetaAssets) {
     mkdir file("${RCP_DIR_NATIVES}")
     download {
         if(OperatingSystem.current().isMacOsX()) {
-            src ("https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.1-natives-${OSNAME}.jar")
+            src ("https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.1/lwjgl-platform-2.9.1-natives-${OSNAME}.jar")
             dest "${RCP_DIR_NATIVES}"
         } else {
             src ("https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.0-natives-${OSNAME}.jar")

@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/LogoEffectRandomizer
+	METHOD <init> (Lnet/minecraft/src/GuiMainMenu;II)V
+		ARG 1 mainMenu
+		ARG 2 pInt
+		ARG 3 pInt1

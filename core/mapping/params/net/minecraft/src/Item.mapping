@@ -30,10 +30,10 @@ CLASS net/minecraft/src/Item
 		ARG 1 itemStack
 		ARG 2 entityPlayer
 		ARG 3 world
-		ARG 4 pInt
-		ARG 5 pInt1
-		ARG 6 pInt2
-		ARG 7 pInt3
+		ARG 4 posX
+		ARG 5 posY
+		ARG 6 posZ
+		ARG 7 pInt
 	METHOD setIconIndex (I)Lnet/minecraft/src/Item;
 		ARG 1 iconIndex
 	METHOD useItemOnEntity (Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/EntityLiving;)V

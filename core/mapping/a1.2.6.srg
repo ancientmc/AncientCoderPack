@@ -513,8 +513,8 @@ FD: net/minecraft/client/Minecraft/a net/minecraft/client/Minecraft/fullscreen
 FD: net/minecraft/isom/IsomPreviewApplet/a net/minecraft/isom/IsomPreviewApplet/field_15231_a
 FD: qm/b net/minecraft/src/ChunkCoordIntPair/chunkZPos
 FD: qm/a net/minecraft/src/ChunkCoordIntPair/chunkXPos
-FD: qk/a net/minecraft/src/ItemFood/itemName
-FD: qj/a net/minecraft/src/BlockStep/blockName
+FD: qk/a net/minecraft/src/ItemFood/healAmount
+FD: qj/a net/minecraft/src/BlockStep/blockType
 FD: qi/a net/minecraft/src/Packet255KickDisconnect/reason
 FD: qh/b net/minecraft/src/BlockFire/abilityToCatchFire
 FD: qh/a net/minecraft/src/BlockFire/chanceToEncourageFire
@@ -542,10 +542,10 @@ FD: qd/h net/minecraft/src/EntityMinecart/cargoItems
 FD: qd/g net/minecraft/src/EntityMinecart/pushZ
 FD: qd/f net/minecraft/src/EntityMinecart/pushX
 FD: qd/e net/minecraft/src/EntityMinecart/fuel
-FD: qd/d net/minecraft/src/EntityMinecart/entityRiderPitchDelta
-FD: qd/c net/minecraft/src/EntityMinecart/firstUpdate
-FD: qd/b net/minecraft/src/EntityMinecart/nextStepDistance
-FD: qd/a net/minecraft/src/EntityMinecart/nextEntityID
+FD: qd/d net/minecraft/src/EntityMinecart/minecartType
+FD: qd/c net/minecraft/src/EntityMinecart/minecartRockDirection
+FD: qd/b net/minecraft/src/EntityMinecart/minecartTimeSinceHit
+FD: qd/a net/minecraft/src/EntityMinecart/minecartCurrentDamage
 FD: qc/b net/minecraft/src/TileEntitySign/lineBeingEdited
 FD: qc/a net/minecraft/src/TileEntitySign/signText
 FD: pz/a net/minecraft/src/RenderZombieSimple/scale
@@ -585,7 +585,7 @@ FD: pt/b net/minecraft/src/EntityPigZombie/randomSoundDelay
 FD: pt/a net/minecraft/src/EntityPigZombie/angerLevel
 FD: pt/c net/minecraft/src/EntityPigZombie/defaultHeldItem
 FD: ps/b net/minecraft/src/EntityOtherPlayerMP/otherPlayerMPPosRotationIncrements
-FD: ps/a net/minecraft/src/EntityOtherPlayerMP/damageRemainder
+FD: ps/a net/minecraft/src/EntityOtherPlayerMP/field_20924_a
 FD: ps/bz net/minecraft/src/EntityOtherPlayerMP/otherPlayerMPPitch
 FD: ps/by net/minecraft/src/EntityOtherPlayerMP/otherPlayerMPYaw
 FD: ps/bx net/minecraft/src/EntityOtherPlayerMP/otherPlayerMPZ
@@ -600,7 +600,7 @@ FD: pp/i net/minecraft/src/EntityFX/particleRed
 FD: pp/h net/minecraft/src/EntityFX/particleGravity
 FD: pp/g net/minecraft/src/EntityFX/particleScale
 FD: pp/f net/minecraft/src/EntityFX/particleMaxAge
-FD: pp/e net/minecraft/src/EntityFX/entityRiderYawDelta
+FD: pp/e net/minecraft/src/EntityFX/particleAge
 FD: pp/d net/minecraft/src/EntityFX/particleTextureJitterY
 FD: pp/c net/minecraft/src/EntityFX/particleTextureJitterX
 FD: pp/b net/minecraft/src/EntityFX/particleTextureIndex
@@ -1817,7 +1817,7 @@ FD: ed/e net/minecraft/src/Packet15Place/itemStack
 FD: ed/d net/minecraft/src/Packet15Place/direction
 FD: ed/c net/minecraft/src/Packet15Place/zPosition
 FD: ec/f net/minecraft/src/RenderLiving/renderPassModel
-FD: ec/e net/minecraft/src/RenderLiving/renderBlocks
+FD: ec/e net/minecraft/src/RenderLiving/mainModel
 FD: eb/n net/minecraft/src/EntityPlayer/fishEntity
 FD: eb/m net/minecraft/src/EntityPlayer/dimension
 FD: eb/l net/minecraft/src/EntityPlayer/username
@@ -2282,7 +2282,7 @@ FD: az/b net/minecraft/src/EntityFireball/accelerationX
 FD: az/a net/minecraft/src/EntityFireball/field_9406_a
 FD: ay/a net/minecraft/src/GuiUnused/message1
 FD: ay/h net/minecraft/src/GuiUnused/message2
-FD: ax/c net/minecraft/src/CraftingInventoryCB/windowId
+FD: ax/c net/minecraft/src/CraftingInventoryCB/crafters
 FD: aw/b net/minecraft/src/NoiseGenerator2/field_4291_b
 FD: aw/a net/minecraft/src/NoiseGenerator2/field_4292_a
 FD: aw/g net/minecraft/src/NoiseGenerator2/field_4293_g

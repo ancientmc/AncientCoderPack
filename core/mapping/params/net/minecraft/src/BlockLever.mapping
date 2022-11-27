@@ -4,6 +4,6 @@ CLASS net/minecraft/src/BlockLever
 		ARG 2 blockIndexInTexture
 	METHOD checkIfAttachedToBlock (Lnet/minecraft/src/World;III)Z
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ

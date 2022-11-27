@@ -1,0 +1,12 @@
+CLASS net/minecraft/src/TexturedQuad
+	METHOD <init> ([Lnet/minecraft/src/PositionTexureVertex;)V
+		ARG 1 vertexPositions
+	METHOD <init> ([Lnet/minecraft/src/PositionTexureVertex;IIII)V
+		ARG 1 vertexPositions
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2
+		ARG 5 pInt3
+	METHOD draw (Lnet/minecraft/src/Tessellator;F)V
+		ARG 1 tessellator
+		ARG 2 pFloat

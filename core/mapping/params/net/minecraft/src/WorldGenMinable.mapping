@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/WorldGenMinable
+	METHOD <init> (II)V
+		ARG 1 minableBlockId
+		ARG 2 numberOfBlocks

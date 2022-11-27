@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/WorldChunkManager
+	METHOD <init> (Lnet/minecraft/src/World;)V
+		ARG 1 world
+	METHOD getBiomeGenAtChunkCoord (Lnet/minecraft/src/ChunkCoordIntPair;)Lnet/minecraft/src/MobSpawnerBase;
+		ARG 1 chunkCoordIntPair

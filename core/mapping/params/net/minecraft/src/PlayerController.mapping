@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/PlayerController
+	METHOD func_6473_b (Lnet/minecraft/src/EntityPlayer;)V
+		ARG 1 entityPlayer
+	METHOD onWorldChange (Lnet/minecraft/src/World;)V
+		ARG 1 world
