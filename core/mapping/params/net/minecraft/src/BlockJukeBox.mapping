@@ -9,6 +9,7 @@ CLASS net/minecraft/src/BlockJukeBox
 		ARG 4 zCoord
 		ARG 5 pInt
 	METHOD insertRecord (Lnet/minecraft/src/World;IIII)V
+		ARG 1 world
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ

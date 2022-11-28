@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/KeyBinding
+	METHOD <init> (Ljava/lang/String;I)V
+		ARG 1 keyDescription
+		ARG 2 keyCode

@@ -203,6 +203,8 @@ CLASS net/minecraft/src/Block
 		ARG 1 stepSound
 	METHOD setTickOnLoad (Z)V
 		ARG 1 pFlag
+	METHOD setTickRandomly (Z)V
+		ARG 1 ticksRandomly
 	METHOD shouldSideBeRendered (Lnet/minecraft/src/IBlockAccess;IIII)Z
 		ARG 1 blockAccess
 		ARG 2 posX

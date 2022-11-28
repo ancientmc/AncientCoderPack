@@ -24,5 +24,10 @@ CLASS net/minecraft/src/BlockLeaves
 		ARG 3 pInt1
 		ARG 4 pInt2
 		ARG 5 pInt3
+	METHOD removeLeaves (Lnet/minecraft/src/World;III)V
+		ARG 1 world
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD setGraphicsLevel (Z)V
 		ARG 1 graphicsLevel

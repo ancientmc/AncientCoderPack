@@ -8,6 +8,7 @@ CLASS net/minecraft/src/BlockFire
 		ARG 3 yCoord
 		ARG 4 zCoord
 	METHOD canNeighborBurn (Lnet/minecraft/src/World;III)Z
+		ARG 1 world
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
@@ -18,9 +19,9 @@ CLASS net/minecraft/src/BlockFire
 		ARG 4 pInt2
 	METHOD getChanceOfNeighborsEncouragingFire (Lnet/minecraft/src/World;III)I
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD getChanceToEncourageFire (Lnet/minecraft/src/World;IIII)I
 		ARG 1 world
 		ARG 2 xCoord

@@ -1,0 +1,11 @@
+TO DO list for Retro Coder Pack Beta 0.1.0 (MC Alpha 1.2.6)
+
+- Map the rest of the parameters (or like 90% of them, I'll probably miss a few)
+- Check for any oddities in SRG file
+- Some class refactoring for the biome classes? I'm not sure yet.
+- Add licenses for external tools (definitely should've done this way earlier)
+- Add custom license (what you can do with RCP, what you can't do)
+- Tweak McAssetExtractor ever so slightly.
+
+Estimated release date for Beta 0.1.0: Sometime in December.
+

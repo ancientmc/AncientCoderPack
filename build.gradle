@@ -8,8 +8,8 @@ plugins {
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 group = 'com.entropy.rcp'
-version = '1.0-a1.2.6'
-logger.lifecycle('Version: ' + version + ' Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+version = '0.1.0-beta'
+logger.lifecycle('Using Retro Coder Pack version ' + version + ' for Minecraft Alpha 1.2.6.')
 
 import com.entropy.rcp.tasks.*
 import com.entropy.rcp.utils.*
@@ -62,7 +62,6 @@ dependencies {
     enigma configurations.enigma.dependencies
     forgeflower 'net.minecraftforge:forgeflower:1.5.605.9'
     diffpatch 'net.minecraftforge:DiffPatch:2.0.7'
-
 }
 
 ext {
@@ -251,7 +250,6 @@ task cleanUpRemnants (type: Delete, dependsOn: extractNatives) {
             file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar"),
             file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar"),
             file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-${OSNAME}.jar"))
-
 }
 
 task runClient(type: JavaExec) {

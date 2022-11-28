@@ -23,17 +23,17 @@ and what they do:
 - MCInjector by OceanLabs/MCP: Adding exceptions for methods. [GitHub](https://github.com/ModCoderPack/MCInjector).
 - Enigma by cuchaz, fork by FabricMC: Parameter name deobfuscation. [GitHub](https://github.com/FabricMC/Enigma).
 - Fernflower by JetBrains, fork by MinecraftForge: Decompilation, Local variable naming. [GitHub](https://github.com/MinecraftForge/FernFlower).
-- DiffPatch by CBProject, fork by MinecraftForge: Patching source files to eliminate errors. [GitHub](https://github.com/TheCBProject/DiffPatch).
+- DiffPatch by CBProject, fork by MinecraftForge: Patching source files to eliminate errors. [GitHub](https://github.com/MinecraftForge/DiffPatch).
 - McAssetExtractor by rhmeuer, fork by me: extracting the run-time assets (not the ones from the client JAR) from Mojang's servers 
 into the workspace. [Original GitHub](https://github.com/rmheuer/McAssetExtractor). [Forked GitHub](https://github.com/moist-mason/McAssetExtractor).
 
 **What mappings does RCP use?**
 
-For methods, classes, and fields, RCP uses SRG files. The SRG file for Minecraft Alpha 1.2.6 was created by MCP-Hackers,
-a team that currently develops a much older, similar project to RCP known as RetroMCP. Currently, RetroMCP uses Tinyv2
-mappings for its build process. The SRG files that I am using are from a now-defunct version of RetroMCP that you can
-view [here](https://github.com/MCPHackers/RetroMCP). I intend on adding to these mappings by filling in unnamed fields
-and methods (so something like 'func_101_a' would turn into 'myMethod').
+For methods, classes, and fields, RCP uses SRG files. The SRG file for Minecraft Alpha 1.2.6 is generated via a tool
+developed by me called [SRGConfig](https://github.com/moist-mason/SRGConfig). SRGConfig aims to convert the original RGS files
+found in the earliest MCP versions, albeit slightly modified, and converts them into SRG files, with custom names and everything.
+The mappings are taken from numerous MCP versions, written by the original MCP devs. Take a look at the SRGConfig 
+repository for more information. 
 
 For parameters, RCP uses Enigma. Aside from an older version of MCInjector (that RCP doesn't use), Enigma is pretty much the only 
 deobfuscator/bytecode editor, that I know of, that allows for direct editing of parameter names. Lack of options and Enigma's 

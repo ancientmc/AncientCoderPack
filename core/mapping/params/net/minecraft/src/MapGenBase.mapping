@@ -1,0 +1,14 @@
+CLASS net/minecraft/src/MapGenBase
+	METHOD generate (Lnet/minecraft/src/IChunkProvider;Lnet/minecraft/src/World;II[B)V
+		ARG 1 chunkProvider
+		ARG 2 world
+		ARG 3 posX
+		ARG 4 posZ
+		ARG 5 pByteA
+	METHOD recursiveGenerate (Lnet/minecraft/src/World;IIII[B)V
+		ARG 1 world
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 posX
+		ARG 5 posY
+		ARG 6 pByteA

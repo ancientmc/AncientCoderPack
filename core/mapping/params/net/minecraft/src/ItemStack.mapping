@@ -37,6 +37,8 @@ CLASS net/minecraft/src/ItemStack
 		ARG 4 pInt3
 	METHOD hitEntity (Lnet/minecraft/src/EntityLiving;)V
 		ARG 1 entityLiving
+	METHOD onItemDestroyedByUse (Lnet/minecraft/src/EntityPlayer;)V
+		ARG 1 entityPlayer
 	METHOD readFromNBT (Lnet/minecraft/src/NBTTagCompound;)V
 		ARG 1 nbtTagCompound
 	METHOD splitStack (I)Lnet/minecraft/src/ItemStack;

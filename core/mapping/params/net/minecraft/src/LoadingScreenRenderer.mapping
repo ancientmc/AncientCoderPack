@@ -1,0 +1,7 @@
+CLASS net/minecraft/src/LoadingScreenRenderer
+	METHOD <init> (Lnet/minecraft/client/Minecraft;)V
+		ARG 1 mc
+	METHOD func_597_c (Ljava/lang/String;)V
+		ARG 1 pString
+	METHOD printText (Ljava/lang/String;)V
+		ARG 1 text
