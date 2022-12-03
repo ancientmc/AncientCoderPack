@@ -1,11 +1,11 @@
-## RCP DOs AND DON'Ts ##
+# RCP DOs AND DON'Ts #
 Retro Coder Pack (RCP) uses the GNU General Public License v3.0, as seen in the LICENSE file. You generally have the freedom to use the project however you’d like,
 so long as you follow this license.
 
 However, due to the Mojang EULA and the proprietary nature of Minecraft’s source code, there are some additional restrictions that
 need to be followed when using RCP.
 
-# You are allowed to use RCP to… #
+## You are allowed to use RCP to… ##
 - Decompile the Minecraft source code.
 - Make mods with the Minecraft source code.
 - Publish your mods to a file-sharing site (within that site's rules) or publish your mod's source code on GitHub.
