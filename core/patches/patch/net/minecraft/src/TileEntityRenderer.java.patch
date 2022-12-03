@@ -1,25 +1,25 @@
 --- a/net/minecraft/src/TileEntityRenderer.java
 +++ b/net/minecraft/src/TileEntityRenderer.java
-@@ -1,5 +1,7 @@
+@@ -1,6 +1,7 @@
  package net.minecraft.src;
  
-+import java.util.HashMap;
+ import java.util.HashMap;
 +import java.util.Iterator;
  import java.util.Map;
  import org.lwjgl.opengl.GL11;
  
-@@ -20,7 +22,13 @@
-    public double playerZ;
- 
+@@ -23,11 +24,11 @@
     private TileEntityRenderer() {
--      // $FF: Couldn't be decompiled
-+      this.specialRendererMap = new HashMap();
-+      this.specialRendererMap.put(TileEntitySign.class, new TileEntitySignRenderer());
-+      this.specialRendererMap.put(TileEntityMobSpawner.class, new TileEntityMobSpawnerRenderer());
+       this.specialRendererMap.put(TileEntitySign.class, new TileEntitySignRenderer());
+       this.specialRendererMap.put(TileEntityMobSpawner.class, new TileEntityMobSpawnerRenderer());
 +      TileEntitySpecialRenderer tileentityspecialrenderer;
+ 
+-      for(TileEntitySpecialRenderer tileentityspecialrenderer : this.specialRendererMap.values()) {
+-         tileentityspecialrenderer.setTileEntityRenderer(this);
 +      for(Iterator iterator = this.specialRendererMap.values().iterator(); iterator.hasNext(); tileentityspecialrenderer.setTileEntityRenderer(this)) {
 +         tileentityspecialrenderer = (TileEntitySpecialRenderer)iterator.next();
-+      }
+       }
+-
     }
  
     public TileEntitySpecialRenderer getSpecialRendererForClass(Class tileEntityClass) {

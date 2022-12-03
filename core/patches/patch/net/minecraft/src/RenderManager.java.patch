@@ -1,47 +1,24 @@
 --- a/net/minecraft/src/RenderManager.java
 +++ b/net/minecraft/src/RenderManager.java
-@@ -1,5 +1,7 @@
+@@ -1,6 +1,7 @@
  package net.minecraft.src;
  
-+import java.util.HashMap;
+ import java.util.HashMap;
 +import java.util.Iterator;
  import java.util.Map;
  import org.lwjgl.opengl.GL11;
  
-@@ -22,7 +24,35 @@
-    public double field_1220_n;
+@@ -48,10 +49,10 @@
+       this.entityRenderMap.put(EntityBoat.class, new RenderBoat());
+       this.entityRenderMap.put(EntityFish.class, new RenderFish());
  
-    private RenderManager() {
--      // $FF: Couldn't be decompiled
-+      entityRenderMap = new HashMap();
-+      entityRenderMap.put(EntitySpider.class, new RenderSpider());
-+      entityRenderMap.put(EntityPig.class, new RenderPig(new ModelPig(), new ModelPig(0.5F), 0.7F));
-+      entityRenderMap.put(EntitySheep.class, new RenderSheep(new ModelSheep2(), new ModelSheep1(), 0.7F));
-+      entityRenderMap.put(EntityCow.class, new RenderCow(new ModelCow(), 0.7F));
-+      entityRenderMap.put(EntityChicken.class, new RenderChicken(new ModelChicken(), 0.3F));
-+      entityRenderMap.put(EntityCreeper.class, new RenderCreeper());
-+      entityRenderMap.put(EntitySkeleton.class, new RenderBiped(new ModelSkeleton(), 0.5F));
-+      entityRenderMap.put(EntityZombie.class, new RenderBiped(new ModelZombie(), 0.5F));
-+      entityRenderMap.put(EntitySlime.class, new RenderSlime(new ModelSlime(16), new ModelSlime(0), 0.25F));
-+      entityRenderMap.put(EntityPlayer.class, new RenderPlayer());
-+      entityRenderMap.put(EntityZombieSimple.class, new RenderZombieSimple(new ModelZombie(), 0.5F, 6F));
-+      entityRenderMap.put(EntityGhast.class, new RenderGhast());
-+      entityRenderMap.put(EntityLiving.class, new RenderLiving(new ModelBiped(), 0.5F));
-+      entityRenderMap.put(Entity.class, new RenderEntity());
-+      entityRenderMap.put(EntityPainting.class, new RenderPainting());
-+      entityRenderMap.put(EntityArrow.class, new RenderArrow());
-+      entityRenderMap.put(EntitySnowball.class, new RenderSnowball());
-+      entityRenderMap.put(EntityFireball.class, new RenderFireball());
-+      entityRenderMap.put(EntityItem.class, new RenderItem());
-+      entityRenderMap.put(EntityTNTPrimed.class, new RenderTNTPrimed());
-+      entityRenderMap.put(EntityFallingSand.class, new RenderFallingSand());
-+      entityRenderMap.put(EntityMinecart.class, new RenderMinecart());
-+      entityRenderMap.put(EntityBoat.class, new RenderBoat());
-+      entityRenderMap.put(EntityFish.class, new RenderFish());
+-      for(Render render : this.entityRenderMap.values()) {
+-         render.setRenderManager(this);
 +      Render render;
-+      for(Iterator iterator = entityRenderMap.values().iterator(); iterator.hasNext(); render.setRenderManager(this)) {
++      for(Iterator iterator = this.entityRenderMap.values().iterator(); iterator.hasNext(); render.setRenderManager(this)) {
 +         render = (Render)iterator.next();
-+      }
+       }
+-
     }
  
     public Render getEntityClassRenderObject(Class entityClass) {

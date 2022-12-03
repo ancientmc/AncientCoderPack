@@ -43,6 +43,5 @@ src/main/java/net/
 logs/*.log
 temp/
 ### Other ###
-jars/
 lib/
 /gradle/

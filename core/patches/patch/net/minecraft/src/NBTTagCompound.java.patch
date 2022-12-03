@@ -1,0 +1,13 @@
+--- a/net/minecraft/src/NBTTagCompound.java
++++ b/net/minecraft/src/NBTTagCompound.java
+@@ -11,8 +11,8 @@
+ 
+    @Override
+    void write(DataOutput dataOutput) throws IOException {
+-      for(NBTBase nbtbase : this.tagMap.values()) {
+-         NBTBase.writeNamedTag(nbtbase, dataOutput);
++      for(Object object : this.tagMap.values()) {
++         NBTBase.writeNamedTag((NBTBase)object, dataOutput);
+       }
+ 
+       dataOutput.writeByte(0);

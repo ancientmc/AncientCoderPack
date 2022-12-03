@@ -8,30 +8,24 @@
  import java.util.Set;
  
  public class Packet60Explosion extends Packet {
-@@ -33,8 +34,24 @@
- 
-    }
- 
--   public void writePacketData(DataOutputStream var1) throws IOException {
--      // $FF: Couldn't be decompiled
-+   public void writePacketData(DataOutputStream dataOutputStream) throws IOException {
-+      dataOutputStream.writeDouble(explosionX);
-+      dataOutputStream.writeDouble(explosionY);
-+      dataOutputStream.writeDouble(explosionZ);
-+      dataOutputStream.writeFloat(explosionSize);
-+      dataOutputStream.writeInt(destroyedBlockPositions.size());
-+      int i = (int)explosionX;
-+      int j = (int)explosionY;
-+      int k = (int)explosionZ;
+@@ -44,16 +45,16 @@
+       int i = (int)this.explosionX;
+       int j = (int)this.explosionY;
+       int k = (int)this.explosionZ;
+-
+-      for(ChunkPosition chunkposition : this.destroyedBlockPositions) {
 +      int j1;
-+      for(Iterator iterator = destroyedBlockPositions.iterator(); iterator.hasNext(); dataOutputStream.writeByte(j1)) {
++      for(Iterator iterator = this.destroyedBlockPositions.iterator(); iterator.hasNext(); dataOutputStream.writeByte(j1)) {
 +         ChunkPosition chunkposition = (ChunkPosition)iterator.next();
-+         int l = chunkposition.x - i;
-+         int i1 = chunkposition.y - j;
+          int l = chunkposition.x - i;
+          int i1 = chunkposition.y - j;
+-         int j1 = chunkposition.z - k;
 +         j1 = chunkposition.z - k;
-+         dataOutputStream.writeByte(l);
-+         dataOutputStream.writeByte(i1);
-+      }
+          dataOutputStream.writeByte(l);
+          dataOutputStream.writeByte(i1);
+          dataOutputStream.writeByte(j1);
+       }
+-
     }
  
-    public void processPacket(NetHandler netHandler) {
+    @Override

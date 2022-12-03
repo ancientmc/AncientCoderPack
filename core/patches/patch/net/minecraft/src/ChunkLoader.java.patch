@@ -8,45 +8,37 @@
  
  public class ChunkLoader implements IChunkLoader {
     private File saveDir;
-@@ -100,8 +101,39 @@
+@@ -132,22 +133,23 @@
+       NBTTagList nbttaglist = new NBTTagList();
  
-    }
- 
--   public void storeChunkInCompound(Chunk var1, World var2, NBTTagCompound var3) {
--      // $FF: Couldn't be decompiled
-+   public void storeChunkInCompound(Chunk chunk, World world, NBTTagCompound nbtTagCompound) {
-+      world.checkSessionLock();
-+      nbtTagCompound.setInteger("xPos", chunk.xPosition);
-+      nbtTagCompound.setInteger("zPos", chunk.zPosition);
-+      nbtTagCompound.setLong("LastUpdate", world.worldTime);
-+      nbtTagCompound.setByteArray("Blocks", chunk.blocks);
-+      nbtTagCompound.setByteArray("Data", chunk.data.data);
-+      nbtTagCompound.setByteArray("SkyLight", chunk.skylightMap.data);
-+      nbtTagCompound.setByteArray("BlockLight", chunk.blocklightMap.data);
-+      nbtTagCompound.setByteArray("HeightMap", chunk.heightMap);
-+      nbtTagCompound.setBoolean("TerrainPopulated", chunk.isTerrainPopulated);
-+      chunk.hasEntities = false;
-+      NBTTagList nbttaglist = new NBTTagList();
-+      for(int i = 0; i < chunk.entities.length; i++) {
+       for(int i = 0; i < chunk.entities.length; ++i) {
+-         for(Entity entity : chunk.entities[i]) {
+-            chunk.hasEntities = true;
+-            NBTTagCompound nbttagcompound = new NBTTagCompound();
+-            if (entity.addEntityID(nbttagcompound)) {
+-               nbttaglist.appendTag(nbttagcompound);
+-            }
 +         Iterator iterator = chunk.entities[i].iterator();
 +         Entity entity = (Entity)iterator.next();
 +         chunk.hasEntities = true;
 +         NBTTagCompound nbttagcompound1 = new NBTTagCompound();
 +         if(entity.addEntityID(nbttagcompound1)) {
 +            nbttaglist.appendTag(nbttagcompound1);
-+         }
-+      }
-+
-+      nbtTagCompound.setTag("Entities", nbttaglist);
-+      NBTTagList nbttaglist1 = new NBTTagList();
+          }
+       }
+ 
+       nbtTagCompound.setTag("Entities", nbttaglist);
+       NBTTagList nbttaglist1 = new NBTTagList();
 +      NBTTagCompound nbttagcompound2;
+ 
+-      for(TileEntity tileentity : chunk.chunkTileEntityMap.values()) {
+-         NBTTagCompound nbttagcompound1 = new NBTTagCompound();
+-         tileentity.writeToNBT(nbttagcompound1);
+-         nbttaglist1.appendTag(nbttagcompound1);
 +      for(Iterator iterator1 = chunk.chunkTileEntityMap.values().iterator(); iterator1.hasNext(); nbttaglist1.appendTag(nbttagcompound2)) {
 +         TileEntity tileentity = (TileEntity)iterator1.next();
 +         nbttagcompound2 = new NBTTagCompound();
 +         tileentity.writeToNBT(nbttagcompound2);
-+      }
-+
-+      nbtTagCompound.setTag("TileEntities", nbttaglist1);
-    }
+       }
  
-    public static Chunk loadChunkIntoWorldFromCompound(World world, NBTTagCompound nbtTagCompound) {
+       nbtTagCompound.setTag("TileEntities", nbttaglist1);

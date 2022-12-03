@@ -1,4 +1,4 @@
-package com.entropy.rcp;
+package rcp.client;
 
 import net.minecraft.client.Minecraft;
 
@@ -10,7 +10,7 @@ public class Start {
         try {
             Field f = Minecraft.class.getDeclaredField("minecraftDir");
             Field.setAccessible(new Field[] { f }, true);
-            f.set(null, new File("jars"));
+            f.set(null, new File("run"));
         } catch (Exception e) {
             e.printStackTrace();
             return;

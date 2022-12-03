@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/NextTickListEntry.java
 +++ b/net/minecraft/src/NextTickListEntry.java
-@@ -34,7 +34,7 @@
+@@ -37,7 +37,7 @@
        return this;
     }
  
