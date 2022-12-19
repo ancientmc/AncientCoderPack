@@ -15,6 +15,7 @@ CLASS net/minecraft/src/CompressedStreamTools
 	METHOD readCompressed (Ljava/io/InputStream;)Lnet/minecraft/src/NBTTagCompound;
 		ARG 0 inputStream
 	METHOD write (Lnet/minecraft/src/NBTTagCompound;Ljava/io/DataOutput;)V
+		ARG 0 nbtTagCompound
 		ARG 1 dataOutput
 	METHOD writeCompressed (Lnet/minecraft/src/NBTTagCompound;Ljava/io/OutputStream;)V
 		ARG 0 nBTTagCompound

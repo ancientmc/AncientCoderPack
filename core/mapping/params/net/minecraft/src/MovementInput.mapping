@@ -1,0 +1,6 @@
+CLASS net/minecraft/src/MovementInput
+	METHOD checkKeyForMovementInput (IZ)V
+		ARG 1 pInt
+		ARG 2 pFlag
+	METHOD updatePlayerMoveState (Lnet/minecraft/src/EntityPlayer;)V
+		ARG 1 entityPlayer

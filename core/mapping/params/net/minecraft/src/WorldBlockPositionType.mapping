@@ -1,0 +1,8 @@
+CLASS net/minecraft/src/WorldBlockPositionType
+	METHOD <init> (Lnet/minecraft/src/WorldClient;IIIII)V
+		ARG 1 worldClient
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+		ARG 5 blockID
+		ARG 6 metadata

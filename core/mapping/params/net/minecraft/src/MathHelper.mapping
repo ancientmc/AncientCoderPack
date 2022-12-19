@@ -1,21 +1,21 @@
 CLASS net/minecraft/src/MathHelper
 	METHOD abs (F)F
-		ARG 0 pFloat
+		ARG 0 value
 	METHOD abs_max (DD)D
-		ARG 0 pDouble
-		ARG 2 pDouble1
+		ARG 0 valueX
+		ARG 2 valueY
 	METHOD bucketInt (II)I
-		ARG 0 pInt
-		ARG 1 pInt1
+		ARG 0 valueX
+		ARG 1 valueY
 	METHOD cos (F)F
-		ARG 0 pFloat
+		ARG 0 value
 	METHOD floor_double (D)I
-		ARG 0 pDouble
+		ARG 0 value
 	METHOD floor_float (F)I
-		ARG 0 pFloat
+		ARG 0 value
 	METHOD sin (F)F
-		ARG 0 pFloat
+		ARG 0 value
 	METHOD sqrt_double (D)F
-		ARG 0 pDouble
+		ARG 0 value
 	METHOD sqrt_float (F)F
-		ARG 0 pFloat
+		ARG 0 value

@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/WorldGenLakes
+	METHOD <init> (I)V
+		ARG 1 blockIndex

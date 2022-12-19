@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/TextureFX
+	METHOD <init> (I)V
+		ARG 1 iconIndex
+	METHOD bindImage (Lnet/minecraft/src/RenderEngine;)V
+		ARG 1 renderEngine

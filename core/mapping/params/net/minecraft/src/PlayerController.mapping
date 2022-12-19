@@ -1,5 +1,44 @@
 CLASS net/minecraft/src/PlayerController
+	METHOD <init> (Lnet/minecraft/client/Minecraft;)V
+		ARG 1 mc
+	METHOD attackEntity (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/Entity;)V
+		ARG 1 entityPlayer
+		ARG 2 entityAttacked
+	METHOD clickBlock (IIII)V
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
+		ARG 4 pInt
+	METHOD createPlayer (Lnet/minecraft/src/World;)Lnet/minecraft/src/EntityPlayer;
+		ARG 1 world
+	METHOD flipPlayer (Lnet/minecraft/src/EntityPlayer;)V
+		ARG 1 entityPlayer
 	METHOD func_6473_b (Lnet/minecraft/src/EntityPlayer;)V
 		ARG 1 entityPlayer
+	METHOD interactWithEntity (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/Entity;)V
+		ARG 1 entityPlayer
+		ARG 2 entityInteracted
+	METHOD onPlayerDamageBlock (IIII)V
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
+		ARG 4 pInt
+	METHOD onPlayerDestroyBlock (IIII)Z
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
+		ARG 4 pInt
+	METHOD onPlayerRightClick (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/World;Lnet/minecraft/src/ItemStack;IIII)Z
+		ARG 1 entityPlayer
+		ARG 2 world
+		ARG 3 itemStack
+		ARG 4 posX
+		ARG 5 posY
+		ARG 6 posZ
+		ARG 7 side
 	METHOD onWorldChange (Lnet/minecraft/src/World;)V
 		ARG 1 world
+	METHOD sendUseItem (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/World;Lnet/minecraft/src/ItemStack;)Z
+		ARG 1 entityPlayer
+		ARG 2 world
+		ARG 3 itemStack

@@ -1,0 +1,8 @@
+CLASS net/minecraft/src/GuiSlider
+	METHOD <init> (IIIILjava/lang/String;F)V
+		ARG 1 id
+		ARG 2 xPosition
+		ARG 3 yPosition
+		ARG 4 idFloat
+		ARG 5 displayString
+		ARG 6 sliderValue

@@ -1,8 +1,8 @@
 CLASS net/minecraft/src/NextTickListEntry
 	METHOD <init> (IIII)V
-		ARG 1 coordX
-		ARG 2 coordY
-		ARG 3 coordZ
+		ARG 1 xCoord
+		ARG 2 yCoord
+		ARG 3 zCoord
 		ARG 4 blockID
 	METHOD compareTo (Ljava/lang/Object;)I
 		ARG 1 nextTickListEntry

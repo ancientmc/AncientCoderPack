@@ -7,16 +7,16 @@ CLASS net/minecraft/src/RenderManager
 		ARG 5 options
 		ARG 6 pFloat
 	METHOD getDistanceToCamera (DDD)D
-		ARG 1 pDouble
-		ARG 3 pDouble1
-		ARG 5 pDouble2
+		ARG 1 camX
+		ARG 3 camY
+		ARG 5 camZ
 	METHOD getEntityClassRenderObject (Ljava/lang/Class;)Lnet/minecraft/src/Render;
 		ARG 1 entityClass
 	METHOD getEntityRenderObject (Lnet/minecraft/src/Entity;)Lnet/minecraft/src/Render;
 		ARG 1 entity
 	METHOD renderEntity (Lnet/minecraft/src/Entity;F)V
 		ARG 1 entity
-		ARG 2 pFloat
+		ARG 2 partialTickTime
 	METHOD renderEntityWithPosYaw (Lnet/minecraft/src/Entity;DDDFF)V
 		ARG 1 entity
 		ARG 2 posX

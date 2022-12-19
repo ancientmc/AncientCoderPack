@@ -1,0 +1,16 @@
+CLASS net/minecraft/src/ThreadDownloadResources
+	METHOD <init> (Ljava/io/File;Lnet/minecraft/client/Minecraft;)V
+		ARG 1 minecraftDir
+		ARG 2 mc
+	METHOD downloadAndInstallResource (Ljava/net/URL;Ljava/lang/String;JI)V
+		ARG 1 resourceURL
+		ARG 2 resourceName
+		ARG 3 pLong
+		ARG 5 pInt
+	METHOD downloadResource (Ljava/net/URL;Ljava/io/File;J)V
+		ARG 1 resourceURL
+		ARG 2 resourceLocation
+		ARG 3 pLong
+	METHOD loadResource (Ljava/io/File;Ljava/lang/String;)V
+		ARG 1 resourcesFolder
+		ARG 2 resourceName

@@ -1,26 +1,37 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url = 'https://github.com/entropymc/entropy-maven/raw/maven' }
+    }
+    dependencies {
+        classpath 'com.entropy.rcp:RCP-Gradle:0.1.0-beta'
+        classpath 'commons-io:commons-io:2.8.0'
+        classpath 'com.google.code.gson:gson:2.9.1'
+    }
+}
+
 plugins {
     id 'java-library'
+    id 'idea'
     id 'eclipse'
-    id 'de.undercouch.download' version '4.1.2'
-    id 'java-gradle-plugin'
 }
+
+group 'org.example'
+version '0.1.0-SNAPSHOT'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
-group = 'rcp'
-version = '0.1.0-beta'
-logger.lifecycle('Using Retro Coder Pack version ' + version + ' for Minecraft Alpha 1.2.6.')
+ext {
+    MC_REPO = project.getGradle().getGradleUserHomeDir().getAbsolutePath() + "/caches/retrocoderpack/mc_repo/"
+}
 
-import com.entropy.rcp.tasks.*
 import com.entropy.rcp.utils.*
-import org.gradle.internal.os.OperatingSystem
 
 repositories {
+    flatDir { dirs files(MC_REPO) }
     mavenCentral()
     mavenLocal()
-    maven { url = 'https://libraries.minecraft.net' }
-    maven { url = 'https://nexus.velocitypowered.com/repository/maven-public/' }
-    maven { url = 'https://www.beatunes.com/repo/maven2/' }
+    maven { url = 'https://nexus.velocitypowered.com/repository/maven-public/'}
     maven { url = 'https://maven.fabricmc.net/' }
     maven { url = 'https://maven.quiltmc.org/repository/release/' }
 }
@@ -37,28 +48,11 @@ configurations {
     diffpatch
 }
 
+apply plugin: 'com.entropy.rcp'
+
 dependencies {
-    gradleApi()
-    implementation 'net.sf.jopt-simple:jopt-simple:4.5'
-    implementation 'org.ow2.asm:asm-all:4.1'
-    implementation 'net.java.jinput:jinput:2.0.5'
-    implementation 'net.java.jinput:jinput-platform:2.0.5'
-    implementation 'net.java.jutils:jutils:1.0.0'
-    if (OperatingSystem.current().isMacOsX()) {
-        implementation 'org.lwjgl.lwjgl:lwjgl:2.9.1'
-        implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.1'
-        implementation 'org.lwjgl.lwjgl:lwjgl-platform:2.9.1'
-    } else {
-        implementation 'org.lwjgl.lwjgl:lwjgl:2.9.0'
-        implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.0'
-        implementation 'org.lwjgl.lwjgl:lwjgl-platform:2.9.0'
-    }
-    implementation 'com.paulscode:codecjorbis:20101023'
-    implementation 'com.paulscode:soundsystem:20120107'
-    implementation 'com.jcraft:jogg:0.0.7'
-    implementation 'com.jcraft:jorbis:0.0.17'
-    implementation 'com.paulscode:librarylwjglopenal:20100824'
-    implementation 'com.paulscode:codecwav:20101023'
+    implementation gradleApi()
+    implementation files(MC_REPO).getAsFileTree()
 
     retroguard 'de.oceanlabs.mcp:RetroGuard:3.6.6'
     retroguard configurations.retroguard.dependencies
@@ -70,197 +64,29 @@ dependencies {
     diffpatch 'net.minecraftforge:DiffPatch:2.0.7'
 }
 
-ext {
-    OSNAME = OSName.getOSName()
-    MC_VERSION = "a1.2.6"
-    MC_JAR = "https://piston-data.mojang.com/v1/objects/a68c817afd6c05c253ba5462287c2c19bbb57935/client.jar"
-    RCP_DIR_CORE = "$project.projectDir\\core"
-    RCP_DIR_MAPPING = "${RCP_DIR_CORE}\\mapping"
-    RCP_DIR_LOGS = "${RCP_DIR_CORE}\\logs"
-    RCP_DIR_TEMP = "${RCP_DIR_CORE}\\temp"
-    RCP_DIR_PATCHES = "${RCP_DIR_CORE}\\patches"
-    RCP_PATCH_FILES = "${RCP_DIR_PATCHES}\\patch\\"
-    RCP_DIR_RUN = "$project.projectDir\\run\\"
-    RCP_DIR_NATIVES = "${RCP_DIR_RUN}\\bin\\natives\\${OSNAME}\\"
-    RCP_DIR_SRC = "src\\main\\java"
-    RCP_DIR_RESOURCES = "src\\main\\resources"
-
-    RCP_RG = project.getConfigurations().findByName("retroguard")
-    RCP_MCINJECTOR = project.getConfigurations().findByName("mcinjector")
-    RCP_ENIGMA = project.getConfigurations().findByName("enigma")
-    RCP_QUILTFLOWER = project.getConfigurations().findByName("quiltflower")
-    RCP_DIFFPATCH = project.getConfigurations().findByName("diffpatch")
-    RCP_ASSET_EXTRACTOR = "${RCP_DIR_PATCHES}\\McAssetExtractor-1.0_03-all.jar"
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
-}
-
 tasks.withType(JavaExec) {
-    systemProperty "java.library.path", "${RCP_DIR_NATIVES}"
+    systemProperty "java.library.path", "run\\bin\\natives\\" + OSName.getOSName() + "\\"
 }
 
-// .gitignore file filter, used in the cleaning task below. It's outside of the task block because
-// otherwise the return statement produces an unreachable statement error.
-FileFilter gitIgnoreFilter = (File file) -> { return !file.getName().endsWith(".gitignore") }
-
-/**
- * WARNING: This task will delete all main RCP-generated files within the directory, including MC sources. This is intended for
- * if you wanted to reset the main build process for whatever reason, or if something has gone horribly wrong.
- */
-clean {
-    delete (fileTree(RCP_DIR_TEMP).include('**/*.jar'), // temporary jar files
-            file(RCP_DIR_SRC + "\\net"), // Minecraft sources
-            file(RCP_DIR_RESOURCES).listFiles(gitIgnoreFilter), // Everything in the main resources folder
-            file(RCP_DIR_RUN + "resources"), // The runtime resources folder
-            file(RCP_DIR_NATIVES).listFiles(), // LWJGL and JInput natives
-            file(RCP_DIR_RUN + "saves"), // MC saves folder
-            file(RCP_DIR_RUN + "texturepacks"), // MC texture packs folder
-            file(RCP_DIR_RUN + "options.txt"), // MC options text file
-            file(RCP_DIR_LOGS).listFiles(gitIgnoreFilter)) // logs generated by RCP
-}
-
-// This task will execute every task below in sequential order, except for the runClient task.
-task runRCP(type: GradleBuild) {
-    tasks = ['cleanUpRemnants']
-}
-
-task downloadJar(type: Download) {
-    group = "rcp"
-    description = "downloads the Minecraft JAR from Mojang's servers."
-    src MC_JAR
-    dest file("${RCP_DIR_TEMP}\\${MC_VERSION}.jar")
-}
-
-task jarDeobf(type: RCPJavaExec, dependsOn: downloadJar) {
-    group = "rcp"
-    description = "Deobufscates the Minecraft JAR using RetroGuard."
-    inputs.file downloadJar.dest
-    main = "RetroGuard"
-    classpath = files(RCP_RG)
-    dest = file("${RCP_DIR_TEMP}\\a1.2.6-srg.jar")
-    args ("-searge", "${RCP_DIR_MAPPING}\\retroguard.cfg")
-}
-
-// We have to inject the exceptions first before applying parameters because otherwise MCInjector will override
-// our parameters with placeholder SRG names.
-task injectExceptions(type: RCPJavaExec, dependsOn: jarDeobf) {
-    group = "rcp"
-    description = "Injects exceptions into methods using MCInjector."
-    main = "de.oceanlabs.mcp.mcinjector.MCInjector"
-    classpath = files(RCP_MCINJECTOR)
-    dest = file("${RCP_DIR_TEMP}\\${MC_VERSION}-exc.jar")
-    args ("--in", jarDeobf.dest.toString(), "--out", dest.toString(), "--exc", "${RCP_DIR_MAPPING}\\exceptions.exc", "--log", "${RCP_DIR_LOGS}\\exceptions.log")
-}
-
-task addParams(type: RCPJavaExec, dependsOn: injectExceptions) {
-    group = "rcp"
-    description = "Deobfuscates method parameters using Enigma."
-    javaLauncher = javaToolchains.launcherFor {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-    main = "cuchaz.enigma.command.Main"
-    classpath = files(RCP_ENIGMA)
-    dest = file("${RCP_DIR_TEMP}\\${MC_VERSION}-final.jar")
-    args ("deobfuscate", injectExceptions.dest.toString(), dest.toString(), "${RCP_DIR_MAPPING}\\params")
-}
-
-// Ignore the two decompiler errors about enum switch simplification; the methods mentioned get decompiled as intended.
-task decompileClassFiles(type: RCPJavaExec, dependsOn: addParams) {
-    group = "rcp"
-    description = "Decompiles classfiles using ForgeFlower/Fernflower."
-    main = "org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler"
-    classpath = files(RCP_QUILTFLOWER)
-    dest = file("${RCP_DIR_TEMP}\\${MC_VERSION}-final.jar")
-    args('-rbr=0', '-rsy=0', '-asc=1', '-dgs=1', '-jvn=1', '-dec=0', addParams.dest.toString(), dest.toString())
-}
-
-task unzipJar(type: Copy, dependsOn: decompileClassFiles) {
-    group = "rcp"
-    description = "Unpacks the JAR file and copies the source files into the main directory."
-    from zipTree(decompileClassFiles.dest)
-    into file(RCP_DIR_SRC)
-    exclude ('com/**', 'paulscode/**')
-}
-
-task patchSourceFiles(type: JavaExec, dependsOn: unzipJar) {
-    group = "rcp"
-    description = "Patches source files using DiffPatch to eliminate errors."
-    main = "codechicken.diffpatch.DiffPatch"
-    classpath = files(RCP_DIFFPATCH)
-    args("--patch", "${RCP_DIR_SRC}", "${RCP_PATCH_FILES}", "--output", "${RCP_DIR_SRC}", "--reject", "${RCP_DIR_LOGS}\\patch_rejects\\", "--verbose")
-}
-
-task copyJarAssets(type: Copy, dependsOn: patchSourceFiles) {
-    group = "RCP"
-    description = "Copies the assets found in the JAR file into the resources folder."
-    from zipTree(file("${RCP_DIR_TEMP}\\${MC_VERSION}.jar"))
-    into file(RCP_DIR_RESOURCES)
-    exclude('com/**', 'net/**', 'paulscode/**', '*.class')
-}
-
-/**
- * Modification of GitHub user rhmeuer's program McAssetExtractor.
- */
-task downloadMetaAssets(type: JavaExec, dependsOn: copyJarAssets) {
-    group = "RCP"
-    description = "Downloads the launcher meta assets (mainly sound files) from Mojang's servers."
-    main = "com.github.rmheuer.mcasset.McAssetExtractor"
-    classpath = files(RCP_ASSET_EXTRACTOR)
-    args(MC_VERSION, file(RCP_DIR_RUN))
-}
-
-// There's definitely a better way to do this.
-task downloadNatives (dependsOn: downloadMetaAssets) {
-    group = "rcp"
-    description = "Downloads the LWJGL and JInput native jars."
-    mkdir file("${RCP_DIR_NATIVES}")
-    download {
-        if(OperatingSystem.current().isMacOsX()) {
-            src ("https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.1/lwjgl-platform-2.9.1-natives-${OSNAME}.jar")
-            dest "${RCP_DIR_NATIVES}"
-        } else {
-            src ("https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.0-natives-${OSNAME}.jar")
-            dest "${RCP_DIR_NATIVES}"
-        }
-    }
-    download {
-        src ("https://repo.maven.apache.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-${OSNAME}.jar")
-        dest "${RCP_DIR_NATIVES}"
-    }
-}
-
-// Again, there's probably a better way to do this.
-task extractNatives (dependsOn: downloadNatives) {
-    group = "rcp"
-    description = "Extracts the native Jars' contents."
-    copy {
-        if(OperatingSystem.current().isMacOsX()) {
-            from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-osx.jar")))
-            into(file("${RCP_DIR_NATIVES}"))
-        } else {
-            from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar")))
-            into(file("${RCP_DIR_NATIVES}"))
-        }
-    }
-    copy {
-        from(zipTree(file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar")))
-        into(file("${RCP_DIR_NATIVES}"))
-    }
-}
-
-task cleanUpRemnants (type: Delete, dependsOn: extractNatives) {
-    group = "rcp"
-    description = "Deletes leftover generated files."
-    delete (file("${RCP_DIR_TEMP}\\*.jar"),
-            file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar"),
-            file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar"),
-            file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-${OSNAME}.jar"))
+task setup() {
+    group = "rcp-run"
+    dependsOn ':execute'
 }
 
 task runClient(type: JavaExec) {
-    description = "Runs the client."
-    main = "rcp.client.Start"
+    group = "rcp-run"
+    main = 'rcp.client.Start'
     classpath = sourceSets.main.runtimeClasspath
+}
+
+FileFilter gitIgnoreFilter = (File file) -> !file.getName().endsWith(".gitignore")
+FileFilter runFilter = (File file) -> !file.getName().endsWith(".gitignore") && !file.getName().contains("bin")
+
+clean {
+    delete(file(Paths.RCP_DIR_NATIVES))
+    delete(file(Paths.RCP_DIR_SRC + "net\\"))
+    delete(file(Paths.RCP_DIR_TEMP).listFiles(gitIgnoreFilter))
+    delete(file(Paths.RCP_DIR_RESOURCES).listFiles(gitIgnoreFilter))
+    delete(file(Paths.RCP_DIR_RUN).listFiles(runFilter))
+    delete(file(Paths.RCP_DIR_LOGS).listFiles(gitIgnoreFilter))
 }

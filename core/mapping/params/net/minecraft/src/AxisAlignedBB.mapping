@@ -71,9 +71,9 @@ CLASS net/minecraft/src/AxisAlignedBB
 	METHOD isVecInside (Lnet/minecraft/src/Vec3D;)Z
 		ARG 1 vec3D
 	METHOD offset (DDD)Lnet/minecraft/src/AxisAlignedBB;
-		ARG 1 offsetX
-		ARG 3 offsetY
-		ARG 5 offsetZ
+		ARG 1 coordX
+		ARG 3 coordY
+		ARG 5 coordZ
 	METHOD setBB (Lnet/minecraft/src/AxisAlignedBB;)V
 		ARG 1 axisAlignedBB
 	METHOD setBounds (DDDDDD)Lnet/minecraft/src/AxisAlignedBB;

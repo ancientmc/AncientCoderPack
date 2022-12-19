@@ -3,7 +3,7 @@ CLASS net/minecraft/src/RenderGlobal
 		ARG 1 mc
 		ARG 2 renderEngine
 	METHOD changeWorld (Lnet/minecraft/src/World;)V
-		ARG 1 world
+		ARG 1 worldObj
 	METHOD checkOcclusionQueryResult (II)V
 		ARG 1 pInt
 		ARG 2 pInt1
@@ -42,7 +42,7 @@ CLASS net/minecraft/src/RenderGlobal
 	METHOD renderEntities (Lnet/minecraft/src/Vec3D;Lnet/minecraft/src/ICamera;F)V
 		ARG 1 vec3D
 		ARG 2 camera
-		ARG 3 tick
+		ARG 3 partialTickTime
 	METHOD renderSky (F)V
 		ARG 1 pFloat
 	METHOD renderSortedRenderers (IIID)I

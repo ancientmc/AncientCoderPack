@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/ThreadRunIsoClient
+	METHOD <init> (Lnet/minecraft/src/CanvasIsomPreview;)V
+		ARG 1 isoCanvas

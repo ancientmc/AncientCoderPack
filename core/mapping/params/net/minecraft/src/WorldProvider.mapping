@@ -1,10 +1,10 @@
 CLASS net/minecraft/src/WorldProvider
 	METHOD calcSunriseSunsetColors (FF)[F
-		ARG 1 pFloat
-		ARG 2 pFloat1
+		ARG 1 celestialAngle
+		ARG 2 partialTicks
 	METHOD calculateCelestialAngle (JF)F
-		ARG 1 time
-		ARG 3 pFloat
+		ARG 1 worldTime
+		ARG 3 partialTicks
 	METHOD canCoordinateBeSpawn (II)Z
 		ARG 1 posX
 		ARG 2 posZ
@@ -12,7 +12,7 @@ CLASS net/minecraft/src/WorldProvider
 		ARG 1 file
 	METHOD getFogColor (FF)Lnet/minecraft/src/Vec3D;
 		ARG 1 pFloat
-		ARG 2 pFloat1
+		ARG 2 partialTicks
 	METHOD getProviderForDimension (I)Lnet/minecraft/src/WorldProvider;
 		ARG 0 dimensionID
 	METHOD registerWorld (Lnet/minecraft/src/World;)V

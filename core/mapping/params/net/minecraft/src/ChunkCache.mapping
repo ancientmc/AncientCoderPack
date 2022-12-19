@@ -2,8 +2,8 @@ CLASS net/minecraft/src/ChunkCache
 	METHOD <init> (Lnet/minecraft/src/World;IIIIII)V
 		ARG 1 world
 		ARG 2 chunkX
-		ARG 3 chunkY
-		ARG 4 pInt
+		ARG 3 pInt
+		ARG 4 chunkZ
 		ARG 5 pInt1
 		ARG 6 pInt2
 		ARG 7 pInt3

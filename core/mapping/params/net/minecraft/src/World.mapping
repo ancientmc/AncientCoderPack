@@ -63,6 +63,8 @@ CLASS net/minecraft/src/World
 		ARG 2 posZ
 	METHOD countEntities (Ljava/lang/Class;)I
 		ARG 1 entityClass
+	METHOD createChunkProvider (Ljava/io/File;)Lnet/minecraft/src/IChunkProvider;
+		ARG 1 file
 	METHOD createExplosion (Lnet/minecraft/src/Entity;DDDF)Lnet/minecraft/src/Explosion;
 		ARG 1 entity
 		ARG 2 posX
@@ -75,7 +77,7 @@ CLASS net/minecraft/src/World
 		ARG 0 file
 		ARG 1 pString
 	METHOD drawClouds (F)Lnet/minecraft/src/Vec3D;
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD entityJoinedWorld (Lnet/minecraft/src/Entity;)Z
 		ARG 1 entity
 	METHOD func_12243_a (Lnet/minecraft/src/Entity;DDDF)Lnet/minecraft/src/Explosion;
@@ -208,7 +210,7 @@ CLASS net/minecraft/src/World
 		ARG 3 posZ
 		ARG 4 pFlag
 	METHOD getCelestialAngle (F)F
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD getChunkFromBlockCoords (II)Lnet/minecraft/src/Chunk;
 		ARG 1 posX
 		ARG 2 posZ
@@ -242,7 +244,7 @@ CLASS net/minecraft/src/World
 		ARG 1 posX
 		ARG 2 posZ
 	METHOD getFogColor (F)Lnet/minecraft/src/Vec3D;
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD getHeightValue (II)I
 		ARG 1 posX
 		ARG 2 posZ
@@ -261,7 +263,7 @@ CLASS net/minecraft/src/World
 		ARG 1 entity
 		ARG 2 pFloat
 	METHOD getStarBrightness (F)F
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD getTopSolidOrLiquidBlock (II)I
 		ARG 1 posX
 		ARG 2 posZ
@@ -464,7 +466,7 @@ CLASS net/minecraft/src/World
 		ARG 1 entity
 	METHOD setEntityState (Lnet/minecraft/src/Entity;B)V
 		ARG 1 entity
-		ARG 2 pByte
+		ARG 2 state
 	METHOD setLightValue (Lnet/minecraft/src/EnumSkyBlock;IIII)V
 		ARG 1 enumSkyBlock
 		ARG 2 posX
@@ -492,6 +494,7 @@ CLASS net/minecraft/src/World
 	METHOD updateEntity (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
 	METHOD updateEntityWithOptionalForce (Lnet/minecraft/src/Entity;Z)V
+		ARG 1 entity
 		ARG 2 pFlag
 	METHOD updateTileEntityChunkAndDoNothing (IIILnet/minecraft/src/TileEntity;)V
 		ARG 1 posX

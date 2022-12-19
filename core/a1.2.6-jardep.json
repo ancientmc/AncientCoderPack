@@ -1,0 +1,36 @@
+{
+  "libraries": [
+    {
+      "downloads": {
+        "artifact": {
+          "url": "https://libraries.minecraft.net/com/paulscode/soundsystem/20120107/soundsystem-20120107.jar",
+          "path": "com/paulscode/soundsystem/20120107/soundsystem-20120107.jar"
+        }
+      }
+    },
+    {
+      "downloads": {
+        "artifact": {
+          "url": "https://libraries.minecraft.net/com/paulscode/codecjorbis/20101023/codecjorbis-20101023.jar",
+          "path": "com/paulscode/codecjorbis/20101023/codecjorbis-20101023.jar"
+        }
+      }
+    },
+    {
+      "downloads": {
+        "artifact": {
+          "url": "https://libraries.minecraft.net/com/paulscode/codecwav/20101023/codecwav-20101023.jar",
+          "path": "com/paulscode/codecwav/20101023/codecwav-20101023.jar"
+        }
+      }
+    },
+    {
+      "downloads": {
+        "artifact": {
+          "url": "https://libraries.minecraft.net/com/paulscode/librarylwjglopenal/20100824/librarylwjglopenal-20100824.jar",
+          "path": "com/paulscode/librarylwjglopenal/20100824/librarylwjglopenal-20100824.jar"
+        }
+      }
+    }
+  ]
+}

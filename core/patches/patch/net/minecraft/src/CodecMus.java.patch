@@ -12,7 +12,7 @@
  
  public class CodecMus extends CodecJOrbis {
 -   @Override
-+   private URL url;
++   protected URL url;
 +   private URLConnection urlConnection = null;
 +
     protected InputStream openInputStream() {

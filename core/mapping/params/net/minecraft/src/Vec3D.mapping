@@ -8,13 +8,13 @@ CLASS net/minecraft/src/Vec3D
 		ARG 3 yAddition
 		ARG 5 zAddition
 	METHOD createVector (DDD)Lnet/minecraft/src/Vec3D;
-		ARG 0 xCoord
-		ARG 2 yCoord
-		ARG 4 zCoord
+		ARG 0 coordX
+		ARG 2 coordY
+		ARG 4 coordZ
 	METHOD createVectorHelper (DDD)Lnet/minecraft/src/Vec3D;
-		ARG 0 xCoord
-		ARG 2 yCoord
-		ARG 4 zCoord
+		ARG 0 coordX
+		ARG 2 coordY
+		ARG 4 coordZ
 	METHOD distanceTo (Lnet/minecraft/src/Vec3D;)D
 		ARG 1 vec3D
 	METHOD func_1262_a (Lnet/minecraft/src/Vec3D;)Lnet/minecraft/src/Vec3D;
