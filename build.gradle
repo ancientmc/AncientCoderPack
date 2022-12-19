@@ -22,7 +22,7 @@ version '0.1.0-SNAPSHOT'
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 ext {
-    MC_REPO = project.getGradle().getGradleUserHomeDir().getAbsolutePath() + "/caches/retrocoderpack/mc_repo/"
+    MC_REPO = project.getGradle().getGradleUserHomeDir().getAbsolutePath() + "/caches/ancientcoderpack/mc_repo/"
 }
 
 import com.ancientmc.acp.utils.*
