@@ -35,23 +35,22 @@ configurations {
     enigma
     quiltflower
     diffpatch
+    natives
 }
 
 dependencies {
-    gradleApi()
+    implementation gradleApi()
     implementation 'net.sf.jopt-simple:jopt-simple:4.5'
     implementation 'org.ow2.asm:asm-all:4.1'
     implementation 'net.java.jinput:jinput:2.0.5'
-    implementation 'net.java.jinput:jinput-platform:2.0.5'
+    natives 'net.java.jinput:jinput-platform:2.0.5'
     implementation 'net.java.jutils:jutils:1.0.0'
     if (OperatingSystem.current().isMacOsX()) {
         implementation 'org.lwjgl.lwjgl:lwjgl:2.9.1'
         implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.1'
-        implementation 'org.lwjgl.lwjgl:lwjgl-platform:2.9.1'
     } else {
         implementation 'org.lwjgl.lwjgl:lwjgl:2.9.0'
         implementation 'org.lwjgl.lwjgl:lwjgl_util:2.9.0'
-        implementation 'org.lwjgl.lwjgl:lwjgl-platform:2.9.0'
     }
     implementation 'com.paulscode:codecjorbis:20101023'
     implementation 'com.paulscode:soundsystem:20120107'
@@ -212,43 +211,41 @@ task downloadMetaAssets(type: JavaExec, dependsOn: copyJarAssets) {
 }
 
 // There's definitely a better way to do this.
-task downloadNatives (dependsOn: downloadMetaAssets) {
+task downloadNatives (type: Download, dependsOn: downloadMetaAssets) {
     group = "rcp"
     description = "Downloads the LWJGL and JInput native jars."
     mkdir file("${RCP_DIR_NATIVES}")
-    download {
-        if(OperatingSystem.current().isMacOsX()) {
-            src ("https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.1/lwjgl-platform-2.9.1-natives-${OSNAME}.jar")
-            dest "${RCP_DIR_NATIVES}"
-        } else {
-            src ("https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.0-natives-${OSNAME}.jar")
-            dest "${RCP_DIR_NATIVES}"
-        }
+    if (OperatingSystem.current().isMacOsX()) {
+        src(["https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.1/lwjgl-platform-2.9.1-natives-${OSNAME}.jar",
+             "https://repo.maven.apache.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-${OSNAME}.jar"])
+    } else {
+        src(["https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.0-natives-${OSNAME}.jar",
+             "https://repo.maven.apache.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-${OSNAME}.jar"])
     }
-    download {
-        src ("https://repo.maven.apache.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-${OSNAME}.jar")
-        dest "${RCP_DIR_NATIVES}"
-    }
+    dest(file("${RCP_DIR_NATIVES}"))
 }
 
 // Again, there's probably a better way to do this.
 task extractNatives (dependsOn: downloadNatives) {
     group = "rcp"
     description = "Extracts the native Jars' contents."
-    copy {
-        if(OperatingSystem.current().isMacOsX()) {
-            from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-osx.jar")))
-            into(file("${RCP_DIR_NATIVES}"))
-        } else {
-            from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar")))
+    doLast {
+        copy {
+            if(OperatingSystem.current().isMacOsX()) {
+                from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.1-natives-osx.jar")))
+                into(file("${RCP_DIR_NATIVES}"))
+            } else {
+                from(zipTree(file("${RCP_DIR_NATIVES}\\lwjgl-platform-2.9.0-natives-${OSNAME}.jar")))
+                into(file("${RCP_DIR_NATIVES}"))
+            }
+        }
+        copy {
+            from(zipTree(file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar")))
             into(file("${RCP_DIR_NATIVES}"))
         }
     }
-    copy {
-        from(zipTree(file("${RCP_DIR_NATIVES}\\jinput-platform-2.0.5-natives-${OSNAME}.jar")))
-        into(file("${RCP_DIR_NATIVES}"))
-    }
 }
+
 
 task cleanUpRemnants (type: Delete, dependsOn: extractNatives) {
     group = "rcp"

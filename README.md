@@ -1,5 +1,17 @@
-This currently works, mostly. There's a decompiler bug that only occurs some of the time which interrupts the decompilation
-process, so some work still needs to be done.
+## Branch Archival Notice ##
+This branch is an archive of how Retro Coder Pack (RCP) was before it got converted into a gradle plugin in December 2022.
+
+Before this change, RCP tasks were directly integrated into the build.gradle file. While this system was fine initially, 
+it's become increasingly messy and undesirable for RCP.
+
+This branch is downloadable, although if you want to use it, you need to rename the extracted folder to "RetroCoderPack".
+It should work by executing the "runRCP" task.
+
+This branch is only built for Alpha 1.2.6, the original version RCP was built on. It won't be built on any other version.
+
+If there's critical bugs, I may make some minor tweaks to this version to ensure it's at least functional, but it won't receive any updates beyond that.
+
+-Mason
 
 **What is the Retro Coder Pack?**
 
