@@ -1,4 +1,4 @@
-TO DO list for Retro Coder Pack Beta 0.1.0 (MC Alpha 1.2.6)
+TO DO list for Ancient Coder Pack Beta 0.1.0 (MC Alpha 1.2.6)
 
 - Map the rest of the parameters (or like 90% of them, I'll probably miss a few)
 - Check for any oddities in SRG file

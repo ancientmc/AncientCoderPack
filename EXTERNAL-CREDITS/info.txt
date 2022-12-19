@@ -1,4 +1,4 @@
-The CSV file includes the licenses for all third-party programs used specifically in the RCP repository.
+The CSV file includes the licenses for all third-party programs used specifically in the ACP repository.
 I don't think these are needed, since most of them are maven-based, not "vendored" (which, at least from my interpretation,
 means directly inserted into the code), but attribution is nice nonetheless.
 
@@ -6,4 +6,4 @@ This does not apply with McAssetExtractor, since the jar is directly included in
 is included within this directory.
 
 Although it is a maven dependency, Enigma has the GNU General Public License v3, which has a "same license" clause.
-This is why RCP uses this license.
+This is why ACP uses this license.

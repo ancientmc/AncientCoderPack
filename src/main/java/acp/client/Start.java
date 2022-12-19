@@ -1,4 +1,4 @@
-package rcp.client;
+package acp.client;
 
 import net.minecraft.client.Minecraft;
 

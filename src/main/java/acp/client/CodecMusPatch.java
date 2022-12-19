@@ -2,7 +2,7 @@
  * This class ensures that .mus audio files (used by the music discs) work correctly.
  */
 
-package rcp.client;
+package acp.client;
 
 import net.minecraft.src.CodecMus;
 

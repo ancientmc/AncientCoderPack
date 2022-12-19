@@ -1,10 +1,10 @@
 buildscript {
     repositories {
         mavenCentral()
-        maven { url = 'https://github.com/entropymc/entropy-maven/raw/maven' }
+        maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven' }
     }
     dependencies {
-        classpath 'com.entropy.rcp:RCP-Gradle:0.1.0-beta'
+        classpath 'com.ancientmc.acp:ACP-Gradle:0.1.0-beta'
         classpath 'commons-io:commons-io:2.8.0'
         classpath 'com.google.code.gson:gson:2.9.1'
     }
@@ -25,7 +25,7 @@ ext {
     MC_REPO = project.getGradle().getGradleUserHomeDir().getAbsolutePath() + "/caches/retrocoderpack/mc_repo/"
 }
 
-import com.entropy.rcp.utils.*
+import com.ancientmc.acp.utils.*
 
 repositories {
     flatDir { dirs files(MC_REPO) }
@@ -48,7 +48,7 @@ configurations {
     diffpatch
 }
 
-apply plugin: 'com.entropy.rcp'
+apply plugin: 'com.ancientmc.acp'
 
 dependencies {
     implementation gradleApi()
@@ -69,13 +69,13 @@ tasks.withType(JavaExec) {
 }
 
 task setup() {
-    group = "rcp-run"
+    group = "acp-run"
     dependsOn ':execute'
 }
 
 task runClient(type: JavaExec) {
-    group = "rcp-run"
-    main = 'rcp.client.Start'
+    group = "acp-run"
+    main = 'acp.client.Start'
     classpath = sourceSets.main.runtimeClasspath
 }
 
@@ -83,10 +83,10 @@ FileFilter gitIgnoreFilter = (File file) -> !file.getName().endsWith(".gitignore
 FileFilter runFilter = (File file) -> !file.getName().endsWith(".gitignore") && !file.getName().contains("bin")
 
 clean {
-    delete(file(Paths.RCP_DIR_NATIVES))
-    delete(file(Paths.RCP_DIR_SRC + "net\\"))
-    delete(file(Paths.RCP_DIR_TEMP).listFiles(gitIgnoreFilter))
-    delete(file(Paths.RCP_DIR_RESOURCES).listFiles(gitIgnoreFilter))
-    delete(file(Paths.RCP_DIR_RUN).listFiles(runFilter))
-    delete(file(Paths.RCP_DIR_LOGS).listFiles(gitIgnoreFilter))
+    delete(file(Paths.ACP_DIR_NATIVES))
+    delete(file(Paths.ACP_DIR_SRC + "net\\"))
+    delete(file(Paths.ACP_DIR_TEMP).listFiles(gitIgnoreFilter))
+    delete(file(Paths.ACP_DIR_RESOURCES).listFiles(gitIgnoreFilter))
+    delete(file(Paths.ACP_DIR_RUN).listFiles(runFilter))
+    delete(file(Paths.ACP_DIR_LOGS).listFiles(gitIgnoreFilter))
 }
