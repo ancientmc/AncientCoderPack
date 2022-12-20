@@ -16,6 +16,8 @@ plugins {
     id 'eclipse'
 }
 
+version = 'client-a1.2.6'
+
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 ext {
@@ -74,6 +76,31 @@ task runClient(type: JavaExec) {
     group = "acp-run"
     main = "acp.client.Start"
     classpath = sourceSets.main.runtimeClasspath
+}
+
+// intermediary task, use reobfJar instead.
+task modifyJar(type: Jar) {
+    dependsOn(':jar')
+    destinationDir = file('build\\libs\\')
+    baseName = 'interm'
+    from(zipTree(file('build\\libs\\AncientCoderPack-client-a1.2.6.jar'))) {
+        exclude('acp\\')
+    }
+    from(zipTree(file('core\\temp\\a1.2.6.jar'))) {
+        include('com\\')
+        include('paulscode\\')
+    }
+}
+
+task reobfJar(type: JavaExec, dependsOn: modifyJar) {
+    group = "acp-run"
+    mainClass = "RetroGuard"
+    classpath = files(project.configurations.getByName("retroguard"))
+    args("-notch", Paths.ACP_DIR_MAPPING + "retroguard.cfg")
+    doLast {
+        delete(file('build\\libs\\AncientCoderPack-client-a1.2.6.jar'))
+        delete(file('build\\libs\\interm-client-a1.2.6.jar'))
+    }
 }
 
 FileFilter gitIgnoreFilter = (File file) -> !file.getName().endsWith(".gitignore")

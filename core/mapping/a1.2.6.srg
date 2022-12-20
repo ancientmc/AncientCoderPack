@@ -1093,7 +1093,6 @@ FD: lm/a net/minecraft/src/ModelSpider/spiderHead
 FD: li/a net/minecraft/src/Packet29DestroyEntity/entityId
 FD: lg/b net/minecraft/src/EnumMobType/mobs
 FD: lg/a net/minecraft/src/EnumMobType/everything
-FD: lg/d net/minecraft/src/EnumMobType/allMobTypes
 FD: lg/c net/minecraft/src/EnumMobType/players
 FD: lf/b net/minecraft/src/ImageBufferDownload/imageWidth
 FD: lf/a net/minecraft/src/ImageBufferDownload/imageData
@@ -1256,7 +1255,6 @@ FD: jq/b net/minecraft/src/NetworkManager/numReadThreads
 FD: jq/a net/minecraft/src/NetworkManager/threadSyncObject
 FD: jp/b net/minecraft/src/EnumOS2/solaris
 FD: jp/a net/minecraft/src/EnumOS2/linux
-FD: jp/f net/minecraft/src/EnumOS2/allOSes
 FD: jp/e net/minecraft/src/EnumOS2/unknown
 FD: jp/d net/minecraft/src/EnumOS2/macos
 FD: jp/c net/minecraft/src/EnumOS2/windows
@@ -1542,7 +1540,6 @@ FD: gz/b net/minecraft/src/TileEntityRenderer/staticPlayerX
 FD: gz/a net/minecraft/src/TileEntityRenderer/instance
 FD: gy/b net/minecraft/src/EnumCreatureType/creature
 FD: gy/a net/minecraft/src/EnumCreatureType/monster
-FD: gy/e net/minecraft/src/EnumCreatureType/allCreatureTypes
 FD: gy/d net/minecraft/src/EnumCreatureType/maxNumberOfCreature
 FD: gy/c net/minecraft/src/EnumCreatureType/creatureClass
 FD: gw/b net/minecraft/src/Path/count
@@ -1645,7 +1642,6 @@ FD: fy/a net/minecraft/src/BlockBreakable/localFlag
 FD: fx/a net/minecraft/src/EntitySorter/entityForSorting
 FD: fw/b net/minecraft/src/EnumOS1/solaris
 FD: fw/a net/minecraft/src/EnumOS1/linux
-FD: fw/f net/minecraft/src/EnumOS1/field_6525_f
 FD: fw/e net/minecraft/src/EnumOS1/unknown
 FD: fw/d net/minecraft/src/EnumOS1/macos
 FD: fw/c net/minecraft/src/EnumOS1/windows
@@ -1695,7 +1691,6 @@ FD: fl/w net/minecraft/src/EnumArt/Skeleton
 FD: fl/v net/minecraft/src/EnumArt/Pigscene
 FD: fl/u net/minecraft/src/EnumArt/Pointer
 FD: fl/t net/minecraft/src/EnumArt/Fighters
-FD: fl/D net/minecraft/src/EnumArt/allArt
 FD: fl/s net/minecraft/src/EnumArt/SkullAndRoses
 FD: fl/C net/minecraft/src/EnumArt/offsetY
 FD: fl/r net/minecraft/src/EnumArt/Void
@@ -2102,7 +2097,6 @@ FD: ci/c net/minecraft/src/Packet51MapChunk/zPosition
 FD: i/a net/minecraft/src/MinecraftAppletImpl/mainFrame
 FD: ch/b net/minecraft/src/EnumSkyBlock/Block
 FD: ch/a net/minecraft/src/EnumSkyBlock/Sky
-FD: ch/d net/minecraft/src/EnumSkyBlock/allSkyBlocks
 FD: ch/c net/minecraft/src/EnumSkyBlock/defaultLightValue
 FD: h/a net/minecraft/src/NBTTagFloat/data
 FD: cf/a net/minecraft/src/RenderPainting/rand
