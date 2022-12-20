@@ -1,3 +1,5 @@
+See the How-To text file (HOWTO.md) to get started with ACP.
+
 **What is the Ancient Coder Pack?**
 
 The Ancient Coder Pack (ACP) aims to create a buildable gradle that allows users to view decompile source
@@ -26,7 +28,7 @@ into the workspace. [Original GitHub](https://github.com/rmheuer/McAssetExtracto
 
 **What mappings does ACP use?**
 
-For methods, classes, and fields, ACP uses SRG files. The SRG file for Minecraft Alpha 1.2.6 is generated via a tool
+For methods, classes, and fields, ACP uses MCP names and SRG files. The SRG file for Minecraft Alpha 1.2.6 is generated via a tool
 developed by me called [SRGConfig](https://github.com/moist-mason/SRGConfig). SRGConfig aims to convert the original RGS files
 found in the earliest MCP versions, albeit slightly modified, and converts them into SRG files, with custom names and everything.
 The mappings are taken from numerous MCP versions, written by the original MCP devs. Take a look at the SRGConfig 
