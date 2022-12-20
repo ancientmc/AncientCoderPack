@@ -75,7 +75,7 @@ task setup() {
 
 task runClient(type: JavaExec) {
     group = "acp-run"
-    main = 'acp.client.Start'
+    main = "acp.client.Start"
     classpath = sourceSets.main.runtimeClasspath
 }
 
