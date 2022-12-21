@@ -24,6 +24,7 @@ ext {
     MC_REPO = project.getGradle().getGradleUserHomeDir().getAbsolutePath() + "/caches/ancientcoderpack/mc_repo/"
 }
 
+import com.ancientmc.acp.ACPPlugin
 import com.ancientmc.acp.utils.*
 
 repositories {
@@ -78,28 +79,14 @@ task runClient(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
-// intermediary task, use reobfJar instead.
-task modifyJar(type: Jar) {
-    dependsOn(':jar')
-    destinationDir = file('build\\libs\\')
-    baseName = 'interm'
-    from(zipTree(file('build\\libs\\AncientCoderPack-client-a1.2.6.jar'))) {
-        exclude('acp\\')
-    }
+// intermediary task, use reobfJar instead. Do not publish anything generated from this task, since the classes will still be deobfuscated.
+jar {
+    destinationDirectory = file('build\\libs\\')
+    archiveBaseName = 'interm'
+    exclude("acp\\")
     from(zipTree(file('core\\temp\\a1.2.6.jar'))) {
         include('com\\')
         include('paulscode\\')
-    }
-}
-
-task reobfJar(type: JavaExec, dependsOn: modifyJar) {
-    group = "acp-run"
-    mainClass = "RetroGuard"
-    classpath = files(project.configurations.getByName("retroguard"))
-    args("-notch", Paths.ACP_DIR_MAPPING + "retroguard.cfg")
-    doLast {
-        delete(file('build\\libs\\AncientCoderPack-client-a1.2.6.jar'))
-        delete(file('build\\libs\\interm-client-a1.2.6.jar'))
     }
 }
 
