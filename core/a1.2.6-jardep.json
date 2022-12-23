@@ -11,8 +11,8 @@
     {
       "downloads": {
         "artifact": {
-          "url": "https://libraries.minecraft.net/com/paulscode/codecjorbis/20101023/codecjorbis-20101023.jar",
-          "path": "com/paulscode/codecjorbis/20101023/codecjorbis-20101023.jar"
+          "url": "https://github.com/ancientmc/ancientmc-maven/raw/maven/com/paulscode/codecjorbis-impl/20221222/codecjorbis-impl-20221222.jar",
+          "path": "com/paulscode/codecjorbis-impl/20221222/codecjorbis-impl-20221222.jar"
         }
       }
     },

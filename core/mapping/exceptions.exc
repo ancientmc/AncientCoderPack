@@ -1,5 +1,6 @@
 net/minecraft/client/Minecraft/startGame ()V org/lwjgl/LWJGLException
 net/minecraft/client/Minecraft/loadScreen ()V org/lwjgl/LWJGLException
+net/minecraft/src/CodecMus/openInputStream ()Ljava/io/InputStream; java/io/IOException
 net/minecraft/src/CompressedStreamTools/readCompressed (Ljava/io/InputStream;)Lnet/minecraft/src/NBTTagCompound; java/io/IOException
 net/minecraft/src/CompressedStreamTools/writeCompressed (Lnet/minecraft/src/NBTTagCompound;Ljava/io/OutputStream;)V java/io/IOException
 net/minecraft/src/CompressedStreamTools/func_1140_a ([B)Lnet/minecraft/src/NBTTagCompound; java/io/IOException

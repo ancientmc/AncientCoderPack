@@ -24,7 +24,6 @@ ext {
     MC_REPO = project.getGradle().getGradleUserHomeDir().getAbsolutePath() + "/caches/ancientcoderpack/mc_repo/"
 }
 
-import com.ancientmc.acp.ACPPlugin
 import com.ancientmc.acp.utils.*
 
 repositories {
