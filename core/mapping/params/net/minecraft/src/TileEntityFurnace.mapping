@@ -1,0 +1,9 @@
+CLASS net/minecraft/src/TileEntityFurnace
+	METHOD getBurnTimeRemainingScaled (I)I
+		ARG 1 scale
+	METHOD getCookProgressScaled (I)I
+		ARG 1 scale
+	METHOD getItemBurnTime (Lnet/minecraft/src/ItemStack;)I
+		ARG 1 itemStack
+	METHOD getSmeltingResultItem (I)I
+		ARG 1 resultingID

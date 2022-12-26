@@ -1,5 +1,30 @@
 CLASS net/minecraft/src/WorldChunkManager
 	METHOD <init> (Lnet/minecraft/src/World;)V
 		ARG 1 world
+	METHOD func_4069_a (IIII)[Lnet/minecraft/src/BiomeGenBase;
+		ARG 1 pInt
+		ARG 2 pInt1
+		ARG 3 pInt2
+		ARG 4 pInt3
+	METHOD getBiomeGenAt (II)Lnet/minecraft/src/BiomeGenBase;
+		ARG 1 pInt
+		ARG 2 pInt1
+	METHOD getBiomeGenAtChunkCoord (Lnet/minecraft/src/ChunkCoordIntPair;)Lnet/minecraft/src/BiomeGenBase;
+		ARG 1 chunkCoordIntPair
 	METHOD getBiomeGenAtChunkCoord (Lnet/minecraft/src/ChunkCoordIntPair;)Lnet/minecraft/src/MobSpawnerBase;
 		ARG 1 chunkCoordIntPair
+	METHOD getTemperature (II)D
+		ARG 1 pInt
+		ARG 2 pInt1
+	METHOD getTemperatures ([DIIII)[D
+		ARG 1 pDoubleA
+		ARG 2 pInt
+		ARG 3 pInt1
+		ARG 4 pInt2
+		ARG 5 pInt3
+	METHOD loadBlockGeneratorData ([Lnet/minecraft/src/BiomeGenBase;IIII)[Lnet/minecraft/src/BiomeGenBase;
+		ARG 1 biomes
+		ARG 2 posX
+		ARG 3 posZ
+		ARG 4 width
+		ARG 5 depth

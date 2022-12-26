@@ -1,23 +1,23 @@
 CLASS net/minecraft/src/NetworkManager
 	METHOD <init> (Ljava/net/Socket;Ljava/lang/String;Lnet/minecraft/src/NetHandler;)V
 		ARG 1 networkSocket
-		ARG 2 pString
+		ARG 2 name
 		ARG 3 netHandler
 	METHOD addToSendQueue (Lnet/minecraft/src/Packet;)V
 		ARG 1 packet
 	METHOD getReadThread (Lnet/minecraft/src/NetworkManager;)Ljava/lang/Thread;
-		ARG 0 networkManager
+		ARG 0 netManager
 	METHOD getWriteThread (Lnet/minecraft/src/NetworkManager;)Ljava/lang/Thread;
-		ARG 0 networkManager
+		ARG 0 netManager
 	METHOD isRunning (Lnet/minecraft/src/NetworkManager;)Z
-		ARG 0 networkManager
+		ARG 0 netManager
 	METHOD isServerTerminating (Lnet/minecraft/src/NetworkManager;)Z
-		ARG 0 networkManager
+		ARG 0 netManager
 	METHOD networkShutdown (Ljava/lang/String;)V
 		ARG 1 terminationReason
 	METHOD onNetworkError (Ljava/lang/Exception;)V
 		ARG 1 e
 	METHOD readNetworkPacket (Lnet/minecraft/src/NetworkManager;)V
-		ARG 0 networkManager
+		ARG 0 netManager
 	METHOD sendNetworkPacket (Lnet/minecraft/src/NetworkManager;)V
-		ARG 0 networkManager
+		ARG 0 netManager

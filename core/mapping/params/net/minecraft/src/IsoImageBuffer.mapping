@@ -1,0 +1,12 @@
+CLASS net/minecraft/src/IsoImageBuffer
+	METHOD <init> (Lnet/minecraft/src/World;II)V
+		ARG 1 level
+		ARG 2 x
+		ARG 3 y
+	METHOD init (II)V
+		ARG 1 x
+		ARG 2 y
+	METHOD init (Lnet/minecraft/src/World;II)V
+		ARG 1 level
+		ARG 2 x
+		ARG 3 y

@@ -1,0 +1,4 @@
+CLASS net/minecraft/src/ScaledResolution
+	METHOD <init> (II)V
+		ARG 1 scaledWidth
+		ARG 2 scaledHeight

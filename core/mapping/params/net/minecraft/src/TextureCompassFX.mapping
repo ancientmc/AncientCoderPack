@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/TextureCompassFX
+	METHOD <init> (Lnet/minecraft/client/Minecraft;)V
+		ARG 1 mc

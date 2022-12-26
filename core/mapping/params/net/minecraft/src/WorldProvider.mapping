@@ -9,10 +9,10 @@ CLASS net/minecraft/src/WorldProvider
 		ARG 1 posX
 		ARG 2 posZ
 	METHOD getChunkLoader (Ljava/io/File;)Lnet/minecraft/src/IChunkLoader;
-		ARG 1 file
+		ARG 1 worldDir
 	METHOD getFogColor (FF)Lnet/minecraft/src/Vec3D;
 		ARG 1 pFloat
-		ARG 2 partialTicks
+		ARG 2 partialTickTime
 	METHOD getProviderForDimension (I)Lnet/minecraft/src/WorldProvider;
 		ARG 0 dimensionID
 	METHOD registerWorld (Lnet/minecraft/src/World;)V

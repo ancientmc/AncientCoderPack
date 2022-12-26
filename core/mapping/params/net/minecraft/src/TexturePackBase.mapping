@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/TexturePackBase
+	METHOD bindThumbnailTexture (Lnet/minecraft/client/Minecraft;)V
+		ARG 1 mc
+	METHOD unbindThumbnailTexture (Lnet/minecraft/client/Minecraft;)V
+		ARG 1 mc

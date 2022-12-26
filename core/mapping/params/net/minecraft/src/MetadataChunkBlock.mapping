@@ -1,6 +1,6 @@
 CLASS net/minecraft/src/MetadataChunkBlock
 	METHOD <init> (Lnet/minecraft/src/EnumSkyBlock;IIIIII)V
-		ARG 1 enumSkyBlock
+		ARG 1 skyBlock
 		ARG 2 pInt
 		ARG 3 pInt1
 		ARG 4 pInt2

@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/WorldChunkManagerHell
+	METHOD <init> (Lnet/minecraft/src/BiomeGenBase;DD)V
+		ARG 1 biomeGenerator
+		ARG 2 hellTemperature
+		ARG 4 rainfall

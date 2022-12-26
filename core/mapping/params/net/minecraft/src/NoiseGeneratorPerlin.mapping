@@ -24,6 +24,11 @@ CLASS net/minecraft/src/NoiseGeneratorPerlin
 		ARG 1 coordX
 		ARG 3 coordY
 		ARG 5 coordZ
+	METHOD grad (IDDD)D
+		ARG 1 pInt
+		ARG 2 pDouble
+		ARG 4 pDouble1
+		ARG 6 pDouble2
 	METHOD lerp (DDD)D
 		ARG 1 pDouble
 		ARG 3 pDouble1

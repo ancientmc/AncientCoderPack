@@ -1,0 +1,5 @@
+CLASS net/minecraft/src/ScreenShotHelper
+	METHOD saveScreenshot (Ljava/io/File;II)Ljava/lang/String;
+		ARG 0 minecraftDir
+		ARG 1 width
+		ARG 2 height
