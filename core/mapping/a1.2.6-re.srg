@@ -3988,7 +3988,7 @@ MD: mx/a (Lmo;)V net/minecraft/src/Packet53BlockChange/processPacket (Lnet/minec
 CL: my net/minecraft/src/ThreadRunIsoClient
 FD: my/a net/minecraft/src/ThreadRunIsoClient/isoCanvas
 CL: mz net/minecraft/src/WorldIso
-FD: mz/A net/minecraft/src/WorldIso/lightingToUpdate
+FD: mz/A net/minecraft/src/WorldIso/theCanvasIsoPreview
 MD: mz/a (Ljava/io/File;)Lbd; net/minecraft/src/WorldIso/createChunkProvider (Ljava/io/File;)Lnet/minecraft/src/IChunkProvider;
 CL: na net/minecraft/src/SlotArmor
 FD: na/c net/minecraft/src/SlotArmor/armorType

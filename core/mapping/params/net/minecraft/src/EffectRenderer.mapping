@@ -36,4 +36,4 @@ CLASS net/minecraft/src/EffectRenderer
 		ARG 1 entityFX
 	METHOD renderParticles (Lnet/minecraft/src/Entity;F)V
 		ARG 1 entity
-		ARG 2 pFloat
+		ARG 2 partialTickTime

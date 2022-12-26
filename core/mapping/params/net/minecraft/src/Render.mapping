@@ -16,6 +16,9 @@ CLASS net/minecraft/src/Render
 	METHOD func_140_a (Ljava/lang/String;Ljava/lang/String;)V
 		ARG 1 pString
 		ARG 2 pString1
+	METHOD loadDownloadableImageTexture (Ljava/lang/String;Ljava/lang/String;)V
+		ARG 1 imageURL
+		ARG 2 imageName
 	METHOD loadTexture (Ljava/lang/String;)V
 		ARG 1 textureID
 	METHOD renderAABB (Lnet/minecraft/src/AxisAlignedBB;)V

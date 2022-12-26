@@ -891,7 +891,7 @@ FD: nc/c net/minecraft/src/TexturedQuad/invertNormal
 FD: nb/k net/minecraft/src/Gui/zLevel
 FD: na/d net/minecraft/src/SlotArmor/parent
 FD: na/c net/minecraft/src/SlotArmor/armorType
-FD: mz/A net/minecraft/src/WorldIso/lightingToUpdate
+FD: mz/A net/minecraft/src/WorldIso/theCanvasIsoPreview
 FD: my/a net/minecraft/src/ThreadRunIsoClient/isoCanvas
 FD: mx/b net/minecraft/src/Packet53BlockChange/yPosition
 FD: mx/a net/minecraft/src/Packet53BlockChange/xPosition

@@ -1,6 +1,6 @@
 CLASS net/minecraft/src/GuiContainer
 	METHOD drawGuiContainerBackgroundLayer (F)V
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD drawSlotInventory (Lnet/minecraft/src/SlotInventory;)V
 		ARG 1 slotInventory
 	METHOD getSlotAtPosition (II)Lnet/minecraft/src/Slot;

@@ -4,4 +4,4 @@ CLASS net/minecraft/src/ChunkPosition
 		ARG 2 y
 		ARG 3 z
 	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 object
+		ARG 1 obj

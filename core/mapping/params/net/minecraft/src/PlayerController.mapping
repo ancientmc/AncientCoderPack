@@ -42,3 +42,5 @@ CLASS net/minecraft/src/PlayerController
 		ARG 1 entityPlayer
 		ARG 2 world
 		ARG 3 itemStack
+	METHOD setPartialTime (F)V
+		ARG 1 partialTickTime

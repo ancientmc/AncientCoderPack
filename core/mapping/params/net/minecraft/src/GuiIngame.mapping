@@ -1,4 +1,6 @@
 CLASS net/minecraft/src/GuiIngame
+	METHOD <init> (Lnet/minecraft/client/Minecraft;)V
+		ARG 1 mc
 	METHOD addChatMessage (Ljava/lang/String;)V
 		ARG 1 message
 	METHOD func_4063_a (II)V

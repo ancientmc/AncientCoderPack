@@ -1,7 +1,7 @@
 CLASS net/minecraft/src/FontRenderer
 	METHOD <init> (Lnet/minecraft/src/GameSettings;Ljava/lang/String;Lnet/minecraft/src/RenderEngine;)V
 		ARG 1 gameSettings
-		ARG 2 pString
+		ARG 2 fontTextureMap
 		ARG 3 renderEngine
 	METHOD drawString (Ljava/lang/String;III)V
 		ARG 1 text

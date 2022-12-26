@@ -15,17 +15,17 @@ CLASS net/minecraft/src/Pathfinder
 		ARG 2 pointX
 		ARG 4 pointY
 		ARG 6 pointZ
-		ARG 8 pFloat
+		ARG 8 maxDistance
 	METHOD createEntityPathTo (Lnet/minecraft/src/Entity;IIIF)Lnet/minecraft/src/PathEntity;
 		ARG 1 entity
 		ARG 2 pointX
 		ARG 3 pointY
 		ARG 4 pointZ
-		ARG 5 pFloat
+		ARG 5 maxDistance
 	METHOD createEntityPathTo (Lnet/minecraft/src/Entity;Lnet/minecraft/src/Entity;F)Lnet/minecraft/src/PathEntity;
 		ARG 1 entity
 		ARG 2 entity1
-		ARG 3 pFloat
+		ARG 3 maxDistance
 	METHOD findPathOptions (Lnet/minecraft/src/Entity;Lnet/minecraft/src/PathPoint;Lnet/minecraft/src/PathPoint;Lnet/minecraft/src/PathPoint;F)I
 		ARG 1 entity
 		ARG 2 currentPoint

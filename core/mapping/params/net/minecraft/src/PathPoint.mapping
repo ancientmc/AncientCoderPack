@@ -3,5 +3,7 @@ CLASS net/minecraft/src/PathPoint
 		ARG 1 xCoord
 		ARG 2 yCoord
 		ARG 3 zCoord
+	METHOD distanceTo (Lnet/minecraft/src/PathPoint;)F
+		ARG 1 pathPoint
 	METHOD equals (Ljava/lang/Object;)Z
 		ARG 1 object

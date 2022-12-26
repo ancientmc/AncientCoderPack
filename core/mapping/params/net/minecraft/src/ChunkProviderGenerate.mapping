@@ -10,6 +10,12 @@ CLASS net/minecraft/src/ChunkProviderGenerate
 		ARG 5 pInt3
 		ARG 6 pInt4
 		ARG 7 pInt5
+	METHOD generateTerrain (II[B[Lnet/minecraft/src/BiomeGenBase;[D)V
+		ARG 1 pInt
+		ARG 2 pInt1
+		ARG 3 pByteA
+		ARG 4 biomes
+		ARG 5 pDoubleA
 	METHOD generateTerrain (II[B[Lnet/minecraft/src/MobSpawnerBase;[D)V
 		ARG 1 pInt
 		ARG 2 pInt1
@@ -24,6 +30,11 @@ CLASS net/minecraft/src/ChunkProviderGenerate
 		ARG 5 pInt3
 		ARG 6 pInt4
 		ARG 7 pInt5
+	METHOD replaceBlocksForBiome (II[B[Lnet/minecraft/src/BiomeGenBase;)V
+		ARG 1 pInt
+		ARG 2 pInt1
+		ARG 3 pByteA
+		ARG 4 biomes
 	METHOD replaceBlocksForBiome (II[B[Lnet/minecraft/src/MobSpawnerBase;)V
 		ARG 1 pInt
 		ARG 2 pInt1

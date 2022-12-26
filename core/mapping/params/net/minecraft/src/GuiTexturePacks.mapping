@@ -1,4 +1,6 @@
 CLASS net/minecraft/src/GuiTexturePacks
+	METHOD <init> (Lnet/minecraft/src/GuiScreen;)V
+		ARG 1 guiScreen
 	METHOD func_6452_a (IIII)V
 		ARG 1 pInt
 		ARG 2 pInt1

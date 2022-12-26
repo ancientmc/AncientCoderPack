@@ -3,4 +3,4 @@ CLASS net/minecraft/src/EntityPickupFX
 		ARG 1 world
 		ARG 2 entityToPickUp
 		ARG 3 entityPickingUp
-		ARG 4 yoffs
+		ARG 4 yOffs

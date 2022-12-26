@@ -1,14 +1,14 @@
 CLASS net/minecraft/src/World
 	METHOD <init> (Ljava/io/File;Ljava/lang/String;)V
-		ARG 1 file
-		ARG 2 pString
+		ARG 1 savesDir
+		ARG 2 worldName
 	METHOD <init> (Ljava/io/File;Ljava/lang/String;J)V
-		ARG 1 worldFile
-		ARG 2 pString
+		ARG 1 savesDir
+		ARG 2 worldName
 		ARG 3 randomSeed
 	METHOD <init> (Ljava/io/File;Ljava/lang/String;JLnet/minecraft/src/WorldProvider;)V
-		ARG 1 worldFile
-		ARG 2 pString
+		ARG 1 savesDir
+		ARG 2 worldName
 		ARG 3 randomSeed
 		ARG 5 worldProvider
 	METHOD <init> (Ljava/lang/String;Lnet/minecraft/src/WorldProvider;J)V
@@ -29,7 +29,7 @@ CLASS net/minecraft/src/World
 		ARG 2 posY
 		ARG 3 posZ
 	METHOD calculateSkylightSubtracted (F)I
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD canBlockBePlacedAt (IIIIZ)Z
 		ARG 1 blockID
 		ARG 2 posX
@@ -239,7 +239,7 @@ CLASS net/minecraft/src/World
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
-		ARG 5 pFloat
+		ARG 5 maxDistance
 	METHOD getFirstUncoveredBlock (II)I
 		ARG 1 posX
 		ARG 2 posZ
@@ -253,7 +253,7 @@ CLASS net/minecraft/src/World
 	METHOD getPathToEntity (Lnet/minecraft/src/Entity;Lnet/minecraft/src/Entity;F)Lnet/minecraft/src/PathEntity;
 		ARG 1 entity
 		ARG 2 entity1
-		ARG 3 pFloat
+		ARG 3 maxDistance
 	METHOD getSavedLightValue (Lnet/minecraft/src/EnumSkyBlock;III)I
 		ARG 1 enumSkyBlock
 		ARG 2 posX
@@ -301,6 +301,10 @@ CLASS net/minecraft/src/World
 		ARG 2 material
 	METHOD joinEntityInSurroundings (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
+	METHOD markBlockNeedsUpdate (III)V
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 	METHOD markBlocksDirty (IIIIII)V
 		ARG 1 minX
 		ARG 2 minY

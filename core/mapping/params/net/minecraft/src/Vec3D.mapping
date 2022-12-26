@@ -15,6 +15,8 @@ CLASS net/minecraft/src/Vec3D
 		ARG 0 coordX
 		ARG 2 coordY
 		ARG 4 coordZ
+	METHOD crossProduct (Lnet/minecraft/src/Vec3D;)Lnet/minecraft/src/Vec3D;
+		ARG 1 vec3D
 	METHOD distanceTo (Lnet/minecraft/src/Vec3D;)D
 		ARG 1 vec3D
 	METHOD func_1262_a (Lnet/minecraft/src/Vec3D;)Lnet/minecraft/src/Vec3D;
@@ -41,4 +43,6 @@ CLASS net/minecraft/src/Vec3D
 		ARG 3 yTarget
 		ARG 5 zTarget
 	METHOD squareDistanceTo (Lnet/minecraft/src/Vec3D;)D
+		ARG 1 vec3D
+	METHOD subtract (Lnet/minecraft/src/Vec3D;)Lnet/minecraft/src/Vec3D;
 		ARG 1 vec3D

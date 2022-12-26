@@ -1,4 +1,4 @@
-See the How-To text file (HOWTO.md) to get started with ACP.
+See the How-To text file (HOWTO.md) located in the "docs" folder to get started with ACP.
 
 **What is the Ancient Coder Pack?**
 
@@ -10,8 +10,8 @@ tool for people to learn about the history of Minecraft.
 
 **What tools are used for ACP?**
 
-I originally created this project directly including and using files from the Mod Coder Pack version 2.5, but due to MCP's license 
-and the age of the tools I have been moving away from these in favor of more modern tools. ACP does use some tools developed by 
+At first, ACP directly included and using files from the Mod Coder Pack version 2.5, but due to MCP's license 
+and the age of the tools they have been replaced by more modern and open-source tools. ACP does use some tools developed by 
 OceanLabs, MinecraftForge, and FabricMC, but these are Maven dependencies that are publicly available for others.
 The only tool directly included is McAssetExtractor, a forked tool originally developed by GitHub user rhmeuer.
 
@@ -29,13 +29,13 @@ into the workspace. [Original GitHub](https://github.com/rmheuer/McAssetExtracto
 **What mappings does ACP use?**
 
 For methods, classes, and fields, ACP uses MCP names and SRG files. The SRG file for Minecraft Alpha 1.2.6 is generated via a tool
-developed by me called [SRGConfig](https://github.com/moist-mason/SRGConfig). SRGConfig aims to convert the original RGS files
+developed by AncientMC called [SRGConfig](https://github.com/moist-mason/SRGConfig). SRGConfig aims to convert the original RGS files
 found in the earliest MCP versions, albeit slightly modified, and converts them into SRG files, with custom names and everything.
 The mappings are taken from numerous MCP versions, written by the original MCP devs. Take a look at the SRGConfig 
 repository for more information. 
 
 For parameters, ACP uses Enigma. Aside from an older version of MCInjector (that ACP doesn't use), Enigma is pretty much the only 
-deobfuscator/bytecode editor, that I know of, that allows for direct editing of parameter names. Lack of options and Enigma's 
-ease of use makes it the preferred choice. The parameter names are written by me, and are currently work in progress.
+deobfuscator/bytecode editor that allows for direct editing of parameter names. Lack of options and Enigma's 
+ease of use makes it the preferred choice. The parameter names are written by AncientMC, and are currently work in progress.
 
 Stay tuned for a full release.

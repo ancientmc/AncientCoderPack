@@ -1,6 +1,6 @@
 CLASS net/minecraft/src/CraftingManager
 	METHOD addRecipe (Lnet/minecraft/src/ItemStack;[Ljava/lang/Object;)V
 		ARG 1 itemStack
-		ARG 2 object
+		ARG 2 objects
 	METHOD craft ([I)Lnet/minecraft/src/ItemStack;
 		ARG 1 itemIDs

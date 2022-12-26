@@ -93,4 +93,4 @@ CLASS net/minecraft/client/Minecraft
 		ARG 0 pString
 		ARG 1 pString1
 	METHOD startWorld (Ljava/lang/String;)V
-		ARG 1 pString
+		ARG 1 worldName

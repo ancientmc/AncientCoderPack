@@ -4,3 +4,6 @@ CLASS net/minecraft/src/GuiMultiplayer
 	METHOD func_4067_a (Ljava/lang/String;I)I
 		ARG 1 pString
 		ARG 2 pInt
+	METHOD parseIntWithDefault (Ljava/lang/String;I)I
+		ARG 1 pInt
+		ARG 2 pInt1
