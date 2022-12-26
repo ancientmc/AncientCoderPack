@@ -1,0 +1,3 @@
+CLASS net/minecraft/src/ModelPig
+	METHOD <init> (F)V
+		ARG 1 pFloat
