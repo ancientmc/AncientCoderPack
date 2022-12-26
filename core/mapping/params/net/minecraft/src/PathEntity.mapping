@@ -1,3 +1,5 @@
 CLASS net/minecraft/src/PathEntity
+	METHOD <init> ([Lnet/minecraft/src/PathPoint;)V
+		ARG 1 points
 	METHOD getPosition (Lnet/minecraft/src/Entity;)Lnet/minecraft/src/Vec3D;
 		ARG 1 entity

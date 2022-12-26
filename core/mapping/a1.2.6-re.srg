@@ -734,6 +734,7 @@ CL: ch net/minecraft/src/EnumSkyBlock
 FD: ch/a net/minecraft/src/EnumSkyBlock/Sky
 FD: ch/b net/minecraft/src/EnumSkyBlock/Block
 FD: ch/c net/minecraft/src/EnumSkyBlock/defaultLightValue
+FD: ch/d net/minecraft/src/EnumSkyBlock/d
 MD: ch/values ()[Lch; net/minecraft/src/EnumSkyBlock/values ()[Lnet/minecraft/src/EnumSkyBlock;
 CL: e net/minecraft/src/BlockOreBlock
 MD: e/a (I)I net/minecraft/src/BlockOreBlock/getBlockTextureFromSide (I)I
@@ -860,7 +861,7 @@ CL: j net/minecraft/src/CanvasMinecraftApplet
 FD: j/a net/minecraft/src/CanvasMinecraftApplet/mcApplet
 CL: cn net/minecraft/src/BlockStone
 MD: cn/a (ILjava/util/Random;)I net/minecraft/src/BlockStone/idDropped (ILjava/util/Random;)I
-CL: k net/minecraft/src/MobSpawnerHell
+CL: k net/minecraft/src/BiomeGenHell
 CL: co net/minecraft/src/AxisAlignedBB
 FD: co/a net/minecraft/src/AxisAlignedBB/minX
 FD: co/b net/minecraft/src/AxisAlignedBB/minY
@@ -1236,7 +1237,7 @@ MD: dh/l ()Lfp; net/minecraft/src/EntitySkeleton/getHeldItem ()Lnet/minecraft/sr
 MD: dh/k ()V net/minecraft/src/EntitySkeleton/onLivingUpdate ()V
 MD: dh/a (Liq;)V net/minecraft/src/EntitySkeleton/writeEntityToNBT (Lnet/minecraft/src/NBTTagCompound;)V
 MD: dh/f_ ()Ljava/lang/String; net/minecraft/src/EntitySkeleton/getHurtSound ()Ljava/lang/String;
-CL: di net/minecraft/src/MobSpawnerDesert
+CL: di net/minecraft/src/BiomeGenDesert
 CL: dj net/minecraft/src/GuiMainMenu
 FD: dj/a net/minecraft/src/GuiMainMenu/minecraftLogo
 FD: dj/h net/minecraft/src/GuiMainMenu/rand
@@ -1611,10 +1612,10 @@ FD: ei/f net/minecraft/src/WorldChunkManagerHell/hellTemperature
 FD: ei/g net/minecraft/src/WorldChunkManagerHell/rainfall
 MD: ei/b (II)D net/minecraft/src/WorldChunkManagerHell/getTemperature (II)D
 MD: ei/a ([DIIII)[D net/minecraft/src/WorldChunkManagerHell/getTemperatures ([DIIII)[D
-MD: ei/a (IIII)[Lgg; net/minecraft/src/WorldChunkManagerHell/func_4069_a (IIII)[Lnet/minecraft/src/MobSpawnerBase;
-MD: ei/a ([Lgg;IIII)[Lgg; net/minecraft/src/WorldChunkManagerHell/loadBlockGeneratorData ([Lnet/minecraft/src/MobSpawnerBase;IIII)[Lnet/minecraft/src/MobSpawnerBase;
-MD: ei/a (II)Lgg; net/minecraft/src/WorldChunkManagerHell/getBiomeGenAt (II)Lnet/minecraft/src/MobSpawnerBase;
-MD: ei/a (Lqm;)Lgg; net/minecraft/src/WorldChunkManagerHell/getBiomeGenAtChunkCoord (Lnet/minecraft/src/ChunkCoordIntPair;)Lnet/minecraft/src/MobSpawnerBase;
+MD: ei/a (IIII)[Lgg; net/minecraft/src/WorldChunkManagerHell/func_4069_a (IIII)[Lnet/minecraft/src/BiomeGenBase;
+MD: ei/a ([Lgg;IIII)[Lgg; net/minecraft/src/WorldChunkManagerHell/loadBlockGeneratorData ([Lnet/minecraft/src/BiomeGenBase;IIII)[Lnet/minecraft/src/BiomeGenBase;
+MD: ei/a (II)Lgg; net/minecraft/src/WorldChunkManagerHell/getBiomeGenAt (II)Lnet/minecraft/src/BiomeGenBase;
+MD: ei/a (Lqm;)Lgg; net/minecraft/src/WorldChunkManagerHell/getBiomeGenAtChunkCoord (Lnet/minecraft/src/ChunkCoordIntPair;)Lnet/minecraft/src/BiomeGenBase;
 CL: ej net/minecraft/src/BlockSapling
 MD: ej/a (Lcy;IIILjava/util/Random;)V net/minecraft/src/BlockSapling/updateTick (Lnet/minecraft/src/World;IIILjava/util/Random;)V
 CL: ek net/minecraft/src/Packet4UpdateTime
@@ -1836,6 +1837,7 @@ CL: fl net/minecraft/src/EnumArt
 FD: fl/A net/minecraft/src/EnumArt/sizeY
 FD: fl/B net/minecraft/src/EnumArt/offsetX
 FD: fl/C net/minecraft/src/EnumArt/offsetY
+FD: fl/D net/minecraft/src/EnumArt/D
 FD: fl/a net/minecraft/src/EnumArt/Kebab
 FD: fl/b net/minecraft/src/EnumArt/Aztec
 FD: fl/c net/minecraft/src/EnumArt/Alban
@@ -2002,6 +2004,7 @@ FD: fw/b net/minecraft/src/EnumOS1/solaris
 FD: fw/c net/minecraft/src/EnumOS1/windows
 FD: fw/d net/minecraft/src/EnumOS1/macos
 FD: fw/e net/minecraft/src/EnumOS1/unknown
+FD: fw/f net/minecraft/src/EnumOS1/f
 MD: fw/values ()[Lfw; net/minecraft/src/EnumOS1/values ()[Lnet/minecraft/src/EnumOS1;
 CL: fx net/minecraft/src/EntitySorter
 FD: fx/a net/minecraft/src/EntitySorter/entityForSorting
@@ -2076,36 +2079,36 @@ MD: ge/a (IILjava/lang/Object;I)V net/minecraft/src/MCHashTable/insert (IILjava/
 MD: ge/a (II)I net/minecraft/src/MCHashTable/getSlotIndex (II)I
 CL: gf net/minecraft/src/RecipesCrafting
 MD: gf/a (Len;)V net/minecraft/src/RecipesCrafting/addRecipes (Lnet/minecraft/src/CraftingManager;)V
-CL: gg net/minecraft/src/MobSpawnerBase
-FD: gg/a net/minecraft/src/MobSpawnerBase/rainforest
-FD: gg/b net/minecraft/src/MobSpawnerBase/swampland
-FD: gg/c net/minecraft/src/MobSpawnerBase/seasonalForest
-FD: gg/d net/minecraft/src/MobSpawnerBase/forest
-FD: gg/e net/minecraft/src/MobSpawnerBase/savanna
-FD: gg/f net/minecraft/src/MobSpawnerBase/shrubland
-FD: gg/g net/minecraft/src/MobSpawnerBase/taiga
-FD: gg/h net/minecraft/src/MobSpawnerBase/desert
-FD: gg/i net/minecraft/src/MobSpawnerBase/plains
-FD: gg/j net/minecraft/src/MobSpawnerBase/iceDesert
-FD: gg/k net/minecraft/src/MobSpawnerBase/tundra
-FD: gg/l net/minecraft/src/MobSpawnerBase/hell
-FD: gg/m net/minecraft/src/MobSpawnerBase/biomeName
-FD: gg/n net/minecraft/src/MobSpawnerBase/color
-FD: gg/o net/minecraft/src/MobSpawnerBase/topBlock
-FD: gg/p net/minecraft/src/MobSpawnerBase/fillerBlock
-FD: gg/q net/minecraft/src/MobSpawnerBase/field_6502_q
-FD: gg/r net/minecraft/src/MobSpawnerBase/biomeMonsters
-FD: gg/s net/minecraft/src/MobSpawnerBase/biomeCreatures
-FD: gg/t net/minecraft/src/MobSpawnerBase/biomeLookupTable
-MD: gg/b (I)Lgg; net/minecraft/src/MobSpawnerBase/setColor (I)Lnet/minecraft/src/MobSpawnerBase;
-MD: gg/a (Lgy;)[Ljava/lang/Class; net/minecraft/src/MobSpawnerBase/getEntitiesForType (Lnet/minecraft/src/EnumCreatureType;)[Ljava/lang/Class;
-MD: gg/a (I)Lgg; net/minecraft/src/MobSpawnerBase/func_4124_a (I)Lnet/minecraft/src/MobSpawnerBase;
-MD: gg/a (DD)Lgg; net/minecraft/src/MobSpawnerBase/getBiomeFromLookup (DD)Lnet/minecraft/src/MobSpawnerBase;
-MD: gg/a (F)I net/minecraft/src/MobSpawnerBase/getSkyColorByTemp (F)I
-MD: gg/a (Ljava/lang/String;)Lgg; net/minecraft/src/MobSpawnerBase/setBiomeName (Ljava/lang/String;)Lnet/minecraft/src/MobSpawnerBase;
-MD: gg/a ()V net/minecraft/src/MobSpawnerBase/generateBiomeLookup ()V
-MD: gg/b ()Lgg; net/minecraft/src/MobSpawnerBase/setEnableSnow ()Lnet/minecraft/src/MobSpawnerBase;
-MD: gg/a (FF)Lgg; net/minecraft/src/MobSpawnerBase/getSpawningChance (FF)Lnet/minecraft/src/MobSpawnerBase;
+CL: gg net/minecraft/src/BiomeGenBase
+FD: gg/a net/minecraft/src/BiomeGenBase/rainforest
+FD: gg/b net/minecraft/src/BiomeGenBase/swampland
+FD: gg/c net/minecraft/src/BiomeGenBase/seasonalForest
+FD: gg/d net/minecraft/src/BiomeGenBase/forest
+FD: gg/e net/minecraft/src/BiomeGenBase/savanna
+FD: gg/f net/minecraft/src/BiomeGenBase/shrubland
+FD: gg/g net/minecraft/src/BiomeGenBase/taiga
+FD: gg/h net/minecraft/src/BiomeGenBase/desert
+FD: gg/i net/minecraft/src/BiomeGenBase/plains
+FD: gg/j net/minecraft/src/BiomeGenBase/iceDesert
+FD: gg/k net/minecraft/src/BiomeGenBase/tundra
+FD: gg/l net/minecraft/src/BiomeGenBase/hell
+FD: gg/m net/minecraft/src/BiomeGenBase/biomeName
+FD: gg/n net/minecraft/src/BiomeGenBase/color
+FD: gg/o net/minecraft/src/BiomeGenBase/topBlock
+FD: gg/p net/minecraft/src/BiomeGenBase/fillerBlock
+FD: gg/q net/minecraft/src/BiomeGenBase/field_6502_q
+FD: gg/r net/minecraft/src/BiomeGenBase/biomeMonsters
+FD: gg/s net/minecraft/src/BiomeGenBase/biomeCreatures
+FD: gg/t net/minecraft/src/BiomeGenBase/biomeLookupTable
+MD: gg/b (I)Lgg; net/minecraft/src/BiomeGenBase/setColor (I)Lnet/minecraft/src/BiomeGenBase;
+MD: gg/a (Lgy;)[Ljava/lang/Class; net/minecraft/src/BiomeGenBase/getEntitiesForType (Lnet/minecraft/src/EnumCreatureType;)[Ljava/lang/Class;
+MD: gg/a (I)Lgg; net/minecraft/src/BiomeGenBase/func_4124_a (I)Lnet/minecraft/src/BiomeGenBase;
+MD: gg/a (DD)Lgg; net/minecraft/src/BiomeGenBase/getBiomeFromLookup (DD)Lnet/minecraft/src/BiomeGenBase;
+MD: gg/a (F)I net/minecraft/src/BiomeGenBase/getSkyColorByTemp (F)I
+MD: gg/a (Ljava/lang/String;)Lgg; net/minecraft/src/BiomeGenBase/setBiomeName (Ljava/lang/String;)Lnet/minecraft/src/BiomeGenBase;
+MD: gg/a ()V net/minecraft/src/BiomeGenBase/generateBiomeLookup ()V
+MD: gg/b ()Lgg; net/minecraft/src/BiomeGenBase/setEnableSnow ()Lnet/minecraft/src/BiomeGenBase;
+MD: gg/a (FF)Lgg; net/minecraft/src/BiomeGenBase/getSpawningChance (FF)Lnet/minecraft/src/BiomeGenBase;
 CL: gh net/minecraft/src/GuiButton
 FD: gh/a net/minecraft/src/GuiButton/width
 FD: gh/b net/minecraft/src/GuiButton/height
@@ -2259,6 +2262,7 @@ FD: gy/a net/minecraft/src/EnumCreatureType/monster
 FD: gy/b net/minecraft/src/EnumCreatureType/creature
 FD: gy/c net/minecraft/src/EnumCreatureType/creatureClass
 FD: gy/d net/minecraft/src/EnumCreatureType/maxNumberOfCreature
+FD: gy/e net/minecraft/src/EnumCreatureType/e
 MD: gy/values ()[Lgy; net/minecraft/src/EnumCreatureType/values ()[Lnet/minecraft/src/EnumCreatureType;
 CL: gz net/minecraft/src/TileEntityRenderer
 FD: gz/a net/minecraft/src/TileEntityRenderer/instance
@@ -3040,6 +3044,7 @@ FD: jp/b net/minecraft/src/EnumOS2/solaris
 FD: jp/c net/minecraft/src/EnumOS2/windows
 FD: jp/d net/minecraft/src/EnumOS2/macos
 FD: jp/e net/minecraft/src/EnumOS2/unknown
+FD: jp/f net/minecraft/src/EnumOS2/f
 MD: jp/values ()[Ljp; net/minecraft/src/EnumOS2/values ()[Lnet/minecraft/src/EnumOS2;
 CL: jq net/minecraft/src/NetworkManager
 FD: jq/a net/minecraft/src/NetworkManager/threadSyncObject
@@ -3448,6 +3453,7 @@ CL: lg net/minecraft/src/EnumMobType
 FD: lg/a net/minecraft/src/EnumMobType/everything
 FD: lg/b net/minecraft/src/EnumMobType/mobs
 FD: lg/c net/minecraft/src/EnumMobType/players
+FD: lg/d net/minecraft/src/EnumMobType/d
 MD: lg/values ()[Llg; net/minecraft/src/EnumMobType/values ()[Lnet/minecraft/src/EnumMobType;
 CL: lh net/minecraft/src/BlockContainer
 MD: lh/b (Lcy;III)V net/minecraft/src/BlockContainer/onBlockRemoval (Lnet/minecraft/src/World;III)V
@@ -3828,7 +3834,7 @@ FD: mk/g net/minecraft/src/ModelChicken/bill
 FD: mk/h net/minecraft/src/ModelChicken/chin
 MD: mk/b (FFFFFF)V net/minecraft/src/ModelChicken/render (FFFFFF)V
 MD: mk/a (FFFFFF)V net/minecraft/src/ModelChicken/setRotationAngles (FFFFFF)V
-CL: ml net/minecraft/src/MobSpawnerSwamp
+CL: ml net/minecraft/src/BiomeGenSwamp
 CL: mm net/minecraft/src/RenderList
 FD: mm/a net/minecraft/src/RenderList/field_1242_a
 FD: mm/b net/minecraft/src/RenderList/field_1241_b
@@ -4663,10 +4669,10 @@ FD: po/f net/minecraft/src/WorldChunkManager/field_4193_f
 FD: po/g net/minecraft/src/WorldChunkManager/field_4192_g
 MD: po/b (II)D net/minecraft/src/WorldChunkManager/getTemperature (II)D
 MD: po/a ([DIIII)[D net/minecraft/src/WorldChunkManager/getTemperatures ([DIIII)[D
-MD: po/a (IIII)[Lgg; net/minecraft/src/WorldChunkManager/func_4069_a (IIII)[Lnet/minecraft/src/MobSpawnerBase;
-MD: po/a ([Lgg;IIII)[Lgg; net/minecraft/src/WorldChunkManager/loadBlockGeneratorData ([Lnet/minecraft/src/MobSpawnerBase;IIII)[Lnet/minecraft/src/MobSpawnerBase;
-MD: po/a (II)Lgg; net/minecraft/src/WorldChunkManager/getBiomeGenAt (II)Lnet/minecraft/src/MobSpawnerBase;
-MD: po/a (Lqm;)Lgg; net/minecraft/src/WorldChunkManager/getBiomeGenAtChunkCoord (Lnet/minecraft/src/ChunkCoordIntPair;)Lnet/minecraft/src/MobSpawnerBase;
+MD: po/a (IIII)[Lgg; net/minecraft/src/WorldChunkManager/func_4069_a (IIII)[Lnet/minecraft/src/BiomeGenBase;
+MD: po/a ([Lgg;IIII)[Lgg; net/minecraft/src/WorldChunkManager/loadBlockGeneratorData ([Lnet/minecraft/src/BiomeGenBase;IIII)[Lnet/minecraft/src/BiomeGenBase;
+MD: po/a (II)Lgg; net/minecraft/src/WorldChunkManager/getBiomeGenAt (II)Lnet/minecraft/src/BiomeGenBase;
+MD: po/a (Lqm;)Lgg; net/minecraft/src/WorldChunkManager/getBiomeGenAtChunkCoord (Lnet/minecraft/src/ChunkCoordIntPair;)Lnet/minecraft/src/BiomeGenBase;
 CL: pp net/minecraft/src/EntityFX
 FD: pp/b net/minecraft/src/EntityFX/particleTextureIndex
 FD: pp/c net/minecraft/src/EntityFX/particleTextureJitterX
@@ -4765,12 +4771,12 @@ FD: px/u net/minecraft/src/ChunkProviderGenerate/caveGenerator
 FD: px/v net/minecraft/src/ChunkProviderGenerate/biomesForGeneration
 FD: px/w net/minecraft/src/ChunkProviderGenerate/generatedTemperatures
 MD: px/a (ZLpu;)Z net/minecraft/src/ChunkProviderGenerate/saveChunks (ZLnet/minecraft/src/IProgressUpdate;)Z
-MD: px/a (II[B[Lgg;[D)V net/minecraft/src/ChunkProviderGenerate/generateTerrain (II[B[Lnet/minecraft/src/MobSpawnerBase;[D)V
+MD: px/a (II[B[Lgg;[D)V net/minecraft/src/ChunkProviderGenerate/generateTerrain (II[B[Lnet/minecraft/src/BiomeGenBase;[D)V
 MD: px/a (II)Z net/minecraft/src/ChunkProviderGenerate/chunkExists (II)Z
 MD: px/a ()Z net/minecraft/src/ChunkProviderGenerate/unload100OldestChunks ()Z
 MD: px/a (Lbd;II)V net/minecraft/src/ChunkProviderGenerate/populate (Lnet/minecraft/src/IChunkProvider;II)V
 MD: px/b (II)Lha; net/minecraft/src/ChunkProviderGenerate/provideChunk (II)Lnet/minecraft/src/Chunk;
-MD: px/a (II[B[Lgg;)V net/minecraft/src/ChunkProviderGenerate/replaceBlocksForBiome (II[B[Lnet/minecraft/src/MobSpawnerBase;)V
+MD: px/a (II[B[Lgg;)V net/minecraft/src/ChunkProviderGenerate/replaceBlocksForBiome (II[B[Lnet/minecraft/src/BiomeGenBase;)V
 MD: px/b ()Z net/minecraft/src/ChunkProviderGenerate/canSave ()Z
 MD: px/a ([DIIIIII)[D net/minecraft/src/ChunkProviderGenerate/initializeNoiseField ([DIIIIII)[D
 CL: py net/minecraft/src/Packet59ComplexEntity

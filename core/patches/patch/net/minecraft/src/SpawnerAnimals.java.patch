@@ -7,9 +7,9 @@
 -            for(ChunkCoordIntPair chunkcoordintpair : eligibleChunksForSpawning) {
 +            for(Object object : eligibleChunksForSpawning) {
                 if (world.rand.nextInt(50) == 0) {
--                  MobSpawnerBase mobspawnerbase = world.getWorldChunkManager().getBiomeGenAtChunkCoord(chunkcoordintpair);
-+                  MobSpawnerBase mobspawnerbase = world.getWorldChunkManager().getBiomeGenAtChunkCoord((ChunkCoordIntPair)object);
-                   Class[] aclass = mobspawnerbase.getEntitiesForType(enumcreaturetype);
+-                  BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAtChunkCoord(chunkcoordintpair);
++                  BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAtChunkCoord((ChunkCoordIntPair)object);
+                   Class[] aclass = biomegenbase.getEntitiesForType(enumcreaturetype);
                    if (aclass != null && aclass.length != 0) {
                       int j1 = world.rand.nextInt(aclass.length);
 -                     ChunkPosition chunkposition = getRandomSpawningPointInChunk(world, chunkcoordintpair.chunkXPos * 16, chunkcoordintpair.chunkZPos * 16);

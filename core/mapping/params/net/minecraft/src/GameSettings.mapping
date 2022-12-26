@@ -7,7 +7,7 @@ CLASS net/minecraft/src/GameSettings
 	METHOD getOptionControlType (I)I
 		ARG 1 controlType
 	METHOD getOptionDisplayString (I)Ljava/lang/String;
-		ARG 1 optionDisplayString
+		ARG 1 optionValue
 	METHOD getOptionFloatValue (I)F
 		ARG 1 optionValue
 	METHOD parseFloat (Ljava/lang/String;)F

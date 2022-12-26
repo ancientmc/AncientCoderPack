@@ -1,17 +1,17 @@
-CLASS net/minecraft/src/MobSpawnerBase
-	METHOD func_4124_a (I)Lnet/minecraft/src/MobSpawnerBase;
+CLASS net/minecraft/src/BiomeGenBase
+	METHOD func_4124_a (I)Lnet/minecraft/src/BiomeGenBase;
 		ARG 1 pInt
-	METHOD getBiomeFromLookup (DD)Lnet/minecraft/src/MobSpawnerBase;
+	METHOD getBiomeFromLookup (DD)Lnet/minecraft/src/BiomeGenBase;
 		ARG 0 pDouble
 		ARG 2 pDouble1
 	METHOD getEntitiesForType (Lnet/minecraft/src/EnumCreatureType;)[Ljava/lang/Class;
 		ARG 1 creatureType
 	METHOD getSkyColorByTemp (F)I
 		ARG 1 temperature
-	METHOD getSpawningChance (FF)Lnet/minecraft/src/MobSpawnerBase;
+	METHOD getSpawningChance (FF)Lnet/minecraft/src/BiomeGenBase;
 		ARG 0 pFloat
 		ARG 1 pFloat1
-	METHOD setBiomeName (Ljava/lang/String;)Lnet/minecraft/src/MobSpawnerBase;
+	METHOD setBiomeName (Ljava/lang/String;)Lnet/minecraft/src/BiomeGenBase;
 		ARG 1 biomeName
-	METHOD setColor (I)Lnet/minecraft/src/MobSpawnerBase;
+	METHOD setColor (I)Lnet/minecraft/src/BiomeGenBase;
 		ARG 1 color
