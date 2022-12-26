@@ -16,13 +16,14 @@ plugins {
     id 'eclipse'
 }
 
-version = 'client-a1.2.6'
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
-
 ext {
     MC_REPO = project.getGradle().getGradleUserHomeDir().getAbsolutePath() + "/caches/ancientcoderpack/mc_repo/"
+    MC_VERSION = "a1.2.6"
 }
+
+version = "client-${MC_VERSION}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 import com.ancientmc.acp.utils.*
 
@@ -83,7 +84,7 @@ jar {
     destinationDirectory = file('build\\libs\\')
     archiveBaseName = 'interm'
     exclude("acp\\")
-    from(zipTree(file('core\\temp\\a1.2.6.jar'))) {
+    from(zipTree(file("core\\temp\\${MC_VERSION}.jar"))) {
         include('com\\')
         include('paulscode\\')
     }
