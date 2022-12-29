@@ -12,8 +12,6 @@ buildscript {
 
 plugins {
     id 'java-library'
-    id 'idea'
-    id 'eclipse'
 }
 
 ext {
@@ -28,7 +26,6 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 import com.ancientmc.acp.utils.*
 
 repositories {
-    flatDir { dirs files(MC_REPO) }
     mavenCentral()
     mavenLocal()
     maven { url = 'https://nexus.velocitypowered.com/repository/maven-public/' }
@@ -77,6 +74,7 @@ task runClient(type: JavaExec) {
     group = "acp-run"
     main = "acp.client.Start"
     classpath = sourceSets.main.runtimeClasspath
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
 }
 
 // intermediary task, use reobfJar instead. Do not publish anything generated from this task, since the classes will still be deobfuscated.

@@ -24,34 +24,35 @@ CLASS net/minecraft/src/NBTTagCompound
 	METHOD hasKey (Ljava/lang/String;)Z
 		ARG 1 key
 	METHOD setBoolean (Ljava/lang/String;Z)V
-		ARG 1 pString
-		ARG 2 pFlag
+		ARG 1 key
+		ARG 2 value
 	METHOD setByte (Ljava/lang/String;B)V
-		ARG 1 pString
-		ARG 2 pByte
+		ARG 1 key
+		ARG 2 value
 	METHOD setByteArray (Ljava/lang/String;[B)V
-		ARG 1 pString
-		ARG 2 pByte
+		ARG 1 key
+		ARG 2 value
 	METHOD setCompoundTag (Ljava/lang/String;Lnet/minecraft/src/NBTTagCompound;)V
-		ARG 1 pString
-		ARG 2 nbtTagCompound
+		ARG 1 key
+		ARG 2 value
 	METHOD setDouble (Ljava/lang/String;D)V
-		ARG 1 pString
-		ARG 2 pDouble
+		ARG 1 key
+		ARG 2 value
 	METHOD setFloat (Ljava/lang/String;F)V
-		ARG 1 pString
-		ARG 2 pFloat
+		ARG 1 key
+		ARG 2 value
 	METHOD setInteger (Ljava/lang/String;I)V
-		ARG 1 pString
-		ARG 2 pInt
+		ARG 1 key
+		ARG 2 value
 	METHOD setLong (Ljava/lang/String;J)V
-		ARG 1 pString
-		ARG 2 pLong
+		ARG 1 key
+		ARG 2 value
 	METHOD setShort (Ljava/lang/String;S)V
-		ARG 1 pString
-		ARG 2 pShort
+		ARG 1 key
+		ARG 2 value
 	METHOD setString (Ljava/lang/String;Ljava/lang/String;)V
-		ARG 1 pString
-		ARG 2 pString1
+		ARG 1 key
+		ARG 2 value
 	METHOD setTag setTag (Ljava/lang/String;Lnet/minecraft/src/NBTBase;)V
-		ARG 2 nbtBase
+		ARG 1 key
+		ARG 2 value
