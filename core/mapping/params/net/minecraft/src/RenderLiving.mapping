@@ -4,22 +4,22 @@ CLASS net/minecraft/src/RenderLiving
 		ARG 2 shadowSize
 	METHOD getColorMultiplier (Lnet/minecraft/src/EntityLiving;FF)I
 		ARG 1 entityLiving
-		ARG 2 pFloat
-		ARG 3 pFloat1
+		ARG 2 entityBrightness
+		ARG 3 partialTickTime
 	METHOD getDeathMaxRotation (Lnet/minecraft/src/EntityLiving;)F
 		ARG 1 entityLiving
 	METHOD handleRotationFloat (Lnet/minecraft/src/EntityLiving;F)F
 		ARG 1 entityLiving
-		ARG 2 pFloat
+		ARG 2 partialTickTime
 	METHOD preRenderCallback (Lnet/minecraft/src/EntityLiving;F)V
 		ARG 1 entityLiving
-		ARG 2 pFloat
+		ARG 2 partialTickTime
 	METHOD renderEquippedItems (Lnet/minecraft/src/EntityLiving;F)V
 		ARG 1 entityLiving
-		ARG 2 pFloat
+		ARG 2 partialTickTime
 	METHOD renderSwingProgress (Lnet/minecraft/src/EntityLiving;F)F
 		ARG 1 entityLiving
-		ARG 2 pFloat
+		ARG 2 partialTickTime
 	METHOD setRenderPassModel (Lnet/minecraft/src/ModelBase;)V
 		ARG 1 modelBase
 	METHOD shouldRenderPass (Lnet/minecraft/src/EntityLiving;I)Z

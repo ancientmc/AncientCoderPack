@@ -1,4 +1,7 @@
 CLASS net/minecraft/src/RenderEngine
+	METHOD <init> (Lnet/minecraft/src/TexturePackList;Lnet/minecraft/src/GameSettings;)V
+		ARG 1 texturePack
+		ARG 2 options
 	METHOD allocateAndSetupTexture (Ljava/awt/image/BufferedImage;)I
 		ARG 1 bufferedImage
 	METHOD alphaBlend (II)I
@@ -8,7 +11,7 @@ CLASS net/minecraft/src/RenderEngine
 		ARG 1 color1
 		ARG 2 color2
 	METHOD bindTexture (I)V
-		ARG 1 pInt
+		ARG 1 texture
 	METHOD deleteTexture (I)V
 		ARG 1 texture
 	METHOD getTexture (Ljava/lang/String;)I
@@ -27,7 +30,7 @@ CLASS net/minecraft/src/RenderEngine
 		ARG 1 imageURL
 	METHOD setupTexture (Ljava/awt/image/BufferedImage;I)V
 		ARG 1 bufferedImage
-		ARG 2 pInt
+		ARG 2 intBuffer
 	METHOD unwrapImageByColumns (Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;
 		ARG 1 bufferedImage
 	METHOD weightedAverageColor (II)I

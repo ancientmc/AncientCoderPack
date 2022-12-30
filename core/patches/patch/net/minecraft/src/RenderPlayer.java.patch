@@ -22,8 +22,8 @@
  
     }
  
--   protected void renderEquippedItems(EntityPlayer entityLiving, float pFloat) {
-+   protected void renderSpecials(EntityPlayer entityLiving, float pFloat) {
+-   protected void renderEquippedItems(EntityPlayer entityLiving, float partialTickTime) {
++   protected void renderSpecials(EntityPlayer entityLiving, float partialTickTime) {
        ItemStack itemstack = entityLiving.inventory.armorItemInSlot(3);
        if (itemstack != null && itemstack.getItem().shiftedIndex < 256) {
           GL11.glPushMatrix();
@@ -31,8 +31,8 @@
  
     }
  
--   protected void preRenderCallback(EntityPlayer entityLiving, float pFloat) {
-+   protected void renderPlayerScale(EntityPlayer entityLiving, float pFloat) {
+-   protected void preRenderCallback(EntityPlayer entityLiving, float partialTickTime) {
++   protected void renderPlayerScale(EntityPlayer entityLiving, float partialTickTime) {
        float f = 0.9375F;
        GL11.glScalef(f, f, f);
     }

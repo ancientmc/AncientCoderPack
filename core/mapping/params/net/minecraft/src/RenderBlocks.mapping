@@ -3,6 +3,10 @@ CLASS net/minecraft/src/RenderBlocks
 		ARG 1 iBlockAccess
 	METHOD drawCrossedSquares (Lnet/minecraft/src/Block;IDDD)V
 		ARG 1 block
+		ARG 2 blockMetadata
+		ARG 3 posX
+		ARG 5 posY
+		ARG 7 posZ
 	METHOD func_1238_a (Lnet/minecraft/src/Block;F)V
 		ARG 1 block
 		ARG 2 pFloat
@@ -14,6 +18,7 @@ CLASS net/minecraft/src/RenderBlocks
 	METHOD renderBlockAsItem (Lnet/minecraft/src/Block;)V
 		ARG 1 block
 	METHOD renderBlockByRenderType (Lnet/minecraft/src/Block;III)Z
+		ARG 1 block
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
@@ -68,6 +73,7 @@ CLASS net/minecraft/src/RenderBlocks
 		ARG 3 posY
 		ARG 4 posZ
 	METHOD renderBlockLever (Lnet/minecraft/src/Block;III)Z
+		ARG 1 block
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
@@ -133,6 +139,11 @@ CLASS net/minecraft/src/RenderBlocks
 		ARG 4 posY
 		ARG 6 posZ
 		ARG 8 overrideBlockTexture
+	METHOD renderStandardBlock (Lnet/minecraft/src/Block;III)Z
+		ARG 1 block
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD renderStandardBlockWithColorMultiplier (Lnet/minecraft/src/Block;IIIFFF)Z
 		ARG 1 block
 		ARG 2 posX

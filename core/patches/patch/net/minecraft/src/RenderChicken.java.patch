@@ -9,8 +9,8 @@
        super.doRenderLiving(entity, posX, posY, posZ, yaw, partialTickTime);
     }
  
--   protected float handleRotationFloat(EntityChicken entityLiving, float pFloat) {
-+   protected float getWingRotation(EntityChicken entityLiving, float pFloat) {
-       float f = entityLiving.field_756_e + (entityLiving.field_752_b - entityLiving.field_756_e) * pFloat;
-       float f1 = entityLiving.field_757_d + (entityLiving.destPos - entityLiving.field_757_d) * pFloat;
+-   protected float handleRotationFloat(EntityChicken entityLiving, float partialTickTime) {
++   protected float getWingRotation(EntityChicken entityLiving, float partialTickTime) {
+       float f = entityLiving.field_756_e + (entityLiving.field_752_b - entityLiving.field_756_e) * partialTickTime;
+       float f1 = entityLiving.field_757_d + (entityLiving.destPos - entityLiving.field_757_d) * partialTickTime;
        return (MathHelper.sin(f) + 1.0F) * f1;

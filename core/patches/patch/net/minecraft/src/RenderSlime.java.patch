@@ -13,8 +13,8 @@
        }
     }
  
--   protected void preRenderCallback(EntitySlime entityLiving, float pFloat) {
-+   protected void scaleSlime(EntitySlime entityLiving, float pFloat) {
-       float f = (entityLiving.field_767_b + (entityLiving.field_768_a - entityLiving.field_767_b) * pFloat) / ((float)entityLiving.slimeSize * 0.5F + 1.0F);
+-   protected void preRenderCallback(EntitySlime entityLiving, float partialTickTime) {
++   protected void scaleSlime(EntitySlime entityLiving, float partialTickTime) {
+       float f = (entityLiving.field_767_b + (entityLiving.field_768_a - entityLiving.field_767_b) * partialTickTime)
+          / ((float)entityLiving.slimeSize * 0.5F + 1.0F);
        float f1 = 1.0F / (f + 1.0F);
-       float f2 = (float)entityLiving.slimeSize;
