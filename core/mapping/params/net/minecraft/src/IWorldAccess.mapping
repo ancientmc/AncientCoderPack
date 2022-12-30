@@ -35,16 +35,16 @@ CLASS net/minecraft/src/IWorldAccess
 		ARG 1 entity
 	METHOD playRecord (Ljava/lang/String;III)V
 		ARG 1 recordName
-		ARG 2 coordX
-		ARG 3 coordY
-		ARG 4 coordZ
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 	METHOD playSound (Ljava/lang/String;DDDFF)V
 		ARG 1 soundName
-		ARG 2 coordX
-		ARG 4 coordY
-		ARG 6 coordZ
-		ARG 8 pFloat
-		ARG 9 pFloat1
+		ARG 2 posX
+		ARG 4 posY
+		ARG 6 posZ
+		ARG 8 volume
+		ARG 9 pitch
 	METHOD releaseEntitySkin (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
 	METHOD spawnParticle (Ljava/lang/String;DDDDDD)V

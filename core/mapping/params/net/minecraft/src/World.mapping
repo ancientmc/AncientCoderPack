@@ -360,15 +360,15 @@ CLASS net/minecraft/src/World
 	METHOD playSoundAtEntity (Lnet/minecraft/src/Entity;Ljava/lang/String;FF)V
 		ARG 1 entity
 		ARG 2 soundName
-		ARG 3 pFloat
-		ARG 4 pFloat1
+		ARG 3 volume
+		ARG 4 pitch
 	METHOD playSoundEffect (DDDLjava/lang/String;FF)V
-		ARG 1 pDouble
-		ARG 3 pDouble1
-		ARG 5 pDouble2
-		ARG 7 pString
-		ARG 8 pFloat
-		ARG 9 pFloat1
+		ARG 1 posX
+		ARG 3 posY
+		ARG 5 posZ
+		ARG 7 soundName
+		ARG 8 volume
+		ARG 9 pitch
 	METHOD quickSaveWorld (I)Z
 		ARG 1 pInt
 	METHOD randomDisplayUpdates (III)V
@@ -376,16 +376,16 @@ CLASS net/minecraft/src/World
 		ARG 2 posY
 		ARG 3 posZ
 	METHOD rayTraceBlocks (Lnet/minecraft/src/Vec3D;Lnet/minecraft/src/Vec3D;)Lnet/minecraft/src/MovingObjectPosition;
-		ARG 1 vec3D
-		ARG 2 vec3D1
+		ARG 1 startVector
+		ARG 2 endVector
 	METHOD rayTraceBlocks (Lnet/minecraft/src/Vec3D;Lnet/minecraft/src/Vec3D;Z)Lnet/minecraft/src/MovingObjectPosition;
-		ARG 1 vec3D
-		ARG 2 vec3D1
-		ARG 3 pFlag
+		ARG 1 startVector
+		ARG 2 endVector
+		ARG 3 stopOnLiquid
 	METHOD rayTraceBlocks_do (Lnet/minecraft/src/Vec3D;Lnet/minecraft/src/Vec3D;Z)Lnet/minecraft/src/MovingObjectPosition;
-		ARG 1 vec3D
-		ARG 2 vec3D1
-		ARG 3 pFlag
+		ARG 1 startVector
+		ARG 2 endVector
+		ARG 3 stopOnLiquid
 	METHOD releaseEntitySkin (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
 	METHOD removeBlockTileEntity (III)V
