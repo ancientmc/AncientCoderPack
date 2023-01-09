@@ -1,4 +1,4 @@
 CLASS net/minecraft/src/GuiFurnace
 	METHOD <init> (Lnet/minecraft/src/InventoryPlayer;Lnet/minecraft/src/TileEntityFurnace;)V
 		ARG 1 inventoryPlayer
-		ARG 2 tileEntityFurnace
+		ARG 2 furnaceInventory

@@ -261,7 +261,7 @@ CLASS net/minecraft/src/World
 		ARG 4 zCoor
 	METHOD getSkyColor (Lnet/minecraft/src/Entity;F)Lnet/minecraft/src/Vec3D;
 		ARG 1 entity
-		ARG 2 pFloat
+		ARG 2 partialTickTime
 	METHOD getStarBrightness (F)F
 		ARG 1 partialTickTime
 	METHOD getTopSolidOrLiquidBlock (II)I

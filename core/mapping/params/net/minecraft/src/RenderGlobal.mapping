@@ -7,12 +7,15 @@ CLASS net/minecraft/src/RenderGlobal
 	METHOD checkOcclusionQueryResult (II)V
 		ARG 1 pInt
 		ARG 2 pInt1
+	METHOD clipRenderersByFrustrum (Lnet/minecraft/src/ICamera;F)V
+		ARG 1 camera
+		ARG 2 pFloat
 	METHOD drawBlockBreaking (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/MovingObjectPosition;ILnet/minecraft/src/ItemStack;F)V
 		ARG 1 entityPlayer
 		ARG 2 movingObjectPosition
 		ARG 3 pInt
 		ARG 4 itemStack
-		ARG 5 pFloat
+		ARG 5 partialTickTime
 	METHOD drawOutlinedBoundingBox (Lnet/minecraft/src/AxisAlignedBB;)V
 		ARG 1 axisAlignedBB
 	METHOD drawSelectionBox (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/MovingObjectPosition;ILnet/minecraft/src/ItemStack;F)V
@@ -20,40 +23,40 @@ CLASS net/minecraft/src/RenderGlobal
 		ARG 2 movingObjectPosition
 		ARG 3 pInt
 		ARG 4 itemStack
-		ARG 5 pFloat
+		ARG 5 partialTickTime
 	METHOD markBlocksForUpdate (IIIIII)V
-		ARG 1 posX
-		ARG 2 posY
-		ARG 3 posZ
-		ARG 4 posX1
-		ARG 5 posY1
-		ARG 6 posZ1
+		ARG 1 minX
+		ARG 2 minY
+		ARG 3 minZ
+		ARG 4 maxX
+		ARG 5 maxY
+		ARG 6 maxZ
 	METHOD markRenderersForNewPosition (III)V
 		ARG 1 posX
 		ARG 2 posY
 		ARG 3 posZ
 	METHOD renderAllRenderLists (ID)V
 		ARG 1 pInt
-		ARG 2 pDouble
+		ARG 2 partialTickTime
 	METHOD renderClouds (F)V
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD renderCloudsFancy (F)V
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD renderEntities (Lnet/minecraft/src/Vec3D;Lnet/minecraft/src/ICamera;F)V
 		ARG 1 vec3D
 		ARG 2 camera
 		ARG 3 partialTickTime
 	METHOD renderSky (F)V
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD renderSortedRenderers (IIID)I
 		ARG 1 pInt
 		ARG 2 pInt1
 		ARG 3 pInt2
-		ARG 4 pDouble
+		ARG 4 partialTickTime
 	METHOD sortAndRender (Lnet/minecraft/src/EntityPlayer;ID)I
 		ARG 1 entityPlayer
 		ARG 2 pInt
-		ARG 3 pDouble
+		ARG 3 partialTickTime
 	METHOD updateRenderers (Lnet/minecraft/src/EntityPlayer;Z)Z
 		ARG 1 entityPlayer
 		ARG 2 pFlag

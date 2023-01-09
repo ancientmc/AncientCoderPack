@@ -1,8 +1,8 @@
 CLASS net/minecraft/src/PositionTexureVertex
 	METHOD <init> (FFFFF)V
-		ARG 1 posX
-		ARG 2 posY
-		ARG 3 posZ
+		ARG 1 coordX
+		ARG 2 coordY
+		ARG 3 coordZ
 		ARG 4 texturePositionX
 		ARG 5 texturePositionY
 	METHOD <init> (Lnet/minecraft/src/PositionTexureVertex;FF)V

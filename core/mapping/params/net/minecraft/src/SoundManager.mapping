@@ -37,23 +37,23 @@ CLASS net/minecraft/src/SoundManager
 	METHOD loadSoundSettings (Lnet/minecraft/src/GameSettings;)V
 		ARG 1 options
 	METHOD playSound (Ljava/lang/String;FFFFF)V
-		ARG 1 pString
-		ARG 2 pFloat
-		ARG 3 pFloat1
-		ARG 4 pFloat2
-		ARG 5 pFloat3
-		ARG 6 pFloat4
+		ARG 1 soundName
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+		ARG 5 volume
+		ARG 6 pitch
 	METHOD playSoundFX (Ljava/lang/String;FF)V
-		ARG 1 pString
-		ARG 2 pFloat
-		ARG 3 pFloat1
+		ARG 1 soundName
+		ARG 2 volume
+		ARG 3 pitch
 	METHOD playStreaming (Ljava/lang/String;FFFFF)V
-		ARG 1 pString
-		ARG 2 pFloat
-		ARG 3 pFloat1
-		ARG 4 pFloat2
-		ARG 5 pFloat3
-		ARG 6 pFloat4
+		ARG 1 soundName
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
+		ARG 5 volume
+		ARG 6 pitch
 	METHOD setListener (Lnet/minecraft/src/EntityLiving;F)V
 		ARG 1 entityLiving
-		ARG 2 pFloat
+		ARG 2 partialTickTime

@@ -3,3 +3,5 @@ CLASS net/minecraft/src/EnumArt
 		ARG 3 title
 		ARG 4 sizeX
 		ARG 5 sizeY
+		ARG 6 offsetX
+		ARG 7 offsetY
