@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/EntityCreeper
-	METHOD func_440_b (F)F
-		ARG 1 pFloat
-	METHOD setCreeperFlashTime (F)F
-		ARG 1 partialTickTime

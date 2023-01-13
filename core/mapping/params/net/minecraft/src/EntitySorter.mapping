@@ -1,6 +1,0 @@
-CLASS net/minecraft/src/EntitySorter
-	METHOD <init> (Lnet/minecraft/src/Entity;)V
-		ARG 1 entity
-	METHOD compare (Ljava/lang/Object;Ljava/lang/Object;)I
-		ARG 1 worldRenderer
-		ARG 2 worldRenderer1

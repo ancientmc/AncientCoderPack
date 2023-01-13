@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/ItemReed
-	METHOD <init> (ILnet/minecraft/src/Block;)V
-		ARG 1 itemID
-		ARG 2 block

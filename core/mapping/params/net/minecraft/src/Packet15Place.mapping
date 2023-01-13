@@ -1,7 +1,0 @@
-CLASS net/minecraft/src/Packet15Place
-	METHOD <init> (IIIII)V
-		ARG 1 xPosition
-		ARG 2 yPosition
-		ARG 3 zPosition
-		ARG 4 direction
-		ARG 5 itemStack

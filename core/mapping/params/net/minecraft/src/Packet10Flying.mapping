@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/Packet10Flying
-	METHOD <init> (Z)V
-		ARG 1 onGround

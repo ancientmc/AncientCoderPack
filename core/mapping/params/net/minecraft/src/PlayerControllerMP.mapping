@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/PlayerControllerMP
-	METHOD <init> (Lnet/minecraft/client/Minecraft;Lnet/minecraft/src/NetClientHandler;)V
-		ARG 1 mc
-		ARG 2 netClientHandler

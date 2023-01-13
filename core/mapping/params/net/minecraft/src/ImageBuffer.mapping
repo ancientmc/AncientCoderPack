@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/ImageBuffer
-	METHOD func_883_a (Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;
-		ARG 1 bufferedImage
-	METHOD parseUserSkin (Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;
-		ARG 1 skinImage

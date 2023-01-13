@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/ThreadDownloadImage
-	METHOD <init> (Lnet/minecraft/src/ThreadDownloadImageData;Ljava/lang/String;Lnet/minecraft/src/ImageBuffer;)V
-		ARG 1 imageData
-		ARG 2 location
-		ARG 3 buffer

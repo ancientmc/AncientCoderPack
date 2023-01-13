@@ -1,9 +1,0 @@
-CLASS net/minecraft/src/GuiMultiplayer
-	METHOD <init> (Lnet/minecraft/src/GuiScreen;)V
-		ARG 1 parentScreen
-	METHOD func_4067_a (Ljava/lang/String;I)I
-		ARG 1 pString
-		ARG 2 pInt
-	METHOD parseIntWithDefault (Ljava/lang/String;I)I
-		ARG 1 pInt
-		ARG 2 pInt1

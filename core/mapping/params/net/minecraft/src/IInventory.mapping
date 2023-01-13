@@ -1,9 +1,0 @@
-CLASS net/minecraft/src/IInventory
-	METHOD decrStackSize (II)Lnet/minecraft/src/ItemStack;
-		ARG 1 slot
-		ARG 2 stackDecrement
-	METHOD getStackInSlot (I)Lnet/minecraft/src/ItemStack;
-		ARG 1 slot
-	METHOD setInventorySlotContents (ILnet/minecraft/src/ItemStack;)V
-		ARG 1 slot
-		ARG 2 itemStack

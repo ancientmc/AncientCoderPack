@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/TextureWatchFX
-	METHOD <init> (Lnet/minecraft/client/Minecraft;)V
-		ARG 1 mc

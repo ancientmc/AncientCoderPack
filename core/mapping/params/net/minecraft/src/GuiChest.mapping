@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/GuiChest
-	METHOD <init> (Lnet/minecraft/src/IInventory;Lnet/minecraft/src/IInventory;)V
-		ARG 1 upperChestInventory
-		ARG 2 lowerChestInventory

@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/BlockPumpkin
-	METHOD <init> (IIZ)V
-		ARG 1 blockID
-		ARG 2 blockIndexInTexture
-		ARG 3 blockType

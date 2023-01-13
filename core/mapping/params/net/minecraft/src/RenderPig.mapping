@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/RenderPig
-	METHOD <init> (Lnet/minecraft/src/ModelBase;Lnet/minecraft/src/ModelBase;F)V
-		ARG 1 modelPig
-		ARG 2 renderPassModel
-		ARG 3 shadowSize

@@ -1,9 +1,0 @@
-CLASS net/minecraft/src/TexturePackBase
-	METHOD bindThumbnailTexture (Lnet/minecraft/client/Minecraft;)V
-		ARG 1 mc
-	METHOD func_6485_a (Lnet/minecraft/client/Minecraft;)V
-		ARG 1 mc
-	METHOD getResourceAsStream (Ljava/lang/String;)Ljava/io/InputStream;
-		ARG 1 textureName
-	METHOD unbindThumbnailTexture (Lnet/minecraft/client/Minecraft;)V
-		ARG 1 mc

@@ -1,9 +1,0 @@
-CLASS net/minecraft/src/SlotArmor
-	METHOD <init> (Lnet/minecraft/src/GuiInventory;Lnet/minecraft/src/GuiContainer;Lnet/minecraft/src/IInventory;IIII)V
-		ARG 1 parent
-		ARG 2 guiContainer
-		ARG 3 inventory
-		ARG 4 slotIndex
-		ARG 5 posX
-		ARG 6 posY
-		ARG 7 armorType

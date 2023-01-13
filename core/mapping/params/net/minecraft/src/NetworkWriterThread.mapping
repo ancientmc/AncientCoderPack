@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/NetworkWriterThread
-	METHOD <init> (Lnet/minecraft/src/NetworkManager;Ljava/lang/String;)V
-		ARG 1 netManager
-		ARG 2 name

@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/WorldGenDungeons
-	METHOD pickCheckLootItem (Ljava/util/Random;)Lnet/minecraft/src/ItemStack;
-		ARG 1 random
-	METHOD pickMobSpawner (Ljava/util/Random;)Ljava/lang/String;
-		ARG 1 random

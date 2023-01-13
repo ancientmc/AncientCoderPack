@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/TerrainTextureManager
-	METHOD render (Lnet/minecraft/src/IsoImageBuffer;)V
-		ARG 1 isoImageBuffer

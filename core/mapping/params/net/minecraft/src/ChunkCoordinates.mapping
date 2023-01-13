@@ -1,6 +1,0 @@
-CLASS net/minecraft/src/ChunkCoordinates
-	METHOD <init> (II)V
-		ARG 1 pInt
-		ARG 2 pInt1
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 obj

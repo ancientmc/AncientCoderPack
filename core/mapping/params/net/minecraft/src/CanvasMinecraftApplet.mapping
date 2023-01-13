@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/CanvasMinecraftApplet
-	METHOD <init> (Lnet/minecraft/client/MinecraftApplet;)V
-		ARG 1 mcApplet

@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/CanvasMojangLogo
-	METHOD paint (Ljava/awt/Graphics;)V
-		ARG 1 graphics

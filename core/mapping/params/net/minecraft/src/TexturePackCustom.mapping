@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/TexturePackCustom
-	METHOD <init> (Ljava/io/File;)V
-		ARG 1 texturePackFile
-	METHOD truncateString (Ljava/lang/String;)Ljava/lang/String;
-		ARG 1 pString

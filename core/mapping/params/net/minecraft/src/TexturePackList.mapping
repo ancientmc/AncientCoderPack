@@ -1,6 +1,0 @@
-CLASS net/minecraft/src/TexturePackList
-	METHOD <init> (Lnet/minecraft/client/Minecraft;Ljava/io/File;)V
-		ARG 1 mc
-		ARG 2 minecraftDir
-	METHOD setTexturePack (Lnet/minecraft/src/TexturePackBase;)Z
-		ARG 1 texturePackBase

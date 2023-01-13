@@ -1,8 +1,0 @@
-CLASS net/minecraft/src/Slot
-	METHOD <init> (Lnet/minecraft/src/IInventory;I)V
-		ARG 1 inventory
-		ARG 2 slotIndex
-	METHOD isItemValid (Lnet/minecraft/src/ItemStack;)Z
-		ARG 1 itemStack
-	METHOD putStack (Lnet/minecraft/src/ItemStack;)V
-		ARG 1 itemStack

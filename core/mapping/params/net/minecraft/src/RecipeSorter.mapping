@@ -1,6 +1,0 @@
-CLASS net/minecraft/src/RecipeSorter
-	METHOD <init> (Lnet/minecraft/src/CraftingManager;)V
-		ARG 1 craftingManager
-	METHOD compare (Ljava/lang/Object;Ljava/lang/Object;)I
-		ARG 1 craftingRecipe
-		ARG 2 craftingRecipe1

@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/GuiInventory
-	METHOD <init> (Lnet/minecraft/src/IInventory;[Lnet/minecraft/src/ItemStack;)V
-		ARG 1 inventory
-		ARG 2 itemStack

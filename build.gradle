@@ -45,7 +45,7 @@ configurations {
     diffpatch
 }
 
-apply plugin: 'com.ancientmc.acp'
+ apply plugin: 'com.ancientmc.acp'
 
 dependencies {
     implementation gradleApi()

@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/NBTTagFloat
-	METHOD <init> (F)V
-		ARG 1 data

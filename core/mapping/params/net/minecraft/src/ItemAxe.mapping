@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/ItemAxe
-	METHOD <init> (II)V
-		ARG 1 itemID
-		ARG 2 damageIncrement

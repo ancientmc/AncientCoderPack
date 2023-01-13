@@ -1,9 +1,0 @@
-CLASS net/minecraft/src/MusInputStream
-	METHOD <init> (Lnet/minecraft/src/CodecMus;Ljava/net/URL;Ljava/io/InputStream;)V
-		ARG 1 codec
-		ARG 2 url
-		ARG 3 inputStream
-	METHOD read ([BII)I
-		ARG 1 b
-		ARG 2 off
-		ARG 3 len

@@ -1,6 +1,0 @@
-CLASS net/minecraft/src/ThreadConnectToServer
-	METHOD <init> (Lnet/minecraft/src/GuiConnecting;Lnet/minecraft/client/Minecraft;Ljava/lang/String;I)V
-		ARG 1 connectingGui
-		ARG 2 mc
-		ARG 3 hostName
-		ARG 4 port

@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/RecipesIngots
-	METHOD addRecipes (Lnet/minecraft/src/CraftingManager;)V
-		ARG 1 craftingManager

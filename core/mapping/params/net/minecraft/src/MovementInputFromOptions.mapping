@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/MovementInputFromOptions
-	METHOD <init> (Lnet/minecraft/src/GameSettings;)V
-		ARG 1 gameSettings

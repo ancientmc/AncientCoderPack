@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/ModelQuadraped
-	METHOD <init> (IF)V
-		ARG 1 pInt
-		ARG 2 pFloat

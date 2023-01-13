@@ -1,8 +1,0 @@
-CLASS net/minecraft/src/HashEntry
-	METHOD <init> (IILjava/lang/Object;Lnet/minecraft/src/HashEntry;)V
-		ARG 1 slotHash
-		ARG 2 hashEntry
-		ARG 3 valueEntry
-		ARG 4 nextEntry
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 valueEntry

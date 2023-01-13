@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/ModelSlime
-	METHOD <init> (I)V
-		ARG 1 slimeSize

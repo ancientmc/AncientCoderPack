@@ -1,6 +1,0 @@
-CLASS net/minecraft/src/GuiYesNo
-	METHOD <init> (Lnet/minecraft/src/GuiScreen;Ljava/lang/String;Ljava/lang/String;I)V
-		ARG 1 parentScreen
-		ARG 2 message1
-		ARG 3 message2
-		ARG 4 worldNumber

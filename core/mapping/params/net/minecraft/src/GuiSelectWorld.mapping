@@ -1,7 +1,0 @@
-CLASS net/minecraft/src/GuiSelectWorld
-	METHOD <init> (Lnet/minecraft/src/GuiScreen;)V
-		ARG 1 parentScreen
-	METHOD getWorldName (I)Ljava/lang/String;
-		ARG 1 worldID
-	METHOD selectWorld (I)V
-		ARG 1 worldID

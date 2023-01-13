@@ -1,6 +1,0 @@
-CLASS net/minecraft/src/BlockCrops
-	METHOD getGrowthRate (Lnet/minecraft/src/World;III)F
-		ARG 1 world
-		ARG 2 posX
-		ARG 3 posY
-		ARG 4 posZ

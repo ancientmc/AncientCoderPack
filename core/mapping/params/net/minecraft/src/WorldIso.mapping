@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/WorldIso
-	METHOD <init> (Lnet/minecraft/src/CanvasIsomPreview;Ljava/io/File;Ljava/lang/String;)V
-		ARG 1 theCanvasIsoPreview
-		ARG 2 savesDir
-		ARG 3 worldName

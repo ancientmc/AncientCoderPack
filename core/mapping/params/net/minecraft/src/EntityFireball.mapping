@@ -1,7 +1,0 @@
-CLASS net/minecraft/src/EntityFireball
-	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/EntityLiving;DDD)V
-		ARG 1 world
-		ARG 2 entityLiving
-		ARG 3 motionX
-		ARG 5 motionY
-		ARG 7 motionZ

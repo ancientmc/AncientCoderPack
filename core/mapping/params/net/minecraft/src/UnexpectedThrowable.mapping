@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/UnexpectedThrowable
-	METHOD <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
-		ARG 1 description
-		ARG 2 exception

@@ -1,8 +1,0 @@
-CLASS net/minecraft/src/SlotCrafting
-	METHOD <init> (Lnet/minecraft/src/GuiContainer;Lnet/minecraft/src/IInventory;Lnet/minecraft/src/IInventory;III)V
-		ARG 1 guiHandler
-		ARG 2 craftMatrix
-		ARG 3 inventory
-		ARG 4 posX
-		ARG 5 posY
-		ARG 6 posZ

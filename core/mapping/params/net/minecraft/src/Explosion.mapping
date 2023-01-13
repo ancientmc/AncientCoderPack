@@ -1,8 +1,0 @@
-CLASS net/minecraft/src/Explosion
-	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/Entity;DDDF)V
-		ARG 1 worldObj
-		ARG 2 entity
-		ARG 3 explosionX
-		ARG 5 explosionY
-		ARG 7 explosionZ
-		ARG 9 explosionSize

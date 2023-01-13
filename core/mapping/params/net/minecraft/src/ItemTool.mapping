@@ -1,6 +1,0 @@
-CLASS net/minecraft/src/ItemTool
-	METHOD <init> (III[Lnet/minecraft/src/Block;)V
-		ARG 1 itemID
-		ARG 2 damageIncrement
-		ARG 3 ingredientQuality
-		ARG 4 blocksEffectiveAgainst

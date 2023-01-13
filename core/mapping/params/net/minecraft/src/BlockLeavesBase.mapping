@@ -1,6 +1,0 @@
-CLASS net/minecraft/src/BlockLeavesBase
-	METHOD <init> (IILnet/minecraft/src/Material;Z)V
-		ARG 1 blockID
-		ARG 2 blockIndexInTexture
-		ARG 3 blockMaterial
-		ARG 4 graphicsLevel

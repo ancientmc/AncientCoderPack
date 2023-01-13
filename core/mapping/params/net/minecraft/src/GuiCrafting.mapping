@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/GuiCrafting
-	METHOD <init> (Lnet/minecraft/src/InventoryPlayer;)V
-		ARG 1 inventory

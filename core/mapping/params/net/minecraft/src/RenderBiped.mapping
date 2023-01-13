@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/RenderBiped
-	METHOD <init> (Lnet/minecraft/src/ModelBiped;F)V
-		ARG 1 modelBipedMain
-		ARG 2 shadowSize

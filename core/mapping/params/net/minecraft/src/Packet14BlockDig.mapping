@@ -1,7 +1,0 @@
-CLASS net/minecraft/src/Packet14BlockDig
-	METHOD <init> (IIIII)V
-		ARG 1 status
-		ARG 2 xPosition
-		ARG 3 yPosition
-		ARG 4 zPosition
-		ARG 5 face

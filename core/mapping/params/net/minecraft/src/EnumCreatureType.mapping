@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/EnumCreatureType
-	METHOD <init> (Ljava/lang/String;ILjava/lang/Class;I)V
-		ARG 3 creatureClass
-		ARG 4 maxNumberOfCreature

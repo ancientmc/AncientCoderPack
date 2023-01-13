@@ -1,9 +1,0 @@
-CLASS net/minecraft/src/IProgressUpdate
-	METHOD displayLoadingString (Ljava/lang/String;)V
-		ARG 1 loadingString
-	METHOD displaySavingString (Ljava/lang/String;)V
-		ARG 1 savingString
-	METHOD func_594_b (Ljava/lang/String;)V
-		ARG 1 pString
-	METHOD setLoadingProgress (I)V
-		ARG 1 progressValue

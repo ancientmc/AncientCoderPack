@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/Packet7UseEntity
-	METHOD <init> (III)V
-		ARG 1 playerEntityID
-		ARG 2 targetEntity
-		ARG 3 isLeftClick

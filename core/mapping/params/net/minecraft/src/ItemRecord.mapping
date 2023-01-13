@@ -1,4 +1,0 @@
-CLASS net/minecraft/src/ItemRecord
-	METHOD <init> (ILjava/lang/String;)V
-		ARG 1 itemID
-		ARG 2 recordName

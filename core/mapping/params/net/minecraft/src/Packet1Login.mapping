@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/Packet1Login
-	METHOD <init> (Ljava/lang/String;Ljava/lang/String;I)V
-		ARG 1 username
-		ARG 2 password
-		ARG 3 protocolVersion

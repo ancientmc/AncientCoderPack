@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/Timer
-	METHOD <init> (F)V
-		ARG 1 ticksPerSecond

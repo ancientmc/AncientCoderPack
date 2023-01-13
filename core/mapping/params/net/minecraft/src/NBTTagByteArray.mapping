@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/NBTTagByteArray
-	METHOD <init> ([B)V
-		ARG 1 byteArray

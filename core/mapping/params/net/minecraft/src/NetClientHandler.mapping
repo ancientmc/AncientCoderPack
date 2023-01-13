@@ -1,7 +1,0 @@
-CLASS net/minecraft/src/NetClientHandler
-	METHOD <init> (Lnet/minecraft/client/Minecraft;Ljava/lang/String;I)V
-		ARG 1 mc
-		ARG 2 hostName
-		ARG 3 port
-	METHOD getEntityByID (I)Lnet/minecraft/src/Entity;
-		ARG 1 entityID

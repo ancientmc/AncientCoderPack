@@ -1,5 +1,0 @@
-CLASS net/minecraft/src/RenderSheep
-	METHOD <init> (Lnet/minecraft/src/ModelBase;Lnet/minecraft/src/ModelBase;F)V
-		ARG 1 modelSheep
-		ARG 2 renderPassModel
-		ARG 3 shadowSize

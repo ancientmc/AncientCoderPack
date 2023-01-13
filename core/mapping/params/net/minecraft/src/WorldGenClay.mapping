@@ -1,3 +1,0 @@
-CLASS net/minecraft/src/WorldGenClay
-	METHOD <init> (I)V
-		ARG 1 numberOfBlocks

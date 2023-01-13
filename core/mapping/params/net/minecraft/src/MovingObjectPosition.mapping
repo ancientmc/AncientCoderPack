@@ -1,9 +1,0 @@
-CLASS net/minecraft/src/MovingObjectPosition
-	METHOD <init> (IIIILnet/minecraft/src/Vec3D;)V
-		ARG 1 blockX
-		ARG 2 blockY
-		ARG 3 blockZ
-		ARG 4 sideHit
-		ARG 5 vec3D
-	METHOD <init> (Lnet/minecraft/src/Entity;)V
-		ARG 1 entityHit
