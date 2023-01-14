@@ -4,8 +4,8 @@
  public class TileEntityMobSpawnerRenderer extends TileEntitySpecialRenderer {
     private Map entityHashMap = new HashMap();
  
--   public void renderTileEntityAt(TileEntityMobSpawner tileEntity, double coordX, double coordY, double coordZ, float pFloat) {
-+   public void renderTileEntityMobSpawner(TileEntityMobSpawner tileEntity, double coordX, double coordY, double coordZ, float pFloat) {
+-   public void renderTileEntityAt(TileEntityMobSpawner tileEntity, double posX, double posY, double posZ, float pFloat) {
++   public void renderTileEntityMobSpawner(TileEntityMobSpawner tileEntity, double posX, double posY, double posZ, float pFloat) {
        GL11.glPushMatrix();
-       GL11.glTranslatef((float)coordX + 0.5F, (float)coordY, (float)coordZ + 0.5F);
+       GL11.glTranslatef((float)posX + 0.5F, (float)posY, (float)posZ + 0.5F);
        Entity entity = (Entity)this.entityHashMap.get(tileEntity.mobID);
