@@ -192,9 +192,9 @@ CL: al net/minecraft/src/SoundPoolEntry
 FD: al/a net/minecraft/src/SoundPoolEntry/soundName
 FD: al/b net/minecraft/src/SoundPoolEntry/soundUrl
 CL: am net/minecraft/src/EntityGhast
-FD: am/a net/minecraft/src/EntityGhast/livingSoundTime
-FD: am/b net/minecraft/src/EntityGhast/currentTarget
-FD: am/c net/minecraft/src/EntityGhast/numTicksToChaseTarget
+FD: am/a net/minecraft/src/EntityGhast/courseChangeCooldown
+FD: am/b net/minecraft/src/EntityGhast/waypointX
+FD: am/c net/minecraft/src/EntityGhast/waypointY
 FD: am/d net/minecraft/src/EntityGhast/waypointZ
 FD: am/e net/minecraft/src/EntityGhast/prevAttackCounter
 FD: am/f net/minecraft/src/EntityGhast/attackCounter
@@ -2126,7 +2126,7 @@ MD: gh/c (Lnet/minecraft/client/Minecraft;II)Z net/minecraft/src/GuiButton/mouse
 CL: gi net/minecraft/src/ThreadSleepForever
 FD: gi/a net/minecraft/src/ThreadSleepForever/mc
 CL: gj net/minecraft/src/MinecraftImpl
-FD: gj/a net/minecraft/src/MinecraftImpl/fullscreen
+FD: gj/a net/minecraft/src/MinecraftImpl/mcFrame
 MD: gj/a (Lhr;)V net/minecraft/src/MinecraftImpl/displayUnexpectedThrowable (Lnet/minecraft/src/UnexpectedThrowable;)V
 CL: gk net/minecraft/src/Packet
 FD: gk/a net/minecraft/src/Packet/packetIdToClassMap
@@ -2596,10 +2596,10 @@ MD: hu/d (Ljava/lang/String;)V net/minecraft/src/LoadingScreenRenderer/displayLo
 CL: hv net/minecraft/src/WorldClient
 FD: hv/A net/minecraft/src/WorldClient/blocksToReceive
 FD: hv/B net/minecraft/src/WorldClient/sendQueue
-FD: hv/C net/minecraft/src/WorldClient/scheduledTickTreeSet
-FD: hv/D net/minecraft/src/WorldClient/scheduledTickSet
+FD: hv/C net/minecraft/src/WorldClient/field_20915_C
+FD: hv/D net/minecraft/src/WorldClient/tileEntityUpdated
 FD: hv/E net/minecraft/src/WorldClient/entityHashSet
-FD: hv/F net/minecraft/src/WorldClient/lockTimestamp
+FD: hv/F net/minecraft/src/WorldClient/entityList
 FD: hv/G net/minecraft/src/WorldClient/entitySpawnQueue
 MD: hv/h (IIII)V net/minecraft/src/WorldClient/scheduleBlockUpdate (IIII)V
 MD: hv/a (IIZ)V net/minecraft/src/WorldClient/doPreChunk (IIZ)V
@@ -3808,7 +3808,7 @@ MD: mh/a (Ljava/io/DataInput;)V net/minecraft/src/NBTTagDouble/load (Ljava/io/Da
 MD: mh/a ()B net/minecraft/src/NBTTagDouble/getId ()B
 MD: mh/a (Ljava/io/DataOutput;)V net/minecraft/src/NBTTagDouble/write (Ljava/io/DataOutput;)V
 CL: mi net/minecraft/src/RenderMinecart
-FD: mi/a net/minecraft/src/RenderMinecart/modelBase
+FD: mi/a net/minecraft/src/RenderMinecart/modelMinecart
 MD: mi/a (Lqd;DDDFF)V net/minecraft/src/RenderMinecart/func_152_a (Lnet/minecraft/src/EntityMinecart;DDDFF)V
 MD: mi/a (Llw;DDDFF)V net/minecraft/src/RenderMinecart/doRender (Lnet/minecraft/src/Entity;DDDFF)V
 CL: mj net/minecraft/src/BlockFurnace

@@ -1,7 +1,7 @@
 --- a/net/minecraft/src/RenderMinecart.java
 +++ b/net/minecraft/src/RenderMinecart.java
 @@ -10,7 +10,7 @@
-       this.modelBase = new ModelMinecart();
+       this.modelMinecart = new ModelMinecart();
     }
  
 -   public void doRender(EntityMinecart entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {

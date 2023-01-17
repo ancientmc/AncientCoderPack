@@ -441,7 +441,7 @@ CLASS net/minecraft/src/UnexpectedThrowable
 CLASS net/minecraft/src/ItemAxe
 	METHOD <init> (II)V
 		ARG 1 itemID
-		ARG 2 damageIncrement
+		ARG 2 ingredientQuality
 CLASS net/minecraft/src/BlockCrops
 	METHOD getGrowthRate (Lnet/minecraft/src/World;III)F
 		ARG 1 world
@@ -2766,9 +2766,9 @@ CLASS net/minecraft/src/EntityFish
 		ARG 1 world
 		ARG 2 entityPlayer
 	METHOD calculateVelocity (DDDFF)V
-		ARG 1 pDouble
-		ARG 3 pDouble1
-		ARG 5 pDouble2
+		ARG 1 motionX
+		ARG 3 motionY
+		ARG 5 motionZ
 		ARG 7 pFloat
 		ARG 8 pFloat1
 	METHOD func_4042_a (DDDFF)V
@@ -4863,8 +4863,8 @@ CLASS net/minecraft/src/MinecraftImpl
 		ARG 3 mcApplet
 		ARG 4 displayWidth
 		ARG 5 displayHeight
-		ARG 6 fullscreenFlag
-		ARG 7 fullscreen
+		ARG 6 fullscreen
+		ARG 7 mcFrame
 CLASS net/minecraft/src/TerrainTextureManager
 	METHOD render (Lnet/minecraft/src/IsoImageBuffer;)V
 		ARG 1 isoImageBuffer
@@ -5082,7 +5082,7 @@ CLASS net/minecraft/src/WorldChunkManagerHell
 CLASS net/minecraft/src/ItemHoe
 	METHOD <init> (II)V
 		ARG 1 itemID
-		ARG 2 maxDamage
+		ARG 2 ingredientQuality
 CLASS net/minecraft/src/EntityArrow
 	METHOD <init> (Lnet/minecraft/src/World;DDD)V
 		ARG 1 world
