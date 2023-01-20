@@ -8,18 +8,15 @@
  import java.util.Map;
  import org.lwjgl.opengl.GL11;
  
-@@ -23,11 +24,11 @@
+@@ -23,8 +24,10 @@
     private TileEntityRenderer() {
        this.specialRendererMap.put(TileEntitySign.class, new TileEntitySignRenderer());
        this.specialRendererMap.put(TileEntityMobSpawner.class, new TileEntityMobSpawnerRenderer());
-+      TileEntitySpecialRenderer tileentityspecialrenderer;
++      Iterator iterator = this.specialRendererMap.values().iterator();
  
 -      for(TileEntitySpecialRenderer tileentityspecialrenderer : this.specialRendererMap.values()) {
--         tileentityspecialrenderer.setTileEntityRenderer(this);
-+      for(Iterator iterator = this.specialRendererMap.values().iterator(); iterator.hasNext(); tileentityspecialrenderer.setTileEntityRenderer(this)) {
-+         tileentityspecialrenderer = (TileEntitySpecialRenderer)iterator.next();
++      while(iterator.hasNext()) {
++         TileEntitySpecialRenderer tileentityspecialrenderer = (TileEntitySpecialRenderer)iterator.next();
+          tileentityspecialrenderer.setTileEntityRenderer(this);
        }
--
-    }
  
-    public TileEntitySpecialRenderer getSpecialRendererForClass(Class tileEntityClass) {

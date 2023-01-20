@@ -14,12 +14,14 @@
  
  public class World implements IBlockAccess {
     public boolean scheduledUpdatesAreImmediate = false;
-@@ -1571,7 +1566,8 @@
+@@ -1571,7 +1566,10 @@
           --this.ambientTickCountdown;
        }
  
 -      for(ChunkCoordIntPair chunkcoordintpair : this.activeChunkSet) {
-+      for(Iterator iterator = this.activeChunkSet.iterator(); iterator.hasNext(); ) {
++      Iterator iterator = this.activeChunkSet.iterator();
++
++      while(iterator.hasNext()) {
 +         ChunkCoordIntPair chunkcoordintpair = (ChunkCoordIntPair)iterator.next();
           int i2 = chunkcoordintpair.chunkXPos * 16;
           int j2 = chunkcoordintpair.chunkZPos * 16;

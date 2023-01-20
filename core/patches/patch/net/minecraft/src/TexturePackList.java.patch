@@ -13,17 +13,15 @@
  import net.minecraft.client.Minecraft;
  
  public class TexturePackList {
-@@ -81,9 +79,10 @@
- 
-       this.availableTexturePacks.removeAll(arraylist);
- 
--      for(TexturePackBase texturepackbase : this.availableTexturePacks) {
--         texturepackbase.unbindThumbnailTexture(this.mc);
--         this.field_6538_d.remove(texturepackbase.texturePackID);
-+      TexturePackBase texturepackbase;
-+      for (Iterator iterator = availableTexturePacks.iterator(); iterator.hasNext(); field_6538_d.remove(texturepackbase.texturePackID)) {
-+         texturepackbase = (TexturePackBase) iterator.next();
-+         texturepackbase.unbindThumbnailTexture(mc);
+@@ -80,8 +78,10 @@
        }
  
-       this.availableTexturePacks = arraylist;
+       this.availableTexturePacks.removeAll(arraylist);
++      Iterator iterator = this.availableTexturePacks.iterator();
+ 
+-      for(TexturePackBase texturepackbase : this.availableTexturePacks) {
++      while(iterator.hasNext()) {
++         TexturePackBase texturepackbase = (TexturePackBase)iterator.next();
+          texturepackbase.unbindThumbnailTexture(this.mc);
+          this.field_6538_d.remove(texturepackbase.texturePackID);
+       }

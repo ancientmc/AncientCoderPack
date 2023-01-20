@@ -2917,13 +2917,13 @@ CLASS net/minecraft/src/EntityRenderer
 	METHOD func_917_f (F)V
 		ARG 1 pFloat
 	METHOD getFOVModifier (F)F
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD getMouseOver (F)V
 		ARG 1 partialTickTime
 	METHOD hurtCameraEffect (F)V
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD orientCamera (F)V
-		ARG 1 cameraAngle
+		ARG 1 partialTickTime
 	METHOD renderHand (FI)V
 		ARG 1 partialTickTime
 		ARG 2 offsetX

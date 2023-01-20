@@ -8,37 +8,37 @@
  
  public class ChunkLoader implements IChunkLoader {
     private File saveDir;
-@@ -132,22 +133,23 @@
+@@ -132,10 +133,13 @@
        NBTTagList nbttaglist = new NBTTagList();
  
        for(int i = 0; i < chunk.entities.length; ++i) {
 -         for(Entity entity : chunk.entities[i]) {
--            chunk.hasEntities = true;
--            NBTTagCompound nbttagcompound = new NBTTagCompound();
--            if (entity.addEntityID(nbttagcompound)) {
--               nbttaglist.appendTag(nbttagcompound);
--            }
 +         Iterator iterator = chunk.entities[i].iterator();
-+         Entity entity = (Entity)iterator.next();
-+         chunk.hasEntities = true;
-+         NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-+         if(entity.addEntityID(nbttagcompound1)) {
-+            nbttaglist.appendTag(nbttagcompound1);
++
++         while(iterator.hasNext()) {
++            Entity entity = (Entity)iterator.next();
+             chunk.hasEntities = true;
+             NBTTagCompound nbttagcompound = new NBTTagCompound();
+-            if (entity.addEntityID(nbttagcompound)) {
++            if(entity.addEntityID(nbttagcompound)) {
+                nbttaglist.appendTag(nbttagcompound);
+             }
           }
-       }
+@@ -143,12 +147,15 @@
  
        nbtTagCompound.setTag("Entities", nbttaglist);
        NBTTagList nbttaglist1 = new NBTTagList();
-+      NBTTagCompound nbttagcompound2;
++      NBTTagCompound nbttagcompound1 = new NBTTagCompound();
++      Iterator iterator1 = chunk.chunkTileEntityMap.values().iterator();
  
 -      for(TileEntity tileentity : chunk.chunkTileEntityMap.values()) {
 -         NBTTagCompound nbttagcompound1 = new NBTTagCompound();
--         tileentity.writeToNBT(nbttagcompound1);
--         nbttaglist1.appendTag(nbttagcompound1);
-+      for(Iterator iterator1 = chunk.chunkTileEntityMap.values().iterator(); iterator1.hasNext(); nbttaglist1.appendTag(nbttagcompound2)) {
++      while(iterator1.hasNext()) {
 +         TileEntity tileentity = (TileEntity)iterator1.next();
-+         nbttagcompound2 = new NBTTagCompound();
-+         tileentity.writeToNBT(nbttagcompound2);
+          tileentity.writeToNBT(nbttagcompound1);
+          nbttaglist1.appendTag(nbttagcompound1);
        }
++
  
        nbtTagCompound.setTag("TileEntities", nbttaglist1);
+    }

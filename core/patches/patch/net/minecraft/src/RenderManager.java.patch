@@ -8,17 +8,15 @@
  import java.util.Map;
  import org.lwjgl.opengl.GL11;
  
-@@ -48,10 +49,10 @@
+@@ -47,8 +48,10 @@
+       this.entityRenderMap.put(EntityMinecart.class, new RenderMinecart());
        this.entityRenderMap.put(EntityBoat.class, new RenderBoat());
        this.entityRenderMap.put(EntityFish.class, new RenderFish());
++      Iterator iterator = this.entityRenderMap.values().iterator();
  
 -      for(Render render : this.entityRenderMap.values()) {
--         render.setRenderManager(this);
-+      Render render;
-+      for(Iterator iterator = this.entityRenderMap.values().iterator(); iterator.hasNext(); render.setRenderManager(this)) {
-+         render = (Render)iterator.next();
++      while(iterator.hasNext()) {
++         Render render = (Render)iterator.next();
+          render.setRenderManager(this);
        }
--
-    }
  
-    public Render getEntityClassRenderObject(Class entityClass) {

@@ -99,3 +99,7 @@ clean {
     delete(file(Paths.ACP_DIR_RUN).listFiles(runFilter))
     delete(file(Paths.ACP_DIR_LOGS).listFiles(gitIgnoreFilter))
 }
+
+task nopatch(type: GradleBuild) {
+    tasks = ['downloadJar', 'deobfJar', 'injectExceptions', 'addParams', 'decompileClassFiles', 'unzipJar']
+}
