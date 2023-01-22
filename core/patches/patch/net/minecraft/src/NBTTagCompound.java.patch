@@ -1,13 +1,26 @@
 --- a/net/minecraft/src/NBTTagCompound.java
 +++ b/net/minecraft/src/NBTTagCompound.java
-@@ -11,8 +11,8 @@
+@@ -4,6 +4,7 @@
+ import java.io.DataOutput;
+ import java.io.IOException;
+ import java.util.HashMap;
++import java.util.Iterator;
+ import java.util.Map;
+ 
+ public class NBTTagCompound extends NBTBase {
+@@ -11,9 +12,12 @@
  
     @Override
     void write(DataOutput dataOutput) throws IOException {
 -      for(NBTBase nbtbase : this.tagMap.values()) {
 -         NBTBase.writeNamedTag(nbtbase, dataOutput);
-+      for(Object object : this.tagMap.values()) {
-+         NBTBase.writeNamedTag((NBTBase)object, dataOutput);
-       }
+-      }
++      Iterator iterator = this.tagMap.values().iterator();
++	  
++	   while(iterator.hasNext()) {
++		  NBTBase nbtbase = (NBTBase)iterator.next();
++		  NBTBase.writeNamedTag(nbtbase, dataOutput);
++	   }	 
  
        dataOutput.writeByte(0);
+    }

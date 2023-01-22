@@ -5,7 +5,7 @@
  
     public static int getEntityID(Entity entity) {
 -      return classToIDMapping.get(entity.getClass());
-+      return ((Integer)classToIDMapping.get(entity.getClass())).intValue();
++      return (Integer)classToIDMapping.get(entity.getClass());
     }
  
     public static String getEntityString(Entity entity) {

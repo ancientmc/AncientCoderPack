@@ -14,7 +14,7 @@
  
        for(int j = 0; j < textureNames.size(); ++j) {
 -         intbuffer.put(textureNames.get(j));
-+         intbuffer.put(((Integer)textureNames.get(j)).intValue());
++         intbuffer.put((Integer)textureNames.get(j));
        }
  
        intbuffer.flip();

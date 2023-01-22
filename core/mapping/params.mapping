@@ -2940,7 +2940,7 @@ CLASS net/minecraft/src/EntityRenderer
 	METHOD setupFog (I)V
 		ARG 1 partialTickTime
 	METHOD setupViewBobbing (F)V
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 	METHOD updateCameraAndRender (F)V
 		ARG 1 partialTickTime
 	METHOD updateFogColor (F)V
@@ -4736,9 +4736,9 @@ CLASS net/minecraft/src/EntityPlayer
 		ARG 1 entity
 CLASS net/minecraft/src/ModelBiped
 	METHOD <init> (F)V
-		ARG 1 pFloat
+		ARG 1 modelSize
 	METHOD <init> (FF)V
-		ARG 1 pFloat
+		ARG 1 modelSize
 		ARG 2 pFloat1
 CLASS net/minecraft/src/EntitySlimeFX
 	METHOD <init> (Lnet/minecraft/src/World;DDDLnet/minecraft/src/Item;)V

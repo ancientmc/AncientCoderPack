@@ -5,7 +5,7 @@
           char c0 = s.charAt(j1);
           if (hashmap.containsKey(c0)) {
 -            aint[j1] = hashmap.get(c0);
-+            aint[j1] = ((Integer)hashmap.get(Character.valueOf(c0))).intValue();
++            aint[j1] = (Integer)hashmap.get(c0);
           } else {
              aint[j1] = -1;
           }
