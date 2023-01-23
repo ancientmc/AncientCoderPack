@@ -1,0 +1,13 @@
+--- a/net/minecraft/src/ModelBiped.java
++++ b/net/minecraft/src/ModelBiped.java
+@@ -60,8 +60,8 @@
+ 
+    @Override
+    public void setRotationAngles(float pFloat, float pFloat1, float pFloat2, float pFloat3, float pFloat4, float pFloat5) {
+-      this.bipedHead.rotateAngleY = pFloat3 / 180.0F / (float)Math.PI;
+-      this.bipedHead.rotateAngleX = pFloat4 / 180.0F / (float)Math.PI;
++      this.bipedHead.rotateAngleY = pFloat3 / (180.0F / (float)Math.PI);
++      this.bipedHead.rotateAngleX = pFloat4 / (180.0F / (float)Math.PI);
+       this.bipedHeadwear.rotateAngleY = this.bipedHead.rotateAngleY;
+       this.bipedHeadwear.rotateAngleX = this.bipedHead.rotateAngleX;
+       this.bipedRightArm.rotateAngleX = MathHelper.cos(pFloat * 0.6662F + (float) Math.PI) * 2.0F * pFloat1 * 0.5F;
