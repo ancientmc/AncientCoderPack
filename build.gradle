@@ -43,6 +43,7 @@ configurations {
     enigma
     quiltflower
     diffpatch
+    binpatch
 }
 
  apply plugin: 'com.ancientmc.acp'
@@ -59,6 +60,7 @@ dependencies {
     enigma configurations.enigma.dependencies
     quiltflower 'org.quiltmc:quiltflower:1.8.1'
     diffpatch 'net.minecraftforge:DiffPatch:2.0.7'
+    binpatch 'net.minecraftforge:binarypatcher:1.1.1'
 }
 
 tasks.withType(JavaExec) {
@@ -72,7 +74,7 @@ task setup() {
 
 task runClient(type: JavaExec) {
     group = "acp-run"
-    main = "acp.client.Start"
+    mainClass = "acp.client.Start"
     classpath = sourceSets.main.runtimeClasspath
     javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
 }
@@ -82,10 +84,19 @@ jar {
     destinationDirectory = file('build\\libs\\')
     archiveBaseName = 'interm'
     exclude("acp\\")
-    from(zipTree(file("core\\temp\\${MC_VERSION}.jar"))) {
+    from(zipTree(file(Paths.BASE_JAR))) {
         include('com\\')
         include('paulscode\\')
     }
+}
+
+def outJar = project.buildDir.path + "\\libs\\${version}.jar"
+def binPatchDir = project.buildDir.path + "\\patches\\client.lzma"
+
+task genBinPatches(type: JavaExec) {
+    mainClass = 'net.minecraftforge.binarypatcher.ConsoleTool'
+    classpath = files(project.getConfigurations().getByName('binpatch'))
+    args('--clean', Paths.BASE_JAR, '--dirty', outJar, '--output', binPatchDir)
 }
 
 FileFilter gitIgnoreFilter = (File file) -> !file.getName().endsWith(".gitignore")
