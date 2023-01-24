@@ -734,7 +734,7 @@ CL: ch net/minecraft/src/EnumSkyBlock
 FD: ch/a net/minecraft/src/EnumSkyBlock/Sky
 FD: ch/b net/minecraft/src/EnumSkyBlock/Block
 FD: ch/c net/minecraft/src/EnumSkyBlock/defaultLightValue
-FD: ch/d net/minecraft/src/EnumSkyBlock/d
+FD: ch/d net/minecraft/src/EnumSkyBlock/allSkyBlocks
 MD: ch/values ()[Lch; net/minecraft/src/EnumSkyBlock/values ()[Lnet/minecraft/src/EnumSkyBlock;
 CL: e net/minecraft/src/BlockOreBlock
 MD: e/a (I)I net/minecraft/src/BlockOreBlock/getBlockTextureFromSide (I)I
@@ -1837,7 +1837,7 @@ CL: fl net/minecraft/src/EnumArt
 FD: fl/A net/minecraft/src/EnumArt/sizeY
 FD: fl/B net/minecraft/src/EnumArt/offsetX
 FD: fl/C net/minecraft/src/EnumArt/offsetY
-FD: fl/D net/minecraft/src/EnumArt/D
+FD: fl/D net/minecraft/src/EnumArt/allArt
 FD: fl/a net/minecraft/src/EnumArt/Kebab
 FD: fl/b net/minecraft/src/EnumArt/Aztec
 FD: fl/c net/minecraft/src/EnumArt/Alban
@@ -2004,7 +2004,7 @@ FD: fw/b net/minecraft/src/EnumOS1/solaris
 FD: fw/c net/minecraft/src/EnumOS1/windows
 FD: fw/d net/minecraft/src/EnumOS1/macos
 FD: fw/e net/minecraft/src/EnumOS1/unknown
-FD: fw/f net/minecraft/src/EnumOS1/f
+FD: fw/f net/minecraft/src/EnumOS1/field_6525_f
 MD: fw/values ()[Lfw; net/minecraft/src/EnumOS1/values ()[Lnet/minecraft/src/EnumOS1;
 CL: fx net/minecraft/src/EntitySorter
 FD: fx/a net/minecraft/src/EntitySorter/entityForSorting
@@ -2262,7 +2262,7 @@ FD: gy/a net/minecraft/src/EnumCreatureType/monster
 FD: gy/b net/minecraft/src/EnumCreatureType/creature
 FD: gy/c net/minecraft/src/EnumCreatureType/creatureClass
 FD: gy/d net/minecraft/src/EnumCreatureType/maxNumberOfCreature
-FD: gy/e net/minecraft/src/EnumCreatureType/e
+FD: gy/e net/minecraft/src/EnumCreatureType/allCreatureTypes
 MD: gy/values ()[Lgy; net/minecraft/src/EnumCreatureType/values ()[Lnet/minecraft/src/EnumCreatureType;
 CL: gz net/minecraft/src/TileEntityRenderer
 FD: gz/a net/minecraft/src/TileEntityRenderer/instance
@@ -3044,7 +3044,7 @@ FD: jp/b net/minecraft/src/EnumOS2/solaris
 FD: jp/c net/minecraft/src/EnumOS2/windows
 FD: jp/d net/minecraft/src/EnumOS2/macos
 FD: jp/e net/minecraft/src/EnumOS2/unknown
-FD: jp/f net/minecraft/src/EnumOS2/f
+FD: jp/f net/minecraft/src/EnumOS2/allOSes
 MD: jp/values ()[Ljp; net/minecraft/src/EnumOS2/values ()[Lnet/minecraft/src/EnumOS2;
 CL: jq net/minecraft/src/NetworkManager
 FD: jq/a net/minecraft/src/NetworkManager/threadSyncObject
@@ -3453,7 +3453,7 @@ CL: lg net/minecraft/src/EnumMobType
 FD: lg/a net/minecraft/src/EnumMobType/everything
 FD: lg/b net/minecraft/src/EnumMobType/mobs
 FD: lg/c net/minecraft/src/EnumMobType/players
-FD: lg/d net/minecraft/src/EnumMobType/d
+FD: lg/d net/minecraft/src/EnumMobType/allMobTypes
 MD: lg/values ()[Llg; net/minecraft/src/EnumMobType/values ()[Lnet/minecraft/src/EnumMobType;
 CL: lh net/minecraft/src/BlockContainer
 MD: lh/b (Lcy;III)V net/minecraft/src/BlockContainer/onBlockRemoval (Lnet/minecraft/src/World;III)V
@@ -4349,17 +4349,17 @@ CL: nz net/minecraft/src/Packet12PlayerLook
 MD: nz/a (Ljava/io/DataOutputStream;)V net/minecraft/src/Packet12PlayerLook/writePacketData (Ljava/io/DataOutputStream;)V
 MD: nz/a ()I net/minecraft/src/Packet12PlayerLook/getPacketSize ()I
 MD: nz/a (Ljava/io/DataInputStream;)V net/minecraft/src/Packet12PlayerLook/readPacketData (Ljava/io/DataInputStream;)V
-CL: oa net/minecraft/src/BlockSoil
-MD: oa/i (Lcy;III)Z net/minecraft/src/BlockSoil/isWaterNearby (Lnet/minecraft/src/World;III)Z
-MD: oa/a ()Z net/minecraft/src/BlockSoil/isOpaqueCube ()Z
-MD: oa/a (Lcy;IIILjava/util/Random;)V net/minecraft/src/BlockSoil/updateTick (Lnet/minecraft/src/World;IIILjava/util/Random;)V
-MD: oa/b (Lcy;IIILlw;)V net/minecraft/src/BlockSoil/onEntityWalking (Lnet/minecraft/src/World;IIILnet/minecraft/src/Entity;)V
-MD: oa/d (Lcy;III)Lco; net/minecraft/src/BlockSoil/getCollisionBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB;
-MD: oa/b ()Z net/minecraft/src/BlockSoil/renderAsNormalBlock ()Z
-MD: oa/a (II)I net/minecraft/src/BlockSoil/getBlockTextureFromSideAndMetadata (II)I
-MD: oa/a (Lcy;IIII)V net/minecraft/src/BlockSoil/onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V
-MD: oa/a (ILjava/util/Random;)I net/minecraft/src/BlockSoil/idDropped (ILjava/util/Random;)I
-MD: oa/h (Lcy;III)Z net/minecraft/src/BlockSoil/isCropsNearby (Lnet/minecraft/src/World;III)Z
+CL: oa net/minecraft/src/BlockFarmland
+MD: oa/i (Lcy;III)Z net/minecraft/src/BlockFarmland/isWaterNearby (Lnet/minecraft/src/World;III)Z
+MD: oa/a ()Z net/minecraft/src/BlockFarmland/isOpaqueCube ()Z
+MD: oa/a (Lcy;IIILjava/util/Random;)V net/minecraft/src/BlockFarmland/updateTick (Lnet/minecraft/src/World;IIILjava/util/Random;)V
+MD: oa/b (Lcy;IIILlw;)V net/minecraft/src/BlockFarmland/onEntityWalking (Lnet/minecraft/src/World;IIILnet/minecraft/src/Entity;)V
+MD: oa/d (Lcy;III)Lco; net/minecraft/src/BlockFarmland/getCollisionBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB;
+MD: oa/b ()Z net/minecraft/src/BlockFarmland/renderAsNormalBlock ()Z
+MD: oa/a (II)I net/minecraft/src/BlockFarmland/getBlockTextureFromSideAndMetadata (II)I
+MD: oa/a (Lcy;IIII)V net/minecraft/src/BlockFarmland/onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V
+MD: oa/a (ILjava/util/Random;)I net/minecraft/src/BlockFarmland/idDropped (ILjava/util/Random;)I
+MD: oa/h (Lcy;III)Z net/minecraft/src/BlockFarmland/isCropsNearby (Lnet/minecraft/src/World;III)Z
 CL: ob net/minecraft/src/BlockTorch
 MD: ob/d (Lcy;IIII)V net/minecraft/src/BlockTorch/onBlockPlaced (Lnet/minecraft/src/World;IIII)V
 MD: ob/a ()Z net/minecraft/src/BlockTorch/isOpaqueCube ()Z

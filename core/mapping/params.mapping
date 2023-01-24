@@ -4952,7 +4952,7 @@ CLASS net/minecraft/src/BiomeGenBase
 		ARG 1 biomeName
 	METHOD setColor (I)Lnet/minecraft/src/BiomeGenBase;
 		ARG 1 color
-CLASS net/minecraft/src/BlockSoil
+CLASS net/minecraft/src/BlockFarmland
 	METHOD <init> (I)V
 		ARG 1 blockID
 	METHOD func_274_i (Lnet/minecraft/src/World;III)Z

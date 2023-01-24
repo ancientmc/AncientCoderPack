@@ -94,6 +94,7 @@ def outJar = project.buildDir.path + "\\libs\\${version}.jar"
 def binPatchDir = project.buildDir.path + "\\patches\\client.lzma"
 
 task genBinPatches(type: JavaExec) {
+    group = "modtools"
     mainClass = 'net.minecraftforge.binarypatcher.ConsoleTool'
     classpath = files(project.getConfigurations().getByName('binpatch'))
     args('--clean', Paths.BASE_JAR, '--dirty', outJar, '--output', binPatchDir)
@@ -110,3 +111,4 @@ clean {
     delete(file(Paths.ACP_DIR_RUN).listFiles(runFilter))
     delete(file(Paths.ACP_DIR_LOGS).listFiles(gitIgnoreFilter))
 }
+
