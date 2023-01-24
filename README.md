@@ -1,4 +1,9 @@
+## Ancient Coder Pack ##
+
 See the How-To text file (HOWTO.md) located in the "docs" folder to get started with ACP.
+
+### NOTE: Ancient Coder Pack (ACP) is not currently compatibile with Risugami's ModLoader or other loaders. Support will be coming in the near future. ###
+
 
 **What is the Ancient Coder Pack?**
 
