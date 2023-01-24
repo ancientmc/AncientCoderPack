@@ -64,7 +64,7 @@ dependencies {
 }
 
 tasks.withType(JavaExec) {
-    systemProperty "java.library.path", "run\\bin\\natives\\" + OSName.getOSName() + "\\"
+    systemProperty "java.library.path", Paths.ACP_DIR_NATIVES
 }
 
 task setup() {

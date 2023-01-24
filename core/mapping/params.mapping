@@ -2633,8 +2633,8 @@ CLASS net/minecraft/src/EntityLiving
 		ARG 3 motionY
 		ARG 5 motionZ
 	METHOD moveEntityWithHeading (FF)V
-		ARG 1 pFloat
-		ARG 2 pFloat1
+		ARG 1 strafe
+		ARG 2 forward
 	METHOD onDeath (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
 	METHOD rayTrace (DF)Lnet/minecraft/src/MovingObjectPosition;
@@ -4087,7 +4087,7 @@ CLASS net/minecraft/src/Entity
 	METHOD interact (Lnet/minecraft/src/EntityPlayer;)Z
 		ARG 1 entityPlayer
 	METHOD isInRangeToRenderDist (D)Z
-		ARG 1 averageDistance
+		ARG 1 distance
 	METHOD isInRangeToRenderVec3D (Lnet/minecraft/src/Vec3D;)Z
 		ARG 1 vec3D
 	METHOD isInsideOfMaterial (Lnet/minecraft/src/Material;)Z
@@ -4103,9 +4103,9 @@ CLASS net/minecraft/src/Entity
 		ARG 3 offsetY
 		ARG 5 offsetZ
 	METHOD moveFlying (FFF)V
-		ARG 1 pFloat
-		ARG 2 pFloat1
-		ARG 3 pFloat2
+		ARG 1 strafe
+		ARG 2 forward
+		ARG 3 friction
 	METHOD newDoubleNBTList ([D)Lnet/minecraft/src/NBTTagList;
 		ARG 1 entityPos
 	METHOD newFloatNBTList ([F)Lnet/minecraft/src/NBTTagList;
@@ -4330,9 +4330,9 @@ CLASS net/minecraft/src/ItemStack
 	METHOD useItem (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/World;IIII)Z
 		ARG 1 entityPlayer
 		ARG 2 world
-		ARG 3 coordX
-		ARG 4 coordY
-		ARG 5 coordZ
+		ARG 3 posX
+		ARG 4 posY
+		ARG 5 posZ
 		ARG 6 side
 	METHOD useItemOnEntity (Lnet/minecraft/src/EntityLiving;)V
 		ARG 1 entityLiving
