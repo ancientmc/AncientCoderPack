@@ -46,7 +46,7 @@ configurations {
     binpatch
 }
 
- apply plugin: 'com.ancientmc.acp'
+apply plugin: 'com.ancientmc.acp'
 
 dependencies {
     implementation gradleApi()
@@ -90,8 +90,8 @@ jar {
     }
 }
 
-def outJar = project.buildDir.path + "\\libs\\${version}.jar"
-def binPatchDir = project.buildDir.path + "\\patches\\client.lzma"
+String outJar = project.buildDir.path + "\\libs\\${version}.jar"
+String binPatchDir = project.buildDir.path + "\\patches\\client.lzma"
 
 task genBinPatches(type: JavaExec) {
     group = "modtools"
@@ -111,4 +111,3 @@ clean {
     delete(file(Paths.ACP_DIR_RUN).listFiles(runFilter))
     delete(file(Paths.ACP_DIR_LOGS).listFiles(gitIgnoreFilter))
 }
-
