@@ -15,7 +15,7 @@ tool for people to learn about the history of Minecraft.
 
 **What tools are used for ACP?**
 
-At first, ACP directly included and using files from the Mod Coder Pack version 2.5, but due to MCP's license 
+At first, ACP directly included and using files from the Mod Coder Pack version 2.5, but due to fears of MCP's license 
 and the age of the tools they have been replaced by more modern and open-source tools. ACP does use some tools developed by 
 OceanLabs, MinecraftForge, and FabricMC, but these are Maven dependencies that are publicly available for others.
 The only tool directly included is McAssetExtractor, a forked tool originally developed by GitHub user rhmeuer.

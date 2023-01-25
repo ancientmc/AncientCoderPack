@@ -72,7 +72,7 @@ String backupSrc = "${moddingDir}\\backupSrc\\"
 
 task setup() {
     group = 'acp-run'
-    dependsOn ':execute'
+    dependsOn(':execute')
     doLast {
         copy {
             from(Paths.ACP_DIR_SRC)
