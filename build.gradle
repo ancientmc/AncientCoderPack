@@ -23,7 +23,6 @@ version = "client-${MC_VERSION}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
-
 repositories {
     mavenCentral()
     mavenLocal()
@@ -89,7 +88,7 @@ task runClient(type: JavaExec) {
     javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
 }
 
-// intermediary task, use reobfJar instead. Do not publish anything generated from this task, since the classes will still be deobfuscated.
+// Intermediary task, use reobfJar instead. Do not publish anything generated from this task, since the classes will still be deobfuscated.
 jar {
     destinationDirectory = file('build\\libs\\')
     archiveBaseName = 'interm'
