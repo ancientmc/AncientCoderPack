@@ -15,20 +15,19 @@ plugins {
 }
 
 ext {
-    MC_REPO = project.getGradle().getGradleUserHomeDir().getAbsolutePath() + "/caches/ancientcoderpack/mc_repo/"
-    MC_VERSION = "a1.2.6"
+    MC_VERSION = 'a1.2.6'
+    MC_REPO = project.getGradle().gradleUserHomeDir.absolutePath + '\\caches\\ancientcoderpack\\mc_repo\\'
 }
 
 version = "client-${MC_VERSION}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
-import com.ancientmc.acp.utils.*
 
 repositories {
     mavenCentral()
     mavenLocal()
-    maven { url = 'https://nexus.velocitypowered.com/repository/maven-public/' }
+    maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = 'https://maven.fabricmc.net/' }
     maven { url = 'https://maven.quiltmc.org/repository/release/' }
 }
@@ -48,6 +47,8 @@ configurations {
 
 apply plugin: 'com.ancientmc.acp'
 
+import com.ancientmc.acp.utils.*
+
 dependencies {
     implementation gradleApi()
     implementation files(MC_REPO).getAsFileTree()
@@ -55,8 +56,8 @@ dependencies {
     retroguard 'de.oceanlabs.mcp:RetroGuard:3.6.6'
     retroguard configurations.retroguard.dependencies
     mcinjector 'de.oceanlabs.mcp:mcinjector:3.8.0'
-    enigma 'cuchaz:enigma-cli:2.1.0'
-    enigma 'cuchaz:enigma:2.1.0'
+    enigma 'cuchaz:enigma-cli:2.2.0'
+    enigma 'cuchaz:enigma:2.2.0'
     enigma configurations.enigma.dependencies
     quiltflower 'org.quiltmc:quiltflower:1.8.1'
     diffpatch 'net.minecraftforge:DiffPatch:2.0.7'
@@ -64,17 +65,26 @@ dependencies {
 }
 
 tasks.withType(JavaExec) {
-    systemProperty "java.library.path", Paths.ACP_DIR_NATIVES
+    systemProperty 'java.library.path', Paths.ACP_DIR_NATIVES
 }
 
+String moddingDir = "${project.buildDir.path}\\modding\\"
+String backupSrc = "${moddingDir}\\backup\\"
+
 task setup() {
-    group = "acp-run"
+    group = 'acp-run'
     dependsOn ':execute'
+    doLast {
+        copy {
+            from("${Paths.ACP_DIR_SRC}")
+            into("${backupSrc}")
+        }
+    }
 }
 
 task runClient(type: JavaExec) {
-    group = "acp-run"
-    mainClass = "acp.client.Start"
+    group = 'acp-run'
+    mainClass = 'acp.client.Start'
     classpath = sourceSets.main.runtimeClasspath
     javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
 }
@@ -83,29 +93,38 @@ task runClient(type: JavaExec) {
 jar {
     destinationDirectory = file('build\\libs\\')
     archiveBaseName = 'interm'
-    exclude("acp\\")
+    exclude('acp\\')
     from(zipTree(file(Paths.BASE_JAR))) {
         include('com\\')
         include('paulscode\\')
     }
 }
 
-String outJar = project.buildDir.path + "\\libs\\${version}.jar"
-String binPatchDir = project.buildDir.path + "\\patches\\client.lzma"
+String outJar = "${project.buildDir.path}\\libs\\${version}.jar"
+String modPatchDir = "${moddingDir}\\patches\\"
 
 task genBinPatches(type: JavaExec) {
-    group = "modtools"
+    group = 'modtools'
     mainClass = 'net.minecraftforge.binarypatcher.ConsoleTool'
-    classpath = files(project.getConfigurations().getByName('binpatch'))
-    args('--clean', Paths.BASE_JAR, '--dirty', outJar, '--output', binPatchDir)
+    classpath = files(project.configurations.getByName('binpatch'))
+    args('--clean', Paths.BASE_JAR, '--dirty', outJar, '--output', "${modPatchDir}\\bin\\client.lzma")
 }
 
-FileFilter gitIgnoreFilter = (File file) -> !file.getName().endsWith(".gitignore")
-FileFilter runFilter = (File file) -> !file.getName().endsWith(".gitignore") && !file.getName().contains("bin")
+// Mainly for if you want to share your changes to MC classes on GitHub, use "genBinPatches" for actual mod distribution.
+task genDiffPatches(type: JavaExec) {
+    group = 'modtools'
+    mainClass = 'codechicken.diffpatch.DiffPatch'
+    classpath = files(project.configurations.getByName('diffpatch'))
+    args('--diff', backupSrc, Paths.ACP_DIR_SRC, '--output', "${modPatchDir}\\diff\\")
+    ignoreExitValue true
+}
+
+FileFilter gitIgnoreFilter = (File file) -> !file.name.endsWith('.gitignore')
+FileFilter runFilter = (File file) -> !file.name.endsWith('.gitignore') && !file.name.contains('bin')
 
 clean {
     delete(file(Paths.ACP_DIR_NATIVES))
-    delete(file(Paths.ACP_DIR_SRC + "net\\"))
+    delete(file("${Paths.ACP_DIR_SRC}\\net\\"))
     delete(file(Paths.ACP_DIR_TEMP).listFiles(gitIgnoreFilter))
     delete(file(Paths.ACP_DIR_RESOURCES).listFiles(gitIgnoreFilter))
     delete(file(Paths.ACP_DIR_RUN).listFiles(runFilter))

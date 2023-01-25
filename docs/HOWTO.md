@@ -44,10 +44,11 @@ during reobfuscation. You don't need to worry about this; everything else should
 
 ### Generating BinPatches ###
 If you are directly modifying the jar, ACP provides a task that allows you to generate binary patches using Minecraft Forge's BinaryPatcher. 
-The task can be found in the buildscript under the intermediary "jar" task, or in the "modtools" group in the Gradle task window.
+The "genBinPatches" task can be found in the buildscript under the intermediary "jar" task, or in the "modtools" group in the Gradle task window. 
+The output will be found in the build directory, inside "modding/patches/bin/client.lzma"
 
 ### Applying BinPatches ###
-For applying patches, you'll need BinaryPatcher. Forge doesn't directly provide a way to download the BinaryPatcher tool 
+For applying patches, you'll need to download BinaryPatcher. Forge doesn't directly provide a way to download the BinaryPatcher tool 
 from their site, for whatever reason, but you can still use their maven to get it:
 https://maven.minecraftforge.net/net/minecraftforge/binarypatcher/1.1.1/binarypatcher-1.1.1-fatjar.jar
 
@@ -59,3 +60,10 @@ java -jar {BINPATCH_TOOL} --clean {VANILLA_JAR} --apply {PATCH_FILES} --output {
 
 Where BINPATCH_TOOL is the BinaryPatcher JAR, VANILLA_JAR is the vanilla Minecraft Alpha 1.2.6 jar, PATCH_FILES is the LZMA 
 file generated from the genBinPatches task, and MODDED_JAR is the output modified jar you wish to run in your launcher.
+
+### Generating DiffPatches ###
+BinPatches aren't viewable, so ACP gives you the option to generate DiffPatch files (.patch) so you can easily show your changes
+to the code on GitHub. Under the "genBinPatches" task you can find the "genDiffPatches" task (it's also found in the 
+"modtools" task group) Running this task will generate patches in the build directory, inside "modding/patches/diff/".
+
+These won't serve any real purpose other than making your code visible, as you'll need the BinPatches to actually modify the jar. 
