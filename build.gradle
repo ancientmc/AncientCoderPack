@@ -16,7 +16,7 @@ plugins {
 
 ext {
     MC_VERSION = 'a1.2.6'
-    MC_REPO = project.getGradle().gradleUserHomeDir.absolutePath + '\\caches\\ancientcoderpack\\mc_repo\\'
+    MC_REPO = "${project.gradle.gradleUserHomeDir}\\caches\\ancientcoderpack\\mc_repo\\"
 }
 
 version = "client-${MC_VERSION}"
@@ -59,7 +59,7 @@ dependencies {
     enigma 'cuchaz:enigma-cli:2.2.0'
     enigma 'cuchaz:enigma:2.2.0'
     enigma configurations.enigma.dependencies
-    quiltflower 'org.quiltmc:quiltflower:1.8.1'
+    quiltflower 'org.quiltmc:quiltflower:1.9.0'
     diffpatch 'net.minecraftforge:DiffPatch:2.0.7'
     binpatch 'net.minecraftforge:binarypatcher:1.1.1'
 }
@@ -69,15 +69,15 @@ tasks.withType(JavaExec) {
 }
 
 String moddingDir = "${project.buildDir.path}\\modding\\"
-String backupSrc = "${moddingDir}\\backup\\"
+String backupSrc = "${moddingDir}\\backupSrc\\"
 
 task setup() {
     group = 'acp-run'
     dependsOn ':execute'
     doLast {
         copy {
-            from("${Paths.ACP_DIR_SRC}")
-            into("${backupSrc}")
+            from(Paths.ACP_DIR_SRC)
+            into(backupSrc)
         }
     }
 }
