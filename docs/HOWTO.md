@@ -64,7 +64,7 @@ file generated from the genBinPatches task, and MODDED_JAR is the outputted modi
 
 ### Generating DiffPatches ###
 BinPatches aren't viewable in a text editor, so ACP gives you the option to generate DiffPatch files (.patch) so you can 
-easily show your changes to the code on GitHub. Under the "genBinPatches" task you can find the "genDiffPatches" task 
+easily show your changes made to the code on GitHub. Under the "genBinPatches" task you can find the "genDiffPatches" task 
 (it's also found in the "modtools" task group) Running this task will generate patches in the build directory, inside 
 "modding/patches/diff/".
 
