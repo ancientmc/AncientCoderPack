@@ -1,6 +1,3 @@
 The CSV file includes the licenses for all third-party programs used specifically in the ACP repository.
-They probably aren't needed, since most of them are maven-based, not "vendored" (which, if our interpretation is correct,
-means directly inserted into the code), but attribution is nice nonetheless.
 
-This does not apply with McAssetExtractor, since the jar is directly included in the repository. Because of this, the license
-is included within this directory.
+Also included in this directory is a folder containing all the programs' licenses as full documents.
