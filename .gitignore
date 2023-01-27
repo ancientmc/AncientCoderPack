@@ -42,6 +42,7 @@ bin/
 src/main/java/net/
 logs/*.log
 temp/
+modding/
 ### Other ###
 lib/
 /gradle/
