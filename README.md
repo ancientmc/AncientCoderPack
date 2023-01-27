@@ -31,7 +31,7 @@ and what they do:
 - McAssetExtractor by rhmeuer, fork by me: extracting the run-time assets (not the ones from the client JAR) from Mojang's servers 
 into the workspace. [Original GitHub](https://github.com/rmheuer/McAssetExtractor). [Forked GitHub](https://github.com/moist-mason/McAssetExtractor).
 
-**What mappings does ACP use?**
+**What mappings do ACP use?**
 
 For methods, classes, and fields, ACP uses MCP names and SRG files. The SRG file for Minecraft Alpha 1.2.6 is generated via a tool
 developed by AncientMC called [SRGConfig](https://github.com/moist-mason/SRGConfig). SRGConfig aims to convert the original RGS files
