@@ -40,7 +40,7 @@ CLASS net/minecraft/src/PlayerController
 		ARG 1 posX
 		ARG 2 posY
 		ARG 3 posZ
-		ARG 4 blockSide
+		ARG 4 side
 	METHOD createPlayer (Lnet/minecraft/src/World;)Lnet/minecraft/src/EntityPlayer;
 		ARG 1 world
 	METHOD flipPlayer (Lnet/minecraft/src/EntityPlayer;)V
@@ -54,12 +54,12 @@ CLASS net/minecraft/src/PlayerController
 		ARG 1 posX
 		ARG 2 posY
 		ARG 3 posZ
-		ARG 4 blockSide
+		ARG 4 side
 	METHOD onPlayerDestroyBlock (IIII)Z
 		ARG 1 posX
 		ARG 2 posY
 		ARG 3 posZ
-		ARG 4 blockSide
+		ARG 4 side
 	METHOD onPlayerRightClick (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/World;Lnet/minecraft/src/ItemStack;IIII)Z
 		ARG 1 entityPlayer
 		ARG 2 world
@@ -1232,7 +1232,7 @@ CLASS net/minecraft/src/World
 		ARG 1 posX
 		ARG 2 posY
 		ARG 3 posZ
-		ARG 4 blockSide
+		ARG 4 side
 	METHOD playRecord (Ljava/lang/String;III)V
 		ARG 1 recordName
 		ARG 2 posX
@@ -1526,11 +1526,11 @@ CLASS net/minecraft/src/Block
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
-		ARG 5 blockSide
+		ARG 5 side
 	METHOD getBlockTextureFromSide (I)I
-		ARG 1 blockSide
+		ARG 1 side
 	METHOD getBlockTextureFromSideAndMetadata (II)I
-		ARG 1 blockSide
+		ARG 1 side
 		ARG 2 blockMetadata
 	METHOD getCollidingBoundingBoxes (Lnet/minecraft/src/World;IIILnet/minecraft/src/AxisAlignedBB;Ljava/util/ArrayList;)V
 		ARG 1 world
@@ -1538,7 +1538,7 @@ CLASS net/minecraft/src/Block
 		ARG 3 posY
 		ARG 4 posZ
 		ARG 5 axisAlignedBB
-		ARG 6 arrayList
+		ARG 6 boundingBoxList
 	METHOD getCollisionBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB;
 		ARG 1 world
 		ARG 2 posX
@@ -1565,13 +1565,13 @@ CLASS net/minecraft/src/Block
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
-		ARG 5 blockSide
+		ARG 5 side
 	METHOD isPoweringTo (Lnet/minecraft/src/IBlockAccess;IIII)Z
 		ARG 1 blockAccess
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
-		ARG 5 blockSide
+		ARG 5 side
 	METHOD isVecInsideXYBounds (Lnet/minecraft/src/Vec3D;)Z
 		ARG 1 vec3D
 	METHOD isVecInsideXZBounds (Lnet/minecraft/src/Vec3D;)Z
@@ -1605,7 +1605,7 @@ CLASS net/minecraft/src/Block
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
-		ARG 5 blockFacing
+		ARG 5 side
 	METHOD onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V
 		ARG 1 world
 		ARG 2 posX
@@ -1674,7 +1674,7 @@ CLASS net/minecraft/src/Block
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
-		ARG 5 blockSide
+		ARG 5 side
 	METHOD updateTick (Lnet/minecraft/src/World;IIILjava/util/Random;)V
 		ARG 1 world
 		ARG 2 posX
@@ -1861,7 +1861,7 @@ CLASS net/minecraft/src/NextTickListEntry
 	METHOD compareTo (Ljava/lang/Object;)I
 		ARG 1 nextTickListEntry
 	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 object
+		ARG 1 obj
 	METHOD setScheduledTime (J)Lnet/minecraft/src/NextTickListEntry;
 		ARG 1 scheduledTime
 CLASS net/minecraft/src/RenderZombieSimple
@@ -1963,7 +1963,7 @@ CLASS net/minecraft/src/WorldGenLakes
 		ARG 1 blockIndex
 CLASS net/minecraft/src/GuiMainMenu
 	METHOD drawLogo (F)V
-		ARG 1 pFloat
+		ARG 1 partialTickTime
 CLASS net/minecraft/src/NetworkMasterThread
 	METHOD <init> (Lnet/minecraft/src/NetworkManager;)V
 		ARG 1 netManager
@@ -2982,7 +2982,7 @@ CLASS net/minecraft/src/TexturePackCustom
 	METHOD <init> (Ljava/io/File;)V
 		ARG 1 texturePackFile
 	METHOD truncateString (Ljava/lang/String;)Ljava/lang/String;
-		ARG 1 pString
+		ARG 1 line
 CLASS net/minecraft/src/ChunkPosition
 	METHOD <init> (III)V
 		ARG 1 x
