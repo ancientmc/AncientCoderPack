@@ -2565,35 +2565,35 @@ CLASS net/minecraft/src/CanvasIsomPreview
 	METHOD isRunning (Lnet/minecraft/src/CanvasIsomPreview;)Z
 		ARG 0 canvasIsomPreview
 	METHOD keyPressed (Ljava/awt/event/KeyEvent;)V
-		ARG 1 keyEvent
+		ARG 1 e
 	METHOD keyReleased (Ljava/awt/event/KeyEvent;)V
-		ARG 1 keyEvent
+		ARG 1 e
 	METHOD keyTyped (Ljava/awt/event/KeyEvent;)V
-		ARG 1 keyEvent
+		ARG 1 e
 	METHOD loadLevel (Ljava/lang/String;)V
 		ARG 1 levelDir
 	METHOD mouseClicked (Ljava/awt/event/MouseEvent;)V
-		ARG 1 mouseEvent
+		ARG 1 e
 	METHOD mouseDragged (Ljava/awt/event/MouseEvent;)V
-		ARG 1 mouseEvent
+		ARG 1 e
 	METHOD mouseEntered (Ljava/awt/event/MouseEvent;)V
-		ARG 1 mouseEvent
+		ARG 1 e
 	METHOD mouseExited (Ljava/awt/event/MouseEvent;)V
-		ARG 1 mouseEvent
+		ARG 1 e
 	METHOD mouseMoved (Ljava/awt/event/MouseEvent;)V
-		ARG 1 mouseEvent
+		ARG 1 e
 	METHOD mousePressed (Ljava/awt/event/MouseEvent;)V
-		ARG 1 mouseEvent
+		ARG 1 e
 	METHOD mouseReleased (Ljava/awt/event/MouseEvent;)V
-		ARG 1 mouseEvent
+		ARG 1 e
 	METHOD paint (Ljava/awt/Graphics;)V
-		ARG 1 graphics
+		ARG 1 g
 	METHOD render (Ljava/awt/Graphics2D;)V
 		ARG 1 graphics2D
 	METHOD setBrightness (I)V
 		ARG 1 brightness
 	METHOD update (Ljava/awt/Graphics;)V
-		ARG 1 graphics
+		ARG 1 g
 CLASS net/minecraft/src/RenderPig
 	METHOD <init> (Lnet/minecraft/src/ModelBase;Lnet/minecraft/src/ModelBase;F)V
 		ARG 1 modelPig
