@@ -4,8 +4,8 @@
        this.baseEntity = entityPlayer;
     }
  
--   public int compare(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
-+   public int doCompare(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
-       boolean flag = worldRenderer.isInFrustum;
-       boolean flag1 = worldRenderer1.isInFrustum;
+-   public int compare(WorldRenderer rendererOne, WorldRenderer rendererTwo) {
++   public int doCompare(WorldRenderer rendererOne, WorldRenderer rendererOne) {
+       boolean flag = rendererOne.isInFrustum;
+       boolean flag1 = rendererTwo.isInFrustum;
        if (flag && !flag1) {

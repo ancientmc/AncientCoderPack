@@ -79,7 +79,7 @@ CLASS net/minecraft/src/PlayerController
 CLASS net/minecraft/src/ModelQuadraped
 	METHOD <init> (IF)V
 		ARG 1 pInt
-		ARG 2 pFloat
+		ARG 2 modelSize
 CLASS net/minecraft/src/Packet3Chat
 	METHOD <init> (Ljava/lang/String;)V
 		ARG 1 message
@@ -90,8 +90,8 @@ CLASS net/minecraft/src/RecipeSorter
 	METHOD <init> (Lnet/minecraft/src/CraftingManager;)V
 		ARG 1 craftingManager
 	METHOD compare (Ljava/lang/Object;Ljava/lang/Object;)I
-		ARG 1 craftingRecipe
-		ARG 2 craftingRecipe1
+		ARG 1 recipeOne
+		ARG 2 recipeTwo
 CLASS net/minecraft/src/MapGenCaves
 	METHOD generateCaveNode (II[BDDDFFFIID)V
 		ARG 1 pInt
@@ -197,12 +197,12 @@ CLASS net/minecraft/src/ModelRenderer
 		ARG 1 textureOffsetX
 		ARG 2 textureOffsetY
 	METHOD addBox (FFFIII)V
-		ARG 1 pFloat
-		ARG 2 pFloat1
-		ARG 3 pFloat2
-		ARG 4 pInt
-		ARG 5 pInt1
-		ARG 6 pInt2
+		ARG 1 coordX
+		ARG 2 coordY
+		ARG 3 coordZ
+		ARG 4 width
+		ARG 5 height
+		ARG 6 depth
 	METHOD addBox (FFFIIIF)V
 		ARG 1 pFloat
 		ARG 2 pFloat1
@@ -421,7 +421,7 @@ CLASS net/minecraft/client/Minecraft
 		ARG 6 pInt5
 	METHOD sendClickBlockToController (IZ)V
 		ARG 1 pInt
-		ARG 2 pFlag
+		ARG 2 leftClick
 	METHOD setServer (Ljava/lang/String;I)V
 		ARG 1 serverName
 		ARG 2 serverPort
@@ -565,7 +565,7 @@ CLASS net/minecraft/src/Chunk
 		ARG 2 xPosition
 		ARG 3 zPosition
 	METHOD <init> (Lnet/minecraft/src/World;[BII)V
-		ARG 1 world
+		ARG 1 worldObj
 		ARG 2 blocks
 		ARG 3 xPosition
 		ARG 4 zPosition
@@ -824,7 +824,7 @@ CLASS net/minecraft/src/CompressedStreamTools
 		ARG 0 nbtTagCompound
 		ARG 1 dataOutput
 	METHOD writeCompressed (Lnet/minecraft/src/NBTTagCompound;Ljava/io/OutputStream;)V
-		ARG 0 nBTTagCompound
+		ARG 0 nbtTagCompound
 		ARG 1 outputStream
 	METHOD writeGzippedCompoundToOutputStream (Lnet/minecraft/src/NBTTagCompound;Ljava/io/OutputStream;)V
 		ARG 0 nbtTagCompound
@@ -884,8 +884,8 @@ CLASS net/minecraft/src/EntitySorter
 	METHOD <init> (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
 	METHOD compare (Ljava/lang/Object;Ljava/lang/Object;)I
-		ARG 1 worldRenderer
-		ARG 2 worldRenderer1
+		ARG 1 rendererOne
+		ARG 2 rendererTwo
 CLASS net/minecraft/src/World
 	METHOD <init> (Ljava/io/File;Ljava/lang/String;)V
 		ARG 1 savesDir
@@ -1251,7 +1251,7 @@ CLASS net/minecraft/src/World
 		ARG 8 volume
 		ARG 9 pitch
 	METHOD quickSaveWorld (I)Z
-		ARG 1 pInt
+		ARG 1 updateCounter
 	METHOD randomDisplayUpdates (III)V
 		ARG 1 posX
 		ARG 2 posY
@@ -1485,7 +1485,7 @@ CLASS net/minecraft/src/Block
 		ARG 4 posZ
 	METHOD canCollideCheck (IZ)Z
 		ARG 1 blockMetadata
-		ARG 2 pFlag
+		ARG 2 stopOnLiquid
 	METHOD canPlaceBlockAt (Lnet/minecraft/src/World;III)Z
 		ARG 1 world
 		ARG 2 posX
@@ -2302,9 +2302,9 @@ CLASS net/minecraft/src/RenderManager
 		ARG 5 options
 		ARG 6 pFloat
 	METHOD getDistanceToCamera (DDD)D
-		ARG 1 camX
-		ARG 3 camY
-		ARG 5 camZ
+		ARG 1 posX
+		ARG 3 posY
+		ARG 5 posZ
 	METHOD getEntityClassRenderObject (Ljava/lang/Class;)Lnet/minecraft/src/Render;
 		ARG 1 entityClass
 	METHOD getEntityRenderObject (Lnet/minecraft/src/Entity;)Lnet/minecraft/src/Render;
@@ -3666,8 +3666,8 @@ CLASS net/minecraft/src/RenderSorter
 	METHOD <init> (Lnet/minecraft/src/EntityPlayer;)V
 		ARG 1 entityPlayer
 	METHOD compare (Ljava/lang/Object;Ljava/lang/Object;)I
-		ARG 1 worldRenderer
-		ARG 2 worldRenderer1
+		ARG 1 rendererOne
+		ARG 2 rendererTwo
 CLASS net/minecraft/src/RenderGlobal
 	METHOD <init> (Lnet/minecraft/client/Minecraft;Lnet/minecraft/src/RenderEngine;)V
 		ARG 1 mc
@@ -3922,13 +3922,13 @@ CLASS net/minecraft/src/Packet34EntityTeleport
 		ARG 1 entity
 CLASS net/minecraft/src/WorldGenBigTree
 	METHOD checkBlockLine ([I[I)I
-		ARG 1 pIntA
-		ARG 2 pIntA1
+		ARG 1 posOne
+		ARG 2 posTwo
 	METHOD genTreeLayer (IIIFBI)V
 		ARG 1 posX
 		ARG 2 posY
 		ARG 3 posZ
-		ARG 4 pFloat
+		ARG 4 leafSize
 		ARG 5 pByteA
 		ARG 6 blockID
 	METHOD generateLeafNode (III)V
@@ -3942,9 +3942,9 @@ CLASS net/minecraft/src/WorldGenBigTree
 	METHOD leafSize (I)F
 		ARG 1 pInt
 	METHOD placeBlockLine ([I[II)V
-		ARG 1 pIntA
-		ARG 2 pIntA1
-		ARG 3 pInt
+		ARG 1 posOne
+		ARG 2 posTwo
+		ARG 3 blockID
 CLASS net/minecraft/src/PanelCrashReport
 	METHOD <init> (Lnet/minecraft/src/UnexpectedThrowable;)V
 		ARG 1 unexpectedThrowable
@@ -4607,7 +4607,7 @@ CLASS net/minecraft/src/EntitySlime
 		ARG 1 slimeSize
 CLASS net/minecraft/src/EntityFX
 	METHOD <init> (Lnet/minecraft/src/World;DDDDDD)V
-		ARG 1 world
+		ARG 1 worldObj
 		ARG 2 posX
 		ARG 4 posY
 		ARG 6 posZ
@@ -4739,7 +4739,7 @@ CLASS net/minecraft/src/ModelBiped
 		ARG 1 modelSize
 	METHOD <init> (FF)V
 		ARG 1 modelSize
-		ARG 2 pFloat1
+		ARG 2 pFloat
 CLASS net/minecraft/src/EntitySlimeFX
 	METHOD <init> (Lnet/minecraft/src/World;DDDLnet/minecraft/src/Item;)V
 		ARG 1 world
@@ -4917,8 +4917,8 @@ CLASS net/minecraft/src/EntityGhast
 		ARG 5 pDouble2
 		ARG 7 pDouble3
 	METHOD isCourseTraversable (DDDD)Z
-		ARG 1 currentTarget
-		ARG 3 numTicksToChaseTarget
+		ARG 1 waypointX
+		ARG 3 waypointY
 		ARG 5 waypointZ
 		ARG 7 pDouble
 CLASS net/minecraft/src/ScreenShotHelper
@@ -4928,7 +4928,7 @@ CLASS net/minecraft/src/ScreenShotHelper
 		ARG 2 height
 CLASS net/minecraft/src/CanvasMojangLogo
 	METHOD paint (Ljava/awt/Graphics;)V
-		ARG 1 graphics
+		ARG 1 g
 CLASS net/minecraft/src/RecipesIngots
 	METHOD addRecipes (Lnet/minecraft/src/CraftingManager;)V
 		ARG 1 craftingManager
@@ -5043,12 +5043,12 @@ CLASS net/minecraft/src/IWorldAccess
 		ARG 1 entity
 	METHOD spawnParticle (Ljava/lang/String;DDDDDD)V
 		ARG 1 particleName
-		ARG 2 coordX
-		ARG 4 coordY
-		ARG 6 coordZ
-		ARG 8 velX
-		ARG 10 velY
-		ARG 12 velZ
+		ARG 2 posX
+		ARG 4 posY
+		ARG 6 posZ
+		ARG 8 velocityX
+		ARG 10 velocityY
+		ARG 12 velocityZ
 CLASS net/minecraft/src/Timer
 	METHOD <init> (F)V
 		ARG 1 ticksPerSecond

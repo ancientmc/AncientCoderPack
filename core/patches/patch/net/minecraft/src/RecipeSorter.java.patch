@@ -4,8 +4,8 @@
        this.craftingManager = craftingManager;
     }
  
--   public int compare(CraftingRecipe craftingRecipe, CraftingRecipe craftingRecipe1) {
-+   public int compareRecipes(CraftingRecipe craftingRecipe, CraftingRecipe craftingRecipe1) {
-       if (craftingRecipe1.getRecipeSize() < craftingRecipe.getRecipeSize()) {
+-   public int compare(CraftingRecipe recipeOne, CraftingRecipe recipeTwo) {
++   public int compareRecipes(CraftingRecipe recipeOne, CraftingRecipe recipeTwo) {
+       if (recipeTwo.getRecipeSize() < recipeOne.getRecipeSize()) {
           return -1;
        } else {

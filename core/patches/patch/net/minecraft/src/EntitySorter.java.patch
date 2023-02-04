@@ -4,8 +4,8 @@
        this.entityForSorting = entity;
     }
  
--   public int compare(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
-+   public int sortByDistanceToEntity(WorldRenderer worldRenderer, WorldRenderer worldRenderer1) {
-       return worldRenderer.distanceToEntitySquared(this.entityForSorting) < worldRenderer1.distanceToEntitySquared(this.entityForSorting) ? -1 : 1;
+-   public int compare(WorldRenderer rendererOne, WorldRenderer rendererTwo) {
++   public int sortByDistanceToEntity(WorldRenderer rendererOne, WorldRenderer rendererTwo) {
+       return rendererOne.distanceToEntitySquared(this.entityForSorting) < rendererTwo.distanceToEntitySquared(this.entityForSorting) ? -1 : 1;
     }
  
