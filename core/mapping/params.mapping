@@ -14,8 +14,8 @@ CLASS net/minecraft/src/SlotInventory
 		ARG 4 xPos
 		ARG 5 yPos
 	METHOD isAtCursorPos (II)Z
-		ARG 1 cursorX
-		ARG 2 cursorY
+		ARG 1 coordX
+		ARG 2 coordY
 CLASS net/minecraft/src/Packet2Handshake
 	METHOD <init> (Ljava/lang/String;)V
 		ARG 1 username
@@ -321,21 +321,21 @@ CLASS net/minecraft/src/GuiButton
 		ARG 4 displayString
 	METHOD drawButton (Lnet/minecraft/client/Minecraft;II)V
 		ARG 1 minecraft
-		ARG 2 buttonX
-		ARG 3 buttonY
+		ARG 2 coordX
+		ARG 3 coordY
 	METHOD getHoverState (Z)I
 		ARG 1 isHoveringOver
 	METHOD mouseDragged (Lnet/minecraft/client/Minecraft;II)V
 		ARG 1 minecraft
-		ARG 2 mouseX
-		ARG 3 mouseY
+		ARG 2 coordX
+		ARG 3 coordY
 	METHOD mousePressed (Lnet/minecraft/client/Minecraft;II)Z
 		ARG 1 minecraft
-		ARG 2 mouseX
-		ARG 3 mouseY
+		ARG 2 coordX
+		ARG 3 coordY
 	METHOD mouseReleased (II)V
-		ARG 1 mouseX
-		ARG 2 mouseY
+		ARG 1 coordX
+		ARG 2 coordY
 CLASS net/minecraft/client/Minecraft
 	METHOD <init> (Ljava/awt/Component;Ljava/awt/Canvas;Lnet/minecraft/client/MinecraftApplet;IIZ)V
 		ARG 1 component
@@ -476,7 +476,7 @@ CLASS net/minecraft/src/EntitySmokeFX
 		ARG 2 posX
 		ARG 4 posY
 		ARG 6 posZ
-		ARG 8 pFloat
+		ARG 8 particleScale
 CLASS net/minecraft/src/HashEntry
 	METHOD <init> (IILjava/lang/Object;Lnet/minecraft/src/HashEntry;)V
 		ARG 1 slotHash
@@ -484,7 +484,7 @@ CLASS net/minecraft/src/HashEntry
 		ARG 3 valueEntry
 		ARG 4 nextEntry
 	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 valueEntry
+		ARG 1 obj
 CLASS net/minecraft/src/ItemSeeds
 	METHOD <init> (II)V
 		ARG 1 itemID
@@ -1132,8 +1132,8 @@ CLASS net/minecraft/src/World
 	METHOD getIsAnyLiquid (Lnet/minecraft/src/AxisAlignedBB;)Z
 		ARG 1 axisAlignedBB
 	METHOD getPathToEntity (Lnet/minecraft/src/Entity;Lnet/minecraft/src/Entity;F)Lnet/minecraft/src/PathEntity;
-		ARG 1 entity
-		ARG 2 entity1
+		ARG 1 entityOne
+		ARG 2 entityTwo
 		ARG 3 maxDistance
 	METHOD getSavedLightValue (Lnet/minecraft/src/EnumSkyBlock;III)I
 		ARG 1 enumSkyBlock
@@ -1367,9 +1367,9 @@ CLASS net/minecraft/src/World
 		ARG 2 posX
 		ARG 4 posY
 		ARG 6 posZ
-		ARG 8 velocityX
-		ARG 10 velocityY
-		ARG 12 velocityZ
+		ARG 8 motionX
+		ARG 10 motionY
+		ARG 12 motionZ
 	METHOD spawnPlayerWithLoadedChunks (Lnet/minecraft/src/EntityPlayer;)V
 		ARG 1 entityPlayer
 	METHOD tickUpdates (Z)Z
@@ -2560,8 +2560,8 @@ CLASS net/minecraft/src/CanvasIsomPreview
 	METHOD getWorkingDirectory (Ljava/lang/String;)Ljava/io/File;
 		ARG 1 directoryName
 	METHOD getZone (II)Lnet/minecraft/src/IsoImageBuffer;
-		ARG 1 zoneX
-		ARG 2 zoneY
+		ARG 1 coordX
+		ARG 2 coordY
 	METHOD isRunning (Lnet/minecraft/src/CanvasIsomPreview;)Z
 		ARG 0 canvasIsomPreview
 	METHOD keyPressed (Ljava/awt/event/KeyEvent;)V
@@ -2847,7 +2847,7 @@ CLASS net/minecraft/src/MapGenBase
 		ARG 2 pInt
 		ARG 3 pInt1
 		ARG 4 posX
-		ARG 5 posY
+		ARG 5 posZ
 		ARG 6 pByteA
 CLASS net/minecraft/src/MinecraftException
 	METHOD <init> (Ljava/lang/String;)V
@@ -3545,8 +3545,8 @@ CLASS net/minecraft/src/InventoryPlayer
 	METHOD compareInventory (Lnet/minecraft/src/InventoryPlayer;)Z
 		ARG 1 inventoryPlayer
 	METHOD compareItemStack (Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/ItemStack;)Z
-		ARG 1 itemStack
-		ARG 2 itemStack1
+		ARG 1 itemStackOne
+		ARG 2 itemStackTwo
 	METHOD consumeInventoryItem (I)Z
 		ARG 1 itemID
 	METHOD damageArmor (I)V
@@ -3563,7 +3563,7 @@ CLASS net/minecraft/src/InventoryPlayer
 		ARG 1 nbtTagList
 	METHOD setCurrentItem (IZ)V
 		ARG 1 itemID
-		ARG 2 pFlag
+		ARG 2 isInTestMode
 	METHOD writeToNBT (Lnet/minecraft/src/NBTTagList;)Lnet/minecraft/src/NBTTagList;
 		ARG 1 nbtTagList
 CLASS net/minecraft/src/GuiEditSign
@@ -3590,8 +3590,8 @@ CLASS net/minecraft/src/AxisAlignedBB
 		ARG 3 coordY
 		ARG 5 coordZ
 	METHOD calculateIntercept (Lnet/minecraft/src/Vec3D;Lnet/minecraft/src/Vec3D;)Lnet/minecraft/src/MovingObjectPosition;
-		ARG 1 vec3D
-		ARG 2 vec3D1
+		ARG 1 vec3DOne
+		ARG 2 vec3DTwo
 	METHOD calculateXOffset (Lnet/minecraft/src/AxisAlignedBB;D)D
 		ARG 1 axisAlignedBB
 		ARG 2 coordX
@@ -3605,10 +3605,6 @@ CLASS net/minecraft/src/AxisAlignedBB
 		ARG 1 coordX
 		ARG 3 coordY
 		ARG 5 coordZ
-	METHOD expands (DDD)Lnet/minecraft/src/AxisAlignedBB;
-		ARG 1 xChange
-		ARG 3 yChange
-		ARG 5 zChange
 	METHOD func_1162_c (Lnet/minecraft/src/AxisAlignedBB;D)D
 		ARG 1 axisAlignedBB
 		ARG 2 pDouble
@@ -3677,9 +3673,6 @@ CLASS net/minecraft/src/RenderGlobal
 	METHOD checkOcclusionQueryResult (II)V
 		ARG 1 pInt
 		ARG 2 pInt1
-	METHOD clipRenderersByFrustrum (Lnet/minecraft/src/ICamera;F)V
-		ARG 1 camera
-		ARG 2 pFloat
 	METHOD clipRenderersByFrustum (Lnet/minecraft/src/ICamera;F)V
 		ARG 1 camera
 		ARG 2 partialTickTime
@@ -3780,7 +3773,7 @@ CLASS net/minecraft/src/PathPoint
 	METHOD distanceTo (Lnet/minecraft/src/PathPoint;)F
 		ARG 1 pathPoint
 	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 object
+		ARG 1 obj
 CLASS net/minecraft/src/MCHashTable
 	METHOD addKey (ILjava/lang/Object;)V
 		ARG 1 key
@@ -3966,19 +3959,19 @@ CLASS net/minecraft/src/Pathfinder
 		ARG 2 end
 	METHOD createEntityPathTo (Lnet/minecraft/src/Entity;DDDF)Lnet/minecraft/src/PathEntity;
 		ARG 1 entity
-		ARG 2 pointX
-		ARG 4 pointY
-		ARG 6 pointZ
+		ARG 2 posX
+		ARG 4 posY
+		ARG 6 posZ
 		ARG 8 maxDistance
 	METHOD createEntityPathTo (Lnet/minecraft/src/Entity;IIIF)Lnet/minecraft/src/PathEntity;
 		ARG 1 entity
-		ARG 2 pointX
-		ARG 3 pointY
-		ARG 4 pointZ
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 maxDistance
 	METHOD createEntityPathTo (Lnet/minecraft/src/Entity;Lnet/minecraft/src/Entity;F)Lnet/minecraft/src/PathEntity;
-		ARG 1 entity
-		ARG 2 entity1
+		ARG 1 entityOne
+		ARG 2 entityTwo
 		ARG 3 maxDistance
 	METHOD findPathOptions (Lnet/minecraft/src/Entity;Lnet/minecraft/src/PathPoint;Lnet/minecraft/src/PathPoint;Lnet/minecraft/src/PathPoint;F)I
 		ARG 1 entity
@@ -3988,21 +3981,21 @@ CLASS net/minecraft/src/Pathfinder
 		ARG 5 maxDistance
 	METHOD getSafePoint (Lnet/minecraft/src/Entity;IIILnet/minecraft/src/PathPoint;I)Lnet/minecraft/src/PathPoint;
 		ARG 1 entity
-		ARG 2 pointX
-		ARG 3 pointY
-		ARG 4 pointZ
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 pathPoint
 		ARG 6 offsetY
 	METHOD getVerticalOffset (Lnet/minecraft/src/Entity;IIILnet/minecraft/src/PathPoint;)I
 		ARG 1 entity
-		ARG 2 pointX
-		ARG 3 pointY
-		ARG 4 pointZ
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 pathPoint
 	METHOD openPoint (III)Lnet/minecraft/src/PathPoint;
-		ARG 1 pointX
-		ARG 2 pointY
-		ARG 3 pointZ
+		ARG 1 posX
+		ARG 2 posY
+		ARG 3 posZ
 CLASS net/minecraft/src/Entity
 	METHOD <init> (Lnet/minecraft/src/World;)V
 		ARG 1 worldObj
@@ -4012,9 +4005,9 @@ CLASS net/minecraft/src/Entity
 		ARG 1 entity
 		ARG 2 scoreToAdd
 	METHOD addVelocity (DDD)V
-		ARG 1 velocityX
-		ARG 3 velocityY
-		ARG 5 velocityZ
+		ARG 1 motionX
+		ARG 3 motionY
+		ARG 5 motionZ
 	METHOD applyEntityCollision (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
 	METHOD attackEntityFrom (Lnet/minecraft/src/Entity;I)Z
@@ -4284,7 +4277,7 @@ CLASS net/minecraft/src/Packet5PlayerInventory
 		ARG 2 itemStackA
 CLASS net/minecraft/src/ItemStack
 	METHOD <init> (I)V
-		ARG 1 item
+		ARG 1 itemID
 	METHOD <init> (II)V
 		ARG 1 itemID
 		ARG 2 stackSize
@@ -5046,9 +5039,9 @@ CLASS net/minecraft/src/IWorldAccess
 		ARG 2 posX
 		ARG 4 posY
 		ARG 6 posZ
-		ARG 8 velocityX
-		ARG 10 velocityY
-		ARG 12 velocityZ
+		ARG 8 motionX
+		ARG 10 motionY
+		ARG 12 motionZ
 CLASS net/minecraft/src/Timer
 	METHOD <init> (F)V
 		ARG 1 ticksPerSecond
@@ -5150,12 +5143,12 @@ CLASS net/minecraft/src/GuiScreen
 		ARG 1 typedChar
 		ARG 2 keyValue
 	METHOD mouseClicked (III)V
-		ARG 1 mouseX
-		ARG 2 mouseY
+		ARG 1 coordX
+		ARG 2 coordY
 		ARG 3 mouseButtonValue
 	METHOD mouseMovedOrUp (III)V
-		ARG 1 mouseX
-		ARG 2 mouseY
+		ARG 1 coordX
+		ARG 2 coordY
 		ARG 3 mouseUp
 	METHOD setWorldAndResolution (Lnet/minecraft/client/Minecraft;II)V
 		ARG 1 mc
@@ -5167,9 +5160,9 @@ CLASS net/minecraft/src/Vec3D
 		ARG 3 yCoord
 		ARG 5 zCoord
 	METHOD addVector (DDD)Lnet/minecraft/src/Vec3D;
-		ARG 1 xAddition
-		ARG 3 yAddition
-		ARG 5 zAddition
+		ARG 1 additionX
+		ARG 3 additionY
+		ARG 5 additionZ
 	METHOD createVector (DDD)Lnet/minecraft/src/Vec3D;
 		ARG 0 coordX
 		ARG 2 coordY
@@ -5186,13 +5179,13 @@ CLASS net/minecraft/src/Vec3D
 		ARG 1 vec3D
 	METHOD getIntermediateWithXValue (Lnet/minecraft/src/Vec3D;D)Lnet/minecraft/src/Vec3D;
 		ARG 1 vec3D
-		ARG 2 xTarget
+		ARG 2 targetX
 	METHOD getIntermediateWithYValue (Lnet/minecraft/src/Vec3D;D)Lnet/minecraft/src/Vec3D;
 		ARG 1 vec3D
-		ARG 2 yTarget
+		ARG 2 targetY
 	METHOD getIntermediateWithZValue (Lnet/minecraft/src/Vec3D;D)Lnet/minecraft/src/Vec3D;
 		ARG 1 vec3D
-		ARG 2 zTarget
+		ARG 2 targetZ
 	METHOD rotateAroundX (F)V
 		ARG 1 angle
 	METHOD rotateAroundY (F)V
@@ -5202,9 +5195,9 @@ CLASS net/minecraft/src/Vec3D
 		ARG 3 yCoord
 		ARG 5 zCoord
 	METHOD squareDistanceTo (DDD)D
-		ARG 1 xTarget
-		ARG 3 yTarget
-		ARG 5 zTarget
+		ARG 1 targetX
+		ARG 3 targetY
+		ARG 5 targetZ
 	METHOD squareDistanceTo (Lnet/minecraft/src/Vec3D;)D
 		ARG 1 vec3D
 	METHOD subtract (Lnet/minecraft/src/Vec3D;)Lnet/minecraft/src/Vec3D;
