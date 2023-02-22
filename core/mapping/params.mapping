@@ -2472,7 +2472,7 @@ CLASS net/minecraft/src/CraftingManager
 		ARG 1 itemStack
 		ARG 2 objects
 	METHOD craft ([I)Lnet/minecraft/src/ItemStack;
-		ARG 1 itemIDs
+		ARG 1 ingredientMap
 CLASS net/minecraft/src/EntityMinecart
 	METHOD <init> (Lnet/minecraft/src/World;DDDI)V
 		ARG 1 world
@@ -4670,13 +4670,13 @@ CLASS net/minecraft/src/GameSettings
 	METHOD getKeyBinding (I)Ljava/lang/String;
 		ARG 1 keyBinding
 	METHOD getOptionControlType (I)I
-		ARG 1 controlType
+		ARG 1 optionValue
 	METHOD getOptionDisplayString (I)Ljava/lang/String;
 		ARG 1 optionValue
 	METHOD getOptionFloatValue (I)F
 		ARG 1 optionValue
 	METHOD parseFloat (Ljava/lang/String;)F
-		ARG 1 floatValue
+		ARG 1 optionValue
 	METHOD setKeyBinding (II)V
 		ARG 1 keyBinding
 		ARG 2 bindingCode

@@ -5,7 +5,7 @@
     }
  
 -   public int compare(WorldRenderer rendererOne, WorldRenderer rendererTwo) {
-+   public int doCompare(WorldRenderer rendererOne, WorldRenderer rendererOne) {
++   public int doCompare(WorldRenderer rendererOne, WorldRenderer rendererTwo) {
        boolean flag = rendererOne.isInFrustum;
        boolean flag1 = rendererTwo.isInFrustum;
        if (flag && !flag1) {
