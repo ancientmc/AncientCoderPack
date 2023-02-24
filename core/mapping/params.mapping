@@ -2214,11 +2214,11 @@ CLASS net/minecraft/src/RenderEngine
 	METHOD allocateAndSetupTexture (Ljava/awt/image/BufferedImage;)I
 		ARG 1 bufferedImage
 	METHOD alphaBlend (II)I
-		ARG 1 color1
-		ARG 2 color2
+		ARG 1 colorOne
+		ARG 2 colorTwo
 	METHOD averageColor (II)I
-		ARG 1 color1
-		ARG 2 color2
+		ARG 1 colorOne
+		ARG 2 colorTwo
 	METHOD bindTexture (I)V
 		ARG 1 texture
 	METHOD deleteTexture (I)V
@@ -2243,8 +2243,8 @@ CLASS net/minecraft/src/RenderEngine
 	METHOD unwrapImageByColumns (Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;
 		ARG 1 bufferedImage
 	METHOD weightedAverageColor (II)I
-		ARG 1 color1
-		ARG 2 color2
+		ARG 1 colorOne
+		ARG 2 colorTwo
 CLASS net/minecraft/src/GuiMultiplayer
 	METHOD <init> (Lnet/minecraft/src/GuiScreen;)V
 		ARG 1 parentScreen
@@ -2261,8 +2261,8 @@ CLASS net/minecraft/src/ItemDoor
 CLASS net/minecraft/src/GuiYesNo
 	METHOD <init> (Lnet/minecraft/src/GuiScreen;Ljava/lang/String;Ljava/lang/String;I)V
 		ARG 1 parentScreen
-		ARG 2 message1
-		ARG 3 message2
+		ARG 2 messageOne
+		ARG 3 messageTwo
 		ARG 4 worldNumber
 CLASS net/minecraft/src/BlockDirt
 	METHOD <init> (II)V
@@ -4685,7 +4685,7 @@ CLASS net/minecraft/src/GameSettings
 		ARG 2 sliderValue
 	METHOD setOptionValue (II)V
 		ARG 1 optionValue
-		ARG 2 cycleValue
+		ARG 2 sliderValue
 CLASS net/minecraft/src/ItemRecord
 	METHOD <init> (ILjava/lang/String;)V
 		ARG 1 itemID
