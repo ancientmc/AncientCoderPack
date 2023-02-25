@@ -1,0 +1,25 @@
+Beta 0.1.1 (2023-2-25)
+- Fixed error in RenderSorter.java patch
+- Fixed some minor param inconsistencies/errors
+- Updated Gradle JVM args from 512MB to 2GB
+
+Beta 0.1.0 (2023-2-07)
+- Added some more params
+
+Beta 0.1.0-pre2 (2023-1-26)
+- Added custom license / removed DO's-AND-DONT's.md
+- Updated patches
+- The player's head now rotates with the mouse in third-person.
+- Added params.
+- Removed most of the duplicate SRG values from the mappings.
+- Changes to the SRG file to include packages and Enum array values.
+- Updated QuiltFlower and Enigma to newer versions.
+- Added Binary patch (BinPatch) generator task for jar modding. This is done via MinecraftForge's BinaryPatcher.
+- Added DiffPatch generator task for those wanting to show their changes to the game publicly.
+- Updated HOW-TO.md for more detail on running each feature.
+- Updated to Gradle 7.6.
+- Added this changelog to the ZIP file.
+
+
+Beta 0.1.0-pre1 (2022-12-26)
+- Initial pre-release
