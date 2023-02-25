@@ -2346,7 +2346,7 @@ CLASS net/minecraft/src/Render
 		ARG 1 imageURL
 		ARG 2 imageName
 	METHOD loadTexture (Ljava/lang/String;)V
-		ARG 1 textureID
+		ARG 1 textureName
 	METHOD renderAABB (Lnet/minecraft/src/AxisAlignedBB;)V
 		ARG 0 axisAlignedBB
 	METHOD renderEntityOnFire (Lnet/minecraft/src/Entity;DDDF)V
