@@ -1,7 +1,7 @@
 CLASS net/minecraft/src/BlockStep
 	METHOD <init> (IZ)V
 		ARG 1 blockID
-		ARG 2 blockName
+		ARG 2 blockType
 CLASS net/minecraft/src/BlockSnowBlock
 	METHOD <init> (II)V
 		ARG 1 blockID
@@ -1089,7 +1089,7 @@ CLASS net/minecraft/src/World
 		ARG 1 posX
 		ARG 2 posY
 		ARG 3 posZ
-		ARG 4 isFullBlock
+		ARG 4 pFlag
 	METHOD getCelestialAngle (F)F
 		ARG 1 partialTickTime
 	METHOD getChunkFromBlockCoords (II)Lnet/minecraft/src/Chunk;
@@ -1194,10 +1194,10 @@ CLASS net/minecraft/src/World
 		ARG 5 maxY
 		ARG 6 maxZ
 	METHOD markBlocksDirtyVertical (IIII)V
-		ARG 1 posX
-		ARG 2 posZ
-		ARG 3 posY
-		ARG 4 newY
+		ARG 1 minX
+		ARG 2 minZ
+		ARG 3 maxX
+		ARG 4 maxZ
 	METHOD neighborLightPropagationChanged (Lnet/minecraft/src/EnumSkyBlock;IIII)V
 		ARG 1 enumSkyBlock
 		ARG 2 posX
@@ -2009,7 +2009,7 @@ CLASS net/minecraft/src/RenderLiving
 		ARG 1 entityLiving
 		ARG 2 partialTickTime
 	METHOD setRenderPassModel (Lnet/minecraft/src/ModelBase;)V
-		ARG 1 modelBase
+		ARG 1 renderPassModel
 	METHOD shouldRenderPass (Lnet/minecraft/src/EntityLiving;I)Z
 		ARG 1 entityLiving
 		ARG 2 pInt
@@ -2283,11 +2283,6 @@ CLASS net/minecraft/src/BlockSnow
 		ARG 2 posX
 		ARG 3 posY
 		ARG 4 posZ
-	METHOD func_314_h (Lnet/minecraft/src/World;III)Z
-		ARG 1 world
-		ARG 2 pInt
-		ARG 3 pInt1
-		ARG 4 pInt2
 CLASS net/minecraft/src/WorldIso
 	METHOD <init> (Lnet/minecraft/src/CanvasIsomPreview;Ljava/io/File;Ljava/lang/String;)V
 		ARG 1 theCanvasIsoPreview
@@ -2479,7 +2474,7 @@ CLASS net/minecraft/src/EntityMinecart
 		ARG 2 posX
 		ARG 4 posY
 		ARG 6 posZ
-		ARG 8 entityRiderPitchDelta
+		ARG 8 minecartType
 	METHOD func_514_g (DDD)Lnet/minecraft/src/Vec3D;
 		ARG 1 pDouble
 		ARG 3 pDouble1
@@ -2700,9 +2695,9 @@ CLASS net/minecraft/src/BlockRedstoneWire
 		ARG 2 blockIndexInTexture
 	METHOD getMaxCurrentStrength (Lnet/minecraft/src/World;IIII)I
 		ARG 1 world
-		ARG 2 xCoord
-		ARG 3 yCoord
-		ARG 4 zCoord
+		ARG 2 posX
+		ARG 3 posY
+		ARG 4 posZ
 		ARG 5 wireStrength
 	METHOD isPowerProviderOrWire (Lnet/minecraft/src/IBlockAccess;III)Z
 		ARG 0 blockAccess
@@ -3130,11 +3125,11 @@ CLASS net/minecraft/src/WorldGenFlowers
 		ARG 1 plantBlockId
 CLASS net/minecraft/src/ChunkLoader
 	METHOD <init> (Ljava/io/File;Z)V
-		ARG 1 saveDir
+		ARG 1 worldFile
 		ARG 2 createIfNecessary
 	METHOD chunkFileForXZ (II)Ljava/io/File;
 		ARG 1 posX
-		ARG 2 posY
+		ARG 2 posZ
 	METHOD loadChunkIntoWorldFromCompound (Lnet/minecraft/src/World;Lnet/minecraft/src/NBTTagCompound;)Lnet/minecraft/src/Chunk;
 		ARG 0 world
 		ARG 1 nbtTagCompound
@@ -3385,7 +3380,7 @@ CLASS net/minecraft/src/NBTTagString
 CLASS net/minecraft/src/ChunkProviderGenerate
 	METHOD <init> (Lnet/minecraft/src/World;J)V
 		ARG 1 worldObj
-		ARG 2 rand
+		ARG 2 randomSeed
 	METHOD func_4061_a ([DIIIIII)[D
 		ARG 1 pDoubleA
 		ARG 2 pInt
@@ -3400,12 +3395,6 @@ CLASS net/minecraft/src/ChunkProviderGenerate
 		ARG 3 pByteA
 		ARG 4 biomes
 		ARG 5 pDoubleA
-	METHOD generateTerrain (II[B[Lnet/minecraft/src/MobSpawnerBase;[D)V
-		ARG 1 pInt
-		ARG 2 pInt1
-		ARG 3 pByteA
-		ARG 4 mobSpawnerBaseA
-		ARG 5 pDoubleA
 	METHOD initializeNoiseField ([DIIIIII)[D
 		ARG 1 pDoubleA
 		ARG 2 pInt
@@ -3419,11 +3408,6 @@ CLASS net/minecraft/src/ChunkProviderGenerate
 		ARG 2 pInt1
 		ARG 3 pByteA
 		ARG 4 biomes
-	METHOD replaceBlocksForBiome (II[B[Lnet/minecraft/src/MobSpawnerBase;)V
-		ARG 1 pInt
-		ARG 2 pInt1
-		ARG 3 pByteA
-		ARG 4 mobSpawnerBaseA
 CLASS net/minecraft/src/BlockFluids
 	METHOD checkForHarden (Lnet/minecraft/src/World;III)V
 		ARG 1 world
@@ -3922,7 +3906,7 @@ CLASS net/minecraft/src/WorldGenBigTree
 		ARG 2 posY
 		ARG 3 posZ
 		ARG 4 leafSize
-		ARG 5 pByteA
+		ARG 5 pByte
 		ARG 6 blockID
 	METHOD generateLeafNode (III)V
 		ARG 1 posX
@@ -4100,9 +4084,9 @@ CLASS net/minecraft/src/Entity
 		ARG 2 forward
 		ARG 3 friction
 	METHOD newDoubleNBTList ([D)Lnet/minecraft/src/NBTTagList;
-		ARG 1 entityPos
+		ARG 1 elements
 	METHOD newFloatNBTList ([F)Lnet/minecraft/src/NBTTagList;
-		ARG 1 entityPos
+		ARG 1 elements
 	METHOD onCollideWithPlayer (Lnet/minecraft/src/EntityPlayer;)V
 		ARG 1 entity
 	METHOD readEntityFromNBT (Lnet/minecraft/src/NBTTagCompound;)V
@@ -4110,8 +4094,8 @@ CLASS net/minecraft/src/Entity
 	METHOD readFromNBT (Lnet/minecraft/src/NBTTagCompound;)V
 		ARG 1 nbtTagCompound
 	METHOD setAngles (FF)V
-		ARG 1 rotationPitch
-		ARG 2 rotationYaw
+		ARG 1 angleX
+		ARG 2 angleY
 	METHOD setLocationAndAngles (DDDFF)V
 		ARG 1 posX
 		ARG 3 posY
@@ -4268,13 +4252,13 @@ CLASS net/minecraft/src/GLAllocation
 	METHOD createDirectIntBuffer (I)Ljava/nio/IntBuffer;
 		ARG 0 bufferCapacity
 	METHOD generateDisplayLists (I)I
-		ARG 0 displayList
+		ARG 0 range
 	METHOD generateTextureNames (Ljava/nio/IntBuffer;)V
 		ARG 0 textureName
 CLASS net/minecraft/src/Packet5PlayerInventory
 	METHOD <init> (I[Lnet/minecraft/src/ItemStack;)V
 		ARG 1 entityID
-		ARG 2 itemStackA
+		ARG 2 stackList
 CLASS net/minecraft/src/ItemStack
 	METHOD <init> (I)V
 		ARG 1 itemID
@@ -4405,7 +4389,7 @@ CLASS net/minecraft/src/Tessellator
 		ARG 1 drawMode
 CLASS net/minecraft/src/CraftingInventoryPlayerCB
 	METHOD <init> ([Lnet/minecraft/src/ItemStack;)V
-		ARG 1 itemStack
+		ARG 1 stackList
 CLASS net/minecraft/src/EntityFireball
 	METHOD <init> (Lnet/minecraft/src/World;Lnet/minecraft/src/EntityLiving;DDD)V
 		ARG 1 world
@@ -4561,7 +4545,7 @@ CLASS net/minecraft/src/BlockStone
 CLASS net/minecraft/src/GuiInventory
 	METHOD <init> (Lnet/minecraft/src/IInventory;[Lnet/minecraft/src/ItemStack;)V
 		ARG 1 inventory
-		ARG 2 itemStack
+		ARG 2 stackList
 CLASS net/minecraft/src/RecipesArmor
 	METHOD addRecipes (Lnet/minecraft/src/CraftingManager;)V
 		ARG 1 craftingManager
@@ -4572,7 +4556,7 @@ CLASS net/minecraft/src/BlockBookshelf
 CLASS net/minecraft/src/ChunkProviderHell
 	METHOD <init> (Lnet/minecraft/src/World;J)V
 		ARG 1 world
-		ARG 2 hellRNG
+		ARG 2 randomSeed
 	METHOD func_4057_a ([DIIIIII)[D
 		ARG 1 pDoubleA
 		ARG 2 pInt
@@ -4582,10 +4566,6 @@ CLASS net/minecraft/src/ChunkProviderHell
 		ARG 6 pInt4
 		ARG 7 pInt5
 	METHOD func_4058_b (II[B)V
-		ARG 1 pInt
-		ARG 2 pInt1
-		ARG 3 pByteA
-	METHOD func_4059_a (II[B)V
 		ARG 1 pInt
 		ARG 2 pInt1
 		ARG 3 pByteA
@@ -4607,20 +4587,10 @@ CLASS net/minecraft/src/EntityFX
 		ARG 8 motionX
 		ARG 10 motionY
 		ARG 12 motionZ
-	METHOD func_405_d (F)Lnet/minecraft/src/EntityFX;
-		ARG 1 pFloat
-	METHOD func_406_a (Lnet/minecraft/src/Tessellator;FFFFFF)V
-		ARG 1 tessellator
-		ARG 2 pFloat
-		ARG 3 pFloat1
-		ARG 4 pFloat2
-		ARG 5 pFloat3
-		ARG 6 pFloat4
-		ARG 7 pFloat5
-	METHOD func_407_b (F)Lnet/minecraft/src/EntityFX;
-		ARG 1 pFloat
 	METHOD multiplyVelocity (F)Lnet/minecraft/src/EntityFX;
 		ARG 1 multiplier
+	METHOD func_407_b (F)Lnet/minecraft/src/EntityFX;
+		ARG 1 pFloat
 	METHOD renderParticle (Lnet/minecraft/src/Tessellator;FFFFFF)V
 		ARG 1 tessellator
 		ARG 2 pFloat
@@ -4711,11 +4681,6 @@ CLASS net/minecraft/src/EntityPlayer
 	METHOD dropPlayerItemWithRandomChoice (Lnet/minecraft/src/ItemStack;Z)V
 		ARG 1 itemStack
 		ARG 2 isRandomChoice
-	METHOD func_443_a_ (Lnet/minecraft/src/Entity;I)V
-		ARG 1 entity
-		ARG 2 pInt
-	METHOD func_451_h (Lnet/minecraft/src/Entity;)V
-		ARG 1 entity
 	METHOD func_6415_a_ (Lnet/minecraft/src/Entity;)V
 		ARG 1 entity
 	METHOD getCurrentPlayerStrVsBlock (Lnet/minecraft/src/Block;)F
@@ -5108,7 +5073,7 @@ CLASS net/minecraft/src/ClippingHelper
 		ARG 11 maxZ
 CLASS net/minecraft/src/ModelPig
 	METHOD <init> (F)V
-		ARG 1 pFloat
+		ARG 1 modelSize
 CLASS net/minecraft/src/MouseHelper
 	METHOD <init> (Ljava/awt/Component;)V
 		ARG 1 windowComponent
@@ -5124,11 +5089,8 @@ CLASS net/minecraft/src/GuiScreen
 	METHOD actionPerformed (Lnet/minecraft/src/GuiButton;)V
 		ARG 1 guiButton
 	METHOD confirmClicked (ZI)V
-		ARG 1 clickResult
-		ARG 2 clickID
-	METHOD deleteWorld (ZI)V
-		ARG 1 pFlag
-		ARG 2 worldValue
+		ARG 1 correctID
+		ARG 2 worldID
 	METHOD drawBackground (I)V
 		ARG 1 tint
 	METHOD drawScreen (IIF)V
@@ -5149,7 +5111,7 @@ CLASS net/minecraft/src/GuiScreen
 	METHOD mouseMovedOrUp (III)V
 		ARG 1 coordX
 		ARG 2 coordY
-		ARG 3 mouseUp
+		ARG 3 buttonID
 	METHOD setWorldAndResolution (Lnet/minecraft/client/Minecraft;II)V
 		ARG 1 mc
 		ARG 2 width
@@ -5233,7 +5195,7 @@ CLASS net/minecraft/src/EntityClientPlayerMP
 		ARG 1 mc
 		ARG 2 world
 		ARG 3 session
-		ARG 4 netClientHandler
+		ARG 4 sendQueue
 CLASS net/minecraft/src/WorldGenDungeons
 	METHOD pickCheckLootItem (Ljava/util/Random;)Lnet/minecraft/src/ItemStack;
 		ARG 1 random
@@ -5243,11 +5205,6 @@ CLASS net/minecraft/src/BlockMinecartTrack
 	METHOD <init> (II)V
 		ARG 1 blockID
 		ARG 2 blockIndexInTexture
-	METHOD func_4031_h (Lnet/minecraft/src/World;III)V
-		ARG 1 world
-		ARG 2 pInt
-		ARG 3 pInt1
-		ARG 4 pInt2
 	METHOD refreshTrackShape (Lnet/minecraft/src/World;III)V
 		ARG 1 world
 		ARG 2 posX
