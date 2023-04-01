@@ -1,7 +1,7 @@
 --- a/net/minecraft/src/RenderLiving.java
 +++ b/net/minecraft/src/RenderLiving.java
 @@ -15,7 +15,7 @@
-       this.renderPassModel = modelBase;
+       this.renderPassModel = renderPassModel;
     }
  
 -   public void doRender(EntityLiving entity, double posX, double posY, double posZ, float yaw, float partialTickTime) {
