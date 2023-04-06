@@ -41,6 +41,6 @@ repository for more information.
 
 For parameters, ACP uses Enigma. Aside from an older version of MCInjector (that ACP doesn't use), Enigma is pretty much the only 
 deobfuscator/bytecode editor that allows for direct editing of parameter names. Lack of options and Enigma's 
-ease of use makes it the preferred choice. The parameter names are written by AncientMC, and are currently work in progress.
+ease of use makes it the preferred choice. The parameter names are written by AncientMC, although primarily based on MCP mappings, and are currently work in progress.
 
 Stay tuned for a full release.
