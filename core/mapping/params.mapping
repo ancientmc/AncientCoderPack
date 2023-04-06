@@ -268,7 +268,7 @@ CLASS net/minecraft/src/WorldRenderer
 		ARG 3 posX
 		ARG 4 posY
 		ARG 5 posZ
-		ARG 6 sizeDepth
+		ARG 6 size
 		ARG 7 glRenderList
 	METHOD distanceToEntitySquared (Lnet/minecraft/src/Entity;)F
 		ARG 1 entity
