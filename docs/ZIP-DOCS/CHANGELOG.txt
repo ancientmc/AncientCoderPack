@@ -1,4 +1,6 @@
 Beta 0.1.2 (2023-4-05)
+- More params
+- Attribution for params.
 
 Beta 0.1.1 (2023-2-25)
 - Fixed error in RenderSorter.java patch

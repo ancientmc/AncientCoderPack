@@ -20,7 +20,7 @@ and the age of the tools they have been replaced by more modern and open-source 
 OceanLabs, MinecraftForge, and FabricMC, but these are Maven dependencies that are publicly available for others.
 The only tool directly included is McAssetExtractor, a forked tool originally developed by GitHub user rhmeuer.
 
-A toolchain text file wll be included to go more in depth about everything, but here's a brief rundown of the tools 
+A toolchain text file may be included to go more in depth about everything, but here's a brief rundown of the tools 
 and what they do:
 
 - RetroGuard by OceanLabs/MCP: Deobfuscation of classes, methods, and fields. [GitHub](https://github.com/ModCoderPack/Retroguard).
