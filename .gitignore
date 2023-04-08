@@ -5,7 +5,10 @@ build/
 !**/src/test/**/build/
 
 ### IntelliJ IDEA ###
-.idea/
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
 *.iws
 *.iml
 *.ipr
@@ -38,11 +41,8 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-### Sensitive stuff (Minecraft jars, minecraft sources, resources, the whole shebang).
+### ACP Files ###
+cfg/
+run/
 src/main/java/net/
-logs/*.log
-temp/
-modding/
-### Other ###
-lib/
-/gradle/
+src/main/java/risugami/

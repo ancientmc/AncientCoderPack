@@ -4,7 +4,7 @@ buildscript {
         maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven' }
     }
     dependencies {
-        classpath 'com.ancientmc.acp:acp-gradle:0.1.0-beta'
+        classpath 'com.ancientmc.acp:acp-gradle:0.2.0-beta-dev'
     }
 }
 
@@ -14,7 +14,6 @@ plugins {
 
 ext {
     MC_VERSION = 'a1.2.6'
-    MC_REPO = "${project.gradle.gradleUserHomeDir}\\caches\\ancientcoderpack\\mc_repo\\"
 }
 
 version = "client-${MC_VERSION}"
@@ -22,11 +21,9 @@ version = "client-${MC_VERSION}"
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 repositories {
-    mavenCentral()
-    mavenLocal()
+    maven { url = 'https://libraries.minecraft.net' }
     maven { url = 'https://maven.minecraftforge.net/' }
-    maven { url = 'https://maven.fabricmc.net/' }
-    maven { url = 'https://maven.quiltmc.org/repository/release/' }
+    maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven/' }
 }
 
 sourceSets {
@@ -34,49 +31,37 @@ sourceSets {
 }
 
 configurations {
-    retroguard
+    jarsplitter
     mcinjector
-    enigma
-    quiltflower
+    forgeart
+    fernflower
     diffpatch
-    binpatch
+    binpatcher
+}
+
+dependencies {
+    jarsplitter 'net.minecraftforge:jarsplitter:1.1.4'
+    mcinjector 'de.oceanlabs.mcp:mcinjector:4.0-am'
+    forgeart 'net.minecraftforge:ForgeAutoRenamingTool:0.1.24'
+    fernflower 'com.ancientmc:fernflower:1.0'
+    diffpatch 'net.minecraftforge:DiffPatch:2.0.7'
+    binpatcher 'net.minecraftforge:binarypatcher:1.1.1'
 }
 
 apply plugin: 'com.ancientmc.acp'
 
 import com.ancientmc.acp.utils.*
 
-dependencies {
-    implementation gradleApi()
-    implementation files(MC_REPO).getAsFileTree()
-
-    retroguard 'de.oceanlabs.mcp:RetroGuard:3.6.6'
-    retroguard configurations.retroguard.dependencies
-    mcinjector 'de.oceanlabs.mcp:mcinjector:3.8.0'
-    enigma 'cuchaz:enigma-cli:2.2.0'
-    enigma 'cuchaz:enigma:2.2.0'
-    enigma configurations.enigma.dependencies
-    quiltflower 'org.quiltmc:quiltflower:1.8.0'
-    diffpatch 'net.minecraftforge:DiffPatch:2.0.7'
-    binpatch 'net.minecraftforge:binarypatcher:1.1.1'
+acp {
+    data = "com.ancientmc.acp:acp-data:${MC_VERSION}"
 }
 
 tasks.withType(JavaExec) {
-    systemProperty 'java.library.path', Paths.ACP_DIR_NATIVES
+    systemProperty 'java.library.path', Paths.DIR_NATIVES
 }
 
-String moddingDir = "${project.buildDir.path}\\modding\\"
-String backupSrc = "${moddingDir}\\backupSrc\\"
-
 task setup() {
-    group = 'acp-run'
-    dependsOn(':execute')
-    doLast {
-        copy {
-            from(Paths.ACP_DIR_SRC)
-            into(backupSrc)
-        }
-    }
+    dependsOn(':copySrc')
 }
 
 task runClient(type: JavaExec) {
@@ -86,44 +71,14 @@ task runClient(type: JavaExec) {
     javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
 }
 
-// Intermediary task, use reobfJar instead. Do not publish anything generated from this task, since the classes will still be deobfuscated.
-jar {
-    destinationDirectory = file('build\\libs\\')
-    archiveBaseName = 'interm'
-    exclude('acp\\')
-    from(zipTree(file(Paths.BASE_JAR))) {
-        include('com\\')
-        include('paulscode\\')
-    }
-}
-
-String outJar = "${project.buildDir.path}\\libs\\${version}.jar"
-String modPatchDir = "${moddingDir}\\patches\\"
-
-task genBinPatches(type: JavaExec) {
-    group = 'modtools'
-    mainClass = 'net.minecraftforge.binarypatcher.ConsoleTool'
-    classpath = files(project.configurations.getByName('binpatch'))
-    args('--clean', Paths.BASE_JAR, '--dirty', outJar, '--output', "${modPatchDir}\\bin\\client.lzma")
-}
-
-// Mainly for if you want to share your changes to MC classes on GitHub, use "genBinPatches" for actual mod distribution.
-task genDiffPatches(type: JavaExec) {
-    group = 'modtools'
-    mainClass = 'codechicken.diffpatch.DiffPatch'
-    classpath = files(project.configurations.getByName('diffpatch'))
-    args('--diff', backupSrc, Paths.ACP_DIR_SRC, '--output', "${modPatchDir}\\diff\\")
-    ignoreExitValue true
-}
-
-FileFilter gitIgnoreFilter = (File file) -> !file.name.endsWith('.gitignore')
-FileFilter runFilter = (File file) -> !file.name.endsWith('.gitignore') && !file.name.contains('bin')
+FileFilter tempFilter = (File file) -> !file.name.equals(MC_VERSION + '.jar') && !file.name.endsWith('.json')
+FileFilter runFilter = (File file1) -> !file1.name.contains('resources') && !file1.name.contains('bin')
 
 clean {
-    delete(file(Paths.ACP_DIR_NATIVES))
-    delete(file("${Paths.ACP_DIR_SRC}\\net\\"))
-    delete(file(Paths.ACP_DIR_TEMP).listFiles(gitIgnoreFilter))
-    delete(file(Paths.ACP_DIR_RESOURCES).listFiles(gitIgnoreFilter))
-    delete(file(Paths.ACP_DIR_RUN).listFiles(runFilter))
-    delete(file(Paths.ACP_DIR_LOGS).listFiles(gitIgnoreFilter))
+    delete(file("${Paths.DIR_SRC}\\net\\"))
+    delete(file("${Paths.DIR_SRC}\\risugami\\"))
+    delete(file("src\\main\\resources\\").listFiles())
+    delete(file(buildDir.absolutePath + "backupSrc\\"))
+    delete(file("cfg\\temp\\").listFiles(tempFilter))
+    delete(file("run\\").listFiles(runFilter))
 }

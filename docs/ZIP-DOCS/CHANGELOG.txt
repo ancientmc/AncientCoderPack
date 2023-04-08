@@ -1,3 +1,5 @@
+Beta 0.2.0 (2023-??-??)
+
 Beta 0.1.2 (2023-4-05)
 - More params
 - Attribution for params.
