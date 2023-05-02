@@ -2,6 +2,7 @@ buildscript {
     repositories {
         mavenCentral()
         maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven' }
+        maven { url = 'https://maven.minecraftforge.net' }
     }
     dependencies {
         classpath 'com.ancientmc.acp:acp-gradle:0.2.0-beta-dev'
@@ -16,7 +17,7 @@ ext {
     MC_VERSION = 'a1.2.6'
 }
 
-version = "client-${MC_VERSION}"
+version = "${MC_VERSION}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
@@ -41,7 +42,7 @@ configurations {
 
 dependencies {
     jarsplitter 'net.minecraftforge:jarsplitter:1.1.4'
-    mcinjector 'de.oceanlabs.mcp:mcinjector:4.0-am'
+    mcinjector 'de.oceanlabs.mcp:mcinjector:4.1-am'
     forgeart 'net.minecraftforge:ForgeAutoRenamingTool:0.1.24'
     fernflower 'com.ancientmc:fernflower:1.0'
     diffpatch 'net.minecraftforge:DiffPatch:2.0.7'
@@ -49,6 +50,7 @@ dependencies {
 }
 
 apply plugin: 'com.ancientmc.acp'
+apply plugin: 'com.ancientmc.modtools'
 
 import com.ancientmc.acp.utils.*
 
@@ -56,12 +58,17 @@ acp {
     data = "com.ancientmc.acp:acp-data:${MC_VERSION}"
 }
 
+modtools {
+    loader = 'risugami'
+    diffPatchesDir = project.buildDir.absolutePath + '\\modding\\patches\\diff'
+}
+
 tasks.withType(JavaExec) {
     systemProperty 'java.library.path', Paths.DIR_NATIVES
 }
 
 task setup() {
-    dependsOn(':copySrc')
+    dependsOn(':generateOriginalHashes')
 }
 
 task runClient(type: JavaExec) {
@@ -69,6 +76,19 @@ task runClient(type: JavaExec) {
     mainClass = 'acp.client.Start'
     classpath = sourceSets.main.runtimeClasspath
     javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
+}
+
+compileJava {
+    options.compilerArgs = ['-g:none']
+}
+
+jar {
+    archiveBaseName = 'interm'
+    exclude ('acp\\')
+    from(zipTree(file(Paths.EXTRA_JAR))) {
+        include('com\\')
+        include('paulscode\\')
+    }
 }
 
 FileFilter tempFilter = (File file) -> !file.name.equals(MC_VERSION + '.jar') && !file.name.endsWith('.json')
