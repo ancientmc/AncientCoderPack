@@ -37,6 +37,7 @@ configurations {
     forgeart
     fernflower
     diffpatch
+    specialsource
     binpatcher
 }
 
@@ -46,6 +47,7 @@ dependencies {
     forgeart 'net.minecraftforge:ForgeAutoRenamingTool:0.1.24'
     fernflower 'com.ancientmc:fernflower:1.0'
     diffpatch 'net.minecraftforge:DiffPatch:2.0.7'
+    specialsource 'net.md-5:SpecialSource:1.8.3'
     binpatcher 'net.minecraftforge:binarypatcher:1.1.1'
 }
 
@@ -79,7 +81,7 @@ task runClient(type: JavaExec) {
 }
 
 compileJava {
-    options.compilerArgs = ['-g:none']
+    options.compilerArgs = ['-g:none', '-source', '1.6', '-target', '1.6']
 }
 
 jar {
@@ -99,6 +101,6 @@ clean {
     delete(file("${Paths.DIR_SRC}\\risugami\\"))
     delete(file("src\\main\\resources\\").listFiles())
     delete(file(buildDir.absolutePath + "backupSrc\\"))
-    delete(file("cfg\\temp\\").listFiles(tempFilter))
-    delete(file("run\\").listFiles(runFilter))
+    if(file("cfg\\temp\\").exists()) delete(file("cfg\\temp\\").listFiles(tempFilter))
+    if(file("run\\").exists()) delete(file("run").listFiles(runFilter))
 }
