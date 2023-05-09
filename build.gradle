@@ -17,9 +17,11 @@ ext {
     MC_VERSION = 'a1.2.6'
 }
 
-version = "${MC_VERSION}"
+version = MC_VERSION
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+// Older versions of Minecraft run Java 6. You should still set your JDK in your IDE to Java 8.
+sourceCompatibility = '1.6'
+targetCompatibility = '1.6'
 
 repositories {
     maven { url = 'https://libraries.minecraft.net' }
@@ -63,6 +65,7 @@ acp {
 modtools {
     loader = 'risugami'
     diffPatchesDir = project.buildDir.absolutePath + '\\modding\\patches\\diff'
+    modName = 'mod'
 }
 
 tasks.withType(JavaExec) {
@@ -77,11 +80,10 @@ task runClient(type: JavaExec) {
     group = 'acp-run'
     mainClass = 'acp.client.Start'
     classpath = sourceSets.main.runtimeClasspath
-    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
 }
 
 compileJava {
-    options.compilerArgs = ['-g:none', '-source', '1.6', '-target', '1.6']
+    options.compilerArgs = ['-g:none']
 }
 
 jar {
@@ -100,7 +102,7 @@ clean {
     delete(file("${Paths.DIR_SRC}\\net\\"))
     delete(file("${Paths.DIR_SRC}\\risugami\\"))
     delete(file("src\\main\\resources\\").listFiles())
-    delete(file(buildDir.absolutePath + "backupSrc\\"))
+    delete(file(Paths.DIR_ORIGINAL_SRC))
     if(file("cfg\\temp\\").exists()) delete(file("cfg\\temp\\").listFiles(tempFilter))
     if(file("run\\").exists()) delete(file("run").listFiles(runFilter))
 }
