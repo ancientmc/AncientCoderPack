@@ -4,7 +4,7 @@ buildscript {
         maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven' }
     }
     dependencies {
-        classpath 'com.ancientmc.acp:acp-gradle:0.1.0-beta'
+        classpath 'com.ancientmc.acp:acp-gradle:0.1.1-beta'
     }
 }
 
