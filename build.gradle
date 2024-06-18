@@ -5,7 +5,7 @@ buildscript {
         maven { url = 'https://maven.minecraftforge.net' }
     }
     dependencies {
-        classpath 'com.ancientmc.acp:acp-gradle:0.2.0-beta-dev'
+        classpath 'com.ancientmc.acp:acp-gradle:0.2.0-beta+'
         classpath 'io.github.moist-mason:license-importer:1.0'
     }
 }
@@ -60,7 +60,7 @@ tasks.withType(JavaExec) {
 }
 
 task setup() {
-    dependsOn(':generateOriginalHashes')
+    dependsOn(':makeOriginalHashes')
 }
 
 task runClient(type: JavaExec) {
@@ -88,8 +88,8 @@ FileFilter runFilter = (File file1) -> !file1.name.contains('resources') && !fil
 clean {
     delete(file("${Paths.DIR_SRC}\\net\\"))
     delete(file("${Paths.DIR_SRC}\\risugami\\"))
-    delete(file("src\\main\\resources\\").listFiles())
     delete(file(Paths.DIR_ORIGINAL_SRC))
+    if(file("src\\main\\resources\\").exists()) delete(file("src\\main\\resources\\").listFiles())
     if(file("cfg\\temp\\").exists()) delete(file("cfg\\temp\\").listFiles(tempFilter))
     if(file("run\\").exists()) delete(file("run").listFiles(runFilter))
 }
