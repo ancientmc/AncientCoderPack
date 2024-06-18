@@ -5,6 +5,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.ancientmc.acp:acp-gradle:0.1.1-beta'
+        classpath 'io.github.moist-mason:license-importer:1.0'
     }
 }
 
@@ -27,6 +28,7 @@ repositories {
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = 'https://maven.fabricmc.net/' }
     maven { url = 'https://maven.quiltmc.org/repository/release/' }
+    maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven' }
 }
 
 sourceSets {
@@ -43,6 +45,12 @@ configurations {
 }
 
 apply plugin: 'com.ancientmc.acp'
+apply plugin: 'io.github.moist-mason.license-importer'
+
+licenseimporter {
+    url = 'https://raw.githubusercontent.com/ancientmc/license/master/LICENSE'
+    output = file(project.projectDir.path + "\\LICENSE")
+}
 
 import com.ancientmc.acp.utils.*
 
