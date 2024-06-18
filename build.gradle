@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.ancientmc.acp:acp-gradle:0.2.0-beta-dev'
+        classpath 'io.github.moist-mason:license-importer:1.0'
     }
 }
 
@@ -35,8 +36,14 @@ sourceSets {
 
 apply plugin: 'com.ancientmc.acp'
 apply plugin: 'com.ancientmc.modtools'
+apply plugin: 'io.github.moist-mason.license-importer'
 
 import com.ancientmc.acp.utils.*
+
+licenseimporter {
+    url = 'https://raw.githubusercontent.com/ancientmc/license/master/LICENSE'
+    output = file(project.projectDir.path + "\\LICENSE")
+}
 
 acp {
     data = "com.ancientmc.acp:acp-data:${MC_VERSION}"

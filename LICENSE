@@ -1,6 +1,6 @@
 AncientMC License
-Version 1, 24 01 2023
-Copyright (c) 2022-2023, AncientMC
+Version 2, 13 06 2024
+Copyright (c) 2022-2024, AncientMC
 https://github.com/ancientmc
 
 This project is free software. Unless stated otherwise, permission is hereby granted for the non-commercial usage, redistribution, and/or modification of this software, 
@@ -20,7 +20,7 @@ decompilation and modification of Minecraft's source code. The mappings used in 
 have been done in case of errors in the scripts and for completeness of the mapping nameset. A list of credits for the contributors of the original MCP can be
 found below.
 
-https://www.github.com/ancientmc/license/docs/MCP-CREDITS.txt
+https://raw.githubusercontent.com/ancientmc/license/master/docs/MCP-CREDITS.txt
 
 == Warranty ==
 This software is provided as-is without any warranty, explicit or implicit, of any kind. AncientMC is not held liable for any kind of damage or claim caused by
