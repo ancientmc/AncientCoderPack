@@ -1,4 +1,13 @@
-Beta 0.2.0 (2023-??-??)
+Beta 0.2.0-pre1 (2024-?-??)
+- This version uses a revamped ACP-Gradle plugin. See the ACP-Gradle repo for a detailed overview of all the changes made.
+  These changes, in part, are designed to encourage greater flexibility between adding different MC versions for ACP.
+  Link: https://github.com/ancientmc/acp-gradle/tree/dev
+- Added support for Risugami’s ModLoader, the predecessor to Forge. For an example mod written in
+  Alpha 1.2.6 ModLoader, see this example Ruby Mod.
+  Link: https://github.com/ancientmc/Alpha-Ruby-Mod/tree/main
+- Added support for easily creating a ZIP file containing class files relating to your mod, as well as for
+  easily making and distributing patch files that you can show in a repository (if you’re editing vanilla code).
+
 
 Beta 0.1.2 (2023-4-05)
 - More params

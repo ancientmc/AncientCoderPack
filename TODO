@@ -1,0 +1,14 @@
+TODO
+
+This to-do file applies to all repos relating to ACP, including ACP-Gradle and SrgConfig.
+
+Current Release
+- ACP: Redo credits for external programs (docs/EXTERNAL-CREDITS)
+- ACP: Modify HOW-TO
+
+Near Future
+- All: Hopefully go to version 1.0? I'd argue the core functionality is mostly complete
+- SrgConfig: work for versions up to Beta 1.2_01 (maybe Beta 1.4?)
+
+Far Future
+- Create transparency document explaining the toolchain of ACP
