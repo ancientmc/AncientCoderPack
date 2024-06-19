@@ -1,0 +1,44 @@
+== JarSplitter ==
+Use: Splitting Minecraft's JAR file into two components: a file containing the sources, and a file containing resource files (textures, etc.)
+Developers: Minecraft Forge
+Repository: https://github.com/MinecraftForge/JarSplitter
+License: GNU Lesser General Public License v2.1, https://github.com/MinecraftForge/JarSplitter/blob/master/LICENSE.txt
+
+== ForgeAutoRenamingTool ==
+Use: Deobfuscating Minecraft's source code.
+Developers: Minecraft Forge
+Repository: https://github.com/MinecraftForge/ForgeAutoRenamingTool
+License: GNU Lesser General Public License v2.1, https://github.com/MinecraftForge/ForgeAutoRenamingTool/blob/master/LICENSE.txt
+
+== MCInjector ==
+Use: Injecting exceptions and other data into Minecraft's source code to ensure it works properly.
+Developers: Mod Coder Pack Team (original), AncientMC (fork)
+Original Repository: https://github.com/ModCoderPack/MCInjector
+Forked Repository: https://github.com/ancientmc/MCInjector
+
+== Fernflower ==
+Use: Decompiling Minecraft's source code.
+Developers: JetBrains (original), Minecraft Forge & RetroGradle (patches), AncientMC (fork)
+Original repository: https://github.com/MinecraftForge/FernFlower, split from https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine
+Patch repository: https://github.com/MinecraftForge/ForgeFlower, https://github.com/RetroGradle/ForgeFlower
+Forked repository: https://github.com/ancientmc/FernFlower
+
+== DiffPatch ==
+Use: Patching out any errors in the decompiled Minecraft code.
+Developers: ChickenBones (original), TheCBProject (Java port), Minecraft Forge (fork)
+Original repository: https://github.com/Chicken-Bones/DiffPatch
+Java port repository: https://github.com/TheCBProject/DiffPatch
+Forked repository: https://github.com/MinecraftForge/DiffPatch
+License: MIT License, https://github.com/MinecraftForge/DiffPatch/blob/master/LICENSE.txt
+
+== SpecialSource ==
+Use: Reobfuscating Minecraft source code.
+Developers: md-5
+Repository: https://github.com/md-5/SpecialSource
+License: https://github.com/md-5/SpecialSource/blob/master/LICENSE
+
+== BinaryPatcher ==
+Use: Patching minecraft jar with binary data files, primarily classes for modding purposes.
+Developers: Minecraft Forge
+Repository https://github.com/MinecraftForge/BinaryPatcher
+License: GNU Lesser General Public License v2.1, https://github.com/MinecraftForge/BinaryPatcher/blob/master/LICENSE.txt
