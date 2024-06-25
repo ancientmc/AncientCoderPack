@@ -4,7 +4,7 @@ buildscript {
         maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven' }
     }
     dependencies {
-        classpath 'com.ancientmc.acp:acp-gradle:0.1.1-beta'
+        classpath 'com.ancientmc.acp:acp-gradle:0.1.1-beta-2024+'
         classpath 'io.github.moist-mason:license-importer:1.0'
     }
 }
