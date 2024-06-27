@@ -108,7 +108,7 @@ jar {
 String outJar = "${project.buildDir.path}\\libs\\${version}.jar"
 String modPatchDir = "${moddingDir}\\patches\\"
 
-task genBinPatches(type: JavaExec) {
+task genBinPatches(type: JavaExec, dependsOn: reobfJar) {
     group = 'modtools'
     mainClass = 'net.minecraftforge.binarypatcher.ConsoleTool'
     classpath = files(project.configurations.getByName('binpatch'))
