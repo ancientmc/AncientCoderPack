@@ -1,28 +1,8 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven' }
-        maven { url = 'https://maven.neoforged.net' }
-    }
-    dependencies {
-        classpath 'com.ancientmc:acp-gradle:0.2.0.+'
-        classpath 'io.github.moist-mason:license-importer:1.0'
-    }
-}
-
 plugins {
     id 'java-library'
+    id 'com.ancientmc.acp' version '0.2.1.+'
+    id 'io.github.moist-mason.license-importer' version '1.0'
 }
-
-ext {
-    MC_VERSION = 'a1.2.6'
-}
-
-version = MC_VERSION
-
-// Older versions of Minecraft run Java 6. You should still set your JDK in your IDE to Java 8.
-sourceCompatibility = '1.6'
-targetCompatibility = '1.6'
 
 repositories {
     maven { url = 'https://libraries.minecraft.net' }
@@ -34,48 +14,39 @@ sourceSets {
     main
 }
 
-apply plugin: 'com.ancientmc.acp'
-apply plugin: 'com.ancientmc.modtools'
-apply plugin: 'io.github.moist-mason.license-importer'
-
 import com.ancientmc.acp.util.*
 
 licenseimporter {
     url = 'https://raw.githubusercontent.com/ancientmc/license/master/LICENSE'
-    output = file(project.projectDir.path + "/LICENSE")
+    output = file(project.projectDir.path + '/LICENSE')
 }
 
 acp {
-    data = "com.ancientmc.acp:acp-data:${MC_VERSION}"
-}
-
-modtools {
+    data = "com.ancientmc.acp:acp-data:${minecraft_version}"
     loader = 'risugami'
     diffPatchesDir = project.buildDir.absolutePath + '/modding/patches/diff'
     modName = 'mod'
 }
 
-tasks.withType(JavaExec) {
-    systemProperty 'java.library.path', Paths.DIR_NATIVES
-}
-
-task decompile() {
+tasks.register('decompile') {
     group = 'decompile'
-    dependsOn(':makeOriginalHashes')
+    dependsOn(':makeVanillaHashes')
 }
 
-task runClient(type: JavaExec) {
+tasks.register('runClient', JavaExec) {
     group = 'run'
     mainClass = 'acp.client.Start'
     classpath = sourceSets.main.runtimeClasspath
+    systemProperty 'java.library.path', Paths.DIR_NATIVES
 }
 
+// Older versions of Minecraft run Java 6. You should still set your JDK in your IDE to Java 8.
 compileJava {
-    options.compilerArgs = ['-g:none']
+    options.compilerArgs = ['-g:none', '-source', '1.6', '-target', '1.6']
 }
 
-jar {
-    archiveBaseName = 'interm'
+jar { // Intermediate task. Don't share the JAR it generates.
+    archiveBaseName = "interm-" + minecraft_version
     exclude ('acp/')
     from(zipTree(file(Paths.EXTRA_JAR))) {
         include('com/')
@@ -83,15 +54,16 @@ jar {
     }
 }
 
-FileFilter tempFilter = (File file) -> !file.name.equals(MC_VERSION + '.jar') && !file.name.endsWith('.json')
-FileFilter runFilter = (File file1) -> !file1.name.contains('resources') && !file1.name.contains('bin')
+FileFilter srcFilter = (File file) -> !file.name.startsWith('acp')
+FileFilter tempFilter = (File file) -> !file.name.equals(minecraft_version + ".jar") && !file.name.endsWith('.json')
+FileFilter runFilter = (File file) -> !file.name.contains('resources') && !file.name.contains('bin')
 
 // WARNING: Running this will delete Minecraft's source code from the source directory. Save any of your mod code before executing this task!
 clean {
-    delete(file("${Paths.DIR_SRC}/net/"))
-    delete(file("${Paths.DIR_SRC}/risugami/"))
-    delete(file(Paths.DIR_ORIGINAL_SRC))
-    if(file("src/main/resources/").exists()) delete(file("src/main/resources/").listFiles())
-    if(file("cfg/temp/").exists()) delete(file("cfg/temp/").listFiles(tempFilter))
-    if(file("run/").exists()) delete(file("run").listFiles(runFilter))
+    delete(file(Paths.DIR_SRC).listFiles(srcFilter))
+    delete(file(Paths.DIR_VANILLA_SRC))
+    delete(file(Paths.DIR_VANILLA_RESOURCES))
+    if(file(Paths.DIR_RESOURCES).exists()) delete(file(Paths.DIR_RESOURCES).listFiles())
+    if(file(Paths.DIR_TEMP).exists()) delete(file(Paths.DIR_TEMP).listFiles(tempFilter))
+    if(file(Paths.DIR_RUN).exists()) delete(file(Paths.DIR_RUN).listFiles(runFilter))
 }

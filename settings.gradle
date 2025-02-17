@@ -1,1 +1,9 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven' }
+        maven { url = 'https://maven.neoforged-net' }
+    }
+}
+
 rootProject.name = 'AncientCoderPack'
