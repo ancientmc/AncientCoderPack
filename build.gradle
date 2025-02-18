@@ -22,10 +22,10 @@ licenseimporter {
 }
 
 acp {
-    data = "com.ancientmc.acp:acp-data:${minecraft_version}"
+    data = "com.ancientmc.acp:acp-data:${minecraft_version}" // Change the version # in gradle.properties.
     loader = 'risugami'
     diffPatchesDir = project.buildDir.absolutePath + '/modding/patches/diff'
-    modName = 'mod'
+    modName = 'mod' // Your mod name here.
 }
 
 tasks.register('decompile') {
