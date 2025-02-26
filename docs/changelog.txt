@@ -1,3 +1,7 @@
+Beta 0.2.1 (2025-02-26)
+- Added startup message upon loading ACP for the first time. Shows the Minecraft version, ACP-Gradle version, and ACP version.
+- A few internal changes to the ACP-Gradle plugin.
+
 Beta 0.2.0 (2025-01-30)
 - Added TAR archive and GZIP compression support for class file export
 - Some internal changes to the ACP Gradle plugin.
