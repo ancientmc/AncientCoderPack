@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id 'com.ancientmc.acp' version '0.2.1.+'
+    id 'com.ancientmc.acp' version '0.2.2.+'
     id 'io.github.moist-mason.license-importer' version '1.0'
 }
 
@@ -16,6 +16,8 @@ sourceSets {
 
 import com.ancientmc.acp.util.*
 
+version = '0.0.1' // Your mod version here.
+
 licenseimporter {
     url = 'https://raw.githubusercontent.com/ancientmc/license/master/LICENSE'
     output = file(project.projectDir.path + '/LICENSE')
@@ -24,7 +26,6 @@ licenseimporter {
 acp {
     data = "com.ancientmc.acp:acp-data:${minecraft_version}" // Change the version # in gradle.properties.
     loader = 'risugami'
-    diffPatchesDir = project.buildDir.absolutePath + '/modding/patches/diff'
     modName = 'mod' // Your mod name here.
 }
 
@@ -46,7 +47,7 @@ compileJava {
 }
 
 jar { // Intermediate task. Don't share the JAR it generates.
-    archiveBaseName = "interm-" + minecraft_version
+    archiveFileName = 'interm-' + minecraft_version + '.jar'
     exclude ('acp/')
     from(zipTree(file(Paths.EXTRA_JAR))) {
         include('com/')
@@ -58,7 +59,7 @@ FileFilter srcFilter = (File file) -> !file.name.startsWith('acp')
 FileFilter tempFilter = (File file) -> !file.name.equals(minecraft_version + ".jar") && !file.name.endsWith('.json')
 FileFilter runFilter = (File file) -> !file.name.contains('resources') && !file.name.contains('bin')
 
-// WARNING: Running this will delete Minecraft's source code from the source directory. Save any of your mod code before executing this task!
+// WARNING: Running this will delete Minecraft's source code from the source directory. Back up any of your mod code before executing this task!
 clean {
     delete(file(Paths.DIR_SRC).listFiles(srcFilter))
     delete(file(Paths.DIR_VANILLA_SRC))
