@@ -1,3 +1,7 @@
+Beta 0.2.2 (2025-03-11)
+- Modders can now configure the version number for their mod, based on the 'version' property in the gradle buildscript.
+  The version number is appended to the generated mod archives' file names.
+
 Beta 0.2.1 (2025-02-26)
 - Added startup message upon loading ACP for the first time. Shows the Minecraft version, ACP-Gradle version, and ACP version.
 - A few internal changes to the ACP-Gradle plugin.
