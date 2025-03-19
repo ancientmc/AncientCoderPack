@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id 'com.ancientmc.acp' version '0.2.2.+'
+    id 'com.ancientmc.acp' version '0.3.0.+'
     id 'io.github.moist-mason.license-importer' version '1.0'
 }
 
@@ -24,35 +24,19 @@ licenseimporter {
 }
 
 acp {
-    data = "com.ancientmc.acp:acp-data:${minecraft_version}" // Change the version # in gradle.properties.
+    data = "com.ancientmc:versions:${minecraft_version}" // Change the version # in gradle.properties.
     loader = 'risugami'
     modName = 'mod' // Your mod name here.
 }
 
-tasks.register('decompile') {
-    group = 'decompile'
-    dependsOn(':makeVanillaHashes')
-}
+// Easy access to tasks
+tasks.named('decompile')
+tasks.named('downloadModLoader') // make sure the version selected has a compatible ModLoader.
+tasks.named('buildMod')
 
-tasks.register('runClient', JavaExec) {
-    group = 'run'
-    mainClass = 'acp.client.Start'
-    classpath = sourceSets.main.runtimeClasspath
-    systemProperty 'java.library.path', Paths.DIR_NATIVES
-}
-
-// Older versions of Minecraft run Java 6. You should still set your JDK in your IDE to Java 8.
+// Older versions of Minecraft compile and run Java 8. You should still set your JDK in your IDE to Java 21.
 compileJava {
-    options.compilerArgs = ['-g:none', '-source', '1.6', '-target', '1.6']
-}
-
-jar { // Intermediate task. Don't share the JAR it generates.
-    archiveFileName = 'interm-' + minecraft_version + '.jar'
-    exclude ('acp/')
-    from(zipTree(file(Paths.EXTRA_JAR))) {
-        include('com/')
-        include('paulscode/')
-    }
+    options.compilerArgs = ['-g:none', '-source', '8', '-target', '8']
 }
 
 FileFilter srcFilter = (File file) -> !file.name.startsWith('acp')

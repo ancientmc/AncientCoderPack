@@ -2,9 +2,9 @@
 Thank you for downloading Ancient Coder Pack! You are using Beta 0.2.2.
 
 ### Requirements ###
-- Java 8
+- Java 21
 
-The Temurin version of OpenJDK 8 (AKA 1.8) can be found on Eclipse Adoptium's [website](https://adoptium.net/temurin/releases/?version=8).
+The Temurin version of OpenJDK 21 can be found on Eclipse Adoptium's [website](https://adoptium.net/temurin/releases/?version=21).
 
 ### Initial setup ###
 When you either a) use any ACP command on a CLI, or b) open up ACP in an IDE for the first time, ACP will install:
