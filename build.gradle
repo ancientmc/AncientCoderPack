@@ -45,10 +45,10 @@ FileFilter runFilter = (File file) -> !file.name.contains('resources') && !file.
 
 // WARNING: Running this will delete Minecraft's source code from the source directory. Back up any of your mod code before executing this task!
 clean {
-    delete(file(Paths.DIR_SRC).listFiles(srcFilter))
-    delete(file(Paths.DIR_VANILLA_SRC))
-    delete(file(Paths.DIR_VANILLA_RESOURCES))
+    if(file(Paths.DIR_SRC).exists()) delete(file(Paths.DIR_SRC).listFiles(srcFilter))
     if(file(Paths.DIR_RESOURCES).exists()) delete(file(Paths.DIR_RESOURCES).listFiles())
+    if(file(Paths.DIR_VANILLA_SRC).exists()) delete(file(Paths.DIR_VANILLA_SRC))
+    if(file(Paths.DIR_VANILLA_RESOURCES).exists()) delete(file(Paths.DIR_VANILLA_RESOURCES))
     if(file(Paths.DIR_TEMP).exists()) delete(file(Paths.DIR_TEMP).listFiles(tempFilter))
     if(file(Paths.DIR_RUN).exists()) delete(file(Paths.DIR_RUN).listFiles(runFilter))
 }
