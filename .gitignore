@@ -44,5 +44,6 @@ bin/
 ### ACP Files ###
 cfg/
 run/
+src/main/java/com/mojang/
 src/main/java/net/
 src/main/java/risugami/
