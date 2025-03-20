@@ -1,8 +1,5 @@
 ## Ancient Coder Pack ##
 
-### 0.3.0 IS CURRENTLY WORK IN PROGRESS--ALPHA 1.2.6 is NOT compatible with this version as it has not been ported to our new version-data distribution format. ###
-### THIS VERSION ALSO RUNS JAVA 21. ###
-
 See the How-To text file (HOWTO.md) to get started with ACP.
 
 
