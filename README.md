@@ -11,6 +11,7 @@ This project hopes to do the same and encourage mod-development for older MC ver
 tool for people to learn about the history of Minecraft.
 
 **What versions are available for ACP?**
+
 Check [this XML file](https://github.com/ancientmc/ancientmc-maven/blob/maven/com/ancientmc/versions/maven-metadata.xml) that contains all of the versions currently available. Versions will come out intermittently, 
 so stay tuned.
 
