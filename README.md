@@ -6,10 +6,14 @@ See the How-To text file (HOWTO.md) to get started with ACP.
 **What is the Ancient Coder Pack?**
 
 The Ancient Coder Pack (ACP) aims to create a buildable gradle that allows users to view decompile source
-code from older Minecraft versions. Currently, the only version being worked on is Alpha 1.2.6. It is inspired
-by the Mod Coder Pack (MCP), a now-defunct tool that allowed users to view Minecraft's source code for mod development.
+code from older Minecraft versions. It is inspired by the Mod Coder Pack (MCP), a now-defunct tool that allowed users to view Minecraft's source code for mod development.
 This project hopes to do the same and encourage mod-development for older MC versions, and generally act as an educational
 tool for people to learn about the history of Minecraft.
+
+**What versions are available for ACP?**
+Check [this XML file](https://github.com/ancientmc/ancientmc-maven/blob/maven/com/ancientmc/versions/maven-metadata.xml) that contains all of the versions currently available. Versions will come out intermittently, 
+so stay tuned.
+
 
 **What tools are used for ACP?**
 

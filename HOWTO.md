@@ -1,5 +1,5 @@
 ## How To use Ancient Coder Pack (ACP) ##
-Thank you for downloading Ancient Coder Pack! You are using Beta 0.2.2.
+Thank you for downloading Ancient Coder Pack! You are using Beta 0.3.0.
 
 ### Requirements ###
 - Java 21
