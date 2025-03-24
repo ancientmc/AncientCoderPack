@@ -1,6 +1,6 @@
 AncientMC License
-Version 2, 13 06 2024
-Copyright (c) 2022-2024, AncientMC
+Version 3, 22 03 2025
+Copyright (c) 2025, AncientMC
 https://github.com/ancientmc
 
 This project is free software. Unless stated otherwise, permission is hereby granted for the non-commercial usage, redistribution, and/or modification of this software, 
@@ -21,6 +21,11 @@ have been done in case of errors in the scripts and for completeness of the mapp
 found below.
 
 https://raw.githubusercontent.com/ancientmc/license/master/docs/MCP-CREDITS.txt
+
+== Notice of Cuneiform Mappings ==
+This software uses Cuneiform, a set of obfuscations developed by AncientMC for the purpose of deobfuscating Minecraft's source code. These mappings are created by inferring names as well as referencing other community mappings for older versions of Minecraft. Many of these names are in turn based on the actual, deobfuscated names that many versions of Minecraft had in the past. Cuneiform is licensed under the GNU General Public License, Version 2.
+
+https://raw.githubusercontent.com/ancientmc/AcpGen/refs/heads/classic/data/CUNEIFORM-LICENSE
 
 == Warranty ==
 This software is provided as-is without any warranty, explicit or implicit, of any kind. AncientMC is not held liable for any kind of damage or claim caused by

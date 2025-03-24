@@ -1,7 +1,6 @@
 plugins {
     id 'java-library'
     id 'com.ancientmc.acp' version '0.3.0.+'
-    id 'io.github.moist-mason.license-importer' version '1.0'
 }
 
 repositories {
@@ -18,11 +17,6 @@ import com.ancientmc.acp.util.*
 
 version = '0.0.1' // Your mod version here.
 
-licenseimporter {
-    url = 'https://raw.githubusercontent.com/ancientmc/license/master/LICENSE'
-    output = file(project.projectDir.path + '/LICENSE')
-}
-
 acp {
     data = "com.ancientmc:versions:${minecraft_version}" // Change the version # in gradle.properties.
     loader = 'risugami'
@@ -36,12 +30,12 @@ tasks.named('buildMod')
 
 // Older versions of Minecraft compile and run Java 8. You should still set your JDK in your IDE to Java 21.
 compileJava {
-    options.compilerArgs = ['-g:none', '-source', '8', '-target', '8']
+    options.compilerArgs = ['-g:none', '-source', '8', '-target', '8', '-Xlint:none']
 }
 
 FileFilter srcFilter = (File file) -> !file.name.startsWith('acp')
-FileFilter tempFilter = (File file) -> !file.name.equals(minecraft_version + ".jar") && !file.name.endsWith('.json')
-FileFilter runFilter = (File file) -> !file.name.contains('resources') && !file.name.contains('bin')
+FileFilter tempFilter = (File file1) -> file1.name != 'client.jar' && !file1.name.endsWith('.json')
+FileFilter runFilter = (File file2) -> !file2.name.contains('resources') && !file2.name.contains('bin')
 
 // WARNING: Running this will delete Minecraft's source code from the source directory. Back up any of your mod code before executing this task!
 clean {

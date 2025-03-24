@@ -1,3 +1,11 @@
+Beta 0.3.0 (2025-03-24)
+- ACP-Gradle: Step-based processes for decompiling the game and building mod files, instead of using
+task dependencies.
+- ACP now requires JDK 21. The game compiles in Java 8, which does not break any compatibility errors when running an ACP-based
+mod in another launcher.
+- Fixed bug with archive creation.
+- Version 3 of the AncientMC License.
+
 Beta 0.2.2 (2025-03-11)
 - Modders can now configure the version number for their mod, based on the 'version' property in the gradle buildscript.
   The version number is appended to the generated mod archives' file names.
