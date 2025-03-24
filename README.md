@@ -10,6 +10,7 @@ code from older Minecraft versions. It is inspired by the Mod Coder Pack (MCP), 
 This project hopes to do the same and encourage mod-development for older MC versions, and generally act as an educational
 tool for people to learn about the history of Minecraft.
 
+
 **What versions are available for ACP?**
 
 Check [this XML file](https://github.com/ancientmc/ancientmc-maven/blob/maven/com/ancientmc/versions/maven-metadata.xml) that contains all of the versions currently available. Versions will come out intermittently, 
@@ -23,7 +24,12 @@ Check the "docs/credits/" folder for information regarding the tools ACP uses an
 
 **What mappings does ACP use?**
 
-ACP uses MCP names and SRG files. The SRG file for Minecraft Alpha 1.2.6 is generated via a tool developed by AncientMC called [SRGConfig](https://github.com/moist-mason/SRGConfig). 
-SRGConfig aims to convert the original RGS files found in the earliest MCP versions, albeit slightly modified, 
-and converts them into SRG files, with custom names and everything. The mappings are taken from numerous MCP versions, written by the original MCP devs. 
-Take a look at the SRGConfig repository for more information.
+For Alpha 1.2.6, ACP uses MCP names and SRG files. The SRG file for Minecraft Alpha 1.2.6 is generated via a tool developed by AncientMC called [SRGConfig](https://github.com/moist-mason/SRGConfig). 
+SRGConfig aimed to convert the original RGS files found in the earliest MCP versions, albeit slightly modified, into SRG files, with custom names and everything. 
+The mappings are taken from numerous MCP versions, written by the original MCP devs. This repository is deprecated, and 
+the current mappings data for Alpha 1.2.6 are considered as legacy data, and likely won't be updated further.
+
+For other versions, ACP uses Cuneiform, a custom mapping set licensed under the GNU General Public License Version 2. The data is generated
+via a repository called [AcpGen](https://github.com/ancientmc/AcpGen), the successor to SRGConfig.
+
+
