@@ -1,8 +1,8 @@
 Beta 0.3.0 (2025-03-24)
 - ACP-Gradle: Step-based processes for decompiling the game and building mod files, instead of using
-task dependencies.
+task dependency chains.
 - ACP now requires JDK 21. The game compiles in Java 8, which does not break any compatibility errors when running an ACP-based
-mod in another launcher.
+mod in another launcher. The game's resolution is a bit wonky though.
 - Fixed bug with archive creation.
 - Version 3 of the AncientMC License.
 
