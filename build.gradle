@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id 'com.ancientmc.acp' version '0.3.0.+'
+    id 'com.ancientmc.acp' version '0.4.0.B+'
 }
 
 repositories {
@@ -13,8 +13,6 @@ sourceSets {
     main
 }
 
-import com.ancientmc.acp.util.*
-
 version = '0.0.1' // Your mod version here.
 
 acp {
@@ -26,23 +24,5 @@ acp {
 // Easy access to tasks
 tasks.named('decompile')
 tasks.named('downloadModLoader') // make sure the version selected has a compatible ModLoader.
+tasks.named('runClient')
 tasks.named('buildMod')
-
-// Older versions of Minecraft compile and run Java 8. You should still set your JDK in your IDE to Java 21.
-compileJava {
-    options.compilerArgs = ['-g:none', '-source', '8', '-target', '8', '-Xlint:none']
-}
-
-FileFilter srcFilter = (File file) -> !file.name.startsWith('acp')
-FileFilter tempFilter = (File file1) -> file1.name != 'client.jar' && !file1.name.endsWith('.json')
-FileFilter runFilter = (File file2) -> !file2.name.contains('resources') && !file2.name.contains('bin')
-
-// WARNING: Running this will delete Minecraft's source code from the source directory. Back up any of your mod code before executing this task!
-clean {
-    if(file(Paths.DIR_SRC).exists()) delete(file(Paths.DIR_SRC).listFiles(srcFilter))
-    if(file(Paths.DIR_RESOURCES).exists()) delete(file(Paths.DIR_RESOURCES).listFiles())
-    if(file(Paths.DIR_VANILLA_SRC).exists()) delete(file(Paths.DIR_VANILLA_SRC))
-    if(file(Paths.DIR_VANILLA_RESOURCES).exists()) delete(file(Paths.DIR_VANILLA_RESOURCES))
-    if(file(Paths.DIR_TEMP).exists()) delete(file(Paths.DIR_TEMP).listFiles(tempFilter))
-    if(file(Paths.DIR_RUN).exists()) delete(file(Paths.DIR_RUN).listFiles(runFilter))
-}

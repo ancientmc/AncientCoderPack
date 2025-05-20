@@ -1,0 +1,32 @@
+{
+  "tools": [
+    {
+      "configuration": "jarsplitter",
+      "tool": "net.neoforged.installertools:jarsplitter:3.0.2"
+    },
+    {
+      "configuration": "mcinjector",
+      "tool": "de.oceanlabs.mcp:mcinjector:4.1-am"
+    },
+    {
+      "configuration": "autorenamingtool",
+      "tool": "net.neoforged:AutoRenamingTool:2.0.8"
+    },
+    {
+      "configuration": "fernflower",
+      "tool": "com.ancientmc:fernflower:1.0"
+    },
+    {
+      "configuration": "diffpatch",
+      "tool": "net.neoforged:DiffPatch:2.0.14"
+    },
+    {
+      "configuration": "specialsource",
+      "tool": "net.md-5:SpecialSource:1.8.3"
+    },
+    {
+      "configuration": "binpatch",
+      "tool": "net.neoforged.installertools:binarypatcher:3.0.2"
+    }
+  ]
+}
