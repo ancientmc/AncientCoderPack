@@ -16,8 +16,8 @@ sourceSets {
 version = '0.0.1' // Your mod version here.
 
 acp {
-    data = "com.ancientmc:versions:${minecraft_version}" // Change the version # in gradle.properties.
-    loader = 'risugami'
+    data = "com.ancientmc:versions:${minecraft_version}" // Change the version # in gradle.properties. Run the 'supportedVersions' task to see what versions ACP supports.
+    loader = 'vanilla' // For Alpha 1.2.6, you can change this value to 'risugami' to use Risugami's ModLoader.
     modName = 'mod' // Your mod name here.
 }
 
