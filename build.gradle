@@ -5,8 +5,8 @@ plugins {
 
 repositories {
     maven { url = 'https://libraries.minecraft.net' }
-    maven { url = 'https://maven.neoforged.net/releases/' }
-    maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven/' }
+    maven { url = 'https://maven.neoforged.net/releases' }
+    maven { url = 'https://github.com/ancientmc/ancientmc-maven/raw/maven' }
 }
 
 sourceSets {
