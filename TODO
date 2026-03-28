@@ -1,4 +1,10 @@
 TODO
 
-I don't know what to put here right now because the original to-do list was very old, and a lot has changed since then.
-Stay tuned.
+Written by moist-mason (hence the use of first-person).
+
+GENERAL
+- In order to ease the setup process for IDE users, I an considering experimenting with the Eclipse and IntelliJ plugins for Gradle.
+  IntelliJ should not be hard to set up, because it's my IDE of choice, but I will have to figure out eclipse.
+  The following things need to be automated:
+	- JDK (21 and 8)
+	- Language version (6)
